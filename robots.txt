@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/sitemap.xml
