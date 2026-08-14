@@ -1,0 +1,2280 @@
+/* =========================================================
+   ESCUELA DE CONCENTRACIÓN LOS LOROS
+   STYLE.CSS
+   Diseño institucional
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES DE DISEÑO
+========================================================= */
+
+:root {
+
+    --azul: #1688D4;
+    --azul-oscuro: #075A96;
+    --azul-metalico: #1976B8;
+
+    --dorado: #D8AA28;
+    --dorado-claro: #F2D36B;
+
+    --verde: #69D52F;
+    --verde-oscuro: #4EAA25;
+
+    --blanco: #ffffff;
+
+    --gris-claro: #f4f6f8;
+    --gris: #dfe4e8;
+    --gris-texto: #5b6670;
+    --texto: #1d2a35;
+
+    --sombra:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    --sombra-hover:
+        0 14px 32px rgba(0, 0, 0, 0.18);
+
+    --radio: 14px;
+
+}
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family:
+        "Trebuchet MS",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f9fb 0%,
+            #eef3f6 100%
+        );
+
+    color: var(--texto);
+
+    line-height: 1.7;
+
+    min-height: 100vh;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+
+button,
+a {
+
+    font-family: inherit;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+.contenedor {
+
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO PRINCIPAL
+========================================================= */
+
+.encabezado {
+
+    background:
+        linear-gradient(
+            135deg,
+            #075A96,
+            #1976B8,
+            #1688D4
+        );
+
+    color: var(--blanco);
+
+    border-bottom:
+        5px solid var(--dorado);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.18);
+
+}
+
+
+.encabezado-contenido {
+
+    min-height: 175px;
+
+    display: grid;
+
+    grid-template-columns:
+        150px
+        1fr
+        150px;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 20px 0;
+
+}
+
+
+/* =========================================================
+   LOGOS SUPERIORES
+========================================================= */
+
+.logo-superior {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 120px;
+
+}
+
+
+.logo-superior img {
+
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 4px 8px rgba(0, 0, 0, 0.25)
+        );
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.logo-superior img:hover {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =========================================================
+   NOMBRE DEL ESTABLECIMIENTO
+========================================================= */
+
+.nombre-establecimiento {
+
+    text-align: center;
+
+}
+
+
+.nombre-establecimiento h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1.7rem, 4vw, 3rem);
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+
+    color: var(--blanco);
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.nombre-establecimiento p {
+
+    font-size: 1rem;
+
+    color: #edf6ff;
+
+}
+
+
+/* =========================================================
+   MENÚ PRINCIPAL
+========================================================= */
+
+.menu-principal {
+
+    background:
+        #075A96;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.16);
+
+}
+
+
+.menu-contenido {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.boton-menu {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--blanco);
+
+    padding: 14px 16px;
+
+    cursor: pointer;
+
+    font-size: 0.92rem;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.boton-menu::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15%;
+
+    right: 15%;
+
+    bottom: 5px;
+
+    height: 3px;
+
+    border-radius: 10px;
+
+    background:
+        var(--dorado);
+
+    transform:
+        scaleX(0);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.boton-menu:hover {
+
+    color:
+        var(--dorado-claro);
+
+}
+
+
+.boton-menu:hover::after,
+.boton-menu.activo::after {
+
+    transform:
+        scaleX(1);
+
+}
+
+
+.boton-menu.activo {
+
+    color:
+        var(--dorado-claro);
+
+}
+
+
+/* =========================================================
+   PÁGINAS / SECCIONES
+========================================================= */
+
+.pagina {
+
+    display: none;
+
+    min-height: 600px;
+
+    padding:
+        70px 0 90px;
+
+    animation:
+        aparecer 0.45s ease;
+
+}
+
+
+.pagina.activa {
+
+    display: block;
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   TÍTULOS DE PÁGINA
+========================================================= */
+
+.titulo-pagina {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+}
+
+
+.titulo-pagina h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2rem, 4vw, 2.8rem);
+
+    color:
+        var(--azul-oscuro);
+
+    margin-bottom: 10px;
+
+    position: relative;
+
+    display: inline-block;
+
+}
+
+
+.titulo-pagina h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 75px;
+
+    height: 4px;
+
+    margin:
+        12px auto 0;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--dorado),
+            var(--verde)
+        );
+
+}
+
+
+.titulo-pagina p {
+
+    color:
+        var(--gris-texto);
+
+    font-size: 1.05rem;
+
+}
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+.inicio {
+
+    text-align: center;
+
+}
+
+
+.logo-inicio {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.logo-inicio img {
+
+    width: 220px;
+
+    height: 220px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 8px 15px rgba(0, 0, 0, 0.18)
+        );
+
+}
+
+
+.inicio-titulo h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2rem, 5vw, 3.3rem);
+
+    color:
+        var(--azul-oscuro);
+
+    margin-bottom: 15px;
+
+}
+
+
+.inicio-titulo p {
+
+    max-width: 750px;
+
+    margin:
+        0 auto 45px;
+
+    color:
+        var(--gris-texto);
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =========================================================
+   LOGOS DE ESPECIALIDADES
+========================================================= */
+
+.logos-especialidades {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(250px, 1fr));
+
+    gap: 30px;
+
+    max-width: 800px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.logo-especialidad {
+
+    background:
+        var(--blanco);
+
+    border-radius:
+        var(--radio);
+
+    padding: 30px;
+
+    box-shadow:
+        var(--sombra);
+
+    border-top:
+        5px solid var(--dorado);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.logo-especialidad:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.logo-especialidad img {
+
+    width: 145px;
+
+    height: 145px;
+
+    object-fit: contain;
+
+    margin:
+        0 auto 20px;
+
+}
+
+
+.logo-especialidad p {
+
+    font-weight: 700;
+
+    color:
+        var(--azul-oscuro);
+
+}
+
+
+/* =========================================================
+   BLOQUES DE TEXTO
+========================================================= */
+
+.bloque-texto {
+
+    background:
+        var(--blanco);
+
+    padding:
+        35px;
+
+    margin-bottom:
+        30px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    border-left:
+        5px solid var(--dorado);
+
+}
+
+
+.bloque-texto h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul);
+
+    font-size:
+        1.6rem;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.bloque-texto p {
+
+    color:
+        var(--gris-texto);
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.bloque-texto p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.niveles-educativos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.nivel-card {
+
+    background:
+        var(--blanco);
+
+    padding:
+        28px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    border-top:
+        4px solid var(--verde);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.nivel-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.nivel-card h4 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        1.3rem;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.nivel-card p {
+
+    color:
+        var(--gris-texto);
+
+}
+
+
+/* =========================================================
+   ESPECIALIDADES ACADÉMICAS
+========================================================= */
+
+.especialidades-academicas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.especialidad-academica {
+
+    background:
+        var(--blanco);
+
+    border-radius:
+        var(--radio);
+
+    padding:
+        25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    box-shadow:
+        var(--sombra);
+
+    border-left:
+        5px solid var(--dorado);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.especialidad-academica:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.especialidad-imagen {
+
+    flex-shrink: 0;
+
+}
+
+
+.especialidad-imagen img {
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: contain;
+
+}
+
+
+.especialidad-contenido h4 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        1.35rem;
+
+}
+
+
+.especialidad-contenido p {
+
+    color:
+        var(--verde-oscuro);
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   HORARIOS
+========================================================= */
+
+.horario-grupo {
+
+    margin-bottom:
+        40px;
+
+}
+
+
+.horario-grupo > h4 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.5rem;
+
+    color:
+        var(--azul-oscuro);
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.horario-card {
+
+    background:
+        var(--blanco);
+
+    padding:
+        25px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    text-align:
+        center;
+
+}
+
+
+.horario-card h5 {
+
+    color:
+        var(--azul);
+
+    font-size:
+        1.1rem;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.horario-card p {
+
+    color:
+        var(--gris-texto);
+
+    font-weight:
+        600;
+
+}
+
+
+/* =========================================================
+   TABLAS DE HORARIOS
+========================================================= */
+
+.tabla-horarios {
+
+    overflow:
+        hidden;
+
+    border-radius:
+        var(--radio);
+
+    background:
+        var(--blanco);
+
+    box-shadow:
+        var(--sombra);
+
+}
+
+
+.fila-horario {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    border-bottom:
+        1px solid var(--gris);
+
+}
+
+
+.fila-horario:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.fila-horario div {
+
+    padding:
+        15px 20px;
+
+}
+
+
+.fila-horario div:first-child {
+
+    font-weight:
+        600;
+
+}
+
+
+.encabezado-tabla {
+
+    background:
+        var(--azul-oscuro);
+
+    color:
+        var(--blanco);
+
+    font-weight:
+        700;
+
+}
+
+
+.encabezado-tabla div {
+
+    border: none;
+
+}
+
+
+/* =========================================================
+   COMUNIDAD EDUCATIVA
+========================================================= */
+
+#comunidad .nivel-card {
+
+    min-height:
+        210px;
+
+}
+
+
+.bloque-documento {
+
+    background:
+        var(--blanco);
+
+    padding:
+        30px;
+
+    margin-bottom:
+        25px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    border-left:
+        5px solid var(--verde);
+
+}
+
+
+.bloque-documento h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.bloque-documento p {
+
+    color:
+        var(--gris-texto);
+
+    margin-bottom:
+        10px;
+
+}
+
+
+/* =========================================================
+   EQUIPO DIRECTIVO
+========================================================= */
+
+.equipo-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        25px;
+
+}
+
+
+.directivo {
+
+    background:
+        var(--blanco);
+
+    border-radius:
+        var(--radio);
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        var(--sombra);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.directivo:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.foto-directivo {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8eef3,
+            #f8fafb
+        );
+
+    min-height:
+        260px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+}
+
+
+.foto-directivo img {
+
+    width:
+        190px;
+
+    height:
+        220px;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        12px;
+
+}
+
+
+.directivo-info {
+
+    text-align:
+        center;
+
+    padding:
+        22px;
+
+}
+
+
+.directivo-info h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        1.2rem;
+
+}
+
+
+.directivo-info .cargo {
+
+    color:
+        var(--verde-oscuro);
+
+    font-weight:
+        700;
+
+    margin-top:
+        5px;
+
+}
+
+
+/* =========================================================
+   DOCUMENTOS
+========================================================= */
+
+.documentos-lista {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        25px;
+
+}
+
+
+.documento {
+
+    background:
+        var(--blanco);
+
+    padding:
+        30px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    border-left:
+        5px solid var(--dorado);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.documento:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.documento h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        1.15rem;
+
+}
+
+
+.boton-documento,
+.boton-contacto {
+
+    display:
+        inline-block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075A96,
+            #1688D4
+        );
+
+    color:
+        var(--blanco);
+
+    padding:
+        11px 20px;
+
+    border-radius:
+        30px;
+
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
+
+    transition:
+        all 0.3s ease;
+
+    border:
+        2px solid transparent;
+
+}
+
+
+.boton-documento:hover,
+.boton-contacto:hover {
+
+    background:
+        var(--dorado);
+
+    color:
+        var(--azul-oscuro);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.contacto-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        25px;
+
+    margin-bottom:
+        50px;
+
+}
+
+
+.contacto-card {
+
+    background:
+        var(--blanco);
+
+    padding:
+        30px;
+
+    text-align:
+        center;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    border-top:
+        5px solid var(--verde);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.contacto-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.contacto-icono {
+
+    font-size:
+        2.2rem;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.contacto-card h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.contacto-card p {
+
+    color:
+        var(--gris-texto);
+
+}
+
+
+.contacto-card .boton-contacto {
+
+    margin-top:
+        15px;
+
+}
+
+
+/* =========================================================
+   UBICACIÓN Y MAPA
+========================================================= */
+
+.ubicacion {
+
+    background:
+        var(--blanco);
+
+    padding:
+        30px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+}
+
+
+.ubicacion-titulo {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.ubicacion-titulo h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        1.7rem;
+
+}
+
+
+.ubicacion-titulo p {
+
+    color:
+        var(--gris-texto);
+
+}
+
+
+.mapa {
+
+    width:
+        100%;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        12px;
+
+}
+
+
+.mapa iframe {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    min-height:
+        450px;
+
+    border:
+        none;
+
+}
+
+
+/* =========================================================
+   BOTÓN FLOTANTE - VOLVER ARRIBA
+========================================================= */
+
+.btn-arriba {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 72px;
+
+    height: 72px;
+
+    border:
+        4px solid var(--blanco);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075A96,
+            #1688D4
+        );
+
+    color:
+        var(--blanco);
+
+    font-size:
+        46px;
+
+    font-weight:
+        900;
+
+    line-height:
+        1;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    cursor:
+        pointer;
+
+    z-index:
+        99999;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.40);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transform:
+        translateY(25px)
+        scale(0.70);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+/* =========================================================
+   BOTÓN VISIBLE
+========================================================= */
+
+.btn-arriba.visible {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================================
+   EFECTO HOVER DEL BOTÓN
+========================================================= */
+
+.btn-arriba:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1688D4,
+            #075A96
+        );
+
+    transform:
+        translateY(-6px)
+        scale(1.10);
+
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.45);
+
+}
+
+
+/* =========================================================
+   EFECTO AL PRESIONAR
+========================================================= */
+
+.btn-arriba:active {
+
+    transform:
+        translateY(0)
+        scale(0.92);
+
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA
+========================================================= */
+
+.pie {
+
+    background:
+        linear-gradient(
+            135deg,
+            #075A96,
+            #064774
+        );
+
+    color:
+        var(--blanco);
+
+    text-align:
+        center;
+
+    padding:
+        45px 0;
+
+    border-top:
+        5px solid var(--dorado);
+
+}
+
+
+.logos-pie {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        25px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.logos-pie img {
+
+    width:
+        85px;
+
+    height:
+        85px;
+
+    object-fit:
+        contain;
+
+}
+
+
+/* =========================================================
+   LOGO DEL SOSTENEDOR
+   CÍRCULO BLANCO
+========================================================= */
+
+.logos-pie img:first-child {
+
+    background:
+        var(--blanco);
+
+    border-radius:
+        50%;
+
+    padding:
+        10px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.pie p {
+
+    margin:
+        5px 0;
+
+    color:
+        #e6eef4;
+
+}
+
+
+/* =========================================================
+   SELECCIÓN DE TEXTO
+========================================================= */
+
+::selection {
+
+    background:
+        var(--dorado);
+
+    color:
+        var(--azul-oscuro);
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .encabezado-contenido {
+
+        grid-template-columns:
+            110px
+            1fr
+            110px;
+
+        gap:
+            15px;
+
+    }
+
+
+    .logo-superior img {
+
+        width:
+            95px;
+
+        height:
+            95px;
+
+    }
+
+
+    .niveles-educativos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .equipo-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .contacto-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .encabezado-contenido {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        grid-template-areas:
+            "titulo titulo"
+            "logo1 logo2";
+
+        min-height:
+            auto;
+
+        padding:
+            20px 0 25px;
+
+    }
+
+
+    .nombre-establecimiento {
+
+        grid-area:
+            titulo;
+
+    }
+
+
+    .logo-superior:first-child {
+
+        grid-area:
+            logo1;
+
+    }
+
+
+    .logo-superior:last-child {
+
+        grid-area:
+            logo2;
+
+    }
+
+
+    .menu-principal {
+
+        position:
+            relative;
+
+    }
+
+
+    .menu-contenido {
+
+        padding:
+            8px 0;
+
+    }
+
+
+    .boton-menu {
+
+        font-size:
+            0.85rem;
+
+        padding:
+            10px 11px;
+
+    }
+
+
+    .logos-especialidades {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .especialidades-academicas {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .documentos-lista {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 560px) {
+
+    .contenedor {
+
+        width:
+            94%;
+
+    }
+
+
+    .pagina {
+
+        padding:
+            45px 0 60px;
+
+    }
+
+
+    .encabezado-contenido {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            10px;
+
+    }
+
+
+    .logo-superior {
+
+        min-height:
+            90px;
+
+    }
+
+
+    .logo-superior img {
+
+        width:
+            80px;
+
+        height:
+            80px;
+
+    }
+
+
+    .nombre-establecimiento h1 {
+
+        font-size:
+            1.55rem;
+
+    }
+
+
+    .nombre-establecimiento p {
+
+        font-size:
+            0.85rem;
+
+    }
+
+
+    .menu-contenido {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .boton-menu {
+
+        width:
+            100%;
+
+        font-size:
+            0.82rem;
+
+    }
+
+
+    .logo-inicio img {
+
+        width:
+            175px;
+
+        height:
+            175px;
+
+    }
+
+
+    .inicio-titulo h2 {
+
+        font-size:
+            2rem;
+
+    }
+
+
+    .bloque-texto {
+
+        padding:
+            25px;
+
+    }
+
+
+    .niveles-educativos {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    #comunidad .nivel-card {
+
+        min-height:
+            auto;
+
+    }
+
+
+    .especialidad-academica {
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+
+    }
+
+
+    .fila-horario {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .fila-horario div {
+
+        padding:
+            10px 15px;
+
+    }
+
+
+    .fila-horario div:first-child {
+
+        padding-bottom:
+            3px;
+
+    }
+
+
+    .fila-horario div:last-child {
+
+        padding-top:
+            3px;
+
+    }
+
+
+    .equipo-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .foto-directivo {
+
+        min-height:
+            230px;
+
+    }
+
+
+    .contacto-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .documento {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .boton-documento {
+
+        width:
+            100%;
+
+        text-align:
+            center;
+
+    }
+
+
+    .ubicacion {
+
+        padding:
+            15px;
+
+    }
+
+
+    .mapa iframe {
+
+        min-height:
+            350px;
+
+    }
+
+
+    /* =====================================================
+       BOTÓN FLOTANTE EN CELULAR
+    ===================================================== */
+
+    .btn-arriba {
+
+        width:
+            68px;
+
+        height:
+            68px;
+
+        right:
+            18px;
+
+        bottom:
+            18px;
+
+        font-size:
+            43px;
+
+        border-width:
+            3px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .menu-contenido {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .nombre-establecimiento h1 {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .logo-superior img {
+
+        width:
+            70px;
+
+        height:
+            70px;
+
+    }
+
+
+    .titulo-pagina h2 {
+
+        font-size:
+            1.8rem;
+
+    }
+
+
+    /* =====================================================
+       BOTÓN FLOTANTE EN CELULARES PEQUEÑOS
+    ===================================================== */
+
+    .btn-arriba {
+
+        width:
+            64px;
+
+        height:
+            64px;
+
+        right:
+            15px;
+
+        bottom:
+            15px;
+
+        font-size:
+            40px;
+
+    }
+
+}
