@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
 
-    const MAX_COMUNICADOS = 200;
+    const MAX_COMUNICADOS = 48;
 
 
     /* =====================================================
