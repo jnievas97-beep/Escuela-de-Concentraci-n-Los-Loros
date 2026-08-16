@@ -4,11 +4,6 @@
    Diseño institucional
 ========================================================= */
 
-
-/* =========================================================
-   VARIABLES DE DISEÑO
-========================================================= */
-
 :root {
 
     --azul: #1688D4;
@@ -163,10 +158,6 @@ a {
 }
 
 
-/* =========================================================
-   LOGOS SUPERIORES
-========================================================= */
-
 .logo-superior {
 
     display: flex;
@@ -207,10 +198,6 @@ a {
 }
 
 
-/* =========================================================
-   NOMBRE DEL ESTABLECIMIENTO
-========================================================= */
-
 .nombre-establecimiento {
 
     text-align: center;
@@ -245,6 +232,149 @@ a {
     font-size: 1rem;
 
     color: #edf6ff;
+
+}
+
+
+/* =========================================================
+   REDES SOCIALES - FACEBOOK E INSTAGRAM
+   Ubicadas debajo de la insignia superior derecha
+========================================================= */
+
+.redes-sociales {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    /*
+       Se baja ligeramente la posición de los botones
+       respecto de la ubicación anterior.
+    */
+
+    margin-top:
+        27px;
+
+}
+
+
+.redes-sociales a {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    color:
+        var(--blanco);
+
+    border:
+        2px solid rgba(255, 255, 255, 0.75);
+
+    font-size:
+        1.15rem;
+
+    font-weight:
+        700;
+
+    transition:
+        all 0.3s ease;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* =========================================================
+   ICONOS SVG DE REDES SOCIALES
+========================================================= */
+
+.redes-sociales a svg {
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    display:
+        block;
+
+    fill:
+        currentColor;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.redes-sociales a.instagram svg {
+
+    width:
+        23px;
+
+    height:
+        23px;
+
+}
+
+
+.redes-sociales a:hover {
+
+    background:
+        var(--blanco);
+
+    color:
+        var(--azul-oscuro);
+
+    transform:
+        translateY(-3px)
+        scale(1.08);
+
+    box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.redes-sociales a:hover svg {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.redes-sociales a:active {
+
+    transform:
+        scale(0.95);
 
 }
 
@@ -631,6 +761,339 @@ a {
 
 
 /* =========================================================
+   SISTEMAS DE MATRÍCULA
+========================================================= */
+
+.seccion-matricula {
+
+    max-width: 1050px;
+
+    margin: 55px auto 20px;
+
+    padding: 5px;
+
+}
+
+
+.matricula-contenido {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f3f8fb 100%
+        );
+
+    border-radius:
+        22px;
+
+    padding:
+        42px 40px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.16);
+
+    border:
+        2px solid rgba(216, 170, 40, 0.45);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.matricula-contenido::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul-oscuro),
+            var(--azul),
+            var(--dorado),
+            var(--verde)
+        );
+
+}
+
+
+.matricula-icono {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-oscuro),
+            var(--azul)
+        );
+
+    font-size: 2rem;
+
+    box-shadow:
+        0 6px 15px rgba(7, 90, 150, 0.28);
+
+}
+
+
+.matricula-contenido h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        clamp(1.8rem, 4vw, 2.5rem);
+
+    margin-bottom: 15px;
+
+}
+
+
+.matricula-introduccion {
+
+    max-width: 850px;
+
+    margin:
+        0 auto 12px;
+
+    color:
+        var(--gris-texto);
+
+    font-size:
+        1.05rem;
+
+}
+
+
+.matricula-ayuda {
+
+    color:
+        var(--verde-oscuro);
+
+    font-weight:
+        700;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.matricula-opciones {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        25px;
+
+    text-align:
+        left;
+
+}
+
+
+.matricula-card {
+
+    background:
+        var(--blanco);
+
+    padding:
+        28px;
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra);
+
+    border-top:
+        5px solid var(--azul);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.matricula-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        var(--sombra-hover);
+
+}
+
+
+.matricula-card.sae {
+
+    border-top-color:
+        var(--azul);
+
+}
+
+
+.matricula-card.anotate {
+
+    border-top-color:
+        var(--verde);
+
+}
+
+
+.matricula-card-icono {
+
+    font-size:
+        2rem;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.matricula-card h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:
+        var(--azul-oscuro);
+
+    font-size:
+        1.35rem;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.matricula-card p {
+
+    color:
+        var(--gris-texto);
+
+    margin-bottom:
+        22px;
+
+}
+
+
+.boton-matricula {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    text-align:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075A96,
+            #1688D4
+        );
+
+    color:
+        var(--blanco);
+
+    padding:
+        13px 18px;
+
+    border-radius:
+        30px;
+
+    font-weight:
+        700;
+
+    border:
+        2px solid transparent;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.boton-matricula:hover {
+
+    background:
+        var(--dorado);
+
+    color:
+        var(--azul-oscuro);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.matricula-aviso {
+
+    margin-top:
+        28px;
+
+    padding:
+        15px 20px;
+
+    background:
+        #eef5f8;
+
+    border-radius:
+        10px;
+
+    color:
+        var(--gris-texto);
+
+    font-size:
+        0.9rem;
+
+}
+
+
+/* =========================================================
    BLOQUES DE TEXTO
 ========================================================= */
 
@@ -700,12 +1163,30 @@ a {
 
 .niveles-educativos {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 25px;
+    gap:
+        25px;
+
+}
+
+
+/* =========================================================
+   OPCIÓN 4 Y OPCIÓN 4 LABORAL
+   CENTRADO DE LAS DOS TARJETAS
+========================================================= */
+
+#academica .niveles-educativos:has(> .nivel-card:nth-child(2):last-child) {
+
+    grid-template-columns:
+        repeat(2, minmax(250px, 360px));
+
+    justify-content:
+        center;
 
 }
 
@@ -777,12 +1258,14 @@ a {
 
 .especialidades-academicas {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 30px;
+    gap:
+        30px;
 
 }
 
@@ -798,11 +1281,14 @@ a {
     padding:
         25px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 25px;
+    gap:
+        25px;
 
     box-shadow:
         var(--sombra);
@@ -836,11 +1322,14 @@ a {
 
 .especialidad-imagen img {
 
-    width: 110px;
+    width:
+        110px;
 
-    height: 110px;
+    height:
+        110px;
 
-    object-fit: contain;
+    object-fit:
+        contain;
 
 }
 
@@ -1550,20 +2039,26 @@ a {
 
 .btn-arriba {
 
-    position: fixed;
+    position:
+        fixed;
 
-    right: 25px;
+    right:
+        25px;
 
-    bottom: 25px;
+    bottom:
+        25px;
 
-    width: 72px;
+    width:
+        72px;
 
-    height: 72px;
+    height:
+        72px;
 
     border:
         4px solid var(--blanco);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         linear-gradient(
@@ -1611,6 +2106,9 @@ a {
     visibility:
         hidden;
 
+    pointer-events:
+        none;
+
     transform:
         translateY(25px)
         scale(0.70);
@@ -1624,10 +2122,6 @@ a {
 }
 
 
-/* =========================================================
-   BOTÓN VISIBLE
-========================================================= */
-
 .btn-arriba.visible {
 
     opacity:
@@ -1636,16 +2130,15 @@ a {
     visibility:
         visible;
 
+    pointer-events:
+        auto;
+
     transform:
         translateY(0)
         scale(1);
 
 }
 
-
-/* =========================================================
-   EFECTO HOVER DEL BOTÓN
-========================================================= */
 
 .btn-arriba:hover {
 
@@ -1665,10 +2158,6 @@ a {
 
 }
 
-
-/* =========================================================
-   EFECTO AL PRESIONAR
-========================================================= */
 
 .btn-arriba:active {
 
@@ -1741,11 +2230,6 @@ a {
 }
 
 
-/* =========================================================
-   LOGO DEL SOSTENEDOR
-   CÍRCULO BLANCO
-========================================================= */
-
 .logos-pie img:first-child {
 
     background:
@@ -1773,10 +2257,6 @@ a {
 
 }
 
-
-/* =========================================================
-   SELECCIÓN DE TEXTO
-========================================================= */
 
 ::selection {
 
@@ -1827,6 +2307,17 @@ a {
     }
 
 
+    #academica .niveles-educativos:has(> .nivel-card:nth-child(2):last-child) {
+
+        grid-template-columns:
+            repeat(2, minmax(220px, 360px));
+
+        justify-content:
+            center;
+
+    }
+
+
     .equipo-grid {
 
         grid-template-columns:
@@ -1839,6 +2330,14 @@ a {
 
         grid-template-columns:
             repeat(2, 1fr);
+
+    }
+
+
+    .matricula-opciones {
+
+        gap:
+            20px;
 
     }
 
@@ -1920,6 +2419,57 @@ a {
     }
 
 
+    /* =====================================================
+       REDES SOCIALES EN CELULARES
+    ===================================================== */
+
+    .redes-sociales {
+
+        margin-top:
+            22px;
+
+        gap:
+            10px;
+
+    }
+
+
+    .redes-sociales a {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+        font-size:
+            1rem;
+
+    }
+
+
+    .redes-sociales a svg {
+
+        width:
+            20px;
+
+        height:
+            20px;
+
+    }
+
+
+    .redes-sociales a.instagram svg {
+
+        width:
+            21px;
+
+        height:
+            21px;
+
+    }
+
+
     .logos-especialidades {
 
         grid-template-columns:
@@ -1940,6 +2490,33 @@ a {
 
         grid-template-columns:
             1fr;
+
+    }
+
+
+    .matricula-opciones {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .matricula-contenido {
+
+        padding:
+            35px 25px;
+
+    }
+
+
+    #academica .niveles-educativos:has(> .nivel-card:nth-child(2):last-child) {
+
+        grid-template-columns:
+            minmax(250px, 500px);
+
+        justify-content:
+            center;
 
     }
 
@@ -2071,6 +2648,17 @@ a {
     }
 
 
+    #academica .niveles-educativos:has(> .nivel-card:nth-child(2):last-child) {
+
+        grid-template-columns:
+            1fr;
+
+        justify-content:
+            center;
+
+    }
+
+
     #comunidad .nivel-card {
 
         min-height:
@@ -2185,6 +2773,64 @@ a {
 
 
     /* =====================================================
+       SECCIÓN MATRÍCULA EN CELULAR
+    ===================================================== */
+
+    .seccion-matricula {
+
+        margin-top:
+            40px;
+
+    }
+
+
+    .matricula-contenido {
+
+        padding:
+            32px 18px;
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .matricula-contenido h2 {
+
+        font-size:
+            1.75rem;
+
+    }
+
+
+    .matricula-introduccion {
+
+        font-size:
+            0.98rem;
+
+    }
+
+
+    .matricula-card {
+
+        padding:
+            23px;
+
+    }
+
+
+    .boton-matricula {
+
+        font-size:
+            0.9rem;
+
+        padding:
+            12px 10px;
+
+    }
+
+
+    /* =====================================================
        BOTÓN FLOTANTE EN CELULAR
     ===================================================== */
 
@@ -2254,9 +2900,24 @@ a {
     }
 
 
-    /* =====================================================
-       BOTÓN FLOTANTE EN CELULARES PEQUEÑOS
-    ===================================================== */
+    .matricula-contenido h2 {
+
+        font-size:
+            1.55rem;
+
+    }
+
+
+    #academica .niveles-educativos:has(> .nivel-card:nth-child(2):last-child) {
+
+        grid-template-columns:
+            1fr;
+
+        justify-content:
+            center;
+
+    }
+
 
     .btn-arriba {
 
@@ -2274,6 +2935,53 @@ a {
 
         font-size:
             40px;
+
+    }
+
+
+    .redes-sociales {
+
+        gap:
+            8px;
+
+        margin-top:
+            20px;
+
+    }
+
+
+    .redes-sociales a {
+
+        width:
+            35px;
+
+        height:
+            35px;
+
+        font-size:
+            0.9rem;
+
+    }
+
+
+    .redes-sociales a svg {
+
+        width:
+            18px;
+
+        height:
+            18px;
+
+    }
+
+
+    .redes-sociales a.instagram svg {
+
+        width:
+            19px;
+
+        height:
+            19px;
 
     }
 
