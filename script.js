@@ -36,16 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarPagina(nombrePagina) {
 
-        /* Ocultar todas las páginas */
-
         paginas.forEach(function (pagina) {
 
             pagina.classList.remove("activa");
 
         });
 
-
-        /* Quitar estado activo de todos los botones */
 
         botonesMenu.forEach(function (boton) {
 
@@ -54,13 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        /* Buscar la página correspondiente */
-
         const paginaSeleccionada =
             document.getElementById(nombrePagina);
 
-
-        /* Mostrar la página */
 
         if (paginaSeleccionada) {
 
@@ -78,8 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* Marcar el botón correspondiente */
-
         const botonSeleccionado =
             document.querySelector(
                 '.boton-menu[data-pagina="' +
@@ -94,8 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
-        /* Volver al comienzo */
 
         window.scrollTo({
 
@@ -139,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       BOTÓN VOLVER ARRIBA
+       CONTROL DEL BOTÓN VOLVER ARRIBA
     ===================================================== */
 
     function controlarBotonArriba() {
@@ -200,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       COMPROBAR ESTADO INICIAL DEL BOTÓN
+       COMPROBAR ESTADO INICIAL
     ===================================================== */
 
     controlarBotonArriba();
@@ -217,6 +205,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     enlacesPendientes.forEach(function (enlace) {
+
+        /*
+         * El botón del último comunicado
+         * utiliza href="#" inicialmente.
+         *
+         * NO debemos bloquearlo.
+         */
+
+        if (
+            enlace.id === "botonUltimoComunicado"
+        ) {
+
+            return;
+
+        }
+
 
         enlace.addEventListener(
             "click",
@@ -261,11 +265,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        ICONO REALISTA DE INSTAGRAM
-       
-       Se busca automáticamente cualquier enlace cuyo
-       destino contenga "instagram".
-
-       No necesita Font Awesome ni ninguna biblioteca externa.
     ===================================================== */
 
     const enlacesInstagram =
@@ -276,12 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     enlacesInstagram.forEach(function (enlaceInstagram) {
 
-        /* Identificar el enlace como Instagram */
-
         enlaceInstagram.classList.add("instagram");
 
-
-        /* Crear SVG */
 
         enlaceInstagram.innerHTML = `
             <svg
@@ -290,8 +285,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 aria-hidden="true"
                 focusable="false"
             >
-
-                <!-- Contorno exterior de la cámara -->
 
                 <rect
                     x="3"
@@ -305,8 +298,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     stroke-width="2"
                 />
 
-                <!-- Lente central -->
-
                 <circle
                     cx="12"
                     cy="12"
@@ -315,8 +306,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     stroke="currentColor"
                     stroke-width="2"
                 />
-
-                <!-- Punto superior derecho -->
 
                 <circle
                     cx="17.5"
@@ -329,6 +318,627 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
     });
+
+
+    /* =====================================================
+       SISTEMA AUTOMÁTICO DE COMUNICADOS
+       
+       PREPARADO PARA GITHUB PAGES
+       
+       CARPETA:
+       
+       comunicados/
+       
+       ARCHIVOS:
+       
+       COMUNICADOS 01.pdf
+       COMUNICADOS 02.pdf
+       COMUNICADOS 03.pdf
+       ...
+       COMUNICADOS 48.pdf
+       ...
+       COMUNICADOS 200.pdf
+    ===================================================== */
+
+
+    const MAX_COMUNICADOS = 200;
+
+
+    /* =====================================================
+       CARPETA
+    ===================================================== */
+
+    const CARPETA_COMUNICADOS =
+        "comunicados/";
+
+
+    /* =====================================================
+       ELEMENTOS DEL INDEX.HTML
+    ===================================================== */
+
+    const listaComunicados =
+        document.getElementById(
+            "listaComunicados"
+        );
+
+
+    const mensajeComunicados =
+        document.getElementById(
+            "mensajeComunicados"
+        );
+
+
+    const textoUltimoComunicado =
+        document.getElementById(
+            "textoUltimoComunicado"
+        );
+
+
+    const botonUltimoComunicado =
+        document.getElementById(
+            "botonUltimoComunicado"
+        );
+
+
+    const tituloUltimoComunicado =
+        document.getElementById(
+            "tituloUltimoComunicado"
+        );
+
+
+    /* =====================================================
+       GENERAR NOMBRE DEL ARCHIVO
+    ===================================================== */
+
+    function obtenerNombreComunicado(numero) {
+
+        return (
+            "COMUNICADOS " +
+            String(numero).padStart(2, "0") +
+            ".pdf"
+        );
+
+    }
+
+
+    /* =====================================================
+       GENERAR RUTA DEL ARCHIVO
+       
+       IMPORTANTE:
+       encodeURIComponent mantiene correctamente
+       el espacio del nombre del archivo.
+    ===================================================== */
+
+    function obtenerRutaComunicado(numero) {
+
+        const nombreArchivo =
+            obtenerNombreComunicado(numero);
+
+
+        return (
+            CARPETA_COMUNICADOS +
+            encodeURIComponent(nombreArchivo)
+        );
+
+    }
+
+
+    /* =====================================================
+       COMPROBAR SI EXISTE UN COMUNICADO
+       
+       EN GITHUB PAGES:
+       
+       Se utiliza HEAD para comprobar solamente
+       si el archivo existe sin descargar el PDF.
+    ===================================================== */
+
+    async function comprobarComunicado(numero) {
+
+        const nombreArchivo =
+            obtenerNombreComunicado(numero);
+
+
+        const ruta =
+            obtenerRutaComunicado(numero);
+
+
+        try {
+
+            const respuesta =
+                await fetch(
+                    ruta,
+                    {
+                        method: "HEAD",
+                        cache: "no-store"
+                    }
+                );
+
+
+            if (respuesta.ok) {
+
+                return {
+
+                    numero: numero,
+
+                    nombre: nombreArchivo,
+
+                    ruta: ruta
+
+                };
+
+            }
+
+
+        } catch (error) {
+
+            /*
+             * No mostramos cada error individual.
+             *
+             * Es normal que no existan todos los números.
+             */
+
+        }
+
+
+        return null;
+
+    }
+
+
+    /* =====================================================
+       BUSCAR TODOS LOS COMUNICADOS
+    ===================================================== */
+
+    async function cargarComunicados() {
+
+        if (!listaComunicados) {
+
+            console.warn(
+                "No se encontró el elemento #listaComunicados."
+            );
+
+            return;
+
+        }
+
+
+        console.log(
+            "================================="
+        );
+
+        console.log(
+            "BUSCANDO COMUNICADOS"
+        );
+
+        console.log(
+            "Carpeta:",
+            CARPETA_COMUNICADOS
+        );
+
+        console.log(
+            "Máximo:",
+            MAX_COMUNICADOS
+        );
+
+        console.log(
+            "================================="
+        );
+
+
+        const resultados = [];
+
+
+        /* =================================================
+           CREAR COMPROBACIONES
+        ================================================== */
+
+        const promesas = [];
+
+
+        for (
+            let numero = 1;
+            numero <= MAX_COMUNICADOS;
+            numero++
+        ) {
+
+            promesas.push(
+                comprobarComunicado(numero)
+            );
+
+        }
+
+
+        /* =================================================
+           ESPERAR TODAS LAS COMPROBACIONES
+        ================================================== */
+
+        const respuestas =
+            await Promise.all(
+                promesas
+            );
+
+
+        /* =================================================
+           GUARDAR SOLO LOS EXISTENTES
+        ================================================== */
+
+        respuestas.forEach(
+            function (resultado) {
+
+                if (resultado) {
+
+                    resultados.push(
+                        resultado
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           ORDENAR
+           
+           MAYOR → MENOR
+           
+           Por ejemplo:
+           
+           48
+           47
+           46
+           ...
+           01
+        ================================================== */
+
+        resultados.sort(
+            function (a, b) {
+
+                return b.numero - a.numero;
+
+            }
+        );
+
+
+        console.log(
+            "================================="
+        );
+
+        console.log(
+            "COMUNICADOS ENCONTRADOS:",
+            resultados.length
+        );
+
+        console.log(
+            resultados
+        );
+
+        console.log(
+            "================================="
+        );
+
+
+        /* =================================================
+           SI NO HAY NINGUNO
+        ================================================== */
+
+        if (
+            resultados.length === 0
+        ) {
+
+            mostrarSinComunicados();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           MOSTRAR EL MÁS RECIENTE
+        ================================================= */
+
+        const ultimo =
+            resultados[0];
+
+
+        mostrarUltimoComunicado(
+            ultimo
+        );
+
+
+        /* =================================================
+           MOSTRAR LISTA
+        ================================================= */
+
+        mostrarComunicadosAnteriores(
+            resultados
+        );
+
+    }
+
+
+    /* =====================================================
+       MOSTRAR ÚLTIMO COMUNICADO
+    ===================================================== */
+
+    function mostrarUltimoComunicado(
+        comunicado
+    ) {
+
+        if (!textoUltimoComunicado) {
+
+            return;
+
+        }
+
+
+        /* =================================================
+           TÍTULO
+        ================================================== */
+
+        if (tituloUltimoComunicado) {
+
+            tituloUltimoComunicado.textContent =
+                "Comunicado N.º " +
+                comunicado.numero;
+
+        }
+
+
+        /* =================================================
+           DESCRIPCIÓN
+        ================================================== */
+
+        textoUltimoComunicado.textContent =
+            "Se encuentra disponible el Comunicado N.º " +
+            comunicado.numero +
+            " del establecimiento.";
+
+
+        /* =================================================
+           BOTÓN
+        ================================================== */
+
+        if (botonUltimoComunicado) {
+
+            botonUltimoComunicado.href =
+                comunicado.ruta;
+
+
+            botonUltimoComunicado.target =
+                "_blank";
+
+
+            botonUltimoComunicado.rel =
+                "noopener noreferrer";
+
+
+            botonUltimoComunicado.textContent =
+                "📄 Ver Comunicado N.º " +
+                comunicado.numero;
+
+
+            botonUltimoComunicado.style.display =
+                "";
+
+        }
+
+
+        console.log(
+            "Último comunicado:",
+            comunicado.nombre
+        );
+
+
+        console.log(
+            "Ruta:",
+            comunicado.ruta
+        );
+
+    }
+
+
+    /* =====================================================
+       MOSTRAR COMUNICADOS
+    ===================================================== */
+
+    function mostrarComunicadosAnteriores(
+        comunicados
+    ) {
+
+        /* =================================================
+           ELIMINAR MENSAJE INICIAL
+        ================================================== */
+
+        if (mensajeComunicados) {
+
+            mensajeComunicados.remove();
+
+        }
+
+
+        /* =================================================
+           ELIMINAR TARJETAS ANTERIORES
+        ================================================== */
+
+        const tarjetasExistentes =
+            listaComunicados.querySelectorAll(
+                ".comunicado"
+            );
+
+
+        tarjetasExistentes.forEach(
+            function (tarjeta) {
+
+                tarjeta.remove();
+
+            }
+        );
+
+
+        /* =================================================
+           CREAR TARJETAS
+        ================================================== */
+
+        comunicados.forEach(
+            function (comunicado) {
+
+                const tarjeta =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                tarjeta.className =
+                    "documento comunicado";
+
+
+                /* =========================================
+                   TÍTULO
+                ========================================== */
+
+                const titulo =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                titulo.textContent =
+                    "Comunicado N.º " +
+                    comunicado.numero;
+
+
+                /* =========================================
+                   ENLACE
+                ========================================== */
+
+                const enlace =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                enlace.href =
+                    comunicado.ruta;
+
+
+                enlace.target =
+                    "_blank";
+
+
+                enlace.rel =
+                    "noopener noreferrer";
+
+
+                enlace.className =
+                    "boton-documento";
+
+
+                enlace.textContent =
+                    "📄 Ver comunicado";
+
+
+                /* =========================================
+                   AGREGAR TÍTULO
+                ========================================== */
+
+                tarjeta.appendChild(
+                    titulo
+                );
+
+
+                /* =========================================
+                   AGREGAR BOTÓN
+                ========================================== */
+
+                tarjeta.appendChild(
+                    enlace
+                );
+
+
+                /* =========================================
+                   AGREGAR TARJETA
+                ========================================== */
+
+                listaComunicados.appendChild(
+                    tarjeta
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CUANDO NO HAY COMUNICADOS
+    ===================================================== */
+
+    function mostrarSinComunicados() {
+
+        console.log(
+            "No existen comunicados publicados."
+        );
+
+
+        /* =================================================
+           TÍTULO
+        ================================================== */
+
+        if (tituloUltimoComunicado) {
+
+            tituloUltimoComunicado.textContent =
+                "Aún no hay comunicados publicados";
+
+        }
+
+
+        /* =================================================
+           TEXTO
+        ================================================== */
+
+        if (textoUltimoComunicado) {
+
+            textoUltimoComunicado.textContent =
+                "Cuando se publique un nuevo comunicado, aparecerá automáticamente en esta sección.";
+
+        }
+
+
+        /* =================================================
+           BOTÓN
+        ================================================== */
+
+        if (botonUltimoComunicado) {
+
+            botonUltimoComunicado.style.display =
+                "none";
+
+        }
+
+
+        /* =================================================
+           MENSAJE
+        ================================================== */
+
+        if (mensajeComunicados) {
+
+            mensajeComunicados.innerHTML = `
+                <p>
+                    Actualmente no hay comunicados publicados.
+                </p>
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       INICIAR SISTEMA DE COMUNICADOS
+    ===================================================== */
+
+    cargarComunicados();
 
 
     /* =====================================================
@@ -345,6 +955,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(
         "Icono de Instagram iniciado correctamente."
+    );
+
+    console.log(
+        "Sistema automático de comunicados iniciado."
     );
 
 });
