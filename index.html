@@ -261,12 +261,26 @@
 
 <div class="contenedor menu-contenido">
 
+
     <button
         class="boton-menu activo"
         data-pagina="inicio"
         type="button"
     >
         Inicio
+    </button>
+
+
+    <!-- =================================================
+         NUEVA PESTAÑA: COMUNICADOS
+    ================================================== -->
+
+    <button
+        class="boton-menu"
+        data-pagina="comunicados"
+        type="button"
+    >
+        Comunicados
     </button>
 
 
@@ -285,6 +299,19 @@
         type="button"
     >
         Académica
+    </button>
+
+
+    <!-- =================================================
+         NUEVA PESTAÑA: TALLERES JEC
+    ================================================== -->
+
+    <button
+        class="boton-menu"
+        data-pagina="talleresJEC"
+        type="button"
+    >
+        Talleres JEC
     </button>
 
 
@@ -316,7 +343,7 @@
 
 
     <!-- =================================================
-         NUEVA PESTAÑA: EQUIPO DE GESTIÓN
+         EQUIPO DE GESTIÓN
     ================================================== -->
 
     <button
@@ -338,7 +365,7 @@
 
 
     <!-- =================================================
-         NUEVA PESTAÑA: PROTOCOLOS
+         PROTOCOLOS
     ================================================== -->
 
     <button
@@ -608,6 +635,130 @@
         </div>
 
     </section>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COMUNICADOS
+====================================================== -->
+
+<section
+    id="comunicados"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+    <div class="titulo-pagina">
+
+        <h2>
+            Comunicados
+        </h2>
+
+        <p>
+            Información importante para nuestra comunidad educativa.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         ÚLTIMO COMUNICADO
+         Este contenedor será completado automáticamente
+         por script.js.
+    ================================================== -->
+
+    <section
+        class="seccion-ultimo-comunicado"
+        aria-labelledby="tituloUltimoComunicado"
+    >
+
+        <div class="ultimo-comunicado-contenido">
+
+            <div
+                class="comunicado-icono"
+                aria-hidden="true"
+            >
+                📢
+            </div>
+
+            <span class="etiqueta-ultimo-comunicado">
+                ÚLTIMO COMUNICADO
+            </span>
+
+            <h2 id="tituloUltimoComunicado">
+                Información importante
+            </h2>
+
+            <p id="textoUltimoComunicado">
+                Cargando el último comunicado disponible...
+            </p>
+
+            <a
+                id="botonUltimoComunicado"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                📄 Ver último comunicado
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         COMUNICADOS ANTERIORES
+    ================================================== -->
+
+    <div
+        class="titulo-pagina"
+        style="margin-top: 50px;"
+    >
+
+        <h2>
+            Comunicados anteriores
+        </h2>
+
+        <p>
+            Revisa los comunicados publicados anteriormente.
+        </p>
+
+    </div>
+
+
+    <!--
+        script.js generará automáticamente aquí los
+        comunicados que realmente existan.
+
+        Se podrán utilizar los números desde 01 hasta 200,
+        sin mostrar espacios correspondientes a archivos
+        que todavía no hayan sido subidos.
+    -->
+
+    <div
+        id="listaComunicados"
+        class="documentos-lista comunicados-lista"
+    >
+
+        <div
+            id="mensajeComunicados"
+            class="bloque-texto"
+        >
+
+            <p>
+                Cargando comunicados disponibles...
+            </p>
+
+        </div>
+
+    </div>
 
 
 </div>
@@ -1122,6 +1273,354 @@
             </div>
 
         </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TALLERES JEC
+====================================================== -->
+
+<section
+    id="talleresJEC"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+    <div class="titulo-pagina">
+
+        <h2>
+            Talleres JEC
+        </h2>
+
+        <p>
+            Espacios de aprendizaje, participación y desarrollo
+            de habilidades para nuestros estudiantes.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         INFORMACIÓN GENERAL DE LOS TALLERES
+    ================================================== -->
+
+    <div class="bloque-texto">
+
+        <h3>
+            Jornada de Talleres JEC
+        </h3>
+
+        <p>
+            Los Talleres JEC constituyen espacios formativos que buscan
+            fortalecer los intereses, habilidades y talentos de nuestros
+            estudiantes mediante experiencias prácticas, creativas y
+            vinculadas con el entorno.
+        </p>
+
+        <p>
+            Los talleres se desarrollan los días
+            <strong>miércoles y jueves</strong>,
+            en horario de
+            <strong>13:55 a 15:30 horas</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         TALLERES
+    ================================================== -->
+
+    <div class="especialidades-academicas talleres-jec">
+
+
+        <!-- =================================================
+             TALLER PRE DEPORTIVO
+        ================================================== -->
+
+        <div class="especialidad-academica taller-jec-card">
+
+            <div class="especialidad-imagen">
+
+                <img
+                    src="taller%20jec/Taller%20Pre%20Deportivo%20Profesor%20Cristian%20Cabrera.png"
+                    alt="Taller Pre Deportivo - Profesor Cristian Cabrera"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="especialidad-contenido">
+
+                <h4>
+                    Taller Pre Deportivo
+                </h4>
+
+                <p>
+                    <strong>
+                        Profesor:
+                    </strong>
+                    Cristian Cabrera
+                </p>
+
+                <p>
+                    <strong>
+                        Horario:
+                    </strong>
+                    Miércoles y jueves de 13:55 a 15:30 horas
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TALLER HUERTO SUSTENTABLE
+        ================================================== -->
+
+        <div class="especialidad-academica taller-jec-card">
+
+            <div class="especialidad-imagen">
+
+                <img
+                    src="taller%20jec/Taller%20Huerto%20Sustentable%20Profesor%20Ignacio%20Cortes.png"
+                    alt="Taller Huerto Sustentable - Profesor Ignacio Cortés"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="especialidad-contenido">
+
+                <h4>
+                    Taller Huerto Sustentable
+                </h4>
+
+                <p>
+                    <strong>
+                        Profesor:
+                    </strong>
+                    Ignacio Cortés
+                </p>
+
+                <p>
+                    <strong>
+                        Horario:
+                    </strong>
+                    Miércoles y jueves de 13:55 a 15:30 horas
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TALLER ELECTRO MECANICA
+        ================================================== -->
+
+        <div class="especialidad-academica taller-jec-card">
+
+            <div class="especialidad-imagen">
+
+                <img
+                    src="taller%20jec/Taller%20Electro%20Mecanica%20Profesor%20Cristian%20Zuniga.png"
+                    alt="Taller Electro Mecánica - Profesor Cristian Zúñiga"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="especialidad-contenido">
+
+                <h4>
+                    Taller Electro Mecánica
+                </h4>
+
+                <p>
+                    <strong>
+                        Profesor:
+                    </strong>
+                    Cristian Zúñiga
+                </p>
+
+                <p>
+                    <strong>
+                        Horario:
+                    </strong>
+                    Miércoles y jueves de 13:55 a 15:30 horas
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TALLER RECICLAJE CHACANA
+        ================================================== -->
+
+        <div class="especialidad-academica taller-jec-card">
+
+            <div class="especialidad-imagen">
+
+                <img
+                    src="taller%20jec/Taller%20Reciclaje%20Chacana%20Profesor%20Leonardo%20Silva.png"
+                    alt="Taller Reciclaje Chacana - Profesor Leonardo Silva"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="especialidad-contenido">
+
+                <h4>
+                    Taller Reciclaje Chacana
+                </h4>
+
+                <p>
+                    <strong>
+                        Profesor:
+                    </strong>
+                    Leonardo Silva
+                </p>
+
+                <p>
+                    <strong>
+                        Horario:
+                    </strong>
+                    Miércoles y jueves de 13:55 a 15:30 horas
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TALLER ECO ARTE
+        ================================================== -->
+
+        <div class="especialidad-academica taller-jec-card">
+
+            <div class="especialidad-imagen">
+
+                <img
+                    src="taller%20jec/Taller%20Eco%20Arte%20Profesora%20Susana%20Mancilla.png"
+                    alt="Taller Eco Arte - Profesora Susana Mancilla"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="especialidad-contenido">
+
+                <h4>
+                    Taller Eco Arte
+                </h4>
+
+                <p>
+                    <strong>
+                        Profesora:
+                    </strong>
+                    Susana Mancilla
+                </p>
+
+                <p>
+                    <strong>
+                        Horario:
+                    </strong>
+                    Miércoles y jueves de 13:55 a 15:30 horas
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TALLER PERCULAB MÚSICA RECICLADA
+        ================================================== -->
+
+        <div class="especialidad-academica taller-jec-card">
+
+            <div class="especialidad-imagen">
+
+                <img
+                    src="taller%20jec/Taller%20Perculab%20Musica%20Reciclada%20Profesor%20Simon%20Varela.png"
+                    alt="Taller Perculab Música Reciclada - Profesor Simón Varela"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="especialidad-contenido">
+
+                <h4>
+                    Taller Perculab Música Reciclada
+                </h4>
+
+                <p>
+                    <strong>
+                        Profesor:
+                    </strong>
+                    Simón Varela
+                </p>
+
+                <p>
+                    <strong>
+                        Horario:
+                    </strong>
+                    Miércoles y jueves de 13:55 a 15:30 horas
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         HORARIO GENERAL
+    ================================================== -->
+
+    <div
+        class="bloque-documento"
+        style="margin-top: 60px;"
+    >
+
+        <h3>
+            Horario general de los Talleres JEC
+        </h3>
+
+        <p>
+            <strong>
+                Días:
+            </strong>
+            Miércoles y jueves
+        </p>
+
+        <p>
+            <strong>
+                Horario:
+            </strong>
+            13:55 a 15:30 horas
+        </p>
+
+        <p>
+            Los talleres se desarrollan durante la Jornada Escolar
+            Completa (JEC), ofreciendo a nuestros estudiantes distintas
+            alternativas de participación y aprendizaje.
+        </p>
 
     </div>
 
@@ -1836,7 +2335,6 @@
 
     <!-- =================================================
          PARTICIPACIÓN Y TRABAJO COLABORATIVO
-         UBICADO MÁS ABAJO
     ================================================== -->
 
     <div
