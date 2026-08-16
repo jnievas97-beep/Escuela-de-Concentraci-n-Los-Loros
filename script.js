@@ -322,22 +322,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        SISTEMA AUTOMÁTICO DE COMUNICADOS
-       
+
        PREPARADO PARA GITHUB PAGES
-       
+
        CARPETA:
-       
+
        comunicados/
-       
+
        ARCHIVOS:
-       
-       COMUNICADOS 01.pdf
-       COMUNICADOS 02.pdf
-       COMUNICADOS 03.pdf
+
+       COMUNICADO 01.pdf
+       COMUNICADO 02.pdf
+       COMUNICADO 03.pdf
        ...
-       COMUNICADOS 48.pdf
-       ...
-       COMUNICADOS 200.pdf
+       COMUNICADO 48.pdf
+
+       IMPORTANTE:
+
+       Los archivos utilizan "COMUNICADO"
+       en singular.
     ===================================================== */
 
 
@@ -393,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function obtenerNombreComunicado(numero) {
 
         return (
-            "COMUNICADOS " +
+            "COMUNICADO " +
             String(numero).padStart(2, "0") +
             ".pdf"
         );
@@ -403,8 +406,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        GENERAR RUTA DEL ARCHIVO
-       
+
        IMPORTANTE:
+
        encodeURIComponent mantiene correctamente
        el espacio del nombre del archivo.
     ===================================================== */
@@ -425,9 +429,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        COMPROBAR SI EXISTE UN COMUNICADO
-       
+
        EN GITHUB PAGES:
-       
+
        Se utiliza HEAD para comprobar solamente
        si el archivo existe sin descargar el PDF.
     ===================================================== */
@@ -579,11 +583,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /* =================================================
            ORDENAR
-           
+
            MAYOR → MENOR
-           
+
            Por ejemplo:
-           
+
            48
            47
            46
