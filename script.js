@@ -1240,7 +1240,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
     const MAX_COMUNICADOS =
-        48;
+        49;
 
 
     const CARPETA_COMUNICADOS =
