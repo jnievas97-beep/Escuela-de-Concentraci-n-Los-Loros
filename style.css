@@ -5400,3 +5400,112 @@ textarea:focus-visible {
 
 }
 
+/* =========================================================
+   MEJORAS DE NAVEGACIÓN - ESCRITORIO
+========================================================= */
+
+@media (min-width: 1000px) {
+
+    .menu-contenido {
+        width: min(1400px, 98%);
+        gap: 2px;
+        flex-wrap: nowrap;
+    }
+
+    .boton-menu {
+        padding: 13px 10px;
+        font-size: 0.84rem;
+        white-space: nowrap;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .boton-menu:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .boton-menu.activo {
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--dorado-claro);
+    }
+
+    .navegacion-interna {
+        width: min(1000px, 100%);
+        margin-bottom: 38px;
+    }
+
+    .navegacion-interna .boton-navegacion-interna {
+        display: none;
+    }
+
+    .navegacion-interna .opciones-navegacion-interna,
+    .navegacion-interna.abierta .opciones-navegacion-interna {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        max-height: none;
+        overflow: visible;
+        margin-top: 0;
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.82);
+    }
+
+    .navegacion-interna .opciones-navegacion-interna button {
+        width: auto;
+        flex: 0 1 auto;
+        border: 1px solid rgba(7, 90, 150, 0.15);
+        border-radius: 22px;
+        padding: 9px 15px;
+        text-align: center;
+        background: #ffffff;
+    }
+
+    .navegacion-interna .opciones-navegacion-interna button:hover {
+        background: var(--azul-oscuro);
+        color: var(--blanco);
+    }
+
+}
+
+
+/* =========================================================
+   ESTADO DE CARGA - COMUNICADOS
+========================================================= */
+
+.estado-carga-comunicados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 120px;
+    text-align: center;
+}
+
+.indicador-carga-comunicados {
+    width: 38px;
+    height: 38px;
+    border: 4px solid var(--gris);
+    border-top-color: var(--azul);
+    border-radius: 50%;
+    animation: girarCargaComunicados 0.8s linear infinite;
+}
+
+@keyframes girarCargaComunicados {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina,
+    .indicador-carga-comunicados {
+        animation: none !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
