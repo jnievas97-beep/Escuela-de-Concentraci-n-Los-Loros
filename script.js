@@ -82,7 +82,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             botonSeleccionado.classList.add("activo");
 
+            botonSeleccionado.setAttribute(
+                "aria-current",
+                "page"
+            );
+
         }
+
+
+        botonesMenu.forEach(function (boton) {
+
+            if (boton !== botonSeleccionado) {
+
+                boton.removeAttribute(
+                    "aria-current"
+                );
+
+            }
+
+        });
 
 
         window.scrollTo({
@@ -322,10 +340,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =====================================================
-       VOLVER A INICIO DESDE MIGA DE PAN
-    ===================================================== */
-
     if (volverInicioDesdeMiga) {
 
         volverInicioDesdeMiga.addEventListener(
@@ -349,10 +363,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =====================================================
-       BOTONES ATRÁS / ADELANTE DEL NAVEGADOR
-    ===================================================== */
 
     window.addEventListener(
         "popstate",
@@ -388,15 +398,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             } else {
 
-                /*
-                 * Si llega un hash que no corresponde
-                 * a una página del menú, por ejemplo:
-                 *
-                 * #contenidoPrincipal
-                 *
-                 * volvemos de forma segura a Inicio.
-                 */
-
                 mostrarPagina(
                     "inicio"
                 );
@@ -427,6 +428,46 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(
             ".navegacion-interna"
         );
+
+
+    /* =====================================================
+       ACCESIBILIDAD - TECLA ESCAPE
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (evento) {
+
+            if (evento.key !== "Escape") {
+                return;
+            }
+
+            cerrarMenuMovil();
+
+            navegacionesInternas.forEach(
+                function (navegacion) {
+
+                    navegacion.classList.remove(
+                        "abierta"
+                    );
+
+                    const boton =
+                        navegacion.querySelector(
+                            ".boton-navegacion-interna"
+                        );
+
+                    if (boton) {
+                        boton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+                    }
+
+                }
+            );
+
+        }
+    );
 
 
     navegacionesInternas.forEach(
@@ -500,12 +541,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     );
-
-
-    /* =====================================================
-       DESTINOS DE NAVEGACIÓN INTERNA
-    ===================================================== */
-
     const botonesDestinoInterno =
         document.querySelectorAll(
             ".opciones-navegacion-interna [data-destino]"
@@ -844,6 +879,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
     configurarBuscadorListado({
 
         inputId:
@@ -971,13 +1007,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     } else {
 
-        /*
-         * Aquí también protegemos hashes que no
-         * corresponden a páginas, por ejemplo:
-         *
-         * #contenidoPrincipal
-         */
-
         mostrarPagina(
             "inicio"
         );
@@ -1086,13 +1115,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     enlacesPendientes.forEach(
         function (enlace) {
-
-            /*
-             * El botón del último comunicado
-             * utiliza href="#" inicialmente.
-             *
-             * No debemos bloquearlo.
-             */
 
             if (
                 enlace.id ===
@@ -1215,20 +1237,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        SISTEMA AUTOMÁTICO DE COMUNICADOS
-
-       CARPETA:
-       comunicados/
-
-       NOMBRES ESPERADOS:
-
-       COMUNICADO 01.pdf
-       COMUNICADO 02.pdf
-       COMUNICADO 03.pdf
-       ...
-       COMUNICADO 48.pdf
-
-       IMPORTANTE:
-       "COMUNICADO" VA EN SINGULAR.
     ===================================================== */
 
     const MAX_COMUNICADOS =
@@ -1316,13 +1324,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       GENERAR NOMBRE DEL COMUNICADO
-
-       CORRECCIÓN:
-       antes estaba "COMUNICADOS".
-       ahora queda "COMUNICADO".
+       ESTADO VISUAL DE CARGA DE COMUNICADOS
     ===================================================== */
 
+    function mostrarEstadoCargaComunicados() {
+
+        if (mensajeComunicados) {
+
+            mensajeComunicados.innerHTML = `
+                <div class="estado-carga-comunicados">
+                    <span
+                        class="spinner-comunicados"
+                        aria-hidden="true"
+                    ></span>
+
+                    <p>
+                        Buscando comunicados disponibles...
+                    </p>
+                </div>
+            `;
+
+        }
+
+
+        if (textoUltimoComunicado) {
+
+            textoUltimoComunicado.textContent =
+                "Buscando el último comunicado disponible...";
+
+        }
+
+    }
+
+
+    mostrarEstadoCargaComunicados();
     function obtenerNombreComunicado(
         numero
     ) {
@@ -1414,10 +1449,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } catch (error) {
 
-            /*
-             * Es normal que algunos números
-             * no tengan un archivo publicado.
-             */
+            console.warn(
+                "No se pudo comprobar:",
+                nombreArchivo
+            );
 
         }
 
@@ -1444,6 +1479,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        mostrarEstadoCargaComunicados();
+
+
         console.log(
             "================================="
         );
@@ -1467,83 +1505,161 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        const promesas =
-            [];
+        try {
+
+            const promesas =
+                [];
 
 
-        for (
-            let numero = 1;
-            numero <= MAX_COMUNICADOS;
-            numero++
-        ) {
+            for (
+                let numero = 1;
+                numero <= MAX_COMUNICADOS;
+                numero++
+            ) {
 
-            promesas.push(
-                comprobarComunicado(
-                    numero
-                )
-            );
+                promesas.push(
+                    comprobarComunicado(
+                        numero
+                    )
+                );
 
-        }
-
-
-        const respuestas =
-            await Promise.all(
-                promesas
-            );
+            }
 
 
-        const resultados =
-            respuestas.filter(
-                function (resultado) {
+            const respuestas =
+                await Promise.all(
+                    promesas
+                );
 
-                    return Boolean(
-                        resultado
+
+            const resultados =
+                respuestas.filter(
+                    function (resultado) {
+
+                        return Boolean(
+                            resultado
+                        );
+
+                    }
+                );
+
+
+            resultados.sort(
+                function (a, b) {
+
+                    return (
+                        b.numero -
+                        a.numero
                     );
 
                 }
             );
 
 
-        resultados.sort(
-            function (a, b) {
+            console.log(
+                "COMUNICADOS ENCONTRADOS:",
+                resultados.length
+            );
 
-                return (
-                    b.numero -
-                    a.numero
-                );
+
+            if (
+                resultados.length === 0
+            ) {
+
+                mostrarSinComunicados();
+
+                return;
 
             }
-        );
 
 
-        console.log(
-            "COMUNICADOS ENCONTRADOS:",
-            resultados.length
-        );
+            const ultimo =
+                resultados[0];
 
 
-        if (
-            resultados.length === 0
-        ) {
+            mostrarUltimoComunicado(
+                ultimo
+            );
 
-            mostrarSinComunicados();
 
-            return;
+            mostrarComunicadosAnteriores(
+                resultados
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Error al cargar comunicados:",
+                error
+            );
+
+
+            mostrarErrorComunicados();
 
         }
 
-        const ultimo =
-            resultados[0];
+    }
 
 
-        mostrarUltimoComunicado(
-            ultimo
-        );
+    /* =====================================================
+       MOSTRAR ERROR DE CARGA
+    ===================================================== */
+
+    function mostrarErrorComunicados() {
+
+        if (contadorComunicados) {
+
+            contadorComunicados.textContent =
+                "0";
+
+        }
 
 
-        mostrarComunicadosAnteriores(
-            resultados
-        );
+        if (textoUltimoComunicado) {
+
+            textoUltimoComunicado.textContent =
+                "No fue posible comprobar los comunicados en este momento.";
+
+        }
+
+
+        if (botonUltimoComunicado) {
+
+            botonUltimoComunicado.style.display =
+                "none";
+
+        }
+
+
+        if (botonVerMasComunicados) {
+
+            botonVerMasComunicados.style.display =
+                "none";
+
+        }
+
+
+        if (mensajeComunicados) {
+
+            mensajeComunicados.innerHTML = `
+                <div class="estado-error-comunicados">
+
+                    <span
+                        class="estado-error-icono"
+                        aria-hidden="true"
+                    >
+                        ⚠️
+                    </span>
+
+                    <p>
+                        No fue posible cargar los comunicados.
+                        Intenta nuevamente más tarde.
+                    </p>
+
+                </div>
+            `;
+
+        }
 
     }
 
@@ -2081,6 +2197,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(
         "Navegación por historial iniciada correctamente."
+    );
+
+
+    console.log(
+        "Accesibilidad con tecla Escape iniciada."
     );
 
 
