@@ -120,6 +120,176 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       NAVEGACIÓN INTERNA DESPLEGABLE
+       INICIO / QUIÉNES SOMOS / ACADÉMICA
+    ===================================================== */
+
+    const navegacionesInternas =
+        document.querySelectorAll(".navegacion-interna");
+
+
+    navegacionesInternas.forEach(function (navegacion) {
+
+        const boton =
+            navegacion.querySelector(
+                ".boton-navegacion-interna"
+            );
+
+        const opciones =
+            navegacion.querySelector(
+                ".opciones-navegacion-interna"
+            );
+
+
+        if (!boton || !opciones) {
+
+            return;
+
+        }
+
+
+        boton.addEventListener("click", function () {
+
+            const estaAbierto =
+                navegacion.classList.contains("abierta");
+
+
+            navegacionesInternas.forEach(function (otraNavegacion) {
+
+                otraNavegacion.classList.remove("abierta");
+
+                const otroBoton =
+                    otraNavegacion.querySelector(
+                        ".boton-navegacion-interna"
+                    );
+
+                if (otroBoton) {
+
+                    otroBoton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            });
+
+
+            if (!estaAbierto) {
+
+                navegacion.classList.add("abierta");
+
+                boton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
+
+        });
+
+    });
+
+
+    const botonesDestinoInterno =
+        document.querySelectorAll(
+            ".opciones-navegacion-interna [data-destino]"
+        );
+
+
+    botonesDestinoInterno.forEach(function (botonDestino) {
+
+        botonDestino.addEventListener("click", function () {
+
+            const idDestino =
+                botonDestino.getAttribute("data-destino");
+
+            const destino =
+                document.getElementById(idDestino);
+
+
+            if (!destino) {
+
+                console.warn(
+                    "No se encontró el destino interno:",
+                    idDestino
+                );
+
+                return;
+
+            }
+
+
+            const navegacion =
+                botonDestino.closest(
+                    ".navegacion-interna"
+                );
+
+
+            if (navegacion) {
+
+                navegacion.classList.remove("abierta");
+
+                const botonPrincipal =
+                    navegacion.querySelector(
+                        ".boton-navegacion-interna"
+                    );
+
+                if (botonPrincipal) {
+
+                    botonPrincipal.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+
+
+            destino.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        });
+
+    });
+
+
+    document.addEventListener("click", function (evento) {
+
+        navegacionesInternas.forEach(function (navegacion) {
+
+            if (!navegacion.contains(evento.target)) {
+
+                navegacion.classList.remove("abierta");
+
+                const boton =
+                    navegacion.querySelector(
+                        ".boton-navegacion-interna"
+                    );
+
+                if (boton) {
+
+                    boton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
        PÁGINA INICIAL
     ===================================================== */
 
@@ -425,7 +595,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     }
-
 
     /* =====================================================
        COMPROBAR SI EXISTE UN COMUNICADO
