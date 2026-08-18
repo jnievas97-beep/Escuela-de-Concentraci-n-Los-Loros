@@ -189,6 +189,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
     <img
         src="imagenes/logoespecialidad1.png"
         alt="Especialidad Técnico en Agropecuaria"
+        decoding="async"
     >
 
 </div>
@@ -212,6 +213,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
     <img
         src="imagenes/logoespecialidad2.png"
         alt="Especialidad Técnico en Mecánica Industrial"
+        decoding="async"
     >
 
 
@@ -459,6 +461,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
     <img
         src="imagenes/logo.png"
         alt="Logo oficial de la Escuela de Concentración Los Loros"
+        decoding="async"
     >
 
 </div>
@@ -505,6 +508,10 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             📰 Últimas Noticias
         </button>
 
+        <button type="button" data-destino="inicioUltimoComunicado">
+            📢 Último Comunicado
+        </button>
+
         <button type="button" data-destino="inicioCuentaPublica">
             📋 Cuenta Pública
         </button>
@@ -530,7 +537,10 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
         <span class="tarjeta-especialidad-interior">
             <span class="tarjeta-especialidad-frente">
                 <img src="imagenes/logoespecialidad1.png"
-                    alt="Logo de Técnico en Agropecuaria con mención Agrícola">
+                    alt="Logo de Técnico en Agropecuaria con mención Agrícola"
+        loading="lazy"
+        decoding="async"
+    >
                 <span class="nombre-especialidad">
                     Técnico en Agropecuaria con mención Agrícola
                 </span>
@@ -554,7 +564,10 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
         <span class="tarjeta-especialidad-interior">
             <span class="tarjeta-especialidad-frente">
                 <img src="imagenes/logoespecialidad2.png"
-                    alt="Logo de Técnico en Mecánica Industrial">
+                    alt="Logo de Técnico en Mecánica Industrial"
+        loading="lazy"
+        decoding="async"
+    >
                 <span class="nombre-especialidad">
                     Técnico en Mecánica Industrial
                 </span>
@@ -571,9 +584,6 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             </span>
         </span>
     </button>
-
-</div>
-
 
 </div>
 
@@ -643,6 +653,70 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
 </section>
 
+
+<!-- =================================================
+     ÚLTIMO COMUNICADO - INICIO
+================================================== -->
+
+<section
+    id="inicioUltimoComunicado"
+    class="seccion-ultimo-comunicado-inicio"
+    aria-labelledby="tituloUltimoComunicadoInicio"
+>
+
+    <div class="ultimo-comunicado-inicio-contenido">
+
+        <div class="ultimo-comunicado-inicio-icono" aria-hidden="true">
+            📢
+        </div>
+
+        <div class="ultimo-comunicado-inicio-texto">
+
+            <div class="ultimo-comunicado-inicio-superior">
+
+                <span class="etiqueta-ultimo-comunicado-inicio">
+                    ÚLTIMO COMUNICADO
+                </span>
+
+                <span
+                    id="nuevoUltimoComunicadoInicio"
+                    class="etiqueta-nuevo"
+                    hidden
+                >
+                    NUEVO
+                </span>
+
+            </div>
+
+            <h2 id="tituloUltimoComunicadoInicio">
+                Cargando último comunicado...
+            </h2>
+
+            <p
+                id="fechaUltimoComunicadoInicio"
+                class="fecha-publicacion"
+            ></p>
+
+            <p id="textoUltimoComunicadoInicio">
+                Buscando el comunicado más reciente del establecimiento.
+            </p>
+
+        </div>
+
+        <a
+            id="botonUltimoComunicadoInicio"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+            style="display: none;"
+        >
+            📄 Ver comunicado
+        </a>
+
+    </div>
+
+</section>
 
 <!-- =================================================
      CUENTA PÚBLICA
@@ -917,9 +991,26 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             ÚLTIMO COMUNICADO
         </span>
 
-        <h2 id="tituloUltimoComunicado">
-            Información importante
-        </h2>
+        <div class="ultimo-comunicado-titulo-linea">
+
+            <h2 id="tituloUltimoComunicado">
+                Información importante
+            </h2>
+
+            <span
+                id="nuevoUltimoComunicado"
+                class="etiqueta-nuevo"
+                hidden
+            >
+                NUEVO
+            </span>
+
+        </div>
+
+        <p
+            id="fechaUltimoComunicado"
+            class="fecha-publicacion"
+        ></p>
 
         <p id="textoUltimoComunicado" aria-live="polite">
             Cargando el último comunicado disponible...
@@ -1292,7 +1383,9 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             <img
                 src="imagenes/logoespecialidad1.png"
                 alt="Técnico en Agropecuaria con mención Agrícola"
-            >
+        loading="lazy"
+        decoding="async"
+    >
 
         </div>
 
@@ -1318,7 +1411,9 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             <img
                 src="imagenes/logoespecialidad2.png"
                 alt="Técnico en Mecánica Industrial"
-            >
+        loading="lazy"
+        decoding="async"
+    >
 
         </div>
 
@@ -1684,7 +1779,8 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
                 src="taller%20jec/Taller%20Pre%20Deportivo%20Profesor%20Cristian%20Cabrera.png"
                 alt="Taller Pre Deportivo - Profesor Cristian Cabrera"
                 loading="lazy"
-            >
+        decoding="async"
+    >
 
         </div>
 
@@ -1725,7 +1821,8 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
                 src="taller%20jec/Taller%20Huerto%20Sustentable%20Profesor%20Ignacio%20Cortes.png"
                 alt="Taller Huerto Sustentable - Profesor Ignacio Cortés"
                 loading="lazy"
-            >
+        decoding="async"
+    >
 
         </div>
 
@@ -1766,7 +1863,8 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
                 src="taller%20jec/Taller%20Electro%20Mecanica%20Profesor%20Cristian%20Zuniga.png"
                 alt="Taller Electro Mecánica - Profesor Cristian Zúñiga"
                 loading="lazy"
-            >
+        decoding="async"
+    >
 
         </div>
 
@@ -1807,7 +1905,8 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
                 src="taller%20jec/Taller%20Reciclaje%20Chacana%20Profesor%20Leonardo%20Silva.png"
                 alt="Taller Reciclaje Chacana - Profesor Leonardo Silva"
                 loading="lazy"
-            >
+        decoding="async"
+    >
 
         </div>
 
@@ -1848,7 +1947,8 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
                 src="taller%20jec/Taller%20Eco%20Arte%20Profesora%20Susana%20Mancilla.png"
                 alt="Taller Eco Arte - Profesora Susana Mancilla"
                 loading="lazy"
-            >
+        decoding="async"
+    >
 
         </div>
 
@@ -1889,7 +1989,8 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
                 src="taller%20jec/Taller%20Perculab%20Musica%20Reciclada%20Profesor%20Simon%20Varela.png"
                 alt="Taller Perculab Música Reciclada - Profesor Simón Varela"
                 loading="lazy"
-            >
+        decoding="async"
+    >
 
         </div>
 
@@ -2322,6 +2423,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             "
         
         loading="lazy"
+        decoding="async"
     >
 
     </div>
@@ -2456,16 +2558,45 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
     <div class="directivo">
 
-        <div class="foto-directivo">
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Karina Briceño, Directora (S)"
+        >
 
-            <img
-                src="imagenes/directora.png"
-                alt="Karina Briceño, Directora (S)"
-            
-        loading="lazy"
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/directora.png"
+                        alt="Karina Briceño, Directora (S)"
+                        loading="lazy"
+        decoding="async"
     >
 
-        </div>
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Lidera la gestión institucional y pedagógica del establecimiento, coordinando los equipos y promoviendo el cumplimiento de los objetivos educativos.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
 
         <div class="directivo-info">
 
@@ -2484,16 +2615,45 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
     <div class="directivo">
 
-        <div class="foto-directivo">
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Muriel Henríquez, Jefa de UTP"
+        >
 
-            <img
-                src="imagenes/jefautp.png"
-                alt="Muriel Henríquez, Jefa de UTP"
-            
-        loading="lazy"
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/jefautp.png"
+                        alt="Muriel Henríquez, Jefa de UTP"
+                        loading="lazy"
+        decoding="async"
     >
 
-        </div>
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Coordina y acompaña los procesos técnico-pedagógicos, apoyando la planificación, la evaluación y la mejora de los aprendizajes.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
 
         <div class="directivo-info">
 
@@ -2512,16 +2672,45 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
     <div class="directivo">
 
-        <div class="foto-directivo">
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Tennyson Catrín, Inspector General"
+        >
 
-            <img
-                src="imagenes/inspectorgeneral.png"
-                alt="Tennyson Catrín, Inspector General"
-            
-        loading="lazy"
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/inspectorgeneral.png"
+                        alt="Tennyson Catrín, Inspector General"
+                        loading="lazy"
+        decoding="async"
     >
 
-        </div>
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Coordina aspectos de organización, disciplina y funcionamiento diario, favoreciendo un ambiente seguro y ordenado para la comunidad educativa.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
 
         <div class="directivo-info">
 
@@ -2540,16 +2729,45 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
     <div class="directivo">
 
-        <div class="foto-directivo">
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Tania Pizarro, Encargada de Convivencia Educativa"
+        >
 
-            <img
-                src="imagenes/encargadaconvivencia.png"
-                alt="Tania Pizarro, Encargada de Convivencia Educativa"
-            
-        loading="lazy"
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/encargadaconvivencia.png"
+                        alt="Tania Pizarro, Encargada de Convivencia Educativa"
+                        loading="lazy"
+        decoding="async"
     >
 
-        </div>
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Promueve la buena convivencia educativa, el respeto y el bienestar, coordinando acciones preventivas y de apoyo para la comunidad escolar.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
 
         <div class="directivo-info">
 
@@ -3861,11 +4079,14 @@ title="Volver arriba"
         alt="Logo del sostenedor"
     
         loading="lazy"
+        decoding="async"
     >
 
     <img
         src="imagenes/logo.png"
         alt="Logo Escuela de Concentración Los Loros"
+        loading="lazy"
+        decoding="async"
     >
 
 </div>
@@ -3896,15 +4117,63 @@ title="Volver arriba"
 
 
 
-<p>
-    Escuela de Concentración Los Loros
-</p>
+<div class="pie-informacion">
 
-<p>
+    <div class="pie-datos">
+
+        <p>
+            <strong>Escuela de Concentración Los Loros</strong>
+        </p>
+
+        <p>
+            📍 Calle Ferrocarril 175A, Los Loros
+        </p>
+
+        <p>
+            ☎️
+            <a href="tel:+56522555354">
+                +56 52 255 5354
+            </a>
+        </p>
+
+    </div>
+
+
+    <div class="pie-enlaces-contacto">
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=Calle+Ferrocarril+175A+Los+Loros+Chile"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            📍 Ver ubicación
+        </a>
+
+        <a
+            href="https://www.facebook.com/share/1FkWEwZVDx/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Facebook
+        </a>
+
+        <a
+            href="https://www.instagram.com/esc_losloros?igsh=MnMzYXdoZDVndzRu&igsi=MnMzYXdoZDVndzRu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Instagram
+        </a>
+
+    </div>
+
+</div>
+
+<p class="pie-lema">
     Educación, inclusión y compromiso con el territorio.
 </p>
 
-<p>
+<p class="pie-copyright">
     © 2026 Escuela de Concentración Los Loros
 </p>
 
