@@ -1475,7 +1475,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (
                 enlace.id ===
-                "botonUltimoComunicado"
+                    "botonUltimoComunicado" ||
+                enlace.id ===
+                    "botonUltimoComunicadoInicio"
             ) {
 
                 return;
