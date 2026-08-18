@@ -663,6 +663,76 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+
+
+    /* =====================================================
+       DESTINOS INTERNOS DE INICIO - RESALTADO SUAVE
+    ===================================================== */
+
+    const destinosInicio =
+        document.querySelectorAll(
+            "#inicioEspecialidades, #inicioNoticias, #inicioCuentaPublica, #inicioMatricula"
+        );
+
+
+    destinosInicio.forEach(
+        function (destinoInicio) {
+
+            destinoInicio.addEventListener(
+                "animationend",
+                function () {
+
+                    destinoInicio.classList.remove(
+                        "destino-inicio-activo"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    document.querySelectorAll(
+        '.navegacion-inicio [data-destino]'
+    ).forEach(
+        function (botonInicio) {
+
+            botonInicio.addEventListener(
+                "click",
+                function () {
+
+                    const destino =
+                        document.getElementById(
+                            botonInicio.getAttribute(
+                                "data-destino"
+                            )
+                        );
+
+
+                    if (destino) {
+
+                        destino.classList.remove(
+                            "destino-inicio-activo"
+                        );
+
+
+                        void destino.offsetWidth;
+
+
+                        destino.classList.add(
+                            "destino-inicio-activo"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
     /* =====================================================
        BUSCADORES DE DOCUMENTOS Y PROTOCOLOS
     ===================================================== */
@@ -1707,154 +1777,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       RESPALDO DE COMUNICADOS
-
-       Si comunicados.json todavía no existe o GitHub Actions
-       no alcanzó a generarlo/publicarlo, el sitio buscará
-       temporalmente los PDF directamente en la carpeta.
-
-       Esto evita que Comunicados quede en 0 mientras se
-       corrige o termina de ejecutar GitHub Actions.
-    ===================================================== */
-
-    const MAX_COMUNICADOS_RESPALDO =
-        200;
-
-
-    function obtenerNombreComunicadoRespaldo(
-        numero
-    ) {
-
-        return (
-            "COMUNICADO " +
-            String(numero).padStart(
-                2,
-                "0"
-            ) +
-            ".pdf"
-        );
-
-    }
-
-
-    async function comprobarComunicadoRespaldo(
-        numero
-    ) {
-
-        const nombre =
-            obtenerNombreComunicadoRespaldo(
-                numero
-            );
-
-
-        const ruta =
-            "comunicados/" +
-            encodeURIComponent(
-                nombre
-            );
-
-
-        try {
-
-            const respuesta =
-                await fetch(
-                    ruta,
-                    {
-                        method: "HEAD",
-                        cache: "no-store"
-                    }
-                );
-
-
-            if (respuesta.ok) {
-
-                return {
-                    numero:
-                        numero,
-                    nombre:
-                        nombre,
-                    ruta:
-                        ruta
-                };
-
-            }
-
-        } catch (error) {
-
-            /*
-             * Un número inexistente es normal.
-             * No mostramos un error por cada archivo faltante.
-             */
-
-        }
-
-
-        return null;
-
-    }
-
-
-    async function cargarComunicadosRespaldo() {
-
-        console.warn(
-            "Usando sistema de respaldo para Comunicados."
-        );
-
-
-        const promesas =
-            [];
-
-
-        for (
-            let numero = 1;
-            numero <= MAX_COMUNICADOS_RESPALDO;
-            numero++
-        ) {
-
-            promesas.push(
-                comprobarComunicadoRespaldo(
-                    numero
-                )
-            );
-
-        }
-
-
-        const respuestas =
-            await Promise.all(
-                promesas
-            );
-
-
-        const resultados =
-            respuestas
-                .filter(
-                    function (resultado) {
-
-                        return Boolean(
-                            resultado
-                        );
-
-                    }
-                )
-                .sort(
-                    function (a, b) {
-
-                        return (
-                            b.numero -
-                            a.numero
-                        );
-
-                    }
-                );
-
-
-        return resultados;
-
-    }
-
-
-    /* =====================================================
        CARGAR COMUNICADOS DESDE comunicados.json
     ===================================================== */
 
@@ -1892,11 +1814,13 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        let resultados =
-            [];
-
-
         try {
+
+            /*
+             * Se agrega una marca de tiempo solamente a la
+             * solicitud para impedir que el navegador muestre
+             * una lista antigua después de publicar un PDF.
+             */
 
             const separador =
                 ARCHIVO_LISTA_COMUNICADOS.includes("?")
@@ -1924,7 +1848,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!respuesta.ok) {
 
                 throw new Error(
-                    "comunicados.json no disponible. Estado HTTP: " +
+                    "No se pudo cargar comunicados.json. Estado HTTP: " +
                     respuesta.status
                 );
 
@@ -1935,92 +1859,83 @@ document.addEventListener("DOMContentLoaded", function () {
                 await respuesta.json();
 
 
-            resultados =
+            const resultados =
                 normalizarListaComunicados(
                     datos
                 );
 
 
-            /*
-             * Si el JSON existe pero por alguna razón quedó vacío,
-             * intentamos igualmente el sistema de respaldo.
-             */
+            console.log(
+                "COMUNICADOS ENCONTRADOS:",
+                resultados.length
+            );
+
 
             if (
                 resultados.length === 0
             ) {
 
-                console.warn(
-                    "comunicados.json está vacío. Probando respaldo."
+                if (listaComunicados) {
+
+                    listaComunicados.setAttribute(
+                        "aria-busy",
+                        "false"
+                    );
+
+                }
+
+
+                mostrarSinComunicados();
+
+                return;
+
+            }
+
+
+            const ultimo =
+                resultados[0];
+
+
+            mostrarUltimoComunicado(
+                ultimo
+            );
+
+
+            mostrarComunicadosAnteriores(
+                resultados
+            );
+
+
+            if (listaComunicados) {
+
+                listaComunicados.setAttribute(
+                    "aria-busy",
+                    "false"
                 );
-
-
-                resultados =
-                    await cargarComunicadosRespaldo();
 
             }
 
         } catch (error) {
 
-            console.warn(
-                "No fue posible usar comunicados.json:",
+            console.error(
+                "Error al cargar comunicados:",
                 error
             );
 
 
-            /*
-             * RESPALDO:
-             * conserva funcionando los comunicados aunque
-             * GitHub Actions no haya generado todavía el JSON.
-             */
+            if (listaComunicados) {
 
-            resultados =
-                await cargarComunicadosRespaldo();
+                listaComunicados.setAttribute(
+                    "aria-busy",
+                    "false"
+                );
 
-        }
+            }
 
 
-        console.log(
-            "COMUNICADOS ENCONTRADOS:",
-            resultados.length
-        );
-
-
-        if (
-            resultados.length === 0
-        ) {
-
-            listaComunicados.setAttribute(
-                "aria-busy",
-                "false"
-            );
-
-
-            mostrarSinComunicados();
-
-            return;
+            mostrarErrorComunicados();
 
         }
-
-
-        const ultimo =
-            resultados[0];
-
-
-        mostrarUltimoComunicado(
-            ultimo
-        );
-
-
-        mostrarComunicadosAnteriores(
-            resultados
-        );
-
-
-        listaComunicados.setAttribute(
-            "aria-busy",
-            "false"
-        );
 
     }
 
