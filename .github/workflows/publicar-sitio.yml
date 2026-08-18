@@ -28,31 +28,46 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Generar lista automática de comunicados
+      - name: Instalar soporte para vistas previas PDF
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Generar listas automáticas de comunicados y noticias
         shell: bash
         run: |
           python3 - <<'PY'
           import json
           import re
+          import shutil
+          import subprocess
           from pathlib import Path
           from urllib.parse import quote
 
-          carpeta = Path("comunicados")
-          carpeta.mkdir(parents=True, exist_ok=True)
+          # ===============================================
+          # COMUNICADOS
+          # ===============================================
 
-          patron = re.compile(
+          carpeta_comunicados = Path("comunicados")
+          carpeta_comunicados.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          patron_comunicado = re.compile(
               r"^COMUNICADO\s+(\d+)\.pdf$",
               re.IGNORECASE
           )
 
           comunicados = []
 
-          for archivo in carpeta.iterdir():
+          for archivo in carpeta_comunicados.iterdir():
 
               if not archivo.is_file():
                   continue
 
-              coincidencia = patron.fullmatch(
+              coincidencia = patron_comunicado.fullmatch(
                   archivo.name
               )
 
@@ -63,33 +78,179 @@ jobs:
                   coincidencia.group(1)
               )
 
-              comunicados.append(
-                  {
-                      "numero": numero,
-                      "nombre": archivo.name,
-                      "ruta": (
-                          "comunicados/" +
-                          quote(
-                              archivo.name,
-                              safe=""
-                          )
+              comunicados.append({
+                  "numero": numero,
+                  "nombre": archivo.name,
+                  "ruta": (
+                      "comunicados/" +
+                      quote(
+                          archivo.name,
+                          safe=""
                       )
-                  }
-              )
+                  )
+              })
 
           comunicados.sort(
               key=lambda item: item["numero"],
               reverse=True
           )
 
-          salida = (
-              carpeta /
+          salida_comunicados = (
+              carpeta_comunicados /
               "comunicados.json"
           )
 
-          salida.write_text(
+          salida_comunicados.write_text(
               json.dumps(
                   comunicados,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
+          # ===============================================
+          # NOTICIAS
+          #
+          # Formatos:
+          # noticias01.jpg
+          # noticias02.jpeg
+          # noticias03.png
+          # noticias04.pdf
+          # ===============================================
+
+          carpeta_noticias = Path("noticias")
+          carpeta_noticias.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          carpeta_previews = (
+              carpeta_noticias /
+              "previews"
+          )
+
+          if carpeta_previews.exists():
+              shutil.rmtree(
+                  carpeta_previews
+              )
+
+          carpeta_previews.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          patron_noticia = re.compile(
+              r"^noticias(\d+)\.(pdf|png|jpe?g)$",
+              re.IGNORECASE
+          )
+
+          noticias = []
+
+          for archivo in carpeta_noticias.iterdir():
+
+              if not archivo.is_file():
+                  continue
+
+              coincidencia = patron_noticia.fullmatch(
+                  archivo.name
+              )
+
+              if not coincidencia:
+                  continue
+
+              numero = int(
+                  coincidencia.group(1)
+              )
+
+              extension = (
+                  coincidencia.group(2)
+                  .lower()
+              )
+
+              ruta_original = (
+                  "noticias/" +
+                  quote(
+                      archivo.name,
+                      safe=""
+                  )
+              )
+
+              if extension == "pdf":
+
+                  destino_pdf = (
+                      carpeta_previews /
+                      f"noticias{numero:02d}"
+                  )
+
+                  destino_pdf.mkdir(
+                      parents=True,
+                      exist_ok=True
+                  )
+
+                  prefijo = (
+                      destino_pdf /
+                      "pagina"
+                  )
+
+                  subprocess.run(
+                      [
+                          "pdftoppm",
+                          "-png",
+                          "-r",
+                          "140",
+                          str(archivo),
+                          str(prefijo)
+                      ],
+                      check=True
+                  )
+
+                  paginas_locales = sorted(
+                      destino_pdf.glob(
+                          "pagina-*.png"
+                      )
+                  )
+
+                  paginas = [
+                      (
+                          "noticias/previews/" +
+                          f"noticias{numero:02d}/" +
+                          pagina.name
+                      )
+                      for pagina in paginas_locales
+                  ]
+
+                  noticias.append({
+                      "numero": numero,
+                      "nombre": archivo.name,
+                      "tipo": "pdf",
+                      "ruta": ruta_original,
+                      "paginas": paginas
+                  })
+
+              else:
+
+                  noticias.append({
+                      "numero": numero,
+                      "nombre": archivo.name,
+                      "tipo": "imagen",
+                      "ruta": ruta_original,
+                      "paginas": []
+                  })
+
+          noticias.sort(
+              key=lambda item: item["numero"],
+              reverse=True
+          )
+
+          salida_noticias = (
+              carpeta_noticias /
+              "noticias.json"
+          )
+
+          salida_noticias.write_text(
+              json.dumps(
+                  noticias,
                   ensure_ascii=False,
                   indent=2
               ) + "\n",
@@ -101,28 +262,33 @@ jobs:
               len(comunicados)
           )
 
-          if comunicados:
+          print(
+              "Noticias encontradas:",
+              len(noticias)
+          )
+
+          if noticias:
               print(
-                  "Último comunicado:",
-                  comunicados[0]["nombre"]
+                  "Última noticia:",
+                  noticias[0]["nombre"]
               )
           else:
               print(
-                  "No se encontraron archivos con el formato "
-                  "'COMUNICADO XX.pdf'."
+                  "Aún no hay noticias disponibles."
               )
-
-          print(
-              "Archivo generado:",
-              salida
-          )
           PY
 
-      - name: Mostrar lista generada
+      - name: Mostrar archivos generados
         shell: bash
         run: |
-          echo "Contenido de comunicados/comunicados.json:"
+          echo "===== COMUNICADOS ====="
           cat comunicados/comunicados.json
+          echo
+          echo "===== NOTICIAS ====="
+          cat noticias/noticias.json
+          echo
+          echo "===== VISTAS PREVIAS DE PDF ====="
+          find noticias/previews -type f -maxdepth 3 -print || true
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
