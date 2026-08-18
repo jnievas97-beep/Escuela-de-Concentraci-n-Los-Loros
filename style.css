@@ -6380,3 +6380,392 @@ textarea:focus-visible {
     }
     .tarjeta-especialidad-reverso strong { font-size: 1.1rem; }
 }
+
+
+/* =========================================================
+   ÚLTIMO COMUNICADO DESTACADO EN INICIO
+========================================================= */
+
+.seccion-ultimo-comunicado-inicio {
+    max-width: 900px;
+    margin: 48px auto 35px;
+    scroll-margin-top: 120px;
+}
+
+.ultimo-comunicado-inicio-contenido {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 22px;
+    padding: 28px 30px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff, #f1f8fc);
+    border: 2px solid rgba(22, 136, 212, 0.20);
+    box-shadow: var(--sombra);
+    text-align: left;
+}
+
+.ultimo-comunicado-inicio-icono {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+    font-size: 1.8rem;
+    box-shadow: 0 6px 15px rgba(7, 90, 150, 0.24);
+}
+
+.ultimo-comunicado-inicio-superior {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.etiqueta-ultimo-comunicado-inicio {
+    color: var(--azul-oscuro);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+.ultimo-comunicado-inicio-texto h2 {
+    color: var(--azul-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+.ultimo-comunicado-inicio-texto > p:last-child {
+    color: var(--gris-texto);
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   FECHAS E INDICADOR NUEVO
+========================================================= */
+
+.fecha-publicacion {
+    color: var(--gris-texto);
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+.etiqueta-nuevo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: var(--verde);
+    color: #17380c;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    box-shadow: 0 3px 8px rgba(78, 170, 37, 0.22);
+}
+
+.etiqueta-nuevo[hidden] {
+    display: none !important;
+}
+
+.ultimo-comunicado-titulo-linea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.comunicado-meta,
+.noticia-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.comunicado-fecha {
+    width: 100%;
+    margin: -4px 0 10px;
+}
+
+.noticia-titulo-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+
+/* =========================================================
+   FOTOS GIRATORIAS - EQUIPO DIRECTIVO
+========================================================= */
+
+.foto-directivo-giratoria {
+    appearance: none;
+    width: 100%;
+    min-height: 260px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    perspective: 1200px;
+    cursor: pointer;
+    overflow: visible;
+    font: inherit;
+}
+
+.foto-directivo-giratoria:hover {
+    transform: none;
+}
+
+.foto-directivo-interior {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 260px;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.foto-directivo-giratoria.girada .foto-directivo-interior {
+    transform: rotateY(180deg);
+}
+
+.foto-directivo-frente,
+.foto-directivo-reverso {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.foto-directivo-frente {
+    background: linear-gradient(135deg, #e8eef3, #f8fafb);
+}
+
+.foto-directivo-frente img {
+    width: 190px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.foto-directivo-reverso {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+    color: var(--blanco);
+    text-align: center;
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+.indicacion-giro-directivo {
+    display: block;
+    margin-top: 9px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    opacity: 0.78;
+}
+
+.foto-directivo-frente .indicacion-giro-directivo {
+    color: var(--azul-oscuro);
+}
+
+.foto-directivo-giratoria:focus-visible {
+    outline: 4px solid var(--dorado);
+    outline-offset: -4px;
+}
+
+@media (max-width: 768px) {
+    .ultimo-comunicado-inicio-contenido {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .ultimo-comunicado-inicio-icono {
+        margin: 0 auto;
+    }
+
+    .ultimo-comunicado-inicio-superior,
+    .noticia-meta,
+    .comunicado-meta {
+        justify-content: center;
+    }
+
+    .ultimo-comunicado-inicio-contenido .boton-documento {
+        width: 100%;
+        text-align: center;
+    }
+
+    .noticia-titulo-bloque {
+        align-items: center;
+        width: 100%;
+    }
+
+    .foto-directivo-giratoria,
+    .foto-directivo-interior {
+        min-height: 250px;
+    }
+
+    .foto-directivo-frente img {
+        width: 170px;
+        height: 205px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .foto-directivo-interior {
+        transition: none;
+    }
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA - INFORMACIÓN AMPLIADA
+========================================================= */
+
+.pie-informacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    max-width: 850px;
+    margin: 0 auto 20px;
+}
+
+.pie-datos {
+    text-align: left;
+}
+
+.pie-datos p {
+    margin: 4px 0;
+}
+
+.pie-datos a,
+.pie-enlaces-contacto a {
+    color: var(--blanco);
+}
+
+.pie-datos a:hover,
+.pie-enlaces-contacto a:hover {
+    color: var(--dorado-claro);
+}
+
+.pie-enlaces-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.pie-enlaces-contacto a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.84rem;
+    font-weight: 700;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.pie-enlaces-contacto a:hover {
+    background: var(--dorado);
+    color: var(--azul-oscuro);
+    transform: translateY(-2px);
+}
+
+.pie-lema {
+    margin-top: 10px !important;
+}
+
+.pie-copyright {
+    font-size: 0.86rem;
+}
+
+
+/* =========================================================
+   COMPARTIR NOTICIAS POR WHATSAPP
+========================================================= */
+
+.acciones-compartir-noticia {
+    display: flex;
+    justify-content: center;
+    padding: 0 18px 20px;
+    background: var(--blanco);
+}
+
+.boton-compartir-noticia {
+    border: 2px solid var(--verde-oscuro);
+    border-radius: 999px;
+    background: var(--blanco);
+    color: var(--verde-oscuro);
+    padding: 10px 18px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.boton-compartir-noticia:hover {
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra);
+}
+
+.boton-compartir-noticia:focus-visible {
+    outline: 3px solid var(--dorado);
+    outline-offset: 3px;
+}
+
+
+@media (max-width: 600px) {
+
+    .pie-informacion {
+        gap: 18px;
+    }
+
+    .pie-datos {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pie-enlaces-contacto {
+        width: 100%;
+    }
+
+    .pie-enlaces-contacto a {
+        flex: 1 1 140px;
+    }
+
+    .boton-compartir-noticia {
+        width: 100%;
+    }
+
+}
