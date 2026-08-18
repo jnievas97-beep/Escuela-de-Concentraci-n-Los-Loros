@@ -541,6 +541,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     );
+
+
     const botonesDestinoInterno =
         document.querySelectorAll(
             ".opciones-navegacion-interna [data-destino]"
@@ -848,8 +850,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         }
-
-
         input.addEventListener(
             "input",
             aplicarFiltro
@@ -924,6 +924,180 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       PROTOCOLOS - VER TODOS / MOSTRAR MENOS
+    ===================================================== */
+
+    const botonVerMasProtocolos =
+        document.getElementById(
+            "botonVerMasProtocolos"
+        );
+
+    const buscarProtocolosControl =
+        document.getElementById(
+            "buscarProtocolos"
+        );
+
+    let mostrarTodosProtocolos =
+        false;
+
+    const CANTIDAD_INICIAL_PROTOCOLOS =
+        6;
+
+
+    function actualizarVistaProtocolos() {
+
+        const seccionProtocolos =
+            document.getElementById(
+                "protocolos"
+            );
+
+
+        if (!seccionProtocolos) {
+
+            return;
+
+        }
+
+
+        const protocolos =
+            Array.from(
+                seccionProtocolos.querySelectorAll(
+                    ".documentos-lista .documento"
+                )
+            );
+
+
+        const hayBusqueda =
+            buscarProtocolosControl &&
+            buscarProtocolosControl.value.trim() !== "";
+
+
+        protocolos.forEach(
+            function (protocolo, indice) {
+
+                if (
+                    hayBusqueda ||
+                    mostrarTodosProtocolos ||
+                    indice < CANTIDAD_INICIAL_PROTOCOLOS
+                ) {
+
+                    protocolo.classList.remove(
+                        "oculto-por-limite"
+                    );
+
+                } else {
+
+                    protocolo.classList.add(
+                        "oculto-por-limite"
+                    );
+
+                }
+
+            }
+        );
+
+
+        if (!botonVerMasProtocolos) {
+
+            return;
+
+        }
+
+
+        if (
+            hayBusqueda ||
+            protocolos.length <=
+                CANTIDAD_INICIAL_PROTOCOLOS
+        ) {
+
+            botonVerMasProtocolos.style.display =
+                "none";
+
+        } else {
+
+            botonVerMasProtocolos.style.display =
+                "";
+
+
+            botonVerMasProtocolos.textContent =
+                mostrarTodosProtocolos
+                    ? "Mostrar menos protocolos"
+                    : "Ver todos los protocolos";
+
+
+            botonVerMasProtocolos.setAttribute(
+                "aria-expanded",
+                mostrarTodosProtocolos
+                    ? "true"
+                    : "false"
+            );
+
+        }
+
+    }
+
+
+    if (botonVerMasProtocolos) {
+
+        botonVerMasProtocolos.addEventListener(
+            "click",
+            function () {
+
+                mostrarTodosProtocolos =
+                    !mostrarTodosProtocolos;
+
+
+                actualizarVistaProtocolos();
+
+
+                if (!mostrarTodosProtocolos) {
+
+                    const protocolosInicio =
+                        document.getElementById(
+                            "protocolosInicio"
+                        );
+
+
+                    if (protocolosInicio) {
+
+                        protocolosInicio.scrollIntoView({
+
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "start"
+
+                        });
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if (buscarProtocolosControl) {
+
+        buscarProtocolosControl.addEventListener(
+            "input",
+            function () {
+
+                actualizarVistaProtocolos();
+
+            }
+        );
+
+    }
+
+
+    actualizarVistaProtocolos();
+
+
+    /* =====================================================
        BOTONES PARA VOLVER AL INICIO DE CADA SECCIÓN
     ===================================================== */
 
@@ -957,9 +1131,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     destino.scrollIntoView({
 
-                        behavior: "smooth",
+                        behavior:
+                            "smooth",
 
-                        block: "start"
+                        block:
+                            "start"
 
                     });
 
@@ -1001,6 +1177,7 @@ document.addEventListener("DOMContentLoaded", function () {
             paginaInicialDesdeHash
         );
 
+
         actualizarMigaPagina(
             paginaInicialDesdeHash
         );
@@ -1011,6 +1188,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "inicio"
         );
 
+
         actualizarMigaPagina(
             "inicio"
         );
@@ -1018,13 +1196,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
         history.replaceState(
             {
-                pagina: "inicio"
+                pagina:
+                    "inicio"
             },
             "",
             "#inicio"
         );
 
     }
+
+
+    /* =====================================================
+       ACCESOS RÁPIDOS DEL PIE DE PÁGINA
+    ===================================================== */
+
+    const enlacesPie =
+        document.querySelectorAll(
+            ".enlace-pie[data-pagina]"
+        );
+
+
+    enlacesPie.forEach(
+        function (enlacePie) {
+
+            enlacePie.addEventListener(
+                "click",
+                function () {
+
+                    const pagina =
+                        enlacePie.getAttribute(
+                            "data-pagina"
+                        );
+
+
+                    if (!pagina) {
+
+                        return;
+
+                    }
+
+
+                    mostrarPagina(
+                        pagina
+                    );
+
+
+                    actualizarMigaPagina(
+                        pagina
+                    );
+
+
+                    actualizarHashPagina(
+                        pagina
+                    );
+
+                }
+            );
+
+        }
+    );
 
 
     /* =====================================================
@@ -1067,7 +1297,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "scroll",
         controlarBotonArriba,
         {
-            passive: true
+            passive:
+                true
         }
     );
 
@@ -1084,9 +1315,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 window.scrollTo({
 
-                    top: 0,
+                    top:
+                        0,
 
-                    behavior: "smooth"
+                    behavior:
+                        "smooth"
 
                 });
 
@@ -1132,12 +1365,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     evento.preventDefault();
 
+
                     console.log(
                         "Este documento o enlace todavía está pendiente."
                     );
 
                 }
             );
+
+        }
+    );
+
+
+    /* =====================================================
+       INDICADORES PARA DOCUMENTOS PDF
+    ===================================================== */
+
+    const enlacesPDF =
+        document.querySelectorAll(
+            'a[href*=".pdf"]'
+        );
+
+
+    enlacesPDF.forEach(
+        function (enlacePDF) {
+
+            enlacePDF.classList.add(
+                "enlace-pdf"
+            );
+
+
+            if (
+                !enlacePDF.getAttribute(
+                    "title"
+                )
+            ) {
+
+                enlacePDF.setAttribute(
+                    "title",
+                    "Abrir PDF en una pestaña nueva"
+                );
+
+            }
+
+
+            if (
+                !enlacePDF.getAttribute(
+                    "aria-label"
+                )
+            ) {
+
+                const texto =
+                    enlacePDF.textContent.trim();
+
+
+                enlacePDF.setAttribute(
+                    "aria-label",
+                    texto +
+                    " - PDF, se abre en una pestaña nueva"
+                );
+
+            }
 
         }
     );
@@ -1237,14 +1525,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        SISTEMA AUTOMÁTICO DE COMUNICADOS
+
+       La lista se genera automáticamente con GitHub Actions
+       en: comunicados/comunicados.json
+
+       Para publicar un nuevo comunicado solamente debes subir:
+       comunicados/COMUNICADO XX.pdf
     ===================================================== */
 
-    const MAX_COMUNICADOS =
-        49;
-
-
-    const CARPETA_COMUNICADOS =
-        "comunicados/";
+    const ARCHIVO_LISTA_COMUNICADOS =
+        "comunicados/comunicados.json";
 
 
     /* =====================================================
@@ -1329,10 +1619,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarEstadoCargaComunicados() {
 
+        if (listaComunicados) {
+
+            listaComunicados.setAttribute(
+                "aria-busy",
+                "true"
+            );
+
+        }
+
+
         if (mensajeComunicados) {
 
             mensajeComunicados.innerHTML = `
                 <div class="estado-carga-comunicados">
+
                     <span
                         class="spinner-comunicados"
                         aria-hidden="true"
@@ -1341,6 +1642,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p>
                         Buscando comunicados disponibles...
                     </p>
+
                 </div>
             `;
 
@@ -1357,113 +1659,55 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    mostrarEstadoCargaComunicados();
-    function obtenerNombreComunicado(
-        numero
-    ) {
-
-        return (
-            "COMUNICADO " +
-            String(numero).padStart(
-                2,
-                "0"
-            ) +
-            ".pdf"
-        );
-
-    }
-
-
     /* =====================================================
-       GENERAR RUTA DEL COMUNICADO
+       VALIDAR LISTA GENERADA POR GITHUB
     ===================================================== */
 
-    function obtenerRutaComunicado(
-        numero
+    function normalizarListaComunicados(
+        datos
     ) {
 
-        const nombreArchivo =
-            obtenerNombreComunicado(
-                numero
-            );
+        if (!Array.isArray(datos)) {
 
-
-        return (
-            CARPETA_COMUNICADOS +
-            encodeURIComponent(
-                nombreArchivo
-            )
-        );
-
-    }
-
-
-    /* =====================================================
-       COMPROBAR SI EXISTE EL PDF
-    ===================================================== */
-
-    async function comprobarComunicado(
-        numero
-    ) {
-
-        const nombreArchivo =
-            obtenerNombreComunicado(
-                numero
-            );
-
-
-        const ruta =
-            obtenerRutaComunicado(
-                numero
-            );
-
-
-        try {
-
-            const respuesta =
-                await fetch(
-                    ruta,
-                    {
-                        method: "HEAD",
-                        cache: "no-store"
-                    }
-                );
-
-
-            if (respuesta.ok) {
-
-                return {
-
-                    numero:
-                        numero,
-
-                    nombre:
-                        nombreArchivo,
-
-                    ruta:
-                        ruta
-
-                };
-
-            }
-
-        } catch (error) {
-
-            console.warn(
-                "No se pudo comprobar:",
-                nombreArchivo
-            );
+            return [];
 
         }
 
 
-        return null;
+        return datos
+            .filter(
+                function (comunicado) {
+
+                    return (
+                        comunicado &&
+                        Number.isInteger(
+                            comunicado.numero
+                        ) &&
+                        comunicado.numero > 0 &&
+                        typeof comunicado.nombre ===
+                            "string" &&
+                        typeof comunicado.ruta ===
+                            "string"
+                    );
+
+                }
+            )
+            .sort(
+                function (a, b) {
+
+                    return (
+                        b.numero -
+                        a.numero
+                    );
+
+                }
+            );
 
     }
 
 
     /* =====================================================
-       CARGAR COMUNICADOS DISPONIBLES
+       CARGAR COMUNICADOS DESDE comunicados.json
     ===================================================== */
 
     async function cargarComunicados() {
@@ -1487,17 +1731,12 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         console.log(
-            "BUSCANDO COMUNICADOS"
+            "CARGANDO LISTA AUTOMÁTICA DE COMUNICADOS"
         );
 
         console.log(
-            "Carpeta:",
-            CARPETA_COMUNICADOS
-        );
-
-        console.log(
-            "Máximo:",
-            MAX_COMUNICADOS
+            "Archivo:",
+            ARCHIVO_LISTA_COMUNICADOS
         );
 
         console.log(
@@ -1507,53 +1746,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
 
-            const promesas =
-                [];
+            /*
+             * Se agrega una marca de tiempo solamente a la
+             * solicitud para impedir que el navegador muestre
+             * una lista antigua después de publicar un PDF.
+             */
+
+            const separador =
+                ARCHIVO_LISTA_COMUNICADOS.includes("?")
+                    ? "&"
+                    : "?";
 
 
-            for (
-                let numero = 1;
-                numero <= MAX_COMUNICADOS;
-                numero++
-            ) {
+            const urlLista =
+                ARCHIVO_LISTA_COMUNICADOS +
+                separador +
+                "v=" +
+                Date.now();
 
-                promesas.push(
-                    comprobarComunicado(
-                        numero
-                    )
+
+            const respuesta =
+                await fetch(
+                    urlLista,
+                    {
+                        method: "GET",
+                        cache: "no-store"
+                    }
+                );
+
+
+            if (!respuesta.ok) {
+
+                throw new Error(
+                    "No se pudo cargar comunicados.json. Estado HTTP: " +
+                    respuesta.status
                 );
 
             }
 
 
-            const respuestas =
-                await Promise.all(
-                    promesas
-                );
+            const datos =
+                await respuesta.json();
 
 
             const resultados =
-                respuestas.filter(
-                    function (resultado) {
-
-                        return Boolean(
-                            resultado
-                        );
-
-                    }
+                normalizarListaComunicados(
+                    datos
                 );
-
-
-            resultados.sort(
-                function (a, b) {
-
-                    return (
-                        b.numero -
-                        a.numero
-                    );
-
-                }
-            );
 
 
             console.log(
@@ -1565,6 +1804,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (
                 resultados.length === 0
             ) {
+
+                if (listaComunicados) {
+
+                    listaComunicados.setAttribute(
+                        "aria-busy",
+                        "false"
+                    );
+
+                }
+
 
                 mostrarSinComunicados();
 
@@ -1586,12 +1835,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 resultados
             );
 
+
+            if (listaComunicados) {
+
+                listaComunicados.setAttribute(
+                    "aria-busy",
+                    "false"
+                );
+
+            }
+
         } catch (error) {
 
             console.error(
                 "Error al cargar comunicados:",
                 error
             );
+
+
+            if (listaComunicados) {
+
+                listaComunicados.setAttribute(
+                    "aria-busy",
+                    "false"
+                );
+
+            }
 
 
             mostrarErrorComunicados();
@@ -1892,7 +2161,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 enlace.className =
-                    "boton-documento";
+                    "boton-documento enlace-pdf";
+
+
+                enlace.title =
+                    "Abrir PDF en una pestaña nueva";
+
+
+                enlace.setAttribute(
+                    "aria-label",
+                    "Ver Comunicado N.º " +
+                    comunicado.numero +
+                    " - PDF, se abre en una pestaña nueva"
+                );
 
 
                 enlace.textContent =
@@ -2202,6 +2483,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(
         "Accesibilidad con tecla Escape iniciada."
+    );
+
+
+    console.log(
+        "Accesos rápidos del pie iniciados."
+    );
+
+
+    console.log(
+        "Sistema Ver todos / Mostrar menos de Protocolos iniciado."
+    );
+
+
+    console.log(
+        "Indicadores PDF iniciados."
     );
 
 
