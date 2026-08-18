@@ -752,6 +752,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+
+    /* =====================================================
+       FOTOS GIRATORIAS - EQUIPO DIRECTIVO
+    ===================================================== */
+
+    const fotosDirectivos =
+        document.querySelectorAll(
+            ".foto-directivo-giratoria"
+        );
+
+
+    fotosDirectivos.forEach(
+        function (fotoDirectivo) {
+
+            fotoDirectivo.addEventListener(
+                "click",
+                function () {
+
+                    const girada =
+                        fotoDirectivo.classList.toggle(
+                            "girada"
+                        );
+
+                    fotoDirectivo.setAttribute(
+                        "aria-pressed",
+                        girada ? "true" : "false"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
     /* =====================================================
        BUSCADORES DE DOCUMENTOS Y PROTOCOLOS
     ===================================================== */
@@ -1612,6 +1647,104 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+
+    /* =====================================================
+       FECHAS DE PUBLICACIÓN E INDICADOR NUEVO
+    ===================================================== */
+
+    const DIAS_ETIQUETA_NUEVO =
+        7;
+
+
+    function formatearFechaPublicacion(
+        fecha
+    ) {
+
+        if (!fecha) {
+            return "";
+        }
+
+        const objetoFecha =
+            new Date(fecha);
+
+        if (
+            Number.isNaN(
+                objetoFecha.getTime()
+            )
+        ) {
+            return "";
+        }
+
+        return objetoFecha.toLocaleDateString(
+            "es-CL",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    function publicacionEsNueva(
+        fecha,
+        esUltima
+    ) {
+
+        if (!fecha || !esUltima) {
+            return false;
+        }
+
+        const objetoFecha =
+            new Date(fecha);
+
+        if (
+            Number.isNaN(
+                objetoFecha.getTime()
+            )
+        ) {
+            return false;
+        }
+
+        const dias =
+            (
+                Date.now() -
+                objetoFecha.getTime()
+            ) /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            );
+
+        return (
+            dias >= 0 &&
+            dias <= DIAS_ETIQUETA_NUEVO
+        );
+
+    }
+
+
+    function crearEtiquetaNuevo() {
+
+        const etiqueta =
+            document.createElement(
+                "span"
+            );
+
+        etiqueta.className =
+            "etiqueta-nuevo";
+
+        etiqueta.textContent =
+            "NUEVO";
+
+        return etiqueta;
+
+    }
+
+
     /* =====================================================
        SISTEMA AUTOMÁTICO DE COMUNICADOS
 
@@ -1651,6 +1784,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const botonUltimoComunicado =
         document.getElementById(
             "botonUltimoComunicado"
+        );
+
+
+    const fechaUltimoComunicado =
+        document.getElementById(
+            "fechaUltimoComunicado"
+        );
+
+    const nuevoUltimoComunicado =
+        document.getElementById(
+            "nuevoUltimoComunicado"
+        );
+
+    const tituloUltimoComunicadoInicio =
+        document.getElementById(
+            "tituloUltimoComunicadoInicio"
+        );
+
+    const textoUltimoComunicadoInicio =
+        document.getElementById(
+            "textoUltimoComunicadoInicio"
+        );
+
+    const fechaUltimoComunicadoInicio =
+        document.getElementById(
+            "fechaUltimoComunicadoInicio"
+        );
+
+    const botonUltimoComunicadoInicio =
+        document.getElementById(
+            "botonUltimoComunicadoInicio"
+        );
+
+    const nuevoUltimoComunicadoInicio =
+        document.getElementById(
+            "nuevoUltimoComunicadoInicio"
         );
 
 
@@ -1989,6 +2158,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        if (tituloUltimoComunicadoInicio) {
+            tituloUltimoComunicadoInicio.textContent =
+                "Aún no hay comunicados publicados";
+        }
+
+        if (textoUltimoComunicadoInicio) {
+            textoUltimoComunicadoInicio.textContent =
+                "Cuando se publique un comunicado, aparecerá automáticamente aquí.";
+        }
+
+        if (fechaUltimoComunicadoInicio) {
+            fechaUltimoComunicadoInicio.textContent =
+                "";
+        }
+
+        if (botonUltimoComunicadoInicio) {
+            botonUltimoComunicadoInicio.style.display =
+                "none";
+        }
+
+        if (nuevoUltimoComunicadoInicio) {
+            nuevoUltimoComunicadoInicio.hidden =
+                true;
+        }
+
+
         if (botonVerMasComunicados) {
 
             botonVerMasComunicados.style.display =
@@ -2030,63 +2225,102 @@ document.addEventListener("DOMContentLoaded", function () {
         comunicado
     ) {
 
-        if (!textoUltimoComunicado) {
+        const fechaVisible =
+            formatearFechaPublicacion(
+                comunicado.fecha
+            );
 
-            return;
-
-        }
+        const esNuevo =
+            publicacionEsNueva(
+                comunicado.fecha,
+                true
+            );
 
 
         if (tituloUltimoComunicado) {
-
             tituloUltimoComunicado.textContent =
                 "Comunicado N.º " +
                 comunicado.numero;
-
         }
 
+        if (textoUltimoComunicado) {
+            textoUltimoComunicado.textContent =
+                "Se encuentra disponible el Comunicado N.º " +
+                comunicado.numero +
+                " del establecimiento.";
+        }
 
-        textoUltimoComunicado.textContent =
-            "Se encuentra disponible el Comunicado N.º " +
-            comunicado.numero +
-            " del establecimiento.";
+        if (fechaUltimoComunicado) {
+            fechaUltimoComunicado.textContent =
+                fechaVisible
+                    ? "Publicado el " + fechaVisible
+                    : "";
+        }
 
+        if (nuevoUltimoComunicado) {
+            nuevoUltimoComunicado.hidden =
+                !esNuevo;
+        }
 
         if (botonUltimoComunicado) {
-
             botonUltimoComunicado.href =
                 comunicado.ruta;
-
 
             botonUltimoComunicado.target =
                 "_blank";
 
-
             botonUltimoComunicado.rel =
                 "noopener noreferrer";
-
 
             botonUltimoComunicado.textContent =
                 "📄 Ver Comunicado N.º " +
                 comunicado.numero;
 
-
             botonUltimoComunicado.style.display =
                 "";
-
         }
 
 
-        console.log(
-            "Último comunicado:",
-            comunicado.nombre
-        );
+        if (tituloUltimoComunicadoInicio) {
+            tituloUltimoComunicadoInicio.textContent =
+                "Comunicado N.º " +
+                comunicado.numero;
+        }
 
+        if (textoUltimoComunicadoInicio) {
+            textoUltimoComunicadoInicio.textContent =
+                "Información reciente para nuestra comunidad educativa.";
+        }
 
-        console.log(
-            "Ruta:",
-            comunicado.ruta
-        );
+        if (fechaUltimoComunicadoInicio) {
+            fechaUltimoComunicadoInicio.textContent =
+                fechaVisible
+                    ? "Publicado el " + fechaVisible
+                    : "";
+        }
+
+        if (nuevoUltimoComunicadoInicio) {
+            nuevoUltimoComunicadoInicio.hidden =
+                !esNuevo;
+        }
+
+        if (botonUltimoComunicadoInicio) {
+            botonUltimoComunicadoInicio.href =
+                comunicado.ruta;
+
+            botonUltimoComunicadoInicio.target =
+                "_blank";
+
+            botonUltimoComunicadoInicio.rel =
+                "noopener noreferrer";
+
+            botonUltimoComunicadoInicio.textContent =
+                "📄 Ver Comunicado N.º " +
+                comunicado.numero;
+
+            botonUltimoComunicadoInicio.style.display =
+                "";
+        }
 
     }
 
@@ -2231,6 +2465,48 @@ document.addEventListener("DOMContentLoaded", function () {
                     comunicado.numero;
 
 
+                const meta =
+                    document.createElement(
+                        "div"
+                    );
+
+                meta.className =
+                    "comunicado-meta";
+
+
+                const fecha =
+                    document.createElement(
+                        "p"
+                    );
+
+                fecha.className =
+                    "fecha-publicacion comunicado-fecha";
+
+                const fechaVisible =
+                    formatearFechaPublicacion(
+                        comunicado.fecha
+                    );
+
+                fecha.textContent =
+                    fechaVisible
+                        ? "Publicado el " +
+                          fechaVisible
+                        : "";
+
+
+                if (
+                    publicacionEsNueva(
+                        comunicado.fecha,
+                        comunicado ===
+                            comunicadosDisponibles[0]
+                    )
+                ) {
+                    meta.appendChild(
+                        crearEtiquetaNuevo()
+                    );
+                }
+
+
                 const enlace =
                     document.createElement(
                         "a"
@@ -2272,6 +2548,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 tarjeta.appendChild(
                     titulo
                 );
+
+
+                if (
+                    meta.childElementCount > 0
+                ) {
+                    tarjeta.appendChild(
+                        meta
+                    );
+                }
+
+
+                if (fecha.textContent) {
+                    tarjeta.appendChild(
+                        fecha
+                    );
+                }
 
 
                 tarjeta.appendChild(
@@ -2714,6 +3006,110 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
+
+    /* =====================================================
+       COMPARTIR NOTICIAS POR WHATSAPP
+    ===================================================== */
+
+    function compartirNoticiaWhatsApp(
+        noticia
+    ) {
+
+        const rutaCompartida =
+            typeof noticia.ruta === "string"
+                ? new URL(
+                    noticia.ruta,
+                    window.location.href
+                ).href
+                : window.location.href;
+
+
+        const texto =
+            "Noticia N.º " +
+            noticia.numero +
+            " - Escuela de Concentración Los Loros\n" +
+            rutaCompartida;
+
+
+        const urlWhatsApp =
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+                texto
+            );
+
+
+        window.open(
+            urlWhatsApp,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+
+
+    function crearBotonCompartirNoticia(
+        noticia
+    ) {
+
+        const contenedor =
+            document.createElement(
+                "div"
+            );
+
+
+        contenedor.className =
+            "acciones-compartir-noticia";
+
+
+        const boton =
+            document.createElement(
+                "button"
+            );
+
+
+        boton.type =
+            "button";
+
+
+        boton.className =
+            "boton-compartir-noticia";
+
+
+        boton.setAttribute(
+            "aria-label",
+            "Compartir Noticia N.º " +
+            noticia.numero +
+            " por WhatsApp"
+        );
+
+
+        boton.textContent =
+            "💬 Compartir por WhatsApp";
+
+
+        boton.addEventListener(
+            "click",
+            function () {
+
+                compartirNoticiaWhatsApp(
+                    noticia
+                );
+
+            }
+        );
+
+
+        contenedor.appendChild(
+            boton
+        );
+
+
+        return contenedor;
+
+    }
+
+
     function renderizarNoticias() {
 
         if (!listaNoticias) {
@@ -2791,6 +3187,45 @@ document.addEventListener("DOMContentLoaded", function () {
                     noticia.numero;
 
 
+                const tituloBloque =
+                    document.createElement(
+                        "div"
+                    );
+
+                tituloBloque.className =
+                    "noticia-titulo-bloque";
+
+                tituloBloque.appendChild(
+                    titulo
+                );
+
+
+                const fecha =
+                    document.createElement(
+                        "p"
+                    );
+
+                fecha.className =
+                    "fecha-publicacion";
+
+                const fechaVisible =
+                    formatearFechaPublicacion(
+                        noticia.fecha
+                    );
+
+                fecha.textContent =
+                    fechaVisible
+                        ? "Publicado el " +
+                          fechaVisible
+                        : "";
+
+                if (fecha.textContent) {
+                    tituloBloque.appendChild(
+                        fecha
+                    );
+                }
+
+
                 const etiqueta =
                     document.createElement(
                         "span"
@@ -2808,12 +3243,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 encabezado.appendChild(
-                    titulo
+                    tituloBloque
                 );
 
 
-                encabezado.appendChild(
+                const metaNoticia =
+                    document.createElement(
+                        "div"
+                    );
+
+                metaNoticia.className =
+                    "noticia-meta";
+
+
+                if (
+                    publicacionEsNueva(
+                        noticia.fecha,
+                        noticia ===
+                            noticiasDisponibles[0]
+                    )
+                ) {
+                    metaNoticia.appendChild(
+                        crearEtiquetaNuevo()
+                    );
+                }
+
+                metaNoticia.appendChild(
                     etiqueta
+                );
+
+                encabezado.appendChild(
+                    metaNoticia
                 );
 
 
@@ -2934,6 +3394,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 tarjeta.appendChild(
                     contenido
+                );
+
+
+                tarjeta.appendChild(
+                    crearBotonCompartirNoticia(
+                        noticia
+                    )
                 );
 
 
