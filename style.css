@@ -5824,3 +5824,71 @@ textarea:focus-visible {
 
 }
 
+
+/* =========================================================
+   ÚLTIMAS NOTICIAS - AJUSTE DE TAMAÑO SOLO EN PC
+========================================================= */
+
+@media (min-width: 769px) {
+
+    .seccion-noticias-inicio {
+        width: min(700px, 100%);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .lista-noticias {
+        width: 100%;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+/* =========================================================
+   ÚLTIMAS NOTICIAS - TAMAÑO DEFINITIVO SOLO EN COMPUTADOR
+   Móvil y tablet conservan el diseño actual.
+========================================================= */
+
+@media (min-width: 769px) {
+
+    .seccion-noticias-inicio {
+        width: 100%;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .lista-noticias {
+        width: 100%;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .noticia-card {
+        width: 100%;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .noticia-contenido {
+        padding: 14px;
+    }
+
+    .noticia-imagen,
+    .noticia-pagina-pdf {
+        width: auto;
+        max-width: 560px;
+        max-height: 760px;
+        height: auto;
+        object-fit: contain;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
