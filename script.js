@@ -2462,6 +2462,621 @@ document.addEventListener("DOMContentLoaded", function () {
     cargarComunicados();
 
 
+
+
+    /* =====================================================
+       SISTEMA AUTOMÁTICO DE ÚLTIMAS NOTICIAS
+
+       GitHub Actions genera:
+       noticias/noticias.json
+
+       Formatos aceptados:
+       noticias01.jpg
+       noticias02.jpeg
+       noticias03.png
+       noticias04.pdf
+
+       Los PDF son convertidos automáticamente a imágenes
+       por página durante la publicación, para que su
+       contenido pueda verse directamente en Inicio.
+    ===================================================== */
+
+    const ARCHIVO_LISTA_NOTICIAS =
+        "noticias/noticias.json";
+
+    const CANTIDAD_INICIAL_NOTICIAS =
+        3;
+
+    const listaNoticias =
+        document.getElementById(
+            "listaNoticias"
+        );
+
+    const mensajeNoticias =
+        document.getElementById(
+            "mensajeNoticias"
+        );
+
+    const botonVerMasNoticias =
+        document.getElementById(
+            "botonVerMasNoticias"
+        );
+
+    let noticiasDisponibles =
+        [];
+
+    let mostrarTodasNoticias =
+        false;
+
+
+    function mostrarEstadoCargaNoticias() {
+
+        if (!listaNoticias) {
+            return;
+        }
+
+
+        listaNoticias.setAttribute(
+            "aria-busy",
+            "true"
+        );
+
+
+        if (mensajeNoticias) {
+
+            mensajeNoticias.classList.remove(
+                "vacio"
+            );
+
+            mensajeNoticias.innerHTML = `
+                <p>
+                    Cargando últimas noticias...
+                </p>
+            `;
+
+        }
+
+    }
+
+
+    function mostrarSinNoticias() {
+
+        if (!listaNoticias) {
+            return;
+        }
+
+
+        listaNoticias.setAttribute(
+            "aria-busy",
+            "false"
+        );
+
+
+        listaNoticias
+            .querySelectorAll(
+                ".noticia-card"
+            )
+            .forEach(
+                function (tarjeta) {
+
+                    tarjeta.remove();
+
+                }
+            );
+
+
+        if (mensajeNoticias) {
+
+            mensajeNoticias.classList.add(
+                "vacio"
+            );
+
+            mensajeNoticias.innerHTML = `
+                <p>
+                    <strong>
+                        Aún no hay noticias disponibles.
+                    </strong>
+                </p>
+            `;
+
+        }
+
+
+        if (botonVerMasNoticias) {
+
+            botonVerMasNoticias.hidden =
+                true;
+
+        }
+
+    }
+
+
+    function crearImagenNoticia(
+        ruta,
+        textoAlternativo,
+        clase
+    ) {
+
+        const imagen =
+            document.createElement(
+                "img"
+            );
+
+
+        imagen.src =
+            ruta;
+
+        imagen.alt =
+            textoAlternativo;
+
+        imagen.className =
+            clase;
+
+        imagen.loading =
+            "lazy";
+
+        imagen.decoding =
+            "async";
+
+
+        return imagen;
+
+    }
+
+
+    function renderizarNoticias() {
+
+        if (!listaNoticias) {
+            return;
+        }
+
+
+        listaNoticias
+            .querySelectorAll(
+                ".noticia-card"
+            )
+            .forEach(
+                function (tarjeta) {
+
+                    tarjeta.remove();
+
+                }
+            );
+
+
+        if (mensajeNoticias) {
+
+            mensajeNoticias.style.display =
+                "none";
+
+        }
+
+
+        let noticiasMostrar =
+            noticiasDisponibles;
+
+
+        if (!mostrarTodasNoticias) {
+
+            noticiasMostrar =
+                noticiasDisponibles.slice(
+                    0,
+                    CANTIDAD_INICIAL_NOTICIAS
+                );
+
+        }
+
+
+        noticiasMostrar.forEach(
+            function (noticia) {
+
+                const tarjeta =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                tarjeta.className =
+                    "noticia-card";
+
+
+                const encabezado =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                encabezado.className =
+                    "noticia-encabezado";
+
+
+                const titulo =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                titulo.textContent =
+                    "Noticia N.º " +
+                    noticia.numero;
+
+
+                const etiqueta =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                etiqueta.className =
+                    "noticia-etiqueta";
+
+
+                etiqueta.textContent =
+                    noticia.tipo === "pdf"
+                        ? "DOCUMENTO"
+                        : "IMAGEN";
+
+
+                encabezado.appendChild(
+                    titulo
+                );
+
+
+                encabezado.appendChild(
+                    etiqueta
+                );
+
+
+                const contenido =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                contenido.className =
+                    "noticia-contenido";
+
+
+                if (
+                    noticia.tipo === "pdf" &&
+                    Array.isArray(
+                        noticia.paginas
+                    ) &&
+                    noticia.paginas.length > 0
+                ) {
+
+                    const paginas =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    paginas.className =
+                        "noticia-paginas-pdf";
+
+
+                    noticia.paginas.forEach(
+                        function (pagina, indice) {
+
+                            const contenedorPagina =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            const imagenPagina =
+                                crearImagenNoticia(
+                                    pagina,
+                                    "Noticia N.º " +
+                                    noticia.numero +
+                                    ", página " +
+                                    (indice + 1),
+                                    "noticia-pagina-pdf"
+                                );
+
+
+                            contenedorPagina.appendChild(
+                                imagenPagina
+                            );
+
+
+                            if (
+                                noticia.paginas.length > 1
+                            ) {
+
+                                const indicador =
+                                    document.createElement(
+                                        "p"
+                                    );
+
+
+                                indicador.className =
+                                    "noticia-pagina-indicador";
+
+
+                                indicador.textContent =
+                                    "Página " +
+                                    (indice + 1) +
+                                    " de " +
+                                    noticia.paginas.length;
+
+
+                                contenedorPagina.appendChild(
+                                    indicador
+                                );
+
+                            }
+
+
+                            paginas.appendChild(
+                                contenedorPagina
+                            );
+
+                        }
+                    );
+
+
+                    contenido.appendChild(
+                        paginas
+                    );
+
+                } else if (
+                    typeof noticia.ruta ===
+                    "string"
+                ) {
+
+                    contenido.appendChild(
+                        crearImagenNoticia(
+                            noticia.ruta,
+                            "Noticia N.º " +
+                            noticia.numero,
+                            "noticia-imagen"
+                        )
+                    );
+
+                }
+
+
+                tarjeta.appendChild(
+                    encabezado
+                );
+
+
+                tarjeta.appendChild(
+                    contenido
+                );
+
+
+                listaNoticias.appendChild(
+                    tarjeta
+                );
+
+            }
+        );
+
+
+        listaNoticias.setAttribute(
+            "aria-busy",
+            "false"
+        );
+
+
+        if (botonVerMasNoticias) {
+
+            if (
+                noticiasDisponibles.length <=
+                CANTIDAD_INICIAL_NOTICIAS
+            ) {
+
+                botonVerMasNoticias.hidden =
+                    true;
+
+            } else {
+
+                botonVerMasNoticias.hidden =
+                    false;
+
+
+                botonVerMasNoticias.textContent =
+                    mostrarTodasNoticias
+                        ? "Mostrar menos noticias"
+                        : "Ver más noticias";
+
+
+                botonVerMasNoticias.setAttribute(
+                    "aria-expanded",
+                    mostrarTodasNoticias
+                        ? "true"
+                        : "false"
+                );
+
+            }
+
+        }
+
+    }
+
+
+    async function cargarNoticias() {
+
+        if (!listaNoticias) {
+            return;
+        }
+
+
+        mostrarEstadoCargaNoticias();
+
+
+        try {
+
+            const separador =
+                ARCHIVO_LISTA_NOTICIAS.includes("?")
+                    ? "&"
+                    : "?";
+
+
+            const respuesta =
+                await fetch(
+                    ARCHIVO_LISTA_NOTICIAS +
+                    separador +
+                    "v=" +
+                    Date.now(),
+                    {
+                        method: "GET",
+                        cache: "no-store"
+                    }
+                );
+
+
+            if (!respuesta.ok) {
+
+                /*
+                 * Si todavía no existe noticias.json porque
+                 * nunca se ha subido una noticia, se presenta
+                 * el estado vacío solicitado.
+                 */
+
+                if (
+                    respuesta.status === 404
+                ) {
+
+                    mostrarSinNoticias();
+
+                    return;
+
+                }
+
+
+                throw new Error(
+                    "No se pudo cargar noticias.json. Estado HTTP: " +
+                    respuesta.status
+                );
+
+            }
+
+
+            const datos =
+                await respuesta.json();
+
+
+            if (!Array.isArray(datos)) {
+
+                mostrarSinNoticias();
+
+                return;
+
+            }
+
+
+            noticiasDisponibles =
+                datos
+                    .filter(
+                        function (noticia) {
+
+                            return (
+                                noticia &&
+                                Number.isInteger(
+                                    noticia.numero
+                                ) &&
+                                noticia.numero > 0 &&
+                                (
+                                    noticia.tipo ===
+                                        "imagen" ||
+                                    noticia.tipo ===
+                                        "pdf"
+                                )
+                            );
+
+                        }
+                    )
+                    .sort(
+                        function (a, b) {
+
+                            return (
+                                b.numero -
+                                a.numero
+                            );
+
+                        }
+                    );
+
+
+            if (
+                noticiasDisponibles.length === 0
+            ) {
+
+                mostrarSinNoticias();
+
+                return;
+
+            }
+
+
+            renderizarNoticias();
+
+        } catch (error) {
+
+            console.error(
+                "Error al cargar noticias:",
+                error
+            );
+
+
+            /*
+             * Para el visitante se muestra un mensaje limpio.
+             * El detalle técnico queda solamente en consola.
+             */
+
+            mostrarSinNoticias();
+
+        }
+
+    }
+
+
+    if (botonVerMasNoticias) {
+
+        botonVerMasNoticias.addEventListener(
+            "click",
+            function () {
+
+                mostrarTodasNoticias =
+                    !mostrarTodasNoticias;
+
+
+                renderizarNoticias();
+
+
+                if (!mostrarTodasNoticias) {
+
+                    const tituloNoticias =
+                        document.getElementById(
+                            "tituloUltimasNoticias"
+                        );
+
+
+                    if (tituloNoticias) {
+
+                        tituloNoticias.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    cargarNoticias();
+
+
+
     /* =====================================================
        FINALIZACIÓN
     ===================================================== */
@@ -2513,6 +3128,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(
         "Sistema automático de comunicados iniciado."
+    );
+
+
+    console.log(
+        "Sistema automático de noticias iniciado."
     );
 
 });
