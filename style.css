@@ -6769,3 +6769,185 @@ textarea:focus-visible {
     }
 
 }
+
+
+
+/* =========================================================
+   TALLERES JEC - AFICHES MÁS GRANDES Y LEGIBLES
+   Ajuste específico para PC y móvil.
+   No modifica las imágenes de las especialidades académicas.
+========================================================= */
+
+.talleres-jec {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        30px;
+}
+
+
+.talleres-jec .taller-jec-card {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        stretch;
+
+    padding:
+        22px;
+
+    gap:
+        18px;
+}
+
+
+.talleres-jec .especialidad-imagen {
+    width:
+        100%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+}
+
+
+.talleres-jec .especialidad-imagen img {
+    display:
+        block;
+
+    width:
+        100%;
+
+    max-width:
+        470px;
+
+    height:
+        auto;
+
+    max-height:
+        none;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        14px;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+
+.talleres-jec .especialidad-contenido {
+    width:
+        100%;
+
+    text-align:
+        center;
+}
+
+
+@media (min-width: 1024px) {
+
+    .talleres-jec {
+        max-width:
+            1120px;
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+    }
+
+
+    .talleres-jec .especialidad-imagen img {
+        max-width:
+            500px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .talleres-jec {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .talleres-jec .taller-jec-card {
+        padding:
+            18px;
+    }
+
+
+    .talleres-jec .especialidad-imagen img {
+        width:
+            min(100%, 620px);
+
+        max-width:
+            620px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .talleres-jec {
+        width:
+            100%;
+
+        gap:
+            22px;
+    }
+
+
+    .talleres-jec .taller-jec-card {
+        padding:
+            12px;
+
+        gap:
+            14px;
+    }
+
+
+    .talleres-jec .especialidad-imagen {
+        width:
+            100%;
+    }
+
+
+    .talleres-jec .especialidad-imagen img {
+        width:
+            100%;
+
+        max-width:
+            none;
+
+        height:
+            auto;
+
+        border-radius:
+            12px;
+    }
+
+
+    .talleres-jec .especialidad-contenido {
+        padding:
+            0 6px 8px;
+    }
+
+}
+
