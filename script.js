@@ -2218,6 +2218,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       RUTA SEGURA PARA ABRIR COMUNICADOS
+    ===================================================== */
+
+    function obtenerRutaAbsolutaComunicado(
+        ruta
+    ) {
+
+        if (
+            typeof ruta !== "string" ||
+            ruta.trim() === ""
+        ) {
+
+            return "";
+
+        }
+
+
+        try {
+
+            return new URL(
+                ruta,
+                window.location.href
+            ).href;
+
+        } catch (error) {
+
+            console.error(
+                "No fue posible construir la ruta del comunicado:",
+                ruta,
+                error
+            );
+
+
+            return "";
+
+        }
+
+    }
+
+
+    /* =====================================================
        MOSTRAR ÚLTIMO COMUNICADO
     ===================================================== */
 
@@ -2263,8 +2304,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (botonUltimoComunicado) {
+            const rutaComunicado =
+                obtenerRutaAbsolutaComunicado(
+                    comunicado.ruta
+                );
+
+
             botonUltimoComunicado.href =
-                comunicado.ruta;
+                rutaComunicado || "#";
 
             botonUltimoComunicado.target =
                 "_blank";
@@ -2305,8 +2352,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (botonUltimoComunicadoInicio) {
+            const rutaComunicadoInicio =
+                obtenerRutaAbsolutaComunicado(
+                    comunicado.ruta
+                );
+
+
             botonUltimoComunicadoInicio.href =
-                comunicado.ruta;
+                rutaComunicadoInicio || "#";
+
+
+            botonUltimoComunicadoInicio.dataset.rutaComunicado =
+                rutaComunicadoInicio;
 
             botonUltimoComunicadoInicio.target =
                 "_blank";
@@ -2321,6 +2378,62 @@ document.addEventListener("DOMContentLoaded", function () {
             botonUltimoComunicadoInicio.style.display =
                 "";
         }
+
+    }
+
+
+
+
+    /* =====================================================
+       BOTÓN ÚLTIMO COMUNICADO EN INICIO
+       Apertura reforzada para PC y dispositivos móviles.
+    ===================================================== */
+
+    if (botonUltimoComunicadoInicio) {
+
+        botonUltimoComunicadoInicio.addEventListener(
+            "click",
+            function (evento) {
+
+                const ruta =
+                    botonUltimoComunicadoInicio.dataset
+                        .rutaComunicado ||
+                    botonUltimoComunicadoInicio.href;
+
+
+                if (
+                    !ruta ||
+                    ruta.endsWith("#")
+                ) {
+
+                    evento.preventDefault();
+
+                    console.warn(
+                        "El último comunicado todavía no tiene una ruta disponible."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * El enlace normal funciona en navegadores de escritorio
+                 * y móviles. No usamos window.open aquí para evitar
+                 * bloqueos de ventanas emergentes.
+                 */
+
+                botonUltimoComunicadoInicio.href =
+                    ruta;
+
+                botonUltimoComunicadoInicio.target =
+                    "_blank";
+
+                botonUltimoComunicadoInicio.rel =
+                    "noopener noreferrer";
+
+            }
+        );
 
     }
 
