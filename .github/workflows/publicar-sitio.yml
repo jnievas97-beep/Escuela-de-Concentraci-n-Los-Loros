@@ -1,0 +1,137 @@
+name: Publicar sitio y actualizar comunicados
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar lista automática de comunicados
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+          from urllib.parse import quote
+
+          carpeta = Path("comunicados")
+          carpeta.mkdir(parents=True, exist_ok=True)
+
+          patron = re.compile(
+              r"^COMUNICADO\s+(\d+)\.pdf$",
+              re.IGNORECASE
+          )
+
+          comunicados = []
+
+          for archivo in carpeta.iterdir():
+
+              if not archivo.is_file():
+                  continue
+
+              coincidencia = patron.fullmatch(
+                  archivo.name
+              )
+
+              if not coincidencia:
+                  continue
+
+              numero = int(
+                  coincidencia.group(1)
+              )
+
+              comunicados.append(
+                  {
+                      "numero": numero,
+                      "nombre": archivo.name,
+                      "ruta": (
+                          "comunicados/" +
+                          quote(
+                              archivo.name,
+                              safe=""
+                          )
+                      )
+                  }
+              )
+
+          comunicados.sort(
+              key=lambda item: item["numero"],
+              reverse=True
+          )
+
+          salida = (
+              carpeta /
+              "comunicados.json"
+          )
+
+          salida.write_text(
+              json.dumps(
+                  comunicados,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
+          print(
+              "Comunicados encontrados:",
+              len(comunicados)
+          )
+
+          if comunicados:
+              print(
+                  "Último comunicado:",
+                  comunicados[0]["nombre"]
+              )
+          else:
+              print(
+                  "No se encontraron archivos con el formato "
+                  "'COMUNICADO XX.pdf'."
+              )
+
+          print(
+              "Archivo generado:",
+              salida
+          )
+          PY
+
+      - name: Mostrar lista generada
+        shell: bash
+        run: |
+          echo "Contenido de comunicados/comunicados.json:"
+          cat comunicados/comunicados.json
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar archivos para GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Publicar sitio
+        id: deployment
+        uses: actions/deploy-pages@v4
