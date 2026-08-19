@@ -11,6 +11,96 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("=================================");
 
 
+
+    /* =====================================================
+       APLICACIÓN WEB INSTALABLE (PWA)
+    ===================================================== */
+
+    let eventoInstalacionPWA = null;
+
+    const botonInstalarApp =
+        document.createElement("button");
+
+    botonInstalarApp.type = "button";
+    botonInstalarApp.className = "boton-instalar-app";
+    botonInstalarApp.textContent = "📲 Instalar sitio";
+
+    document.body.appendChild(
+        botonInstalarApp
+    );
+
+    window.addEventListener(
+        "beforeinstallprompt",
+        function (evento) {
+
+            evento.preventDefault();
+            eventoInstalacionPWA = evento;
+
+            botonInstalarApp.classList.add(
+                "visible"
+            );
+
+        }
+    );
+
+    botonInstalarApp.addEventListener(
+        "click",
+        async function () {
+
+            if (!eventoInstalacionPWA) {
+                return;
+            }
+
+            eventoInstalacionPWA.prompt();
+            await eventoInstalacionPWA.userChoice;
+
+            eventoInstalacionPWA = null;
+
+            botonInstalarApp.classList.remove(
+                "visible"
+            );
+
+        }
+    );
+
+    window.addEventListener(
+        "appinstalled",
+        function () {
+
+            eventoInstalacionPWA = null;
+
+            botonInstalarApp.classList.remove(
+                "visible"
+            );
+
+        }
+    );
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                navigator.serviceWorker
+                    .register("sw.js")
+                    .catch(
+                        function (error) {
+
+                            console.warn(
+                                "No fue posible registrar el Service Worker:",
+                                error
+                            );
+
+                        }
+                    );
+
+            }
+        );
+
+    }
+
+
     /* =====================================================
        ELEMENTOS DEL MENÚ
     ===================================================== */
