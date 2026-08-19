@@ -139,6 +139,16 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
     href="style.css"
 >
 
+<link
+    rel="manifest"
+    href="manifest.webmanifest"
+>
+
+<meta name="application-name" content="Escuela de Concentración Los Loros">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Escuela Los Loros">
+<link rel="apple-touch-icon" href="imagenes/logo.png">
+
 <!-- =====================================================
      DATOS ESTRUCTURADOS PARA GOOGLE
 ====================================================== -->
@@ -730,10 +740,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
     <div class="cuenta-publica-contenido">
 
-        <div
-            class="cuenta-publica-icono"
-            aria-hidden="true"
-        >
+        <div class="cuenta-publica-icono" aria-hidden="true">
             📋
         </div>
 
@@ -743,25 +750,62 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
         <p>
             Ponemos a disposición de nuestra comunidad educativa
-            la Cuenta Pública del establecimiento, documento que
-            informa sobre la gestión, avances, acciones y principales
-            resultados desarrollados durante el período correspondiente.
+            la Cuenta Pública del establecimiento.
         </p>
 
         <p>
-            Invitamos a madres, padres, apoderados, estudiantes,
-            funcionarios y demás integrantes de nuestra comunidad
-            educativa a conocer este documento.
+            Puede leer el documento directamente en esta página
+            o abrirlo completo en una pestaña independiente.
         </p>
 
-        <a
-            href="documentos/cuenta-publica.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            📄 Ver Cuenta Pública
-        </a>
+        <div class="visor-cuenta-publica">
+
+            <div class="visor-cuenta-publica-cabecera">
+                <span aria-hidden="true">📖</span>
+                <strong>Vista previa de la Cuenta Pública</strong>
+            </div>
+
+            <object
+                class="visor-cuenta-publica-documento"
+                data="documentos/cuenta%20publica.pdf"
+                type="application/pdf"
+                aria-label="Cuenta Pública de la Escuela de Concentración Los Loros"
+            >
+
+                <div class="visor-cuenta-publica-alternativo">
+
+                    <p>
+                        Este navegador no permite visualizar el PDF
+                        directamente dentro de la página.
+                    </p>
+
+                    <a
+                        href="documentos/cuenta%20publica.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton-documento"
+                    >
+                        📄 Abrir Cuenta Pública
+                    </a>
+
+                </div>
+
+            </object>
+
+            <div class="visor-cuenta-publica-acciones">
+
+                <a
+                    href="documentos/cuenta%20publica.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="boton-documento"
+                >
+                    🔎 Abrir documento completo
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
