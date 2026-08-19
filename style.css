@@ -7688,3 +7688,164 @@ body.modal-instalacion-abierto {
 
 }
 
+
+
+/* =========================================================
+   EXCELENCIA ACADÉMICA 2026-2027
+========================================================= */
+.nombre-establecimiento .excelencia-academica {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 10px;
+    padding: 6px 14px;
+    border: 1px solid rgba(242, 211, 107, 0.75);
+    border-radius: 999px;
+    background: rgba(7, 90, 150, 0.32);
+    color: var(--dorado-claro);
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+}
+
+/* =========================================================
+   PERFILES DE ESPECIALIDADES
+========================================================= */
+.perfiles-especialidades {
+    max-width: 1050px;
+    margin: 55px auto 20px;
+}
+.perfiles-especialidades-cabecera {
+    max-width: 820px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+.perfiles-especialidades-icono {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 7px;
+}
+.perfiles-especialidades-cabecera h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--azul-oscuro);
+    font-size: clamp(1.7rem, 4vw, 2.35rem);
+    margin-bottom: 8px;
+}
+.perfiles-especialidades-cabecera p {
+    color: var(--gris-texto);
+}
+.perfiles-especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+.perfil-especialidad {
+    background: var(--blanco);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--sombra);
+    text-align: left;
+}
+.perfil-agropecuaria { border-top: 6px solid var(--verde); }
+.perfil-mecanica { border-top: 6px solid var(--azul); }
+.perfil-especialidad h3 {
+    color: var(--azul-oscuro);
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+.perfil-bloque + .perfil-bloque {
+    margin-top: 17px;
+    padding-top: 17px;
+    border-top: 1px solid var(--gris);
+}
+.perfil-bloque h4 {
+    color: var(--azul-oscuro);
+    margin-bottom: 5px;
+}
+.perfil-bloque p {
+    color: var(--gris-texto);
+    line-height: 1.65;
+}
+
+/* =========================================================
+   CONTADORES AUTOMÁTICOS
+========================================================= */
+.resumen-contenido-sitio {
+    max-width: 850px;
+    margin: 48px auto 20px;
+    text-align: center;
+}
+.resumen-contenido-sitio h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--azul-oscuro);
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+.resumen-contenido-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.resumen-contenido-item {
+    background: var(--blanco);
+    border-radius: 16px;
+    padding: 20px 12px;
+    box-shadow: var(--sombra);
+    border-bottom: 4px solid var(--dorado);
+}
+.resumen-contenido-item .resumen-icono {
+    display: block;
+    font-size: 1.65rem;
+    margin-bottom: 3px;
+}
+.resumen-contenido-item strong {
+    display: block;
+    color: var(--azul-oscuro);
+    font-size: 1.75rem;
+    line-height: 1.2;
+}
+.resumen-contenido-item > span:last-child {
+    color: var(--gris-texto);
+    font-weight: 700;
+}
+
+/* =========================================================
+   ÚLTIMA ACTUALIZACIÓN
+========================================================= */
+.ultima-actualizacion-sitio {
+    margin: 15px auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.92;
+}
+.ultima-actualizacion-sitio strong {
+    color: var(--dorado-claro);
+}
+
+@media (max-width: 768px) {
+    .nombre-establecimiento .excelencia-academica {
+        font-size: 0.86rem;
+        padding: 5px 11px;
+    }
+    .perfiles-especialidades-grid {
+        grid-template-columns: 1fr;
+    }
+    .perfil-especialidad {
+        padding: 22px 18px;
+    }
+    .resumen-contenido-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .resumen-contenido-item {
+        padding: 15px 5px;
+    }
+    .resumen-contenido-item strong {
+        font-size: 1.45rem;
+    }
+    .resumen-contenido-item > span:last-child {
+        font-size: 0.78rem;
+    }
+}
+
