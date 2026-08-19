@@ -1,4 +1,4 @@
-name: Publicar sitio, comunicados y noticias
+name: Publicar sitio, comunicados, noticias y avisos
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y poppler-utils
 
-      - name: Generar listas automáticas de comunicados y noticias
+      - name: Generar listas automáticas de comunicados, noticias y avisos
         shell: bash
         run: |
           python3 - <<'PY'
@@ -290,6 +290,194 @@ jobs:
               encoding="utf-8"
           )
 
+
+          # ===============================================
+          # AVISOS IMPORTANTES
+          #
+          # Formatos admitidos:
+          # aviso01.txt
+          # aviso02.png
+          # aviso03.jpg
+          # aviso04.jpeg
+          # aviso05.pdf
+          #
+          # Se muestra automáticamente el número más alto.
+          # Si la carpeta está vacía, no aparece ninguna
+          # sección de aviso en la página.
+          # ===============================================
+
+          carpeta_avisos = Path("avisos")
+          carpeta_avisos.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          carpeta_previews_avisos = (
+              carpeta_avisos /
+              "previews"
+          )
+
+          if carpeta_previews_avisos.exists():
+              shutil.rmtree(
+                  carpeta_previews_avisos
+              )
+
+          carpeta_previews_avisos.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          patron_aviso = re.compile(
+              r"^aviso(\d+)\.(txt|pdf|png|jpe?g)$",
+              re.IGNORECASE
+          )
+
+          avisos = []
+
+          for archivo in carpeta_avisos.iterdir():
+
+              if not archivo.is_file():
+                  continue
+
+              coincidencia = patron_aviso.fullmatch(
+                  archivo.name
+              )
+
+              if not coincidencia:
+                  continue
+
+              numero = int(
+                  coincidencia.group(1)
+              )
+
+              extension = (
+                  coincidencia.group(2)
+                  .lower()
+              )
+
+              ruta_original = (
+                  "avisos/" +
+                  quote(
+                      archivo.name,
+                      safe=""
+                  )
+              )
+
+              aviso = {
+                  "numero": numero,
+                  "nombre": archivo.name,
+                  "ruta": ruta_original,
+                  "fecha": fecha_git(
+                      archivo
+                  ),
+                  "titulo": (
+                      "Aviso importante N.º " +
+                      str(numero)
+                  ),
+                  "texto": "",
+                  "preview": ""
+              }
+
+              if extension == "txt":
+
+                  aviso["tipo"] = "texto"
+
+                  contenido_txt = (
+                      archivo.read_text(
+                          encoding="utf-8"
+                      )
+                      .strip()
+                  )
+
+                  lineas = [
+                      linea.strip()
+                      for linea in
+                      contenido_txt.splitlines()
+                      if linea.strip()
+                  ]
+
+                  if lineas:
+                      aviso["titulo"] = lineas[0]
+
+                  if len(lineas) > 1:
+                      aviso["texto"] = "\n".join(
+                          lineas[1:]
+                      )
+
+              elif extension == "pdf":
+
+                  aviso["tipo"] = "pdf"
+
+                  destino_preview = (
+                      carpeta_previews_avisos /
+                      f"aviso{numero:02d}"
+                  )
+
+                  destino_preview.mkdir(
+                      parents=True,
+                      exist_ok=True
+                  )
+
+                  prefijo = (
+                      destino_preview /
+                      "pagina"
+                  )
+
+                  subprocess.run(
+                      [
+                          "pdftoppm",
+                          "-f",
+                          "1",
+                          "-singlefile",
+                          "-png",
+                          "-r",
+                          "140",
+                          str(archivo),
+                          str(prefijo)
+                      ],
+                      check=True
+                  )
+
+                  preview_local = (
+                      destino_preview /
+                      "pagina.png"
+                  )
+
+                  if preview_local.exists():
+                      aviso["preview"] = (
+                          "avisos/previews/" +
+                          f"aviso{numero:02d}/" +
+                          "pagina.png"
+                      )
+
+              else:
+
+                  aviso["tipo"] = "imagen"
+
+              avisos.append(
+                  aviso
+              )
+
+          avisos.sort(
+              key=lambda item: item["numero"],
+              reverse=True
+          )
+
+          salida_avisos = (
+              carpeta_avisos /
+              "avisos.json"
+          )
+
+          salida_avisos.write_text(
+              json.dumps(
+                  avisos,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
+
           print(
               "Comunicados encontrados:",
               len(comunicados)
@@ -298,6 +486,11 @@ jobs:
           print(
               "Noticias encontradas:",
               len(noticias)
+          )
+
+          print(
+              "Avisos importantes encontrados:",
+              len(avisos)
           )
 
           if noticias:
@@ -320,8 +513,14 @@ jobs:
           echo "===== NOTICIAS ====="
           cat noticias/noticias.json
           echo
+          echo "===== AVISOS IMPORTANTES ====="
+          cat avisos/avisos.json
+          echo
           echo "===== VISTAS PREVIAS DE PDF ====="
           find noticias/previews -type f -maxdepth 3 -print || true
+          echo
+          echo "===== VISTAS PREVIAS DE AVISOS PDF ====="
+          find avisos/previews -type f -maxdepth 3 -print || true
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
