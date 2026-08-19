@@ -4669,4 +4669,117 @@ document.addEventListener("DOMContentLoaded", function () {
         "Sistema automático de noticias iniciado."
     );
 
+
+
+    /* =====================================================
+       CONTADORES AUTOMÁTICOS DEL CONTENIDO
+    ===================================================== */
+
+    async function actualizarContadoresContenido() {
+
+        const contadorComunicados =
+            document.getElementById("contadorComunicados");
+
+        const contadorNoticias =
+            document.getElementById("contadorNoticias");
+
+        const contadorProtocolos =
+            document.getElementById("contadorProtocolos");
+
+
+        try {
+
+            const respuestaComunicados =
+                await fetch(
+                    "comunicados/comunicados.json?ts=" +
+                    Date.now(),
+                    { cache: "no-store" }
+                );
+
+            if (respuestaComunicados.ok) {
+
+                const comunicados =
+                    await respuestaComunicados.json();
+
+                if (contadorComunicados) {
+                    contadorComunicados.textContent =
+                        Array.isArray(comunicados)
+                            ? comunicados.length
+                            : "0";
+                }
+
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "No fue posible actualizar el contador de comunicados.",
+                error
+            );
+
+        }
+
+
+        try {
+
+            const respuestaNoticias =
+                await fetch(
+                    "noticias/noticias.json?ts=" +
+                    Date.now(),
+                    { cache: "no-store" }
+                );
+
+            if (respuestaNoticias.ok) {
+
+                const noticias =
+                    await respuestaNoticias.json();
+
+                if (contadorNoticias) {
+                    contadorNoticias.textContent =
+                        Array.isArray(noticias)
+                            ? noticias.length
+                            : "0";
+                }
+
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "No fue posible actualizar el contador de noticias.",
+                error
+            );
+
+        }
+
+
+        if (contadorProtocolos) {
+
+            const enlacesProtocolos =
+                Array.from(
+                    document.querySelectorAll(
+                        '#protocolos a[href*="protocolos/"]'
+                    )
+                );
+
+            const rutasUnicas =
+                new Set(
+                    enlacesProtocolos.map(
+                        function (enlace) {
+                            return enlace.getAttribute("href");
+                        }
+                    )
+                );
+
+            contadorProtocolos.textContent =
+                rutasUnicas.size;
+
+        }
+
+    }
+
+
+    actualizarContadoresContenido();
+
+
 });
