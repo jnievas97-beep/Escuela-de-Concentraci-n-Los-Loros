@@ -4849,4 +4849,28 @@ document.addEventListener("DOMContentLoaded", function () {
     actualizarContadoresContenido();
 
 
+
+    /* VISOR AFICHE HORARIOS DE ATENCIÓN A APODERADOS */
+    const abrirAficheApoderados=document.getElementById("abrirAficheApoderados");
+    const visorAficheApoderados=document.getElementById("visorAficheApoderados");
+    const cerrarVisorAficheApoderados=document.getElementById("cerrarVisorAficheApoderados");
+    let focoAnteriorAfiche=null;
+    function abrirVisorAfiche(){
+        if(!visorAficheApoderados)return;
+        focoAnteriorAfiche=document.activeElement;
+        visorAficheApoderados.hidden=false;
+        document.body.classList.add("visor-afiche-abierto");
+        if(cerrarVisorAficheApoderados)cerrarVisorAficheApoderados.focus();
+    }
+    function cerrarVisorAfiche(){
+        if(!visorAficheApoderados)return;
+        visorAficheApoderados.hidden=true;
+        document.body.classList.remove("visor-afiche-abierto");
+        if(focoAnteriorAfiche&&typeof focoAnteriorAfiche.focus==="function")focoAnteriorAfiche.focus();
+    }
+    if(abrirAficheApoderados)abrirAficheApoderados.addEventListener("click",abrirVisorAfiche);
+    if(cerrarVisorAficheApoderados)cerrarVisorAficheApoderados.addEventListener("click",cerrarVisorAfiche);
+    if(visorAficheApoderados)visorAficheApoderados.addEventListener("click",function(e){if(e.target===visorAficheApoderados)cerrarVisorAfiche();});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&visorAficheApoderados&&!visorAficheApoderados.hidden)cerrarVisorAfiche();});
+
 });
