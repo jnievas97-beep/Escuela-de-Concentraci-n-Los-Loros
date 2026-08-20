@@ -1573,6 +1573,73 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
+
+    /* =====================================================
+       LUPAS FUNCIONALES DE LOS BUSCADORES
+    ===================================================== */
+
+    const botonesLupaBuscador =
+        document.querySelectorAll(
+            "[data-enfocar-buscador]"
+        );
+
+
+    botonesLupaBuscador.forEach(
+        function (botonLupa) {
+
+            botonLupa.addEventListener(
+                "click",
+                function () {
+
+                    const idBuscador =
+                        botonLupa.getAttribute(
+                            "data-enfocar-buscador"
+                        );
+
+
+                    const inputBuscador =
+                        document.getElementById(
+                            idBuscador
+                        );
+
+
+                    if (!inputBuscador) {
+                        return;
+                    }
+
+
+                    inputBuscador.focus();
+
+
+                    /*
+                     * Si ya hay texto escrito, disparamos el evento
+                     * input para ejecutar inmediatamente el filtro
+                     * correspondiente.
+                     */
+                    if (
+                        inputBuscador.value.trim() !== ""
+                    ) {
+
+                        inputBuscador.dispatchEvent(
+                            new Event(
+                                "input",
+                                {
+                                    bubbles: true
+                                }
+                            )
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+
     /* =====================================================
        PROTOCOLOS - VER TODOS / MOSTRAR MENOS
     ===================================================== */
@@ -4678,13 +4745,13 @@ document.addEventListener("DOMContentLoaded", function () {
     async function actualizarContadoresContenido() {
 
         const contadorComunicados =
-            document.getElementById("contadorComunicados");
+            document.getElementById("contadorInicioComunicados");
 
         const contadorNoticias =
-            document.getElementById("contadorNoticias");
+            document.getElementById("contadorInicioNoticias");
 
         const contadorProtocolos =
-            document.getElementById("contadorProtocolos");
+            document.getElementById("contadorInicioProtocolos");
 
 
         try {
