@@ -8026,3 +8026,23 @@ body.modal-instalacion-abierto {
 
 }
 
+
+/* HORARIOS DE ATENCIÓN A APODERADOS - AFICHE FIJO */
+.seccion-afiche-apoderados{max-width:920px;margin:58px auto 45px;text-align:center}
+.afiche-apoderados-cabecera{margin-bottom:24px}
+.afiche-apoderados-icono{display:block;font-size:2rem;margin-bottom:6px}
+.afiche-apoderados-cabecera h2{font-family:Georgia,"Times New Roman",serif;color:var(--azul-oscuro);font-size:clamp(1.8rem,4vw,2.45rem);margin-bottom:7px}
+.afiche-apoderados-cabecera p{color:var(--gris-texto)}
+.boton-afiche-apoderados{display:block;width:min(100%,820px);margin:0 auto;padding:12px;border:0;border-radius:20px;background:var(--blanco);box-shadow:var(--sombra);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+.boton-afiche-apoderados:hover,.boton-afiche-apoderados:focus-visible{transform:translateY(-4px);box-shadow:var(--sombra-hover)}
+.boton-afiche-apoderados:focus-visible{outline:3px solid var(--dorado);outline-offset:4px}
+.boton-afiche-apoderados img{width:100%;height:auto;max-height:780px;object-fit:contain;border-radius:12px}
+.afiche-indicacion{display:inline-block;margin-top:10px;color:var(--azul-oscuro);font-weight:700;font-size:.92rem}
+.visor-afiche-apoderados[hidden]{display:none}
+.visor-afiche-apoderados{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,.88)}
+.visor-afiche-contenido{max-width:min(1100px,94vw);max-height:92vh;overflow:auto}
+.visor-afiche-contenido img{display:block;width:auto;max-width:100%;height:auto;max-height:90vh;margin:auto;object-fit:contain;border-radius:10px;box-shadow:0 15px 45px rgba(0,0,0,.45)}
+.cerrar-visor-afiche{position:fixed;top:16px;right:20px;z-index:5001;width:48px;height:48px;border:2px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(7,90,150,.92);color:white;font-size:2rem;line-height:1;cursor:pointer}
+.cerrar-visor-afiche:hover,.cerrar-visor-afiche:focus-visible{background:var(--dorado);color:var(--azul-oscuro)}
+body.visor-afiche-abierto{overflow:hidden}
+@media(max-width:600px){.seccion-afiche-apoderados{margin:45px auto 35px}.boton-afiche-apoderados{padding:7px;border-radius:15px}.visor-afiche-apoderados{padding:64px 8px 16px;align-items:flex-start}.visor-afiche-contenido{max-width:100%;max-height:calc(100vh - 80px)}.visor-afiche-contenido img{max-height:none;width:100%}.cerrar-visor-afiche{top:10px;right:10px;width:44px;height:44px}}
