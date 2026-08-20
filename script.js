@@ -4873,4 +4873,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if(visorAficheApoderados)visorAficheApoderados.addEventListener("click",function(e){if(e.target===visorAficheApoderados)cerrarVisorAfiche();});
     document.addEventListener("keydown",function(e){if(e.key==="Escape"&&visorAficheApoderados&&!visorAficheApoderados.hidden)cerrarVisorAfiche();});
 
+
+    /* ACCESIBILIDAD Y FUNCIONAMIENTO MULTIDISPOSITIVO */
+    const anunciosAccesibilidad=document.getElementById("anunciosAccesibilidad");
+    function anunciarAccesibilidad(mensaje){if(!anunciosAccesibilidad)return;anunciosAccesibilidad.textContent="";window.setTimeout(function(){anunciosAccesibilidad.textContent=mensaje;},30);}
+    document.querySelectorAll(".tarjeta-especialidad").forEach(function(tarjeta){if(!tarjeta.hasAttribute("tabindex"))tarjeta.setAttribute("tabindex","0");tarjeta.setAttribute("aria-pressed",tarjeta.classList.contains("girada")?"true":"false");tarjeta.addEventListener("click",function(){window.setTimeout(function(){const girada=tarjeta.classList.contains("girada");tarjeta.setAttribute("aria-pressed",girada?"true":"false");anunciarAccesibilidad(girada?"Información de la especialidad abierta.":"Información de la especialidad cerrada.");},0);});tarjeta.addEventListener("keydown",function(e){if(e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();tarjeta.click();});});
+    document.querySelectorAll("img").forEach(function(imagen){imagen.addEventListener("error",function(){if(imagen.dataset.errorTratado==="1")return;imagen.dataset.errorTratado="1";imagen.classList.add("imagen-no-disponible");const padre=imagen.parentElement;if(padre&&!padre.querySelector(".mensaje-imagen-no-disponible")){padre.classList.add("contenedor-imagen-no-disponible");const mensaje=document.createElement("span");mensaje.className="mensaje-imagen-no-disponible";mensaje.setAttribute("role","status");mensaje.textContent="🖼️ Imagen temporalmente no disponible";padre.appendChild(mensaje);}});if(imagen.complete&&imagen.naturalWidth===0)imagen.dispatchEvent(new Event("error"));});
+
 });
