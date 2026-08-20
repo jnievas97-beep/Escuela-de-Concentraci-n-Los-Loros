@@ -8046,3 +8046,14 @@ body.modal-instalacion-abierto {
 .cerrar-visor-afiche:hover,.cerrar-visor-afiche:focus-visible{background:var(--dorado);color:var(--azul-oscuro)}
 body.visor-afiche-abierto{overflow:hidden}
 @media(max-width:600px){.seccion-afiche-apoderados{margin:45px auto 35px}.boton-afiche-apoderados{padding:7px;border-radius:15px}.visor-afiche-apoderados{padding:64px 8px 16px;align-items:flex-start}.visor-afiche-contenido{max-width:100%;max-height:calc(100vh - 80px)}.visor-afiche-contenido img{max-height:none;width:100%}.cerrar-visor-afiche{top:10px;right:10px;width:44px;height:44px}}
+
+/* ACCESIBILIDAD Y FUNCIONAMIENTO MULTIDISPOSITIVO */
+.aviso-sin-javascript{margin:0;padding:14px 18px;text-align:center;background:#fff3cd;color:#332701;border-bottom:2px solid #d6a800;font-weight:600;line-height:1.5}
+button,a,input,select,textarea,[role="button"]{touch-action:manipulation}
+button,a,.boton-menu,.boton-navegacion-interna,.tarjeta-especialidad{-webkit-tap-highlight-color:rgba(22,136,212,.16)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #f2c94c!important;outline-offset:3px}
+.boton-menu,.boton-navegacion-interna,.boton-lupa-buscador,.cerrar-visor-afiche,.tarjeta-especialidad{min-height:44px}
+img.imagen-no-disponible{visibility:hidden}
+.contenedor-imagen-no-disponible{min-height:150px;display:flex!important;align-items:center;justify-content:center;padding:20px;border:2px dashed #aab4be;border-radius:12px;background:#f5f7f9;color:#4a5560;text-align:center;font-weight:700}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.tarjeta-especialidad-interior{transition:none!important}}
+@media(max-width:768px){button,.boton-menu,.boton-navegacion-interna,.boton-lupa-buscador,.cerrar-visor-afiche{min-width:44px;min-height:44px}}
