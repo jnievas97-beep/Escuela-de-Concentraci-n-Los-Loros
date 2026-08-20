@@ -4880,4 +4880,99 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".tarjeta-especialidad").forEach(function(tarjeta){if(!tarjeta.hasAttribute("tabindex"))tarjeta.setAttribute("tabindex","0");tarjeta.setAttribute("aria-pressed",tarjeta.classList.contains("girada")?"true":"false");tarjeta.addEventListener("click",function(){window.setTimeout(function(){const girada=tarjeta.classList.contains("girada");tarjeta.setAttribute("aria-pressed",girada?"true":"false");anunciarAccesibilidad(girada?"Información de la especialidad abierta.":"Información de la especialidad cerrada.");},0);});tarjeta.addEventListener("keydown",function(e){if(e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();tarjeta.click();});});
     document.querySelectorAll("img").forEach(function(imagen){imagen.addEventListener("error",function(){if(imagen.dataset.errorTratado==="1")return;imagen.dataset.errorTratado="1";imagen.classList.add("imagen-no-disponible");const padre=imagen.parentElement;if(padre&&!padre.querySelector(".mensaje-imagen-no-disponible")){padre.classList.add("contenedor-imagen-no-disponible");const mensaje=document.createElement("span");mensaje.className="mensaje-imagen-no-disponible";mensaje.setAttribute("role","status");mensaje.textContent="🖼️ Imagen temporalmente no disponible";padre.appendChild(mensaje);}});if(imagen.complete&&imagen.naturalWidth===0)imagen.dispatchEvent(new Event("error"));});
 
+
+    /* =====================================================
+       NUEVO + COMPARTIR EN COMUNICADOS Y NOTICIAS
+    ===================================================== */
+    function fechaDesdeTexto(texto) {
+        if (!texto) return null;
+        const iso = texto.match(/\b(20\d{2})[-\/](\d{1,2})[-\/](\d{1,2})\b/);
+        if (iso) return new Date(Number(iso[1]), Number(iso[2])-1, Number(iso[3]));
+        const lat = texto.match(/\b(\d{1,2})[-\/](\d{1,2})[-\/](20\d{2})\b/);
+        if (lat) return new Date(Number(lat[3]), Number(lat[2])-1, Number(lat[1]));
+        return null;
+    }
+
+    function esContenidoNuevo(elemento) {
+        const candidatos = [
+            elemento.getAttribute("data-fecha"),
+            elemento.querySelector("time")?.getAttribute("datetime"),
+            elemento.querySelector("time")?.textContent,
+            elemento.textContent
+        ];
+        let fecha = null;
+        for (const candidato of candidatos) {
+            fecha = fechaDesdeTexto(candidato);
+            if (fecha) break;
+        }
+        if (!fecha) return false;
+        const ahora = new Date();
+        ahora.setHours(0,0,0,0);
+        fecha.setHours(0,0,0,0);
+        const dias = (ahora-fecha)/86400000;
+        return dias >= 0 && dias <= 7;
+    }
+
+    function prepararContenidoCompartible() {
+        const selectores = [
+            "#listaComunicados a",
+            "#listaNoticias a",
+            ".comunicado-item",
+            ".noticia-item"
+        ];
+        const vistos = new Set();
+
+        document.querySelectorAll(selectores.join(",")).forEach(function(item) {
+            const tarjeta = item.closest("article,li,.comunicado-item,.noticia-item") || item;
+            if (vistos.has(tarjeta)) return;
+            vistos.add(tarjeta);
+
+            if (esContenidoNuevo(tarjeta) && !tarjeta.querySelector(".etiqueta-nuevo")) {
+                const titulo = tarjeta.querySelector("h2,h3,h4,strong,a") || tarjeta;
+                const badge = document.createElement("span");
+                badge.className = "etiqueta-nuevo";
+                badge.textContent = "NUEVO";
+                badge.setAttribute("aria-label","Contenido nuevo, publicado durante los últimos 7 días");
+                titulo.appendChild(badge);
+            }
+
+            if (!tarjeta.querySelector(".boton-compartir-contenido")) {
+                const enlace = tarjeta.matches("a[href]") ? tarjeta : tarjeta.querySelector("a[href]");
+                if (!enlace) return;
+                const boton = document.createElement("button");
+                boton.type = "button";
+                boton.className = "boton-compartir-contenido";
+                boton.innerHTML = '<span aria-hidden="true">↗</span><span>Compartir</span>';
+                boton.addEventListener("click", async function(e) {
+                    e.preventDefault(); e.stopPropagation();
+                    const url = new URL(enlace.getAttribute("href"), window.location.href).href;
+                    const titulo = (tarjeta.querySelector("h2,h3,h4,strong,a")?.textContent || document.title).replace("NUEVO","").trim();
+                    try {
+                        if (navigator.share) {
+                            await navigator.share({title:titulo,url:url});
+                        } else if (navigator.clipboard) {
+                            await navigator.clipboard.writeText(url);
+                            anunciarAccesibilidad("Enlace copiado al portapapeles.");
+                            boton.querySelector("span:last-child").textContent="Enlace copiado";
+                            setTimeout(()=>boton.querySelector("span:last-child").textContent="Compartir",1800);
+                        }
+                    } catch(err) {
+                        if (err && err.name !== "AbortError") console.warn("No fue posible compartir:",err);
+                    }
+                });
+                tarjeta.appendChild(boton);
+            }
+        });
+    }
+
+    prepararContenidoCompartible();
+
+    /* Las listas son automáticas, por lo que observamos sus cambios. */
+    ["listaComunicados","listaNoticias"].forEach(function(id) {
+        const lista=document.getElementById(id);
+        if (!lista) return;
+        new MutationObserver(function(){ prepararContenidoCompartible(); })
+            .observe(lista,{childList:true,subtree:true});
+    });
+
 });
