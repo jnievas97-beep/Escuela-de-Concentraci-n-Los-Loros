@@ -8057,3 +8057,52 @@ img.imagen-no-disponible{visibility:hidden}
 .contenedor-imagen-no-disponible{min-height:150px;display:flex!important;align-items:center;justify-content:center;padding:20px;border:2px dashed #aab4be;border-radius:12px;background:#f5f7f9;color:#4a5560;text-align:center;font-weight:700}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.tarjeta-especialidad-interior{transition:none!important}}
 @media(max-width:768px){button,.boton-menu,.boton-navegacion-interna,.boton-lupa-buscador,.cerrar-visor-afiche{min-width:44px;min-height:44px}}
+
+
+/* =========================================================
+   HISTORIA, CIFRAS, ESPECIALIDADES Y CONTENIDO COMPARTIBLE
+========================================================= */
+.encabezado-bloque-institucional{text-align:center;margin:0 auto 28px;max-width:760px}
+.encabezado-bloque-institucional>span{font-size:2rem}
+.encabezado-bloque-institucional h2{font-family:Georgia,"Times New Roman",serif;color:var(--azul-oscuro);font-size:clamp(1.8rem,4vw,2.5rem);margin:6px 0 8px}
+.encabezado-bloque-institucional p{color:var(--gris-texto);line-height:1.65}
+.bloque-historia-institucional{margin:60px auto;max-width:950px}
+.linea-tiempo{position:relative;margin:30px auto 0;padding:4px 0}
+.linea-tiempo::before{content:"";position:absolute;left:78px;top:0;bottom:0;width:3px;background:linear-gradient(var(--azul),var(--dorado),var(--verde))}
+.hito{position:relative;display:grid;grid-template-columns:64px 1fr;gap:30px;align-items:start;margin:0 0 22px}
+.hito time{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:46px;padding:6px;border-radius:999px;background:var(--azul-oscuro);color:white;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.hito>div{background:white;border-radius:16px;padding:18px 20px;box-shadow:var(--sombra);border-left:4px solid var(--azul)}
+.hito h3{margin:0 0 6px;color:var(--azul-oscuro);font-size:1.08rem}
+.hito p{margin:0;color:var(--gris-texto);line-height:1.55}
+.hito-destacado>div{border-left-color:var(--dorado);background:linear-gradient(135deg,#fff,#fffaf0)}
+.hito-destacado time{background:var(--dorado);color:var(--azul-oscuro)}
+.escuela-cifras{margin:60px auto;max-width:1050px}
+.rejilla-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rejilla-cifras article{display:flex;min-height:135px;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px 14px;background:white;border-radius:18px;box-shadow:var(--sombra);border-top:4px solid var(--dorado)}
+.rejilla-cifras strong{color:var(--azul-oscuro);font-size:clamp(1.45rem,3vw,2rem);line-height:1.1}
+.rejilla-cifras span{margin-top:8px;color:var(--gris-texto);font-weight:650}
+
+/* Identidad visual de las dos especialidades sin cambiar la estructura */
+.tarjeta-especialidad:nth-of-type(1){--acento-especialidad:#4b8f3a}
+.tarjeta-especialidad:nth-of-type(2){--acento-especialidad:#5f7180}
+.tarjeta-especialidad .tarjeta-especialidad-frente,
+.tarjeta-especialidad .tarjeta-especialidad-atras{border-bottom:5px solid var(--acento-especialidad,var(--azul))}
+.tarjeta-especialidad .tarjeta-especialidad-atras{background:linear-gradient(145deg,#fff, color-mix(in srgb,var(--acento-especialidad,var(--azul)) 8%,white))}
+
+/* Etiqueta NUEVO y compartir */
+.etiqueta-nuevo{display:inline-flex;align-items:center;min-height:26px;padding:3px 9px;margin-left:8px;border-radius:999px;background:var(--dorado);color:var(--azul-oscuro);font-size:.72rem;font-weight:900;letter-spacing:.04em;vertical-align:middle}
+.boton-compartir-contenido{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;margin-top:10px;padding:8px 14px;border:1px solid var(--azul);border-radius:999px;background:white;color:var(--azul-oscuro);font:inherit;font-weight:750;cursor:pointer}
+.boton-compartir-contenido:hover,.boton-compartir-contenido:focus-visible{background:var(--azul);color:white}
+
+/* Footer institucional más definido */
+footer{position:relative}
+footer::before{content:"";display:block;width:min(180px,35vw);height:4px;margin:0 auto 22px;border-radius:99px;background:linear-gradient(90deg,var(--dorado),var(--verde),var(--azul))}
+@media(max-width:760px){
+ .linea-tiempo::before{left:28px}
+ .hito{grid-template-columns:56px 1fr;gap:14px}
+ .hito time{font-size:.78rem;min-height:42px}
+ .hito>div{padding:15px}
+ .rejilla-cifras{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:440px){.rejilla-cifras{grid-template-columns:1fr}}
+
