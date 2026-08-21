@@ -136,7 +136,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
 <link
     rel="stylesheet"
-    href="style.css?v=20260821-9"
+    href="style.css?v=20260821-10"
 >
 
 <link
@@ -3289,12 +3289,24 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
     </p>
 
     <div class="portal-imagen-centro">
-        <img
-            src="imagenes/centrodealumnos.png"
-            alt="Centro de Alumnos de la Escuela de Concentración Los Loros"
-            loading="lazy"
-            decoding="async"
+        <button
+            id="abrirImagenCentroAlumnos"
+            class="boton-imagen-centro"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="visorImagenCentroAlumnos"
+            aria-label="Ampliar imagen del Centro de Alumnos"
         >
+            <img
+                src="imagenes/centrodealumnos.png"
+                alt="Centro de Alumnos de la Escuela de Concentración Los Loros"
+                loading="lazy"
+                decoding="async"
+            >
+            <span class="indicacion-ampliar-imagen">
+                🔎 Presiona para ampliar
+            </span>
+        </button>
     </div>
 
     <p><strong>El Centro de Alumnos está conformado por los siguientes estudiantes:</strong></p>
@@ -5124,7 +5136,7 @@ title="Volver arriba"
      JAVASCRIPT EXTERNO
 ====================================================== -->
 
-<script src="script.js?v=20260821-5"></script>
+<script src="script.js?v=20260821-10"></script>
 
 
 <!-- =====================================================
@@ -5317,6 +5329,33 @@ title="Volver arriba"
 
 
 <div id="anunciosAccesibilidad" class="solo-lectores" aria-live="polite" aria-atomic="true"></div>
+
+<div
+    id="visorImagenCentroAlumnos"
+    class="visor-imagen-centro"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Imagen ampliada del Centro de Alumnos"
+    hidden
+>
+    <button
+        id="cerrarImagenCentroAlumnos"
+        class="cerrar-visor-centro"
+        type="button"
+        aria-label="Cerrar imagen ampliada"
+        title="Cerrar"
+    >
+        ×
+    </button>
+
+    <div class="visor-imagen-centro-contenido">
+        <img
+            src="imagenes/centrodealumnos.png"
+            alt="Centro de Alumnos de la Escuela de Concentración Los Loros"
+        >
+    </div>
+</div>
+
 </body>
 
 </html>
