@@ -136,7 +136,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
 <link
     rel="stylesheet"
-    href="style.css?v=20260821-10"
+    href="style.css?v=20260821-12"
 >
 
 <link
@@ -5136,7 +5136,7 @@ title="Volver arriba"
      JAVASCRIPT EXTERNO
 ====================================================== -->
 
-<script src="script.js?v=20260821-10"></script>
+<script src="script.js?v=20260821-12"></script>
 
 
 <!-- =====================================================
@@ -5330,29 +5330,38 @@ title="Volver arriba"
 
 <div id="anunciosAccesibilidad" class="solo-lectores" aria-live="polite" aria-atomic="true"></div>
 
+
 <div
-    id="visorImagenCentroAlumnos"
-    class="visor-imagen-centro"
+    id="visorImagenGeneral"
+    class="visor-afiche-apoderados"
     role="dialog"
     aria-modal="true"
-    aria-label="Imagen ampliada del Centro de Alumnos"
+    aria-label="Vista ampliada del aviso"
     hidden
 >
     <button
-        id="cerrarImagenCentroAlumnos"
-        class="cerrar-visor-centro"
+        id="cerrarVisorImagenGeneral"
+        class="cerrar-visor-afiche"
         type="button"
-        aria-label="Cerrar imagen ampliada"
+        aria-label="Cerrar vista ampliada"
         title="Cerrar"
-    >
-        ×
-    </button>
+    >×</button>
 
-    <div class="visor-imagen-centro-contenido">
+    <div class="visor-afiche-contenido visor-general-contenido">
         <img
-            src="imagenes/centrodealumnos.png"
-            alt="Centro de Alumnos de la Escuela de Concentración Los Loros"
+            id="imagenVisorGeneral"
+            src=""
+            alt=""
+            hidden
         >
+
+        <iframe
+            id="pdfVisorGeneral"
+            class="pdf-visor-general"
+            title="Documento ampliado"
+            src=""
+            hidden
+        ></iframe>
     </div>
 </div>
 
