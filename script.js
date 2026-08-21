@@ -671,6 +671,508 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
+    /* =====================================================
+       PORTAL COMUNIDAD EDUCATIVA - ACCESOS POR PERFIL
+    ===================================================== */
+
+    const botonesPerfilComunidad =
+        document.querySelectorAll(".portal-perfil-boton");
+
+    botonesPerfilComunidad.forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            const idPanel =
+                boton.getAttribute("aria-controls");
+
+            const panel =
+                document.getElementById(idPanel);
+
+            if (!panel) {
+                return;
+            }
+
+            const abrir =
+                boton.getAttribute("aria-expanded") !== "true";
+
+            botonesPerfilComunidad.forEach(function (otroBoton) {
+
+                const otroPanel =
+                    document.getElementById(
+                        otroBoton.getAttribute("aria-controls")
+                    );
+
+                otroBoton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                if (otroPanel) {
+                    otroPanel.hidden = true;
+                }
+
+            });
+
+            if (abrir) {
+                boton.setAttribute("aria-expanded", "true");
+                panel.hidden = false;
+            }
+
+        });
+
+    });
+
+
+    document.querySelectorAll(
+        "#comunidad [data-ir-pagina]"
+    ).forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            const pagina =
+                boton.getAttribute("data-ir-pagina");
+
+            const destinoComunidad =
+                boton.getAttribute("data-destino-comunidad");
+
+            if (!pagina) {
+                return;
+            }
+
+            mostrarPagina(pagina);
+            actualizarMigaPagina(pagina);
+            actualizarHashPagina(pagina);
+
+            if (destinoComunidad) {
+
+                window.setTimeout(function () {
+
+                    const destino =
+                        document.getElementById(destinoComunidad);
+
+                    if (destino) {
+                        destino.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+                    }
+
+                }, 120);
+
+            }
+
+        });
+
+    });
+
+
+    document.querySelectorAll(
+        "#comunidad [data-ir-inicio]"
+    ).forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            const idDestino =
+                boton.getAttribute("data-ir-inicio");
+
+            mostrarPagina("inicio");
+            actualizarMigaPagina("inicio");
+            actualizarHashPagina("inicio");
+
+            window.setTimeout(function () {
+
+                const destino =
+                    document.getElementById(idDestino);
+
+                if (destino) {
+                    destino.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+
+            }, 120);
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       DESTINO INTERNO DESDE PORTAL COMUNIDAD
+    ===================================================== */
+
+    document.querySelectorAll(
+        "#comunidad [data-destino-pagina]"
+    ).forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            const idDestino =
+                boton.getAttribute("data-destino-pagina");
+
+            window.setTimeout(function () {
+
+                const destino =
+                    document.getElementById(idDestino);
+
+                if (destino) {
+                    destino.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+
+            }, 150);
+
+        });
+
+    });
+
+
+    /* =====================================================
+       DOCUMENTOS ADICIONALES AUTOMÁTICOS
+    ===================================================== */
+
+    const listaDocumentosAutomaticos =
+        document.getElementById(
+            "listaDocumentosAutomaticos"
+        );
+
+    function iconoArchivoPorExtension(extension) {
+
+        const ext =
+            String(extension || "")
+                .toLowerCase();
+
+        if (["jpg","jpeg","png","webp","gif","svg"].includes(ext)) {
+            return "🖼️";
+        }
+
+        if (ext === "pdf") {
+            return "📕";
+        }
+
+        if (["doc","docx","odt","rtf"].includes(ext)) {
+            return "📝";
+        }
+
+        if (["xls","xlsx","ods","csv"].includes(ext)) {
+            return "📊";
+        }
+
+        if (["ppt","pptx","odp"].includes(ext)) {
+            return "📽️";
+        }
+
+        if (["txt","md"].includes(ext)) {
+            return "📄";
+        }
+
+        return "📎";
+    }
+
+
+    async function cargarDocumentosAutomaticos() {
+
+        if (!listaDocumentosAutomaticos) {
+            return;
+        }
+
+        try {
+
+            const respuesta =
+                await fetch(
+                    "documentos/documentos.json?v=" +
+                    Date.now(),
+                    {
+                        cache: "no-store"
+                    }
+                );
+
+            if (!respuesta.ok) {
+                throw new Error(
+                    "No se encontró documentos.json"
+                );
+            }
+
+            const archivos =
+                await respuesta.json();
+
+            const rutasYaEnlazadas =
+                new Set(
+                    Array.from(
+                        document.querySelectorAll(
+                            '#documentos a[href^="documentos/"]'
+                        )
+                    ).map(function (enlace) {
+                        try {
+                            return decodeURIComponent(
+                                enlace.getAttribute("href")
+                            ).toLowerCase();
+                        } catch (_) {
+                            return enlace.getAttribute("href").toLowerCase();
+                        }
+                    })
+                );
+
+            const adicionales =
+                Array.isArray(archivos)
+                    ? archivos.filter(function (archivo) {
+                        const ruta =
+                            String(archivo.ruta || "")
+                                .toLowerCase();
+                        return (
+                            ruta &&
+                            !rutasYaEnlazadas.has(ruta)
+                        );
+                    })
+                    : [];
+
+            listaDocumentosAutomaticos.innerHTML = "";
+            listaDocumentosAutomaticos.setAttribute(
+                "aria-busy",
+                "false"
+            );
+
+            if (adicionales.length === 0) {
+
+                const mensaje =
+                    document.createElement("p");
+
+                mensaje.className =
+                    "estado-documentos-automaticos";
+
+                mensaje.textContent =
+                    "No hay archivos adicionales disponibles.";
+
+                listaDocumentosAutomaticos.appendChild(
+                    mensaje
+                );
+
+                return;
+            }
+
+            adicionales.forEach(function (archivo) {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "archivo-automatico";
+
+                const icono =
+                    document.createElement("span");
+
+                icono.className =
+                    "archivo-automatico-icono";
+
+                icono.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+                icono.textContent =
+                    iconoArchivoPorExtension(
+                        archivo.extension
+                    );
+
+                const datos =
+                    document.createElement("span");
+
+                datos.className =
+                    "archivo-automatico-datos";
+
+                const nombre =
+                    document.createElement("span");
+
+                nombre.className =
+                    "archivo-automatico-nombre";
+
+                nombre.textContent =
+                    archivo.nombre;
+
+                const tipo =
+                    document.createElement("span");
+
+                tipo.className =
+                    "archivo-automatico-tipo";
+
+                tipo.textContent =
+                    String(
+                        archivo.extension ||
+                        "archivo"
+                    ).toUpperCase();
+
+                const enlace =
+                    document.createElement("a");
+
+                enlace.className =
+                    "archivo-automatico-enlace";
+
+                enlace.href =
+                    archivo.ruta;
+
+                enlace.target =
+                    "_blank";
+
+                enlace.rel =
+                    "noopener noreferrer";
+
+                enlace.textContent =
+                    "Abrir archivo";
+
+                datos.appendChild(nombre);
+                datos.appendChild(tipo);
+
+                item.appendChild(icono);
+                item.appendChild(datos);
+                item.appendChild(enlace);
+
+                listaDocumentosAutomaticos.appendChild(
+                    item
+                );
+
+            });
+
+        } catch (error) {
+
+            listaDocumentosAutomaticos.innerHTML =
+                '<p class="estado-documentos-automaticos">' +
+                'La lista automática de archivos estará disponible al publicar el sitio.' +
+                '</p>';
+
+            listaDocumentosAutomaticos.setAttribute(
+                "aria-busy",
+                "false"
+            );
+
+        }
+
+    }
+
+
+    cargarDocumentosAutomaticos();
+
+
+
+    /* =====================================================
+       GALERÍA AUTOMÁTICA DE SEGURIDAD
+    ===================================================== */
+
+    const galeriaSeguridad =
+        document.getElementById(
+            "galeriaSeguridad"
+        );
+
+    async function cargarGaleriaSeguridad() {
+
+        if (!galeriaSeguridad) {
+            return;
+        }
+
+        try {
+
+            const respuesta =
+                await fetch(
+                    "seguridad/seguridad.json?v=" +
+                    Date.now(),
+                    {
+                        cache: "no-store"
+                    }
+                );
+
+            if (!respuesta.ok) {
+                throw new Error(
+                    "No se encontró seguridad.json"
+                );
+            }
+
+            const imagenes =
+                await respuesta.json();
+
+            galeriaSeguridad.innerHTML = "";
+
+            if (
+                !Array.isArray(imagenes) ||
+                imagenes.length === 0
+            ) {
+
+                const mensaje =
+                    document.createElement("p");
+
+                mensaje.className =
+                    "estado-seguridad";
+
+                mensaje.textContent =
+                    "Aún no hay material gráfico de seguridad disponible.";
+
+                galeriaSeguridad.appendChild(
+                    mensaje
+                );
+
+                return;
+            }
+
+            imagenes.forEach(function (archivo) {
+
+                const figura =
+                    document.createElement("figure");
+
+                figura.className =
+                    "seguridad-item";
+
+                const imagen =
+                    document.createElement("img");
+
+                imagen.src =
+                    archivo.ruta;
+
+                imagen.alt =
+                    archivo.nombre
+                        .replace(/\.[^.]+$/, "")
+                        .replace(/[_]+/g, " ");
+
+                imagen.loading =
+                    "lazy";
+
+                imagen.decoding =
+                    "async";
+
+                const pie =
+                    document.createElement("figcaption");
+
+                pie.textContent =
+                    archivo.nombre
+                        .replace(/\.[^.]+$/, "")
+                        .replace(/[_]+/g, " ");
+
+                figura.appendChild(imagen);
+                figura.appendChild(pie);
+
+                galeriaSeguridad.appendChild(
+                    figura
+                );
+
+            });
+
+        } catch (error) {
+
+            galeriaSeguridad.innerHTML =
+                '<p class="estado-seguridad">' +
+                'La galería de seguridad estará disponible al publicar el sitio.' +
+                '</p>';
+
+        }
+
+    }
+
+
+    cargarGaleriaSeguridad();
+
+
     /* =====================================================
        MENÚ MÓVIL TIPO HAMBURGUESA
     ===================================================== */
