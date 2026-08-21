@@ -8106,3 +8106,43 @@ footer::before{content:"";display:block;width:min(180px,35vw);height:4px;margin:
 }
 @media(max-width:440px){.rejilla-cifras{grid-template-columns:1fr}}
 
+
+/* =========================================================
+   CUENTA PÚBLICA - VISUALIZACIÓN MÓVIL SIMPLIFICADA
+   En PC se mantiene el visor + botón.
+   En teléfonos/tablets se deja una sola opción: abrir PDF.
+========================================================= */
+
+.cuenta-publica-explicacion-movil {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .cuenta-publica-explicacion-escritorio {
+        display: none;
+    }
+
+    .cuenta-publica-explicacion-movil {
+        display: block;
+    }
+
+    .visor-cuenta-publica-cabecera,
+    .visor-cuenta-publica-documento {
+        display: none;
+    }
+
+    .visor-cuenta-publica-acciones {
+        margin-top: 0;
+    }
+
+    .visor-cuenta-publica-acciones .boton-documento {
+        width: 100%;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
