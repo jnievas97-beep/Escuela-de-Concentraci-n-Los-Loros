@@ -6043,4 +6043,229 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
+    /* =====================================================
+       MEJORAS INTEGRALES: BUSCADOR, RUTA, HORARIOS Y ARCHIVOS
+    ===================================================== */
+
+    const mejoraAbrirBusqueda = document.getElementById("abrirBuscadorGlobal");
+    const mejoraModalBusqueda = document.getElementById("buscadorGlobal");
+    const mejoraCerrarBusqueda = document.getElementById("cerrarBuscadorGlobal");
+    const mejoraEntradaBusqueda = document.getElementById("entradaBuscadorGlobal");
+    const mejoraResultadosBusqueda = document.getElementById("resultadosBuscadorGlobal");
+    const mejoraRuta = document.getElementById("rutaContextual");
+    const mejoraModalArchivo = document.getElementById("mensajeArchivoNoDisponible");
+    const mejoraCerrarArchivo = document.getElementById("cerrarArchivoNoDisponible");
+    const mejoraVolverArchivo = document.getElementById("volverArchivoNoDisponible");
+
+    function mejoraTexto(elemento) {
+        return (elemento && elemento.textContent ? elemento.textContent : "")
+            .replace(/\s+/g, " ").trim();
+    }
+
+    function mejoraNormalizar(texto) {
+        return (texto || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase().trim();
+    }
+
+    function mejoraAbrirPagina(idPagina, idDestino) {
+        const control = document.querySelector('[data-pagina="' + idPagina + '"]');
+        if (control) control.click();
+        window.setTimeout(function () {
+            const destino = idDestino ? document.getElementById(idDestino) : document.getElementById(idPagina);
+            if (destino) destino.scrollIntoView({behavior:"smooth", block:"start"});
+        }, 80);
+    }
+
+    /* Buscador general */
+    function mejoraConstruirIndice() {
+        const items = [];
+        document.querySelectorAll("section.pagina, section[id]").forEach(function(sec) {
+            if (!sec.id) return;
+            const titulo = sec.querySelector("h1,h2,h3");
+            if (!titulo) return;
+            items.push({titulo:mejoraTexto(titulo), detalle:"Sección del sitio", pagina:sec.id, destino:sec.id});
+        });
+        document.querySelectorAll(".documento, .horario-curso-card, .categoria-documentos, [id^='academica']").forEach(function(el) {
+            const titulo = el.querySelector("h2,h3,h4,strong") || el;
+            const texto = mejoraTexto(titulo);
+            if (!texto || texto.length > 120) return;
+            const pagina = el.closest(".pagina");
+            items.push({titulo:texto, detalle:mejoraTexto(el).slice(0,150), pagina:pagina ? pagina.id : "inicio", destino:el.id || (pagina ? pagina.id : "inicio")});
+        });
+        return items.filter(function(item, i, arr) {
+            return arr.findIndex(function(x){return x.titulo===item.titulo && x.destino===item.destino;})===i;
+        });
+    }
+    const mejoraIndice = mejoraConstruirIndice();
+
+    function mejoraRenderBusqueda(valor) {
+        if (!mejoraResultadosBusqueda) return;
+        const q = mejoraNormalizar(valor);
+        mejoraResultadosBusqueda.innerHTML = "";
+        if (q.length < 2) {
+            mejoraResultadosBusqueda.innerHTML = '<p>Escribe al menos 2 caracteres.</p>';
+            return;
+        }
+        const encontrados = mejoraIndice.filter(function(item) {
+            return mejoraNormalizar(item.titulo + " " + item.detalle).includes(q);
+        }).slice(0,20);
+        if (!encontrados.length) {
+            mejoraResultadosBusqueda.innerHTML = '<p>No encontramos resultados para esa búsqueda.</p>';
+            return;
+        }
+        encontrados.forEach(function(item) {
+            const b=document.createElement("button");
+            b.type="button"; b.className="resultado-global";
+            b.innerHTML="<strong></strong><small></small>";
+            b.querySelector("strong").textContent=item.titulo;
+            b.querySelector("small").textContent=item.detalle;
+            b.addEventListener("click",function(){
+                mejoraModalBusqueda.hidden=true;
+                mejoraAbrirPagina(item.pagina,item.destino);
+            });
+            mejoraResultadosBusqueda.appendChild(b);
+        });
+    }
+    if (mejoraAbrirBusqueda) mejoraAbrirBusqueda.addEventListener("click",function(){
+        mejoraModalBusqueda.hidden=false;
+        mejoraEntradaBusqueda.value="";
+        mejoraRenderBusqueda("");
+        window.setTimeout(function(){mejoraEntradaBusqueda.focus();},30);
+    });
+    if (mejoraCerrarBusqueda) mejoraCerrarBusqueda.addEventListener("click",function(){mejoraModalBusqueda.hidden=true;});
+    if (mejoraEntradaBusqueda) mejoraEntradaBusqueda.addEventListener("input",function(){mejoraRenderBusqueda(this.value);});
+    if (mejoraModalBusqueda) mejoraModalBusqueda.addEventListener("click",function(e){if(e.target===mejoraModalBusqueda)mejoraModalBusqueda.hidden=true;});
+
+    /* Ruta contextual + botón volver */
+    function mejoraActualizarRuta() {
+        if (!mejoraRuta) return;
+        const activa=document.querySelector(".pagina.activa") || document.querySelector(".pagina:not([hidden])");
+        const nombre=activa ? (mejoraTexto(activa.querySelector(".titulo-pagina h2,h1")) || activa.id) : "Inicio";
+        mejoraRuta.textContent = nombre==="Inicio" ? "Inicio" : "Inicio  ›  "+nombre;
+    }
+    document.addEventListener("click",function(e){
+        if(e.target.closest("[data-pagina],[data-ir-pagina],[data-destino]")) window.setTimeout(mejoraActualizarRuta,100);
+    });
+    mejoraActualizarRuta();
+
+    document.querySelectorAll(".pagina").forEach(function(pagina){
+        if(pagina.id==="inicio") return;
+        const titulo=pagina.querySelector(".titulo-pagina");
+        if(!titulo || titulo.querySelector(".boton-volver-contextual")) return;
+        const b=document.createElement("button");
+        b.type="button"; b.className="boton-volver-contextual";
+        b.textContent="← Volver a Inicio";
+        b.addEventListener("click",function(){mejoraAbrirPagina("inicio","inicio");});
+        titulo.insertAdjacentElement("afterend",b);
+    });
+
+    /* Selector de grupos de horarios + compartir */
+    const mejoraHorarios=document.querySelector(".horarios-cursos-detallados");
+    if(mejoraHorarios) {
+        const selector=document.createElement("div");
+        selector.className="selector-horarios";
+        selector.setAttribute("aria-label","Filtrar horarios por nivel");
+        const grupos=[
+            ["todos","Todos"],
+            ["parvularia","Kinder"],
+            ["basica","Educación Básica"],
+            ["opcion","Opción 4"],
+            ["media","Educación Media TP"]
+        ];
+        grupos.forEach(function(g){
+            const b=document.createElement("button"); b.type="button"; b.dataset.grupo=g[0]; b.textContent=g[1];
+            if(g[0]==="todos") b.classList.add("activo");
+            b.addEventListener("click",function(){
+                selector.querySelectorAll("button").forEach(function(x){x.classList.toggle("activo",x===b);});
+                mejoraHorarios.querySelectorAll(".horario-curso-card").forEach(function(card){
+                    const n=mejoraNormalizar(mejoraTexto(card.querySelector("h3")));
+                    let tipo=n.includes("kinder")?"parvularia":n.includes("opcion")?"opcion":n.includes("medio")?"media":"basica";
+                    card.hidden = g[0]!=="todos" && tipo!==g[0];
+                });
+            });
+            selector.appendChild(b);
+        });
+        mejoraHorarios.parentNode.insertBefore(selector,mejoraHorarios);
+
+        mejoraHorarios.querySelectorAll(".horario-curso-card").forEach(function(card){
+            const titulo=mejoraTexto(card.querySelector("h3"));
+            const compartir=document.createElement("button");
+            compartir.type="button"; compartir.className="compartir-horario";
+            compartir.textContent="↗ Compartir horario";
+            compartir.addEventListener("click",async function(){
+                const url=location.href.split("#")[0]+"#academicaHorarios";
+                const texto="Horario de "+titulo+" - Escuela de Concentración Los Loros";
+                try {
+                    if(navigator.share) await navigator.share({title:titulo,text:texto,url:url});
+                    else { await navigator.clipboard.writeText(texto+" "+url); alert("Enlace del horario copiado."); }
+                } catch(e) {}
+            });
+            card.appendChild(compartir);
+        });
+    }
+
+    /* Tipos de archivo + descarga */
+    document.querySelectorAll('a[href]').forEach(function(a){
+        let href=a.getAttribute("href")||"";
+        const m=href.match(/\.([a-z0-9]{2,5})(?:[?#]|$)/i);
+        if(!m) return;
+        const ext=m[1].toLowerCase();
+        if(!["pdf","doc","docx","ppt","pptx","xls","xlsx","jpg","jpeg","png","webp","txt","csv"].includes(ext)) return;
+        if(a.querySelector(".tipo-archivo")) return;
+        const badge=document.createElement("span"); badge.className="tipo-archivo"; badge.textContent=ext;
+        a.appendChild(badge);
+        const cont=a.closest(".documento,.bloque-documento,.horario-clases-accion");
+        if(cont && !cont.querySelector(".acciones-archivo-extra")) {
+            const acciones=document.createElement("div"); acciones.className="acciones-archivo-extra";
+            const descargar=document.createElement("a"); descargar.href=href; descargar.download=""; descargar.textContent="⬇ Descargar";
+            acciones.appendChild(descargar); cont.appendChild(acciones);
+        }
+    });
+
+    /* Error amigable para archivos locales que no existen */
+    function mejoraCerrarModalArchivo(){ if(mejoraModalArchivo) mejoraModalArchivo.hidden=true; }
+    if(mejoraCerrarArchivo) mejoraCerrarArchivo.addEventListener("click",mejoraCerrarModalArchivo);
+    if(mejoraVolverArchivo) mejoraVolverArchivo.addEventListener("click",mejoraCerrarModalArchivo);
+    if(mejoraModalArchivo) mejoraModalArchivo.addEventListener("click",function(e){if(e.target===mejoraModalArchivo)mejoraCerrarModalArchivo();});
+
+    document.addEventListener("click",async function(e){
+        const a=e.target.closest('a[href]');
+        if(!a || a.hasAttribute("download")) return;
+        const href=a.getAttribute("href")||"";
+        if(!/\.(pdf|docx?|pptx?|xlsx?|jpg|jpeg|png|webp)(?:[?#]|$)/i.test(href)) return;
+        if(/^https?:\/\//i.test(href) && !href.startsWith(location.origin)) return;
+        if(a.id==="botonAvisoImportante") return;
+        e.preventDefault();
+        try {
+            const r=await fetch(href,{method:"HEAD",cache:"no-store"});
+            if(!r.ok) throw new Error("missing");
+            if(a.target==="_blank") window.open(href,"_blank","noopener");
+            else location.href=href;
+        } catch(err) {
+            if(mejoraModalArchivo) mejoraModalArchivo.hidden=false;
+        }
+    });
+
+    /* Etiqueta NUEVO: elementos con fecha disponible en data-fecha o texto */
+    const ahoraNuevo=Date.now();
+    document.querySelectorAll("[data-fecha], .documento").forEach(function(el){
+        const fecha=el.dataset ? el.dataset.fecha : "";
+        if(!fecha) return;
+        const t=Date.parse(fecha);
+        if(!Number.isFinite(t) || ahoraNuevo-t > 14*86400000 || ahoraNuevo<t) return;
+        const titulo=el.querySelector("h3,h4,strong,a");
+        if(titulo && !titulo.querySelector(".etiqueta-nuevo")) {
+            const n=document.createElement("span"); n.className="etiqueta-nuevo"; n.textContent="NUEVO"; titulo.appendChild(n);
+        }
+    });
+
+    /* Escape para modales nuevos */
+    document.addEventListener("keydown",function(e){
+        if(e.key!=="Escape") return;
+        if(mejoraModalBusqueda && !mejoraModalBusqueda.hidden) mejoraModalBusqueda.hidden=true;
+        if(mejoraModalArchivo && !mejoraModalArchivo.hidden) mejoraModalArchivo.hidden=true;
+    });
+
+
 });
