@@ -9695,3 +9695,244 @@ button:disabled,
     }
 }
 
+
+/* =========================================================
+   CORRECCIÓN MÓVIL FINAL - ANCHO, CENTRADO Y DESBORDAMIENTO
+========================================================= */
+
+/*
+   Evita que cualquier tarjeta, texto, botón o contenido dinámico
+   ensanche la página más que la pantalla del teléfono.
+*/
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body,
+main,
+.pagina,
+.pagina > .contenedor,
+.contenedor,
+header,
+footer,
+nav {
+    min-width: 0;
+    max-width: 100%;
+}
+
+img,
+video,
+iframe,
+object,
+embed,
+svg {
+    max-width: 100%;
+}
+
+.documentos-lista,
+.comunicados-lista,
+.lista-comunicados,
+.lista-protocolos,
+.horarios-cursos-detallados,
+.niveles-giratorios,
+.modalidades-giratorias,
+.especialidades-academicas,
+.portal-comunidad,
+.rejilla-cifras {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.documento,
+.comunicado,
+.protocolo,
+.horario-curso-card,
+.nivel-card,
+.portal-perfil,
+.bloque-texto,
+.bloque-documento {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.documento h3,
+.comunicado h3,
+.comunicado-contenido,
+.comunicado-contenido h3,
+.comunicado-contenido p,
+.protocolo-contenido,
+.protocolo-contenido h3,
+.protocolo-contenido p,
+.bloque-texto,
+.bloque-documento {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+/* =========================================================
+   COMUNICADOS ANTERIORES - TELÉFONOS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #comunicados .contenedor {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
+        overflow: hidden;
+    }
+
+    #comunicados .titulo-pagina {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #comunicados .comunicados-lista,
+    #listaComunicados {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr) !important;
+        justify-items: center;
+        gap: 14px;
+    }
+
+    /*
+       Los comunicados anteriores usan a la vez las clases
+       .documento y .comunicado. En móvil se centran completamente.
+    */
+    #listaComunicados .documento.comunicado {
+        width: 100%;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 18px 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        border-left-width: 4px;
+    }
+
+    #listaComunicados .documento.comunicado h3 {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        font-size: 1.05rem;
+        line-height: 1.35;
+    }
+
+    #listaComunicados .comunicado-meta,
+    #listaComunicados .comunicado-fecha {
+        justify-content: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #listaComunicados .boton-documento {
+        width: min(100%, 300px);
+        max-width: 100%;
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #listaComunicados .acciones-archivo-extra {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #listaComunicados .acciones-archivo-extra a {
+        width: min(100%, 300px);
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .acciones-comunicados {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .boton-ver-mas-comunicados {
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    /* Buscador de comunicados sin desbordar */
+    .buscador-comunicados,
+    .buscador-listado {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .buscador-listado input,
+    .buscador-listado button {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Botones y nombres largos en toda la web */
+    .boton-documento,
+    .boton-contacto,
+    .boton-matricula,
+    .boton-navegacion-interna,
+    .portal-perfil-accesos button,
+    .pie-accesos button {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    /* Encabezado y pie ocupan siempre exactamente el ancho visible */
+    .encabezado,
+    .menu-principal,
+    .pie {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    .encabezado-contenido,
+    .menu-contenido,
+    .pie-final-elegante {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Teléfonos muy angostos */
+@media (max-width: 380px) {
+
+    #comunicados .contenedor {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #listaComunicados .documento.comunicado {
+        padding: 16px 10px;
+    }
+
+    #listaComunicados .boton-documento,
+    #listaComunicados .acciones-archivo-extra a {
+        width: 100%;
+    }
+}
+
