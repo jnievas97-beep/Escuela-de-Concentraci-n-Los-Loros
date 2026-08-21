@@ -190,10 +190,29 @@ jobs:
                   coincidencia.group(1)
               )
 
+              fecha_desde = coincidencia.group(2)
+              fecha_hasta = coincidencia.group(3)
+
               extension = (
-                  coincidencia.group(2)
+                  coincidencia.group(4)
                   .lower()
               )
+
+              hoy = datetime.now().date()
+
+              if fecha_desde:
+                  if hoy < datetime.strptime(
+                      fecha_desde,
+                      "%Y-%m-%d"
+                  ).date():
+                      continue
+
+              if fecha_hasta:
+                  if hoy > datetime.strptime(
+                      fecha_hasta,
+                      "%Y-%m-%d"
+                  ).date():
+                      continue
 
               ruta_original = (
                   "noticias/" +
@@ -420,6 +439,42 @@ jobs:
           )
 
           # ===============================================
+          # HORARIOS - METADATOS PARA FECHA Y ETIQUETA NUEVO
+          # ===============================================
+
+          carpeta_horarios = Path("horarios")
+          carpeta_horarios.mkdir(parents=True, exist_ok=True)
+
+          horarios_meta = []
+
+          for archivo in carpeta_horarios.iterdir():
+              if not archivo.is_file():
+                  continue
+              if archivo.suffix.lower() not in {
+                  ".pdf", ".png", ".jpg", ".jpeg",
+                  ".doc", ".docx", ".ppt", ".pptx"
+              }:
+                  continue
+              horarios_meta.append({
+                  "nombre": archivo.name,
+                  "ruta": "horarios/" + quote(archivo.name, safe=""),
+                  "fecha": fecha_git(archivo)
+              })
+
+          horarios_meta.sort(
+              key=lambda item: item["nombre"].lower()
+          )
+
+          (carpeta_horarios / "horarios.json").write_text(
+              json.dumps(
+                  horarios_meta,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
+          # ===============================================
           # AVISOS
           #
           # Formatos admitidos:
@@ -453,7 +508,7 @@ jobs:
           )
 
           patron_aviso = re.compile(
-              r"^aviso\s*(\d+)\.(pdf|png|jpe?g)$",
+              r"^aviso\s*(\d+)(?:_desde_(\d{4}-\d{2}-\d{2}))?(?:_hasta_(\d{4}-\d{2}-\d{2}))?\.(pdf|png|jpe?g)$",
               re.IGNORECASE
           )
 
@@ -494,7 +549,9 @@ jobs:
                   "titulo": f"Aviso N.º {numero}",
                   "texto": "",
                   "ruta": ruta_original,
-                  "fecha": fecha_git(archivo)
+                  "fecha": fecha_git(archivo),
+                  "desde": fecha_desde or "",
+                  "hasta": fecha_hasta or ""
               }
 
               if extension == "pdf":
