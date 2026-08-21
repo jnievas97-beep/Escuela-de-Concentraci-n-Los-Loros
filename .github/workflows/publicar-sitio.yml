@@ -356,6 +356,69 @@ jobs:
               encoding="utf-8"
           )
 
+
+          # ===============================================
+          # SEGURIDAD - GALERÍA AUTOMÁTICA DE IMÁGENES
+          #
+          # Formatos admitidos:
+          # .jpg .jpeg .png .webp .gif .svg
+          # ===============================================
+
+          carpeta_seguridad = Path("seguridad")
+          carpeta_seguridad.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          extensiones_seguridad = {
+              ".jpg",
+              ".jpeg",
+              ".png",
+              ".webp",
+              ".gif",
+              ".svg"
+          }
+
+          imagenes_seguridad = []
+
+          for archivo in carpeta_seguridad.iterdir():
+
+              if not archivo.is_file():
+                  continue
+
+              if archivo.suffix.lower() not in extensiones_seguridad:
+                  continue
+
+              imagenes_seguridad.append({
+                  "nombre": archivo.name,
+                  "ruta": (
+                      "seguridad/" +
+                      quote(
+                          archivo.name,
+                          safe=""
+                      )
+                  ),
+                  "fecha": fecha_git(
+                      archivo
+                  )
+              })
+
+          imagenes_seguridad.sort(
+              key=lambda item: item["nombre"].lower()
+          )
+
+          (
+              carpeta_seguridad /
+              "seguridad.json"
+          ).write_text(
+              json.dumps(
+                  imagenes_seguridad,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
           # ===============================================
           # AVISOS
           #
@@ -532,6 +595,9 @@ jobs:
           echo
           echo "===== NOTICIAS ====="
           cat noticias/noticias.json
+          echo
+          echo "===== SEGURIDAD ====="
+          cat seguridad/seguridad.json
           echo
           echo "===== DOCUMENTOS ====="
           cat documentos/documentos.json
