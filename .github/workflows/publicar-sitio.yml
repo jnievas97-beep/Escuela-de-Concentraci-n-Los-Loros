@@ -291,6 +291,71 @@ jobs:
           )
 
 
+
+          # ===============================================
+          # DOCUMENTOS - LISTA AUTOMÁTICA MULTIFORMATO
+          #
+          # El navegador abrirá directamente los formatos
+          # que soporte y descargará/derivará al sistema
+          # los demás (por ejemplo DOCX o PPTX).
+          # ===============================================
+
+          carpeta_documentos = Path("documentos")
+          carpeta_documentos.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          documentos_auto = []
+
+          for archivo in carpeta_documentos.iterdir():
+
+              if not archivo.is_file():
+                  continue
+
+              if archivo.name.lower() == "documentos.json":
+                  continue
+
+              extension = (
+                  archivo.suffix
+                  .lower()
+                  .lstrip(".")
+              )
+
+              if not extension:
+                  continue
+
+              documentos_auto.append({
+                  "nombre": archivo.name,
+                  "ruta": (
+                      "documentos/" +
+                      quote(
+                          archivo.name,
+                          safe=""
+                      )
+                  ),
+                  "extension": extension,
+                  "fecha": fecha_git(
+                      archivo
+                  )
+              })
+
+          documentos_auto.sort(
+              key=lambda item: item["nombre"].lower()
+          )
+
+          (
+              carpeta_documentos /
+              "documentos.json"
+          ).write_text(
+              json.dumps(
+                  documentos_auto,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
           # ===============================================
           # AVISOS
           #
@@ -467,6 +532,9 @@ jobs:
           echo
           echo "===== NOTICIAS ====="
           cat noticias/noticias.json
+          echo
+          echo "===== DOCUMENTOS ====="
+          cat documentos/documentos.json
           echo
           echo "===== AVISOS ====="
           cat avisos/avisos.json
