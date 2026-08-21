@@ -8545,3 +8545,333 @@ footer::before{content:"";display:block;width:min(180px,35vw);height:4px;margin:
     padding: 18px;
 }
 
+
+/* =========================================================
+   HORARIOS DETALLADOS POR CURSO
+========================================================= */
+
+.horarios-cursos-detallados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.horario-curso-card {
+    background: var(--blanco);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    border-top: 4px solid var(--azul);
+}
+
+.horario-curso-card h3 {
+    margin: 0;
+    padding: 16px 18px;
+    color: var(--azul-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ffffff, #f4f9fc);
+}
+
+.tabla-horario-curso {
+    width: 100%;
+}
+
+.tabla-horario-curso .fila-horario {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    border-top: 1px solid var(--gris);
+}
+
+.tabla-horario-curso .fila-horario > div {
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.tabla-horario-curso .fila-horario > div:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+}
+
+.tabla-horario-curso .encabezado-tabla {
+    background: var(--azul-oscuro);
+    color: white;
+    font-weight: 800;
+}
+
+.tabla-horario-curso .encabezado-tabla > div:first-child {
+    color: white;
+}
+
+@media (max-width: 800px) {
+    .horarios-cursos-detallados {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .tabla-horario-curso .fila-horario {
+        grid-template-columns: 1.15fr .95fr .95fr;
+    }
+
+    .tabla-horario-curso .fila-horario > div {
+        padding: 9px 7px;
+        font-size: .92rem;
+    }
+}
+
+
+/* =========================================================
+   BOTÓN HORARIO DETALLADO DE CLASES
+========================================================= */
+
+.horario-clases-accion {
+    padding: 14px 16px 17px;
+    border-top: 1px solid var(--gris);
+    background: var(--gris-claro);
+    text-align: center;
+}
+
+.horario-clases-accion .boton-documento {
+    width: 100%;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+@media (max-width: 520px) {
+    .horario-clases-accion {
+        padding: 12px;
+    }
+
+    .horario-clases-accion .boton-documento {
+        min-height: 48px;
+    }
+}
+
+
+/* =========================================================
+   TARJETAS GIRATORIAS - OTRAS MODALIDADES EDUCATIVAS
+========================================================= */
+
+.modalidades-giratorias {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 360px));
+    justify-content: center;
+    gap: 28px;
+    margin: 0 auto 45px;
+}
+
+.modalidad-giratoria {
+    width: 100%;
+    min-height: 330px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1100px;
+}
+
+.modalidad-giratoria .tarjeta-especialidad-interior {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 330px;
+    transform-style: preserve-3d;
+    transition: transform .65s ease;
+}
+
+.modalidad-giratoria.activa .tarjeta-especialidad-interior,
+.modalidad-giratoria[aria-pressed="true"] .tarjeta-especialidad-interior {
+    transform: rotateY(180deg);
+}
+
+.modalidad-giratoria .tarjeta-especialidad-frente,
+.modalidad-giratoria .tarjeta-especialidad-atras {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.modalidad-giratoria .tarjeta-especialidad-frente {
+    background: linear-gradient(145deg, #fff, var(--gris-claro));
+    border-bottom: 5px solid var(--verde);
+}
+
+.modalidad-giratoria .tarjeta-especialidad-atras {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, #fff, #f2fbf5);
+    border-bottom: 5px solid var(--verde-oscuro);
+}
+
+.modalidad-icono {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: var(--sombra);
+    font-size: 3rem;
+}
+
+.modalidad-giratoria .nombre-especialidad,
+.modalidad-giratoria .titulo-reverso {
+    color: var(--azul-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.modalidad-giratoria .texto-reverso {
+    margin: 16px 0;
+    color: var(--gris-texto);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.modalidad-giratoria .indicacion-giro {
+    margin-top: 18px;
+    color: var(--azul-oscuro);
+    font-size: .88rem;
+    font-weight: 750;
+}
+
+@media (max-width: 760px) {
+    .modalidades-giratorias {
+        grid-template-columns: 1fr;
+        max-width: 430px;
+    }
+
+    .modalidad-giratoria,
+    .modalidad-giratoria .tarjeta-especialidad-interior {
+        min-height: 350px;
+    }
+}
+
+
+/* =========================================================
+   TARJETAS GIRATORIAS - NIVELES EDUCATIVOS
+========================================================= */
+.niveles-giratorios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 auto 45px;
+}
+
+.nivel-giratorio {
+    width: 100%;
+    min-height: 350px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1100px;
+}
+
+.nivel-giratorio .tarjeta-especialidad-interior {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 350px;
+    transform-style: preserve-3d;
+    transition: transform .65s ease;
+}
+
+.nivel-giratorio.activa .tarjeta-especialidad-interior,
+.nivel-giratorio[aria-pressed="true"] .tarjeta-especialidad-interior {
+    transform: rotateY(180deg);
+}
+
+.nivel-giratorio .tarjeta-especialidad-frente,
+.nivel-giratorio .tarjeta-especialidad-atras {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 22px;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.nivel-giratorio .tarjeta-especialidad-frente {
+    background: linear-gradient(145deg, #fff, var(--gris-claro));
+    border-bottom: 5px solid var(--azul);
+}
+
+.nivel-giratorio .tarjeta-especialidad-atras {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, #fff, #f3f8fc);
+    border-bottom: 5px solid var(--azul-oscuro);
+}
+
+.nivel-icono {
+    width: 94px;
+    height: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: var(--sombra);
+    font-size: 2.8rem;
+}
+
+.nivel-giratorio .nombre-especialidad,
+.nivel-giratorio .titulo-reverso {
+    color: var(--azul-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.nivel-rango {
+    margin-top: 10px;
+    color: var(--verde-oscuro);
+    font-weight: 800;
+    text-align: center;
+}
+
+.nivel-giratorio .texto-reverso {
+    margin: 16px 0;
+    color: var(--gris-texto);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.nivel-giratorio .indicacion-giro {
+    margin-top: 18px;
+    color: var(--azul-oscuro);
+    font-size: .88rem;
+    font-weight: 750;
+}
+
+@media (max-width: 900px) {
+    .niveles-giratorios {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+    }
+}
+
