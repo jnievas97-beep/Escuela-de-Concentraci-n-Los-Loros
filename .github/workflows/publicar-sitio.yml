@@ -1,4 +1,4 @@
-name: Publicar sitio, comunicados y noticias
+name: Publicar sitio, comunicados, noticias y avisos
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y poppler-utils
 
-      - name: Generar listas automáticas de comunicados y noticias
+      - name: Generar listas automáticas de comunicados, noticias y avisos
         shell: bash
         run: |
           python3 - <<'PY'
@@ -290,6 +290,139 @@ jobs:
               encoding="utf-8"
           )
 
+
+          # ===============================================
+          # AVISOS
+          #
+          # Formatos admitidos:
+          # aviso01.jpg
+          # aviso02.jpeg
+          # aviso03.png
+          # aviso04.pdf
+          #
+          # El aviso con número más alto se muestra primero.
+          # ===============================================
+
+          carpeta_avisos = Path("avisos")
+          carpeta_avisos.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          carpeta_previews_avisos = (
+              carpeta_avisos /
+              "previews"
+          )
+
+          if carpeta_previews_avisos.exists():
+              shutil.rmtree(
+                  carpeta_previews_avisos
+              )
+
+          carpeta_previews_avisos.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          patron_aviso = re.compile(
+              r"^aviso\s*(\d+)\.(pdf|png|jpe?g)$",
+              re.IGNORECASE
+          )
+
+          avisos = []
+
+          for archivo in carpeta_avisos.iterdir():
+
+              if not archivo.is_file():
+                  continue
+
+              coincidencia = patron_aviso.fullmatch(
+                  archivo.name
+              )
+
+              if not coincidencia:
+                  continue
+
+              numero = int(
+                  coincidencia.group(1)
+              )
+
+              extension = (
+                  coincidencia.group(2)
+                  .lower()
+              )
+
+              ruta_original = (
+                  "avisos/" +
+                  quote(
+                      archivo.name,
+                      safe=""
+                  )
+              )
+
+              aviso = {
+                  "numero": numero,
+                  "nombre": archivo.name,
+                  "titulo": f"Aviso N.º {numero}",
+                  "texto": "",
+                  "ruta": ruta_original,
+                  "fecha": fecha_git(archivo)
+              }
+
+              if extension == "pdf":
+
+                  prefijo_preview = (
+                      carpeta_previews_avisos /
+                      f"aviso{numero:02d}"
+                  )
+
+                  subprocess.run(
+                      [
+                          "pdftoppm",
+                          "-png",
+                          "-f",
+                          "1",
+                          "-singlefile",
+                          "-r",
+                          "140",
+                          str(archivo),
+                          str(prefijo_preview)
+                      ],
+                      check=True
+                  )
+
+                  aviso["tipo"] = "pdf"
+                  aviso["preview"] = (
+                      "avisos/previews/" +
+                      f"aviso{numero:02d}.png"
+                  )
+
+              else:
+
+                  aviso["tipo"] = "imagen"
+                  aviso["preview"] = ""
+
+              avisos.append(aviso)
+
+          avisos.sort(
+              key=lambda item: item["numero"],
+              reverse=True
+          )
+
+          salida_avisos = (
+              carpeta_avisos /
+              "avisos.json"
+          )
+
+          salida_avisos.write_text(
+              json.dumps(
+                  avisos,
+                  ensure_ascii=False,
+                  indent=2
+              ) + "\n",
+              encoding="utf-8"
+          )
+
           print(
               "Comunicados encontrados:",
               len(comunicados)
@@ -299,6 +432,21 @@ jobs:
               "Noticias encontradas:",
               len(noticias)
           )
+
+          print(
+              "Avisos encontrados:",
+              len(avisos)
+          )
+
+          if avisos:
+              print(
+                  "Aviso activo:",
+                  avisos[0]["nombre"]
+              )
+          else:
+              print(
+                  "Aún no hay avisos disponibles."
+              )
 
           if noticias:
               print(
@@ -319,6 +467,12 @@ jobs:
           echo
           echo "===== NOTICIAS ====="
           cat noticias/noticias.json
+          echo
+          echo "===== AVISOS ====="
+          cat avisos/avisos.json
+          echo
+          echo "===== VISTAS PREVIAS DE AVISOS PDF ====="
+          find avisos/previews -type f -maxdepth 2 -print || true
           echo
           echo "===== VISTAS PREVIAS DE PDF ====="
           find noticias/previews -type f -maxdepth 3 -print || true
