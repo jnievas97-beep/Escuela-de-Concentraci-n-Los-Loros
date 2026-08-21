@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -45,6 +45,7 @@ jobs:
           import shutil
           import subprocess
           from pathlib import Path
+          from datetime import datetime
           from urllib.parse import quote
 
           def fecha_git(archivo):
@@ -190,29 +191,11 @@ jobs:
                   coincidencia.group(1)
               )
 
-              fecha_desde = coincidencia.group(2)
-              fecha_hasta = coincidencia.group(3)
-
               extension = (
-                  coincidencia.group(4)
+                  coincidencia.group(2)
                   .lower()
               )
 
-              hoy = datetime.now().date()
-
-              if fecha_desde:
-                  if hoy < datetime.strptime(
-                      fecha_desde,
-                      "%Y-%m-%d"
-                  ).date():
-                      continue
-
-              if fecha_hasta:
-                  if hoy > datetime.strptime(
-                      fecha_hasta,
-                      "%Y-%m-%d"
-                  ).date():
-                      continue
 
               ruta_original = (
                   "noticias/" +
@@ -482,8 +465,10 @@ jobs:
           # aviso02.jpeg
           # aviso03.png
           # aviso04.pdf
+          # aviso05_hasta_2026-08-31.jpg
+          # aviso06_desde_2026-08-24_hasta_2026-08-31.png
           #
-          # El aviso con número más alto se muestra primero.
+          # El aviso con número más alto y fecha vigente se muestra primero.
           # ===============================================
 
           carpeta_avisos = Path("avisos")
@@ -530,10 +515,29 @@ jobs:
                   coincidencia.group(1)
               )
 
+              fecha_desde = coincidencia.group(2)
+              fecha_hasta = coincidencia.group(3)
+
               extension = (
-                  coincidencia.group(2)
+                  coincidencia.group(4)
                   .lower()
               )
+
+              hoy = datetime.now().date()
+
+              if fecha_desde:
+                  if hoy < datetime.strptime(
+                      fecha_desde,
+                      "%Y-%m-%d"
+                  ).date():
+                      continue
+
+              if fecha_hasta:
+                  if hoy > datetime.strptime(
+                      fecha_hasta,
+                      "%Y-%m-%d"
+                  ).date():
+                      continue
 
               ruta_original = (
                   "avisos/" +
