@@ -5477,4 +5477,126 @@ document.addEventListener("DOMContentLoaded", function () {
             .observe(lista,{childList:true,subtree:true});
     });
 
+
+    /* =====================================================
+       VISOR IMAGEN - CENTRO DE ALUMNOS
+    ===================================================== */
+
+    const abrirImagenCentroAlumnos =
+        document.getElementById(
+            "abrirImagenCentroAlumnos"
+        );
+
+    const visorImagenCentroAlumnos =
+        document.getElementById(
+            "visorImagenCentroAlumnos"
+        );
+
+    const cerrarImagenCentroAlumnos =
+        document.getElementById(
+            "cerrarImagenCentroAlumnos"
+        );
+
+    let focoAnteriorCentroAlumnos =
+        null;
+
+
+    function abrirVisorCentroAlumnos() {
+
+        if (!visorImagenCentroAlumnos) {
+            return;
+        }
+
+        focoAnteriorCentroAlumnos =
+            document.activeElement;
+
+        visorImagenCentroAlumnos.hidden =
+            false;
+
+        document.body.classList.add(
+            "visor-centro-abierto"
+        );
+
+        if (cerrarImagenCentroAlumnos) {
+            cerrarImagenCentroAlumnos.focus();
+        }
+
+    }
+
+
+    function cerrarVisorCentroAlumnos() {
+
+        if (!visorImagenCentroAlumnos) {
+            return;
+        }
+
+        visorImagenCentroAlumnos.hidden =
+            true;
+
+        document.body.classList.remove(
+            "visor-centro-abierto"
+        );
+
+        if (
+            focoAnteriorCentroAlumnos &&
+            typeof focoAnteriorCentroAlumnos.focus ===
+                "function"
+        ) {
+            focoAnteriorCentroAlumnos.focus();
+        }
+
+    }
+
+
+    if (abrirImagenCentroAlumnos) {
+        abrirImagenCentroAlumnos.addEventListener(
+            "click",
+            abrirVisorCentroAlumnos
+        );
+    }
+
+
+    if (cerrarImagenCentroAlumnos) {
+        cerrarImagenCentroAlumnos.addEventListener(
+            "click",
+            cerrarVisorCentroAlumnos
+        );
+    }
+
+
+    if (visorImagenCentroAlumnos) {
+
+        visorImagenCentroAlumnos.addEventListener(
+            "click",
+            function (evento) {
+
+                if (
+                    evento.target ===
+                    visorImagenCentroAlumnos
+                ) {
+                    cerrarVisorCentroAlumnos();
+                }
+
+            }
+        );
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        function (evento) {
+
+            if (
+                evento.key === "Escape" &&
+                visorImagenCentroAlumnos &&
+                !visorImagenCentroAlumnos.hidden
+            ) {
+                cerrarVisorCentroAlumnos();
+            }
+
+        }
+    );
+
+
 });
