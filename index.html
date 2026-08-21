@@ -136,7 +136,7 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
 <link
     rel="stylesheet"
-    href="style.css?v=20260821-5"
+    href="style.css?v=20260821-9"
 >
 
 <link
@@ -1548,12 +1548,12 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
             Niveles Educativos
         </button>
 
-        <button type="button" data-destino="academicaEspecialidades">
-            Especialidades Técnico Profesionales
-        </button>
-
         <button type="button" data-destino="academicaModalidades">
             Otras Modalidades Educativas
+        </button>
+
+        <button type="button" data-destino="academicaEspecialidades">
+            Especialidades Técnico Profesionales
         </button>
 
         <button type="button" data-destino="academicaHorarios">
@@ -1565,49 +1565,131 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 </div>
 
 
-<div id="academicaNiveles" class="niveles-educativos">
+<div id="academicaNiveles" class="niveles-giratorios">
 
-    <div class="nivel-card">
+    <button class="nivel-giratorio tarjeta-especialidad" type="button" aria-pressed="false" aria-label="Ver información ampliada de Educación Parvularia">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <span class="nivel-icono" aria-hidden="true">🧸</span>
+                <span class="nombre-especialidad">Educación Parvularia</span>
+                <span class="nivel-rango">NT1 Pre Kinder · NT2 Kinder</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Educación Parvularia</span>
+                <span class="texto-reverso">Primera etapa de la trayectoria educativa, orientada al desarrollo integral, aprendizaje, autonomía, convivencia y participación de niños y niñas.</span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
 
-        <h4>
-            Educación Parvularia
-        </h4>
+    <button class="nivel-giratorio tarjeta-especialidad" type="button" aria-pressed="false" aria-label="Ver información ampliada de Educación Básica">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <span class="nivel-icono" aria-hidden="true">📚</span>
+                <span class="nombre-especialidad">Educación Básica</span>
+                <span class="nivel-rango">1° a 8° Básico</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Educación Básica</span>
+                <span class="texto-reverso">Etapa que fortalece los aprendizajes fundamentales y el desarrollo integral de los estudiantes, promoviendo conocimientos, habilidades, autonomía, convivencia y participación.</span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
 
-        <p>
-            <strong>NT1:</strong> Pre Kinder
-        </p>
+    <button class="nivel-giratorio tarjeta-especialidad" type="button" aria-pressed="false" aria-label="Ver información ampliada de Educación Media Técnico Profesional">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <span class="nivel-icono" aria-hidden="true">🎓</span>
+                <span class="nombre-especialidad">Educación Media Técnico Profesional</span>
+                <span class="nivel-rango">1° a 4° Medio TP</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Educación Media Técnico Profesional</span>
+                <span class="texto-reverso">Etapa que profundiza la formación general y, en los niveles correspondientes, articula la preparación Técnico Profesional, favoreciendo la continuidad de estudios y la incorporación al mundo laboral.</span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
 
-        <p>
-            <strong>NT2:</strong> Kinder
-        </p>
-
-    </div>
-
-
-    <div class="nivel-card">
-
-        <h4>
-            Educación Básica
-        </h4>
-
-        <p>
-            1° a 8° Básico
-        </p>
-
-    </div>
+</div>
 
 
-    <div class="nivel-card">
+<div id="academicaModalidades"
+    class="titulo-pagina"
+    style="margin-top: 60px;"
+>
 
-        <h4>
-            Educación Media
-        </h4>
+    <h2>
+        Otras Modalidades Educativas
+    </h2>
 
-        <p>
-            1° a 4° Medio Técnico Profesional
-        </p>
+</div>
 
-    </div>
+
+<div class="modalidades-giratorias">
+
+    <button
+        class="modalidad-giratoria tarjeta-especialidad"
+        type="button"
+        aria-pressed="false"
+        aria-label="Ver información ampliada de Opción 4"
+    >
+        <span class="tarjeta-especialidad-interior">
+
+            <span class="tarjeta-especialidad-frente">
+                <span class="modalidad-icono" aria-hidden="true">🧩</span>
+                <span class="nombre-especialidad">Opción 4</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Opción 4</span>
+                <span class="texto-reverso">
+                    Modalidad de educación especial para estudiantes que requieren
+                    apoyos especializados y una respuesta educativa ajustada a sus
+                    necesidades. Favorece el aprendizaje, la participación, la
+                    autonomía y el desarrollo integral, considerando las
+                    características y fortalezas de cada estudiante.
+                </span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+
+        </span>
+    </button>
+
+
+    <button
+        class="modalidad-giratoria tarjeta-especialidad"
+        type="button"
+        aria-pressed="false"
+        aria-label="Ver información ampliada de Opción 4 Laboral"
+    >
+        <span class="tarjeta-especialidad-interior">
+
+            <span class="tarjeta-especialidad-frente">
+                <span class="modalidad-icono" aria-hidden="true">🛠️</span>
+                <span class="nombre-especialidad">Opción 4 Laboral</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Opción 4 Laboral</span>
+                <span class="texto-reverso">
+                    Espacio formativo orientado al desarrollo de habilidades para
+                    la vida adulta y socio-laboral. Fortalece la autonomía, la
+                    independencia, la participación y las competencias necesarias
+                    para desenvolverse con mayor seguridad en distintos contextos
+                    de la vida cotidiana y laboral.
+                </span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+
+        </span>
+    </button>
 
 </div>
 
@@ -1786,248 +1868,782 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 </div>
 
 
-<div id="academicaModalidades"
-    class="titulo-pagina"
-    style="margin-top: 60px;"
->
-
-    <h2>
-        Otras Modalidades Educativas
-    </h2>
-
-</div>
-
-
-<div class="niveles-educativos opciones-modalidades">
-
-    <div class="nivel-card">
-
-        <h4>
-            Opción 4
-        </h4>
-
-        <p>
-            Estudiantes que participan de esta modalidad educativa
-            dentro de nuestra comunidad escolar.
-        </p>
-
-    </div>
-
-
-    <div class="nivel-card">
-
-        <h4>
-            Opción 4 Laboral
-        </h4>
-
-        <p>
-            Modalidad orientada al desarrollo de habilidades y
-            competencias para la vida y el ámbito laboral.
-        </p>
-
-    </div>
-
-</div>
-
-
 <div id="academicaHorarios"
     class="titulo-pagina"
     style="margin-top: 60px;"
 >
     <h2>Horarios de clases</h2>
     <p>
-        Selecciona el curso o modalidad para visualizar su horario.
+        Revisa la hora de ingreso y salida de cada curso. Para consultar las asignaturas y bloques de cada jornada, utiliza el botón «Ver horario de clases».
     </p>
 </div>
 
-<div class="documentos-lista horarios-lista">
-    <div class="documento horario-documento">
+<div class="horarios-cursos-detallados">
+    <article class="horario-curso-card">
         <h3>Kinder</h3>
-        <a
-            href="horarios/kinder.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/kinder.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>1° Básico</h3>
-        <a
-            href="horarios/1basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>14:45</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/1basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>2° Básico</h3>
-        <a
-            href="horarios/2basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>14:45</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/2basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>3° Básico</h3>
-        <a
-            href="horarios/3basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/3basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>4° Básico</h3>
-        <a
-            href="horarios/4basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/4basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>5° Básico</h3>
-        <a
-            href="horarios/5basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/5basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>6° Básico</h3>
-        <a
-            href="horarios/6basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/6basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>7° Básico</h3>
-        <a
-            href="horarios/7basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/7basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>8° Básico</h3>
-        <a
-            href="horarios/8basico.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/8basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>Opción 4</h3>
-        <a
-            href="horarios/opcion4.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/opcion4.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>Opción 4 Laboral</h3>
-        <a
-            href="horarios/opcion4laboral.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/opcion4laboral.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>1° Medio</h3>
-        <a
-            href="horarios/1medio.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/1medio.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>2° Medio</h3>
-        <a
-            href="horarios/2medio.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/2medio.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>3° Medio Agropecuaria</h3>
-        <a
-            href="horarios/3medioagropecuaria.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/3medioagropecuaria.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>4° Medio Agropecuaria</h3>
-        <a
-            href="horarios/4medioagropecuaria.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/4medioagropecuaria.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>3° Medio Mecánica Industrial</h3>
-        <a
-            href="horarios/3mediomecanica.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
-    <div class="documento horario-documento">
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/3mediomecanica.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
         <h3>4° Medio Mecánica Industrial</h3>
-        <a
-            href="horarios/4mediomecanica.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-documento"
-        >
-            Ver horario
-        </a>
-    </div>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/4mediomecanica.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
 </div>
 
 
@@ -3608,11 +4224,6 @@ content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/ima
 
 <div class="bloque-documento seguridad-material">
     <h3>Material de Seguridad</h3>
-    <p>
-        En esta sección se mostrarán los afiches e imágenes institucionales
-        almacenados en la carpeta <strong>seguridad</strong>.
-    </p>
-
     <div id="galeriaSeguridad" class="galeria-seguridad" aria-live="polite">
         <!--
             Aquí se incorporarán las imágenes usando exactamente
