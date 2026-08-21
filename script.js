@@ -3004,6 +3004,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen.className =
                     "imagen-aviso-importante";
 
+                imagen.tabIndex =
+                    0;
+
+                imagen.setAttribute(
+                    "role",
+                    "button"
+                );
+
+                imagen.setAttribute(
+                    "aria-label",
+                    "Ampliar " + imagen.alt
+                );
+
 
                 imagen.loading =
                     "lazy";
@@ -3043,6 +3056,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen.className =
                     "imagen-aviso-importante";
 
+                imagen.tabIndex =
+                    0;
+
+                imagen.setAttribute(
+                    "role",
+                    "button"
+                );
+
+                imagen.setAttribute(
+                    "aria-label",
+                    "Ampliar " + imagen.alt
+                );
+
 
                 imagen.loading =
                     "lazy";
@@ -3080,11 +3106,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 botonAvisoImportante.href =
                     aviso.ruta;
 
+                botonAvisoImportante.dataset.rutaAviso =
+                    aviso.ruta;
+
+                botonAvisoImportante.dataset.tipoAviso =
+                    aviso.tipo;
+
+                botonAvisoImportante.removeAttribute(
+                    "target"
+                );
 
                 botonAvisoImportante.textContent =
                     aviso.tipo === "pdf"
-                        ? "📄 Ver aviso completo"
-                        : "🔎 Abrir imagen del aviso";
+                        ? "🔎 Ver aviso ampliado"
+                        : "🔎 Presiona para ampliar";
 
             }
 
@@ -5478,103 +5513,205 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
+
     /* =====================================================
-       VISOR IMAGEN - CENTRO DE ALUMNOS
+       VISOR UNIFICADO - AVISO, PDF E IMÁGENES
     ===================================================== */
 
-    const abrirImagenCentroAlumnos =
+    const visorImagenGeneral =
         document.getElementById(
-            "abrirImagenCentroAlumnos"
+            "visorImagenGeneral"
         );
 
-    const visorImagenCentroAlumnos =
+    const imagenVisorGeneral =
         document.getElementById(
-            "visorImagenCentroAlumnos"
+            "imagenVisorGeneral"
         );
 
-    const cerrarImagenCentroAlumnos =
+    const pdfVisorGeneral =
         document.getElementById(
-            "cerrarImagenCentroAlumnos"
+            "pdfVisorGeneral"
         );
 
-    let focoAnteriorCentroAlumnos =
+    const cerrarVisorImagenGeneral =
+        document.getElementById(
+            "cerrarVisorImagenGeneral"
+        );
+
+    let focoAnteriorVisorGeneral =
         null;
 
 
-    function abrirVisorCentroAlumnos() {
+    function abrirVisorGeneral(
+        ruta,
+        tipo,
+        textoAlternativo,
+        elementoOrigen
+    ) {
 
-        if (!visorImagenCentroAlumnos) {
+        if (
+            !visorImagenGeneral ||
+            !ruta
+        ) {
             return;
         }
 
-        focoAnteriorCentroAlumnos =
+        focoAnteriorVisorGeneral =
+            elementoOrigen ||
             document.activeElement;
 
-        visorImagenCentroAlumnos.hidden =
+        const esPdf =
+            tipo === "pdf" ||
+            /\.pdf(?:$|\?)/i.test(ruta);
+
+        if (imagenVisorGeneral) {
+
+            imagenVisorGeneral.hidden =
+                esPdf;
+
+            if (esPdf) {
+
+                imagenVisorGeneral.removeAttribute(
+                    "src"
+                );
+
+                imagenVisorGeneral.alt =
+                    "";
+
+            } else {
+
+                imagenVisorGeneral.src =
+                    ruta;
+
+                imagenVisorGeneral.alt =
+                    textoAlternativo ||
+                    "Imagen ampliada";
+
+            }
+
+        }
+
+
+        if (pdfVisorGeneral) {
+
+            pdfVisorGeneral.hidden =
+                !esPdf;
+
+            if (esPdf) {
+
+                pdfVisorGeneral.src =
+                    ruta;
+
+                pdfVisorGeneral.title =
+                    textoAlternativo ||
+                    "Documento ampliado";
+
+            } else {
+
+                pdfVisorGeneral.removeAttribute(
+                    "src"
+                );
+
+            }
+
+        }
+
+
+        visorImagenGeneral.hidden =
             false;
 
         document.body.classList.add(
-            "visor-centro-abierto"
+            "visor-afiche-abierto"
         );
 
-        if (cerrarImagenCentroAlumnos) {
-            cerrarImagenCentroAlumnos.focus();
+
+        if (cerrarVisorImagenGeneral) {
+
+            cerrarVisorImagenGeneral.focus();
+
         }
 
     }
 
 
-    function cerrarVisorCentroAlumnos() {
+    function cerrarVisorGeneral() {
 
-        if (!visorImagenCentroAlumnos) {
+        if (!visorImagenGeneral) {
             return;
         }
 
-        visorImagenCentroAlumnos.hidden =
+        visorImagenGeneral.hidden =
             true;
 
         document.body.classList.remove(
-            "visor-centro-abierto"
+            "visor-afiche-abierto"
         );
 
+
+        if (imagenVisorGeneral) {
+
+            imagenVisorGeneral.removeAttribute(
+                "src"
+            );
+
+            imagenVisorGeneral.alt =
+                "";
+
+            imagenVisorGeneral.hidden =
+                true;
+
+        }
+
+
+        if (pdfVisorGeneral) {
+
+            pdfVisorGeneral.removeAttribute(
+                "src"
+            );
+
+            pdfVisorGeneral.hidden =
+                true;
+
+        }
+
+
         if (
-            focoAnteriorCentroAlumnos &&
-            typeof focoAnteriorCentroAlumnos.focus ===
+            focoAnteriorVisorGeneral &&
+            typeof focoAnteriorVisorGeneral.focus ===
                 "function"
         ) {
-            focoAnteriorCentroAlumnos.focus();
+
+            focoAnteriorVisorGeneral.focus();
+
         }
 
     }
 
 
-    if (abrirImagenCentroAlumnos) {
-        abrirImagenCentroAlumnos.addEventListener(
+    if (cerrarVisorImagenGeneral) {
+
+        cerrarVisorImagenGeneral.addEventListener(
             "click",
-            abrirVisorCentroAlumnos
+            cerrarVisorGeneral
         );
+
     }
 
 
-    if (cerrarImagenCentroAlumnos) {
-        cerrarImagenCentroAlumnos.addEventListener(
-            "click",
-            cerrarVisorCentroAlumnos
-        );
-    }
+    if (visorImagenGeneral) {
 
-
-    if (visorImagenCentroAlumnos) {
-
-        visorImagenCentroAlumnos.addEventListener(
+        visorImagenGeneral.addEventListener(
             "click",
             function (evento) {
 
                 if (
                     evento.target ===
-                    visorImagenCentroAlumnos
+                    visorImagenGeneral
                 ) {
-                    cerrarVisorCentroAlumnos();
+
+                    cerrarVisorGeneral();
+
                 }
 
             }
@@ -5589,14 +5726,159 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (
                 evento.key === "Escape" &&
-                visorImagenCentroAlumnos &&
-                !visorImagenCentroAlumnos.hidden
+                visorImagenGeneral &&
+                !visorImagenGeneral.hidden
             ) {
-                cerrarVisorCentroAlumnos();
+
+                cerrarVisorGeneral();
+
             }
 
         }
     );
+
+
+    /* Centro de Alumnos */
+    const abrirImagenCentroAlumnos =
+        document.getElementById(
+            "abrirImagenCentroAlumnos"
+        );
+
+    if (abrirImagenCentroAlumnos) {
+
+        abrirImagenCentroAlumnos.addEventListener(
+            "click",
+            function () {
+
+                const imagen =
+                    abrirImagenCentroAlumnos.querySelector(
+                        "img"
+                    );
+
+                if (!imagen) {
+                    return;
+                }
+
+                abrirVisorGeneral(
+                    imagen.currentSrc ||
+                    imagen.src,
+                    "imagen",
+                    imagen.alt,
+                    abrirImagenCentroAlumnos
+                );
+
+            }
+        );
+
+    }
+
+
+    /* Imagen/preview del aviso */
+    if (contenidoAvisoImportante) {
+
+        contenidoAvisoImportante.addEventListener(
+            "click",
+            function (evento) {
+
+                const imagen =
+                    evento.target.closest(
+                        ".imagen-aviso-importante"
+                    );
+
+                if (!imagen) {
+                    return;
+                }
+
+                abrirVisorGeneral(
+                    imagen.currentSrc ||
+                    imagen.src,
+                    "imagen",
+                    imagen.alt,
+                    imagen
+                );
+
+            }
+        );
+
+
+        contenidoAvisoImportante.addEventListener(
+            "keydown",
+            function (evento) {
+
+                const imagen =
+                    evento.target.closest(
+                        ".imagen-aviso-importante"
+                    );
+
+                if (
+                    !imagen ||
+                    (
+                        evento.key !== "Enter" &&
+                        evento.key !== " "
+                    )
+                ) {
+                    return;
+                }
+
+                evento.preventDefault();
+
+                abrirVisorGeneral(
+                    imagen.currentSrc ||
+                    imagen.src,
+                    "imagen",
+                    imagen.alt,
+                    imagen
+                );
+
+            }
+        );
+
+    }
+
+
+    /* Botón principal del aviso:
+       abre siempre dentro del visor, tanto imágenes como PDF. */
+    if (botonAvisoImportante) {
+
+        botonAvisoImportante.addEventListener(
+            "click",
+            function (evento) {
+
+                const ruta =
+                    botonAvisoImportante.dataset.rutaAviso ||
+                    botonAvisoImportante.getAttribute(
+                        "href"
+                    );
+
+                const tipo =
+                    botonAvisoImportante.dataset.tipoAviso ||
+                    (
+                        /\.pdf(?:$|\?)/i.test(
+                            ruta || ""
+                        )
+                            ? "pdf"
+                            : "imagen"
+                    );
+
+                if (!ruta || ruta === "#") {
+                    return;
+                }
+
+                evento.preventDefault();
+
+                abrirVisorGeneral(
+                    ruta,
+                    tipo,
+                    tituloAvisoImportante
+                        ? tituloAvisoImportante.textContent
+                        : "Aviso Importante",
+                    botonAvisoImportante
+                );
+
+            }
+        );
+
+    }
 
 
 });
