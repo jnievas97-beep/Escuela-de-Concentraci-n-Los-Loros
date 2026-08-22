@@ -6428,4 +6428,1319 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
+    /* =====================================================
+       PROPUESTA PREMIUM OFFLINE 20260821-17
+    ===================================================== */
+    document.addEventListener("keydown",function(e){
+        if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
+            e.preventDefault();
+            const b=document.getElementById("abrirBuscadorGlobal");
+            if(b)b.click();
+        }
+    });
+
+    const indicePremiumDinamico=[];
+
+    function agregarPremium(titulo,categoria,pagina,detalle,url){
+        if(!titulo)return;
+        const clave=[titulo,categoria,pagina,url].join("|");
+        if(indicePremiumDinamico.some(x=>x.clave===clave))return;
+        indicePremiumDinamico.push({clave,titulo,categoria,pagina,detalle:detalle||"",url:url||""});
+    }
+
+    async function cargarPremium(ruta,categoria,pagina){
+        try{
+            const r=await fetch(ruta,{cache:"no-store"});
+            if(!r.ok)return;
+            const datos=await r.json();
+            if(!Array.isArray(datos))return;
+            datos.forEach(item=>{
+                agregarPremium(
+                    item.titulo||item.nombre||item.texto||item.archivo||"",
+                    categoria,pagina,
+                    [item.fecha||"",item.descripcion||""].filter(Boolean).join(" · "),
+                    item.ruta||item.url||item.archivo||""
+                );
+            });
+        }catch(error){}
+    }
+
+    Promise.all([
+        cargarPremium("comunicados/comunicados.json","comunicado","comunicados"),
+        cargarPremium("noticias/noticias.json","noticia","inicio"),
+        cargarPremium("documentos/documentos.json","documento","documentos"),
+        cargarPremium("protocolos/protocolos.json","documento","protocolos"),
+        cargarPremium("seguridad/seguridad.json","documento","seguridad"),
+        cargarPremium("horarios/horarios.json","horario","academica")
+    ]);
+
+    const listaPremium=document.getElementById("listaComunicados");
+    if(listaPremium&&!document.querySelector(".archivo-comunicados-filtros")){
+        const f=document.createElement("div");
+        f.className="archivo-comunicados-filtros";
+        f.setAttribute("aria-label","Filtrar comunicados");
+        [["todos","Todos"],["recientes","Recientes"],["anteriores","Anteriores"]].forEach(op=>{
+            const b=document.createElement("button");
+            b.type="button";b.dataset.filtroComunicado=op[0];b.textContent=op[1];
+            if(op[0]==="todos")b.classList.add("activo");
+            b.addEventListener("click",function(){
+                f.querySelectorAll("button").forEach(x=>x.classList.toggle("activo",x===b));
+                Array.from(listaPremium.querySelectorAll(".comunicado")).forEach((card,i)=>{
+                    card.hidden=op[0]==="recientes"?i>=6:op[0]==="anteriores"?i<6:false;
+                });
+            });
+            f.appendChild(b);
+        });
+        listaPremium.parentNode.insertBefore(f,listaPremium);
+    }
+
+
+    /* =====================================================
+       REDISEÑO PREMIUM VISIBLE · OFFLINE 20260821-18
+    ===================================================== */
+
+    function premiumIrA(pagina, destino) {
+
+        const botonMenu =
+            document.querySelector(
+                '.boton-menu[data-pagina="' +
+                pagina +
+                '"]'
+            );
+
+        if (botonMenu) {
+            botonMenu.click();
+        } else if (
+            typeof mostrarPagina ===
+            "function"
+        ) {
+            mostrarPagina(pagina);
+        }
+
+        if (destino) {
+
+            window.setTimeout(function () {
+
+                const elemento =
+                    document.getElementById(
+                        destino
+                    );
+
+                if (elemento) {
+                    elemento.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+
+            }, 120);
+
+        }
+
+    }
+
+
+    document.querySelectorAll(
+        "[data-premium-pagina]"
+    ).forEach(function (boton) {
+
+        boton.addEventListener(
+            "click",
+            function () {
+
+                premiumIrA(
+                    boton.dataset.premiumPagina,
+                    boton.dataset.premiumDestino ||
+                        ""
+                );
+
+            }
+        );
+
+    });
+
+
+    const premiumAbrirBusqueda =
+        document.getElementById(
+            "premiumAbrirBusqueda"
+        );
+
+    if (premiumAbrirBusqueda) {
+
+        premiumAbrirBusqueda.addEventListener(
+            "click",
+            function () {
+
+                const lupa =
+                    document.getElementById(
+                        "abrirBuscadorGlobal"
+                    );
+
+                if (lupa) {
+                    lupa.click();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* Ctrl/Cmd + K abre Spotlight */
+    document.addEventListener(
+        "keydown",
+        function (evento) {
+
+            if (
+                (
+                    evento.ctrlKey ||
+                    evento.metaKey
+                ) &&
+                evento.key.toLowerCase() ===
+                    "k"
+            ) {
+
+                evento.preventDefault();
+
+                const lupa =
+                    document.getElementById(
+                        "abrirBuscadorGlobal"
+                    );
+
+                if (lupa) {
+                    lupa.click();
+                }
+
+            }
+
+        }
+    );
+
+
+    /*
+       Índice extra: incorpora contenido dinámico ya cargado
+       en Comunicados, Noticias, Documentos, Protocolos y Horarios.
+    */
+    function premiumResultadosDinamicos(
+        termino
+    ) {
+
+        const q =
+            mejoraNormalizar(
+                termino
+            );
+
+        if (q.length < 2) {
+            return [];
+        }
+
+        const selectores = [
+            [
+                "#listaComunicados .comunicado",
+                "comunicado",
+                "comunicados"
+            ],
+            [
+                "#listaNoticias .noticia",
+                "noticia",
+                "inicio"
+            ],
+            [
+                "#documentos .documento",
+                "documento",
+                "documentos"
+            ],
+            [
+                "#protocolos .documento",
+                "documento",
+                "protocolos"
+            ],
+            [
+                ".horario-curso-card",
+                "horario",
+                "academica"
+            ]
+        ];
+
+        const resultados = [];
+
+        selectores.forEach(
+            function (config) {
+
+                document
+                    .querySelectorAll(
+                        config[0]
+                    )
+                    .forEach(
+                        function (elemento) {
+
+                            const texto =
+                                mejoraTexto(
+                                    elemento
+                                );
+
+                            if (
+                                !mejoraNormalizar(
+                                    texto
+                                ).includes(q)
+                            ) {
+                                return;
+                            }
+
+                            const titulo =
+                                elemento.querySelector(
+                                    "h2,h3,h4,strong"
+                                );
+
+                            resultados.push({
+                                titulo:
+                                    mejoraTexto(
+                                        titulo ||
+                                        elemento
+                                    ).slice(
+                                        0,
+                                        100
+                                    ),
+                                detalle:
+                                    texto.slice(
+                                        0,
+                                        150
+                                    ),
+                                pagina:
+                                    config[2],
+                                destino:
+                                    elemento.id ||
+                                    config[2],
+                                categoria:
+                                    config[1]
+                            });
+
+                        }
+                    );
+
+            }
+        );
+
+        return resultados;
+
+    }
+
+
+    /* Mejora visual del filtro de búsqueda. */
+    const premiumFiltrosBusqueda =
+        document.getElementById(
+            "filtrosBuscadorGlobal"
+        );
+
+    let premiumFiltroActivo =
+        "todos";
+
+    if (premiumFiltrosBusqueda) {
+
+        premiumFiltrosBusqueda
+            .querySelectorAll(
+                "[data-filtro-busqueda]"
+            )
+            .forEach(
+                function (boton) {
+
+                    boton.addEventListener(
+                        "click",
+                        function () {
+
+                            premiumFiltroActivo =
+                                boton.dataset
+                                    .filtroBusqueda;
+
+                            premiumFiltrosBusqueda
+                                .querySelectorAll(
+                                    "button"
+                                )
+                                .forEach(
+                                    function (
+                                        otro
+                                    ) {
+
+                                        otro.classList
+                                            .toggle(
+                                                "activo",
+                                                otro ===
+                                                    boton
+                                            );
+
+                                    }
+                                );
+
+                            const entrada =
+                                document.getElementById(
+                                    "entradaBuscadorGlobal"
+                                );
+
+                            if (
+                                entrada &&
+                                typeof mejoraRenderBusqueda ===
+                                    "function"
+                            ) {
+                                mejoraRenderBusqueda(
+                                    entrada.value
+                                );
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+    /*
+       Re-render adicional después del buscador existente:
+       agrega resultados dinámicos que no estaban presentes al cargar.
+    */
+    const premiumEntrada =
+        document.getElementById(
+            "entradaBuscadorGlobal"
+        );
+
+    const premiumResultados =
+        document.getElementById(
+            "resultadosBuscadorGlobal"
+        );
+
+    if (
+        premiumEntrada &&
+        premiumResultados
+    ) {
+
+        premiumEntrada.addEventListener(
+            "input",
+            function () {
+
+                const termino =
+                    premiumEntrada.value;
+
+                window.setTimeout(
+                    function () {
+
+                        const dinamicos =
+                            premiumResultadosDinamicos(
+                                termino
+                            );
+
+                        dinamicos
+                            .filter(
+                                function (item) {
+
+                                    return (
+                                        premiumFiltroActivo ===
+                                            "todos" ||
+                                        premiumFiltroActivo ===
+                                            item.categoria ||
+                                        (
+                                            premiumFiltroActivo ===
+                                                "seccion" &&
+                                            item.categoria ===
+                                                "seccion"
+                                        )
+                                    );
+
+                                }
+                            )
+                            .slice(
+                                0,
+                                12
+                            )
+                            .forEach(
+                                function (item) {
+
+                                    const existe =
+                                        Array.from(
+                                            premiumResultados
+                                                .querySelectorAll(
+                                                    ".resultado-global strong"
+                                                )
+                                        ).some(
+                                            function (
+                                                strong
+                                            ) {
+                                                return (
+                                                    strong.textContent ===
+                                                    item.titulo
+                                                );
+                                            }
+                                        );
+
+                                    if (existe) {
+                                        return;
+                                    }
+
+                                    const boton =
+                                        document.createElement(
+                                            "button"
+                                        );
+
+                                    boton.type =
+                                        "button";
+
+                                    boton.className =
+                                        "resultado-global";
+
+                                    boton.innerHTML =
+                                        "<strong></strong><small></small>";
+
+                                    boton
+                                        .querySelector(
+                                            "strong"
+                                        )
+                                        .textContent =
+                                            item.titulo;
+
+                                    boton
+                                        .querySelector(
+                                            "small"
+                                        )
+                                        .textContent =
+                                            item.categoria
+                                                .toUpperCase() +
+                                            " · " +
+                                            item.detalle;
+
+                                    boton.addEventListener(
+                                        "click",
+                                        function () {
+
+                                            const modal =
+                                                document.getElementById(
+                                                    "buscadorGlobal"
+                                                );
+
+                                            if (modal) {
+                                                modal.hidden =
+                                                    true;
+                                            }
+
+                                            premiumIrA(
+                                                item.pagina,
+                                                item.destino
+                                            );
+
+                                        }
+                                    );
+
+                                    premiumResultados
+                                        .appendChild(
+                                            boton
+                                        );
+
+                                }
+                            );
+
+                    },
+                    0
+                );
+
+            }
+        );
+
+    }
+
+
+    /* Filtros de archivo de comunicados: si ya existen, los respetamos;
+       si no, los creamos sin tocar el cargador automático. */
+    const premiumListaComunicados =
+        document.getElementById(
+            "listaComunicados"
+        );
+
+    if (
+        premiumListaComunicados &&
+        !document.querySelector(
+            ".archivo-comunicados-filtros"
+        )
+    ) {
+
+        const filtros =
+            document.createElement(
+                "div"
+            );
+
+        filtros.className =
+            "archivo-comunicados-filtros";
+
+        [
+            [
+                "todos",
+                "Todos"
+            ],
+            [
+                "recientes",
+                "Recientes"
+            ],
+            [
+                "anteriores",
+                "Anteriores"
+            ]
+        ].forEach(
+            function (opcion) {
+
+                const boton =
+                    document.createElement(
+                        "button"
+                    );
+
+                boton.type =
+                    "button";
+
+                boton.textContent =
+                    opcion[1];
+
+                if (
+                    opcion[0] ===
+                    "todos"
+                ) {
+                    boton.classList.add(
+                        "activo"
+                    );
+                }
+
+                boton.addEventListener(
+                    "click",
+                    function () {
+
+                        filtros
+                            .querySelectorAll(
+                                "button"
+                            )
+                            .forEach(
+                                function (
+                                    otro
+                                ) {
+                                    otro.classList
+                                        .toggle(
+                                            "activo",
+                                            otro ===
+                                                boton
+                                        );
+                                }
+                            );
+
+                        Array.from(
+                            premiumListaComunicados
+                                .querySelectorAll(
+                                    ".comunicado"
+                                )
+                        ).forEach(
+                            function (
+                                tarjeta,
+                                indice
+                            ) {
+
+                                if (
+                                    opcion[0] ===
+                                    "todos"
+                                ) {
+                                    tarjeta.hidden =
+                                        false;
+                                } else if (
+                                    opcion[0] ===
+                                    "recientes"
+                                ) {
+                                    tarjeta.hidden =
+                                        indice >= 6;
+                                } else {
+                                    tarjeta.hidden =
+                                        indice < 6;
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+                filtros.appendChild(
+                    boton
+                );
+
+            }
+        );
+
+        premiumListaComunicados
+            .parentNode
+            .insertBefore(
+                filtros,
+                premiumListaComunicados
+            );
+
+    }
+
+
+
+    /* =====================================================
+       EXPERIENCIA UNIVERSAL · OFFLINE 20260821-20
+    ===================================================== */
+
+    /* Acceso directo por perfil */
+    const perfilesDirectos = {
+        alumnos: {
+            pagina: "comunidad",
+            destino: "perfilAlumnos",
+            panel: "accesosAlumnos"
+        },
+        apoderados: {
+            pagina: "comunidad",
+            destino: "perfilApoderados",
+            panel: "accesosApoderados"
+        },
+        funcionarios: {
+            pagina: "comunidad",
+            destino: "perfilFuncionarios",
+            panel: "accesosFuncionarios"
+        }
+    };
+
+    document.querySelectorAll(
+        "[data-perfil-directo]"
+    ).forEach(function (boton) {
+
+        boton.addEventListener(
+            "click",
+            function () {
+
+                const perfil =
+                    perfilesDirectos[
+                        boton.dataset.perfilDirecto
+                    ];
+
+                if (!perfil) {
+                    return;
+                }
+
+                premiumIrA(
+                    perfil.pagina,
+                    perfil.destino
+                );
+
+                window.setTimeout(
+                    function () {
+
+                        const tarjeta =
+                            document.getElementById(
+                                perfil.destino
+                            );
+
+                        const panel =
+                            document.getElementById(
+                                perfil.panel
+                            );
+
+                        const control =
+                            tarjeta
+                                ? tarjeta.querySelector(
+                                    ".portal-perfil-boton"
+                                )
+                                : null;
+
+                        if (
+                            panel &&
+                            control &&
+                            panel.hidden
+                        ) {
+                            control.click();
+                        }
+
+                    },
+                    220
+                );
+
+            }
+        );
+
+    });
+
+
+    /* -----------------------------------------------------
+       HORARIOS: selección guiada por nivel y curso
+    ----------------------------------------------------- */
+
+    const selectorNivelHorario =
+        document.getElementById(
+            "nivelHorarioPremium"
+        );
+
+    const selectorCursoHorario =
+        document.getElementById(
+            "cursoHorarioPremium"
+        );
+
+    const estadoHorarioPremium =
+        document.getElementById(
+            "estadoHorarioPremium"
+        );
+
+    const botonTodosHorarios =
+        document.getElementById(
+            "mostrarTodosHorariosPremium"
+        );
+
+    const botonLimpiarHorario =
+        document.getElementById(
+            "limpiarHorarioPremium"
+        );
+
+    const tarjetasHorario =
+        Array.from(
+            document.querySelectorAll(
+                ".horario-curso-card"
+            )
+        );
+
+
+    function clasificarHorario(
+        nombre
+    ) {
+
+        const texto =
+            mejoraNormalizar(
+                nombre
+            );
+
+        if (
+            texto.includes(
+                "kinder"
+            )
+        ) {
+            return "parvularia";
+        }
+
+        if (
+            texto.includes(
+                "opcion"
+            )
+        ) {
+            return "opcion";
+        }
+
+        if (
+            texto.includes(
+                "medio"
+            )
+        ) {
+            return "media";
+        }
+
+        return "basica";
+
+    }
+
+
+    const cursosPorNivel = {
+        parvularia: [],
+        basica: [],
+        opcion: [],
+        media: []
+    };
+
+
+    tarjetasHorario.forEach(
+        function (tarjeta) {
+
+            const titulo =
+                tarjeta.querySelector(
+                    "h3"
+                );
+
+            const nombre =
+                mejoraTexto(
+                    titulo
+                );
+
+            const nivel =
+                clasificarHorario(
+                    nombre
+                );
+
+            tarjeta.dataset.nivelHorario =
+                nivel;
+
+            tarjeta.dataset.nombreHorario =
+                nombre;
+
+            cursosPorNivel[nivel].push({
+                nombre: nombre,
+                tarjeta: tarjeta
+            });
+
+        }
+    );
+
+
+    function ocultarTodosHorarios() {
+
+        tarjetasHorario.forEach(
+            function (tarjeta) {
+
+                tarjeta.hidden =
+                    true;
+
+                tarjeta.classList.remove(
+                    "horario-seleccionado"
+                );
+
+            }
+        );
+
+    }
+
+
+    function mostrarTodosLosHorarios() {
+
+        tarjetasHorario.forEach(
+            function (tarjeta) {
+                tarjeta.hidden =
+                    false;
+            }
+        );
+
+        if (estadoHorarioPremium) {
+            estadoHorarioPremium.textContent =
+                "Mostrando todos los cursos.";
+        }
+
+    }
+
+
+    if (
+        selectorNivelHorario &&
+        selectorCursoHorario
+    ) {
+
+        /* En la experiencia guiada no saturamos inicialmente con 17 cursos. */
+        ocultarTodosHorarios();
+
+        selectorNivelHorario.addEventListener(
+            "change",
+            function () {
+
+                const nivel =
+                    selectorNivelHorario.value;
+
+                selectorCursoHorario.innerHTML =
+                    "";
+
+                if (!nivel) {
+
+                    selectorCursoHorario.disabled =
+                        true;
+
+                    const opcion =
+                        document.createElement(
+                            "option"
+                        );
+
+                    opcion.value =
+                        "";
+
+                    opcion.textContent =
+                        "Primero selecciona un nivel";
+
+                    selectorCursoHorario.appendChild(
+                        opcion
+                    );
+
+                    ocultarTodosHorarios();
+
+                    if (estadoHorarioPremium) {
+                        estadoHorarioPremium.textContent =
+                            "Selecciona un nivel para comenzar.";
+                    }
+
+                    return;
+
+                }
+
+                selectorCursoHorario.disabled =
+                    false;
+
+                const inicial =
+                    document.createElement(
+                        "option"
+                    );
+
+                inicial.value =
+                    "";
+
+                inicial.textContent =
+                    "Selecciona un curso";
+
+                selectorCursoHorario.appendChild(
+                    inicial
+                );
+
+                cursosPorNivel[nivel]
+                    .forEach(
+                        function (curso) {
+
+                            const opcion =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            opcion.value =
+                                curso.nombre;
+
+                            opcion.textContent =
+                                curso.nombre;
+
+                            selectorCursoHorario
+                                .appendChild(
+                                    opcion
+                                );
+
+                        }
+                    );
+
+                ocultarTodosHorarios();
+
+                if (estadoHorarioPremium) {
+                    estadoHorarioPremium.textContent =
+                        "Ahora selecciona tu curso.";
+                }
+
+            }
+        );
+
+
+        selectorCursoHorario.addEventListener(
+            "change",
+            function () {
+
+                const curso =
+                    selectorCursoHorario.value;
+
+                ocultarTodosHorarios();
+
+                if (!curso) {
+
+                    if (estadoHorarioPremium) {
+                        estadoHorarioPremium.textContent =
+                            "Selecciona un curso para ver su horario.";
+                    }
+
+                    return;
+
+                }
+
+                const tarjeta =
+                    tarjetasHorario.find(
+                        function (item) {
+                            return (
+                                item.dataset.nombreHorario ===
+                                curso
+                            );
+                        }
+                    );
+
+                if (!tarjeta) {
+                    return;
+                }
+
+                tarjeta.hidden =
+                    false;
+
+                tarjeta.classList.add(
+                    "horario-seleccionado"
+                );
+
+                if (estadoHorarioPremium) {
+                    estadoHorarioPremium.textContent =
+                        "Mostrando el horario de " +
+                        curso +
+                        ".";
+                }
+
+                window.setTimeout(
+                    function () {
+
+                        tarjeta.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+                    },
+                    80
+                );
+
+            }
+        );
+
+    }
+
+
+    if (botonTodosHorarios) {
+
+        botonTodosHorarios.addEventListener(
+            "click",
+            function () {
+
+                mostrarTodosLosHorarios();
+
+            }
+        );
+
+    }
+
+
+    if (botonLimpiarHorario) {
+
+        botonLimpiarHorario.addEventListener(
+            "click",
+            function () {
+
+                if (selectorNivelHorario) {
+                    selectorNivelHorario.value =
+                        "";
+                }
+
+                if (selectorCursoHorario) {
+
+                    selectorCursoHorario.innerHTML =
+                        '<option value="">' +
+                        'Primero selecciona un nivel' +
+                        '</option>';
+
+                    selectorCursoHorario.disabled =
+                        true;
+
+                }
+
+                ocultarTodosHorarios();
+
+                if (estadoHorarioPremium) {
+                    estadoHorarioPremium.textContent =
+                        "Selecciona un nivel para comenzar.";
+                }
+
+            }
+        );
+
+    }
+
+
+
+
+    /* OPERATIVIDAD + ACCESIBILIDAD FINAL · OFFLINE 20260821-21 */
+    if(typeof window.mejoraTexto!=="function"){window.mejoraTexto=function(el){if(!el)return "";return(el.textContent||"").replace(/\s+/g," ").trim();};}
+    if(typeof window.mejoraNormalizar!=="function"){window.mejoraNormalizar=function(t){return String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\s+/g," ").trim();};}
+    if(typeof window.anunciarAccesibilidad!=="function"){
+        let viva=document.getElementById("regionVivaAccesibilidad");
+        if(!viva){viva=document.createElement("div");viva.id="regionVivaAccesibilidad";viva.className="solo-lectores";viva.setAttribute("aria-live","polite");viva.setAttribute("aria-atomic","true");document.body.appendChild(viva);}
+        window.anunciarAccesibilidad=function(m){viva.textContent="";setTimeout(function(){viva.textContent=m||"";},20);};
+    }
+    const volverArriba=document.getElementById("volverArriba");
+    if(volverArriba){
+        const actualizar=function(){volverArriba.hidden=window.scrollY<700;};
+        window.addEventListener("scroll",actualizar,{passive:true});actualizar();
+        volverArriba.addEventListener("click",function(){window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});
+    }
+    document.addEventListener("keydown",function(e){
+        if(e.key!=="Escape")return;
+        const buscador=document.getElementById("buscadorGlobal");
+        if(buscador&&!buscador.hidden){buscador.hidden=true;const abrir=document.getElementById("abrirBuscadorGlobal");if(abrir)abrir.focus();}
+    });
+    document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+        if(!a.getAttribute("aria-label")){const t=(a.textContent||"").replace(/\s+/g," ").trim();if(t)a.setAttribute("aria-label",t+" (abre en una pestaña nueva)");}
+        const rel=new Set((a.getAttribute("rel")||"").split(/\s+/).filter(Boolean));rel.add("noopener");rel.add("noreferrer");a.setAttribute("rel",Array.from(rel).join(" "));
+    });
+    document.querySelectorAll(".horario-curso-card").forEach(function(t){t.setAttribute("tabindex","-1");});
+
+
+    /* =====================================================
+       OPERACIÓN PREMIUM + PERSONALIZACIÓN · OFFLINE 20260821-22
+    ===================================================== */
+
+    function mostrarToastSitio(mensaje){
+        const toast=document.getElementById("toastSitio");
+        if(!toast||!mensaje)return;
+        toast.textContent=mensaje;toast.hidden=false;
+        clearTimeout(window.__toastSitioTimer);
+        window.__toastSitioTimer=setTimeout(function(){toast.hidden=true;},2400);
+    }
+
+    /* Enrutador de respaldo para que todos los accesos internos sigan funcionando. */
+    function navegarSeguro(pagina,destino){
+        if(!pagina)return;
+        try{
+            if(typeof mostrarPagina==="function"){
+                mostrarPagina(pagina);
+                if(typeof actualizarMigaPagina==="function")actualizarMigaPagina(pagina);
+                if(typeof actualizarHashPagina==="function")actualizarHashPagina(pagina);
+            }else{
+                const seccion=document.getElementById(pagina);
+                if(seccion){
+                    document.querySelectorAll(".pagina").forEach(function(p){p.classList.remove("activa");});
+                    seccion.classList.add("activa");
+                }
+            }
+            window.setTimeout(function(){
+                const objetivo=document.getElementById(destino||pagina);
+                if(objetivo){
+                    objetivo.scrollIntoView({
+                        behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",
+                        block:"start"
+                    });
+                    if(objetivo.matches("button,a,input,select,[tabindex]"))objetivo.focus({preventScroll:true});
+                }
+            },90);
+        }catch(error){
+            console.warn("Navegación segura:",error);
+        }
+    }
+
+    /* Delegación para botones nuevos y antiguos; no elimina listeners existentes. */
+    document.addEventListener("click",function(e){
+        const b=e.target.closest("button");
+        if(!b)return;
+
+        if(b.dataset.pagina){
+            navegarSeguro(b.dataset.pagina,b.dataset.destino||"");
+            return;
+        }
+        if(b.dataset.irPagina){
+            navegarSeguro(b.dataset.irPagina,b.dataset.destinoPagina||b.dataset.destinoComunidad||"");
+            return;
+        }
+        if(b.dataset.irInicio){
+            navegarSeguro("inicio",b.dataset.irInicio);
+            return;
+        }
+    });
+
+    /* Barra de progreso */
+    const progreso=document.querySelector("#progresoLecturaSitio span");
+    if(progreso){
+        const actualizarProgreso=function(){
+            const total=document.documentElement.scrollHeight-window.innerHeight;
+            const porcentaje=total>0?Math.min(100,Math.max(0,(window.scrollY/total)*100)):0;
+            progreso.style.width=porcentaje+"%";
+        };
+        window.addEventListener("scroll",actualizarProgreso,{passive:true});
+        window.addEventListener("resize",actualizarProgreso,{passive:true});
+        actualizarProgreso();
+    }
+
+    /* Mi acceso: preferencia guardada solo en este navegador */
+    const perfilesAcceso={
+        alumnos:{
+            nombre:"Estudiante",
+            accesos:[
+                ["academica","academicaHorarios","Horarios","Consulta ingreso, salida y horario de clases"],
+                ["academica","academicaInicio","Académica","Niveles, modalidades y especialidades"],
+                ["documentos","","Documentos","Documentación disponible"],
+                ["protocolos","","Protocolos","Protocolos institucionales"]
+            ]
+        },
+        apoderados:{
+            nombre:"Apoderado/a",
+            accesos:[
+                ["academica","academicaHorarios","Horarios","Consulta el horario de cada curso"],
+                ["inicio","inicioMatricula","Matrícula","Postulación y admisión"],
+                ["validacion","","Validación de Estudios","Información para validación"],
+                ["comunicados","","Comunicados","Información oficial reciente"]
+            ]
+        },
+        funcionarios:{
+            nombre:"Funcionario/a",
+            accesos:[
+                ["documentos","","Documentos","Documentación institucional"],
+                ["protocolos","","Protocolos","Protocolos vigentes"],
+                ["seguridad","","Seguridad / PISE","Material preventivo y PISE"],
+                ["gestion","","Equipo de Gestión","Información de gestión"]
+            ]
+        }
+    };
+
+    const selectorMiPerfil=document.getElementById("selectorMiPerfil");
+    const contenidoMiPerfil=document.getElementById("contenidoMiPerfil");
+    const cambiarMiPerfil=document.getElementById("cambiarMiPerfil");
+
+    function obtenerPerfilGuardado(){
+        try{return localStorage.getItem("perfilEscuelaLosLoros")||"";}catch(e){return "";}
+    }
+    function guardarPerfil(perfil){
+        try{localStorage.setItem("perfilEscuelaLosLoros",perfil);}catch(e){}
+    }
+    function borrarPerfil(){
+        try{localStorage.removeItem("perfilEscuelaLosLoros");}catch(e){}
+    }
+    function renderMiPerfil(perfil){
+        const config=perfilesAcceso[perfil];
+        if(!config||!selectorMiPerfil||!contenidoMiPerfil)return;
+        selectorMiPerfil.hidden=true;contenidoMiPerfil.hidden=false;
+        if(cambiarMiPerfil)cambiarMiPerfil.hidden=false;
+        contenidoMiPerfil.innerHTML="";
+        config.accesos.forEach(function(a){
+            const b=document.createElement("button");b.type="button";
+            const strong=document.createElement("strong");strong.textContent=a[2];
+            const small=document.createElement("small");small.textContent=a[3];
+            b.appendChild(strong);b.appendChild(small);
+            b.addEventListener("click",function(){navegarSeguro(a[0],a[1]);});
+            contenidoMiPerfil.appendChild(b);
+        });
+        const titulo=document.getElementById("tituloMiAcceso");
+        if(titulo)titulo.textContent="Mi acceso · "+config.nombre;
+    }
+
+    document.querySelectorAll("[data-guardar-perfil]").forEach(function(b){
+        b.addEventListener("click",function(){
+            const p=b.dataset.guardarPerfil;guardarPerfil(p);renderMiPerfil(p);
+            mostrarToastSitio("Perfil guardado en este dispositivo.");
+        });
+    });
+    if(cambiarMiPerfil){
+        cambiarMiPerfil.addEventListener("click",function(){
+            borrarPerfil();
+            if(selectorMiPerfil)selectorMiPerfil.hidden=false;
+            if(contenidoMiPerfil){contenidoMiPerfil.hidden=true;contenidoMiPerfil.innerHTML="";}
+            cambiarMiPerfil.hidden=true;
+            const titulo=document.getElementById("tituloMiAcceso");if(titulo)titulo.textContent="Mi acceso";
+        });
+    }
+    const perfilInicial=obtenerPerfilGuardado();
+    if(perfilInicial)renderMiPerfil(perfilInicial);
+
+    /* Navegación móvil inferior */
+    document.querySelectorAll("[data-nav-movil]").forEach(function(b){
+        b.addEventListener("click",function(){
+            const accion=b.dataset.navMovil;
+            if(accion==="inicio")navegarSeguro("inicio","");
+            else if(accion==="buscar"){
+                const x=document.getElementById("abrirBuscadorGlobal");if(x)x.click();
+            }else if(accion==="comunidad")navegarSeguro("comunidad","comunidadInicio");
+            else if(accion==="horarios")navegarSeguro("academica","academicaHorarios");
+            else if(accion==="menu"){
+                const m=document.getElementById("botonMenuMovil");if(m)m.click();
+            }
+        });
+    });
+
+    /* Estado activo de navegación móvil según sección visible */
+    document.addEventListener("click",function(e){
+        const paginaBtn=e.target.closest("[data-pagina],[data-ir-pagina],[data-premium-pagina]");
+        if(!paginaBtn)return;
+        const pagina=paginaBtn.dataset.pagina||paginaBtn.dataset.irPagina||paginaBtn.dataset.premiumPagina||"";
+        document.querySelectorAll("[data-nav-movil]").forEach(function(b){
+            const a=b.dataset.navMovil;
+            b.classList.toggle("activo",
+                (a==="inicio"&&pagina==="inicio")||
+                (a==="comunidad"&&pagina==="comunidad")||
+                (a==="horarios"&&pagina==="academica")
+            );
+        });
+    });
+
+
 });
