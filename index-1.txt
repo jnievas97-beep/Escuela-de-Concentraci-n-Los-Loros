@@ -1,0 +1,5773 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<!-- =====================================================
+     CONFIGURACIÓN BÁSICA
+====================================================== -->
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+name="description"
+content="Escuela de Concentración Los Loros. Establecimiento educacional desde NT1 hasta Formación Técnico Profesional, con especialidades en Agropecuaria y Mecánica Industrial."
+>
+
+<meta
+name="keywords"
+content="Escuela de Concentración Los Loros, Los Loros, escuela Los Loros, educación Los Loros, educación Atacama, escuela Atacama, Técnico en Agropecuaria, Técnico en Mecánica Industrial, educación técnico profesional"
+>
+
+<meta
+name="author"
+content="Escuela de Concentración Los Loros"
+>
+
+<meta
+name="robots"
+content="index, follow"
+>
+
+<meta
+name="googlebot"
+content="index, follow"
+>
+
+<meta
+name="theme-color"
+content="#1f5f3b"
+>
+
+<!-- =====================================================
+     TÍTULO
+====================================================== -->
+
+<title>
+    Escuela de Concentración Los Loros | Educación Técnico Profesional
+</title>
+
+<!-- =====================================================
+     URL CANÓNICA
+====================================================== -->
+
+<link
+    rel="canonical"
+    href="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/"
+>
+
+<!-- =====================================================
+     OPEN GRAPH
+====================================================== -->
+
+<meta
+property="og:type"
+content="website"
+>
+
+<meta
+property="og:locale"
+content="es_CL"
+>
+
+<meta
+property="og:title"
+content="Escuela de Concentración Los Loros"
+>
+
+<meta
+property="og:description"
+content="Escuela de Concentración Los Loros. Educación desde NT1 hasta Formación Técnico Profesional."
+>
+
+<meta
+property="og:url"
+content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/"
+>
+
+<meta
+property="og:site_name"
+content="Escuela de Concentración Los Loros"
+>
+
+<meta
+property="og:image"
+content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/imagenes/logo.png"
+>
+
+<meta
+property="og:image:alt"
+content="Logo Escuela de Concentración Los Loros"
+>
+
+<!-- =====================================================
+     TWITTER / X
+====================================================== -->
+
+<meta
+name="twitter:card"
+content="summary_large_image"
+>
+
+<meta
+name="twitter:title"
+content="Escuela de Concentración Los Loros"
+>
+
+<meta
+name="twitter:description"
+content="Educación desde NT1 hasta Formación Técnico Profesional."
+>
+
+<meta
+name="twitter:image"
+content="https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/imagenes/logo.png"
+>
+
+<!-- =====================================================
+     HOJA DE ESTILOS
+====================================================== -->
+
+<link
+    rel="stylesheet"
+    href="style.css?v=20260821-33"
+>
+
+<link
+    rel="manifest"
+    href="manifest.webmanifest?v=20260821-33"
+>
+
+<meta name="application-name" content="Escuela de Concentración Los Loros">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Escuela Los Loros">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- =====================================================
+     DATOS ESTRUCTURADOS PARA GOOGLE
+====================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "Escuela de Concentración Los Loros",
+    "url": "https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/",
+    "logo": "https://jnievas97-beep.github.io/Escuela-de-Concentraci-n-Los-Loros/imagenes/logo.png",
+    "description": "Establecimiento educacional desde NT1 hasta Formación Técnico Profesional, con especialidades en Técnico en Agropecuaria con mención Agrícola y Técnico en Mecánica Industrial.",
+    "telephone": "+56 52 255 5354",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Ferrocarril 175A",
+        "addressLocality": "Los Loros",
+        "addressCountry": "CL"
+    },
+    "sameAs": [
+        "https://www.facebook.com/share/1FkWEwZVDx/",
+        "https://www.instagram.com/esc_losloros?igsh=MnMzYXdoZDVndzRu&igsi=MnMzYXdoZDVndzRu"
+    ]
+}
+</script>
+
+<link rel="icon" type="image/png" sizes="192x192" href="icono192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icono512.png">
+<link rel="shortcut icon" href="icono192.png">
+<meta name="msapplication-TileImage" content="icono192.png">
+
+
+<style>
+@media(max-width:768px){
+    .navegacion-movil-premium{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+}
+</style>
+
+<style>
+/* Instagram footer: icono consistente en PC y móvil */
+.pie .icono-instagram-oficial{
+    width:20px !important;
+    height:20px !important;
+    display:block !important;
+    flex:0 0 20px;
+    overflow:visible;
+}
+.pie a[aria-label="Instagram"]{
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+}
+@media(max-width:768px){
+    .pie .icono-instagram-oficial{
+        width:21px !important;
+        height:21px !important;
+    }
+}
+</style>
+<style>
+/* Controles flotantes más arriba en teléfonos · 20260821-33 */
+@media(max-width:768px){
+    .boton-buscador-global,
+    .volver-arriba{
+        bottom:150px !important;
+    }
+}
+@media(max-width:768px) and (max-height:650px){
+    .boton-buscador-global,
+    .volver-arriba{
+        bottom:132px !important;
+    }
+}
+</style>
+
+<style>
+/* Posición definitiva de flecha y lupa en móvil · 20260821-33 */
+@media screen and (max-width:768px){
+    html body #volverArriba.volver-arriba{
+        position:fixed !important;
+        bottom:190px !important;
+        top:auto !important;
+        right:10px !important;
+    }
+
+    html body #abrirBuscadorGlobal.boton-buscador-global{
+        position:fixed !important;
+        bottom:190px !important;
+        top:auto !important;
+    }
+}
+</style>
+
+<style>
+/* Posición dinámica y definitiva de controles flotantes móvil · 20260821-33 */
+@media screen and (max-width:768px){
+    html body #volverArriba.volver-arriba{
+        position:fixed !important;
+        right:12px !important;
+        top:auto !important;
+        width:50px !important;
+        height:50px !important;
+        font-size:1.25rem !important;
+        z-index:6500 !important;
+    }
+
+    html body #abrirBuscadorGlobal.boton-buscador-global{
+        position:fixed !important;
+        right:12px !important;
+        top:auto !important;
+        min-width:50px !important;
+        width:50px !important;
+        height:50px !important;
+        padding:0 !important;
+        justify-content:center !important;
+        z-index:6500 !important;
+    }
+
+    html body #abrirBuscadorGlobal.boton-buscador-global > span{
+        display:none !important;
+    }
+}
+</style>
+
+</head>
+
+<body>
+<div id="progresoLecturaSitio" class="progreso-lectura-sitio" aria-hidden="true">
+    <span></span>
+</div>
+<noscript><div class="aviso-sin-javascript" role="alert"><strong>JavaScript está desactivado.</strong> Algunas funciones de este sitio, como la navegación interactiva, comunicados, noticias, buscadores y visores, necesitan JavaScript. Puedes seguir consultando el contenido básico, pero para utilizar todas las funciones debes habilitar JavaScript en tu navegador.</div></noscript>
+
+
+
+<a class="saltar-contenido" href="#contenidoPrincipal">
+    Saltar al contenido principal
+</a>
+
+
+<!-- =====================================================
+     ENCABEZADO
+====================================================== -->
+
+<header class="encabezado encabezado-integrado">
+
+<div class="contenedor encabezado-integrado-contenido">
+
+    <div class="encabezado-integrado-especialidad">
+        <img
+            src="imagenes/logoespecialidad1.png"
+            alt="Especialidad Técnico en Agropecuaria"
+            decoding="async"
+        >
+        <span>Agropecuaria</span>
+    </div>
+
+    <div class="encabezado-integrado-centro">
+        <img
+            src="imagenes/logo.png"
+            alt="Escuela de Concentración Los Loros"
+            decoding="async"
+        >
+        <span class="encabezado-integrado-desde">Desde 1857</span>
+    </div>
+
+    <div class="encabezado-integrado-derecha">
+
+        <div class="encabezado-integrado-especialidad">
+            <img
+                src="imagenes/logoespecialidad2.png"
+                alt="Especialidad Técnico en Mecánica Industrial"
+                decoding="async"
+            >
+            <span>Mecánica Industrial</span>
+        </div>
+
+        <div class="redes-sociales redes-sociales-integradas">
+            <a
+                href="https://www.facebook.com/share/1FkWEwZVDx/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+            >
+                f
+            </a>
+
+            <a
+                href="https://www.instagram.com/esc_losloros?igsh=MnMzYXdoZDVndzRu&amp;igsi=MnMzYXdoZDVndzRu"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     MENÚ PRINCIPAL
+====================================================== -->
+
+<nav
+    class="menu-principal"
+    aria-label="Menú principal"
+>
+
+
+<div class="contenedor menu-movil-cabecera">
+
+    <button
+        id="botonMenuMovil"
+        class="boton-menu-movil"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menuPrincipalOpciones"
+    >
+        <span class="icono-menu-movil" aria-hidden="true">☰</span>
+        <span>Menú</span>
+    </button>
+
+</div>
+
+
+<div id="menuPrincipalOpciones" class="contenedor menu-contenido">
+
+
+<button
+    class="boton-menu activo"
+    data-pagina="inicio"
+    type="button"
+>
+    Inicio
+</button>
+
+
+<!-- =================================================
+     NUEVA PESTAÑA: COMUNICADOS
+================================================== -->
+
+<button
+    class="boton-menu"
+    data-pagina="comunicados"
+    type="button"
+>
+    Comunicados
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="quienesSomos"
+    type="button"
+>
+    Quiénes Somos
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="academica"
+    type="button"
+>
+    Académica
+</button>
+
+
+<!-- =================================================
+     NUEVA PESTAÑA: TALLERES JEC
+================================================== -->
+
+<button
+    class="boton-menu"
+    data-pagina="talleresJEC"
+    type="button"
+>
+    Talleres JEC
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="validacion"
+    type="button"
+>
+    Validación de Estudios
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="comunidad"
+    type="button"
+>
+    Comunidad Educativa
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="equipo"
+    type="button"
+>
+    Equipo Directivo
+</button>
+
+
+<!-- =================================================
+     EQUIPO DE GESTIÓN
+================================================== -->
+
+<button
+    class="boton-menu"
+    data-pagina="gestion"
+    type="button"
+>
+    Equipo de Gestión
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="documentos"
+    type="button"
+>
+    Documentos
+</button>
+
+<button
+    class="boton-menu"
+    data-pagina="seguridad"
+    type="button"
+>
+    Seguridad
+</button>
+
+
+<!-- =================================================
+     PROTOCOLOS
+================================================== -->
+
+<button
+    class="boton-menu"
+    data-pagina="protocolos"
+    type="button"
+>
+    Protocolos
+</button>
+
+
+<button
+    class="boton-menu"
+    data-pagina="contacto"
+    type="button"
+>
+    Contacto
+</button>
+
+
+</div>
+
+</nav>
+
+
+<!-- =====================================================
+     MIGA DE PAN / SECCIÓN ACTUAL
+====================================================== -->
+
+<div class="barra-seccion-actual">
+
+    <div class="contenedor barra-seccion-actual-contenido">
+
+        <button
+            id="volverInicioDesdeMiga"
+            class="miga-inicio"
+            type="button"
+        >
+            Inicio
+        </button>
+
+        <span class="miga-separador" aria-hidden="true">›</span>
+
+        <span
+            id="nombreSeccionActual"
+            class="miga-actual"
+            aria-live="polite"
+        >
+            Inicio
+        </span>
+
+    </div>
+
+</div>
+
+<div id="rutaContextual" class="ruta-contextual" aria-live="polite">
+    <span>Inicio</span>
+</div>
+
+<button
+    id="abrirBuscadorGlobal"
+    class="boton-buscador-global"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="buscadorGlobal"
+    title="Buscar en todo el sitio"
+>
+    🔎 <span>Buscar</span>
+</button>
+
+
+<main id="contenidoPrincipal" tabindex="-1">
+
+<!-- =====================================================
+     INICIO
+====================================================== -->
+
+<section
+    id="inicio"
+    class="pagina activa"
+>
+
+<div class="contenedor inicio">
+
+
+<!-- =================================================
+     PORTADA PREMIUM INSTITUCIONAL
+================================================== -->
+
+<section class="hero-premium-inicio" aria-labelledby="tituloHeroPremium">
+    <div class="hero-premium-foto" aria-hidden="true">
+        <img src="imagenes/frontis-colegio.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+
+    <div class="hero-premium-fondo" aria-hidden="true"></div>
+
+    <div class="hero-premium-contenido">
+        <div class="hero-premium-identidad">
+<div class="hero-premium-textos">
+                <span class="hero-premium-etiqueta">
+                    Institución Educativa · Los Loros
+                </span>
+                <span class="sello-desde-1857">Desde 1857</span>
+
+                <h1 id="tituloHeroPremium">
+                    Escuela de Concentración Los Loros
+                </h1>
+
+                <p class="hero-premium-lema">
+                    Educación desde NT1 hasta Formación Técnico Profesional
+                </p>
+
+                <p class="hero-premium-excelencia">
+                    <span aria-hidden="true">✦</span>
+                    Excelencia Académica 2026–2027
+                </p>
+            </div>
+        </div>
+
+        <p class="hero-premium-descripcion">
+            Educando desde 1857, con identidad territorial, inclusión,
+            formación integral y una propuesta Técnico Profesional
+            vinculada al futuro de nuestros estudiantes.
+        </p>
+                <div class="hero-premium-accesos" aria-label="Accesos principales">
+            <button type="button" data-premium-pagina="comunicados">
+                <span class="premium-icono-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h8M8 17h5"></path></svg>
+                </span>
+                <span><strong>Comunicados</strong><small>Información oficial</small></span>
+            </button>
+
+            <button type="button" data-premium-pagina="academica" data-premium-destino="academicaHorarios">
+                <span class="premium-icono-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg>
+                </span>
+                <span><strong>Horarios</strong><small>Ingreso, salida y clases</small></span>
+            </button>
+
+            <button type="button" data-premium-pagina="inicio" data-premium-destino="inicioMatricula">
+                <span class="premium-icono-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M3 10 12 5l9 5-9 5z"></path><path d="M7 12v5c3 2 7 2 10 0v-5"></path></svg>
+                </span>
+                <span><strong>Matrícula</strong><small>Postulación y admisión</small></span>
+            </button>
+
+            <button type="button" id="premiumAbrirBusqueda">
+                <span class="premium-icono-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
+                </span>
+                <span><strong>Buscar</strong><small>Encuentra cualquier contenido</small></span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="accesoPorPerfil" class="acceso-perfil-premium" aria-labelledby="tituloAccesoPerfil">
+    <div class="acceso-perfil-cabecera">
+        <span>ACCESO DIRECTO</span>
+        <h2 id="tituloAccesoPerfil">¿Qué información necesitas?</h2>
+        <p>Selecciona tu perfil y te llevamos directamente a los accesos más útiles para ti.</p>
+    </div>
+
+    <div class="acceso-perfil-opciones">
+        <button type="button" data-perfil-directo="alumnos">
+            <span class="acceso-perfil-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M6 17V8l6-4 6 4v9"></path><path d="M9 17v-5h6v5"></path></svg>
+            </span>
+            <span>
+                <strong>Estudiantes</strong>
+                <small>Horarios, académica, documentos y protocolos</small>
+            </span>
+            <span class="acceso-perfil-flecha" aria-hidden="true">→</span>
+        </button>
+
+        <button type="button" data-perfil-directo="apoderados">
+            <span class="acceso-perfil-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="16.5" cy="9" r="2.5"></circle><path d="M3 20c0-4 2.5-6 6-6s6 2 6 6"></path><path d="M14 15c4 0 7 1.8 7 5"></path></svg>
+            </span>
+            <span>
+                <strong>Madres, Padres y Apoderados</strong>
+                <small>Horarios, matrícula, validación, comunicados y documentos</small>
+            </span>
+            <span class="acceso-perfil-flecha" aria-hidden="true">→</span>
+        </button>
+
+        <button type="button" data-perfil-directo="funcionarios">
+            <span class="acceso-perfil-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"></circle><path d="M5 21v-2c0-4 3-7 7-7s7 3 7 7v2"></path><path d="M9 17h6"></path></svg>
+            </span>
+            <span>
+                <strong>Funcionarios</strong>
+                <small>Documentos institucionales, protocolos, seguridad y gestión</small>
+            </span>
+            <span class="acceso-perfil-flecha" aria-hidden="true">→</span>
+        </button>
+    </div>
+</section>
+
+<section id="panelMiAcceso" class="mi-acceso-premium" aria-labelledby="tituloMiAcceso">
+    <div class="mi-acceso-cabecera">
+        <div>
+            <span>ACCESO PERSONALIZADO</span>
+            <h2 id="tituloMiAcceso">Mi acceso</h2>
+            <p>Elige una vez tu perfil. Este dispositivo recordará tus accesos más útiles.</p>
+        </div>
+        <button id="cambiarMiPerfil" type="button" hidden>Cambiar perfil</button>
+    </div>
+
+    <div id="selectorMiPerfil" class="selector-mi-perfil">
+        <button type="button" data-guardar-perfil="alumnos">Soy estudiante</button>
+        <button type="button" data-guardar-perfil="apoderados">Soy apoderado/a</button>
+        <button type="button" data-guardar-perfil="funcionarios">Soy funcionario/a</button>
+    </div>
+
+    <div id="contenidoMiPerfil" class="contenido-mi-perfil" hidden></div>
+</section>
+
+
+
+
+<!-- =================================================
+     NAVEGACIÓN INTERNA - INICIO
+================================================== -->
+
+<div class="navegacion-interna navegacion-inicio">
+
+    <button
+        class="boton-navegacion-interna"
+        type="button"
+        aria-expanded="false"
+    >
+        Seleccionar sección
+        <span aria-hidden="true">▼</span>
+    </button>
+
+    <div class="opciones-navegacion-interna">
+
+        <button
+            id="botonIrAvisoImportante"
+            type="button"
+            data-destino="avisoImportanteInicio"
+            hidden
+        >
+            🚨 Aviso Importante
+        </button>
+
+        <button type="button" data-destino="inicioEspecialidades">
+            🛠️ Especialidades
+        </button>
+
+        <button type="button" data-destino="inicioNoticias">
+            📰 Últimas Noticias
+        </button>
+
+        <button type="button" data-destino="inicioUltimoComunicado">
+            📢 Último Comunicado
+        </button>
+
+        <button type="button" data-destino="inicioCuentaPublica">
+            📋 Cuenta Pública
+        </button>
+
+        <button type="button" data-destino="inicioMatricula">
+            🎓 Matrícula y Postulación
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================================
+     AVISO IMPORTANTE TEMPORAL
+     Se muestra automáticamente solo si existen avisos.
+================================================== -->
+
+<section
+    id="avisoImportanteInicio"
+    class="aviso-importante-inicio"
+    aria-labelledby="tituloAvisoImportante"
+    hidden
+>
+
+    <div class="aviso-importante-contenido">
+
+        <div
+            class="aviso-importante-icono"
+            aria-hidden="true"
+        >
+            🚨
+        </div>
+
+        <div class="aviso-importante-cuerpo">
+
+            <div class="aviso-importante-superior">
+
+                <span class="aviso-importante-etiqueta">
+                    AVISO IMPORTANTE
+                </span>
+
+                <span
+                    id="fechaAvisoImportante"
+                    class="fecha-aviso-importante"
+                ></span>
+
+            </div>
+
+            <h2 id="tituloAvisoImportante">
+                Información importante
+            </h2>
+
+            <p
+                id="textoAvisoImportante"
+                class="texto-aviso-importante"
+            ></p>
+
+            <div
+                id="contenidoAvisoImportante"
+                class="contenido-aviso-importante"
+            ></div>
+
+            <a
+                id="botonAvisoImportante"
+                class="boton-aviso-importante"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                hidden
+            >
+                Ver aviso completo
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     ESPECIALIDADES
+================================================== -->
+
+<div id="inicioEspecialidades" class="logos-especialidades">
+
+    <button class="logo-especialidad tarjeta-especialidad" type="button"
+        aria-pressed="false"
+        aria-label="Ver descripción de Técnico en Agropecuaria con mención Agrícola">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <img src="imagenes/logoespecialidad1.png"
+                    alt="Logo de Técnico en Agropecuaria con mención Agrícola"
+        loading="lazy"
+        decoding="async"
+    >
+                <span class="nombre-especialidad">
+                    Técnico en Agropecuaria con mención Agrícola
+                </span>
+                <span class="indicacion-giro">Presiona para conocer la especialidad</span>
+            </span>
+            <span class="tarjeta-especialidad-reverso">
+                <strong>Técnico en Agropecuaria con mención Agrícola</strong>
+                <span>
+                    Forma estudiantes con conocimientos y habilidades para desarrollar
+                    labores agrícolas, manejo de cultivos y procesos productivos del
+                    sector agropecuario.
+                </span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
+
+    <button class="logo-especialidad tarjeta-especialidad" type="button"
+        aria-pressed="false"
+        aria-label="Ver descripción de Técnico en Mecánica Industrial">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <img src="imagenes/logoespecialidad2.png"
+                    alt="Logo de Técnico en Mecánica Industrial"
+        loading="lazy"
+        decoding="async"
+    >
+                <span class="nombre-especialidad">
+                    Técnico en Mecánica Industrial
+                </span>
+                <span class="indicacion-giro">Presiona para conocer la especialidad</span>
+            </span>
+            <span class="tarjeta-especialidad-reverso">
+                <strong>Técnico en Mecánica Industrial</strong>
+                <span>
+                    Forma estudiantes con conocimientos y habilidades para realizar
+                    trabajos de mantenimiento, reparación y operación de máquinas
+                    y equipos industriales.
+                </span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
+
+</div>
+
+
+<!-- =================================================
+     INFORMACIÓN DISPONIBLE EN EL SITIO
+================================================== -->
+
+<section
+    id="resumenContenidoInicio"
+    class="resumen-contenido-sitio"
+    aria-labelledby="tituloResumenContenido"
+>
+    <h2 id="tituloResumenContenido">Información disponible en el sitio</h2>
+
+    <div class="resumen-contenido-grid">
+        <div class="resumen-contenido-item">
+            <span class="resumen-icono" aria-hidden="true">📢</span>
+            <strong id="contadorInicioComunicados">—</strong>
+            <span>Comunicados</span>
+        </div>
+
+        <div class="resumen-contenido-item">
+            <span class="resumen-icono" aria-hidden="true">📰</span>
+            <strong id="contadorInicioNoticias">—</strong>
+            <span>Noticias</span>
+        </div>
+
+        <div class="resumen-contenido-item">
+            <span class="resumen-icono" aria-hidden="true">📄</span>
+            <strong id="contadorInicioProtocolos">—</strong>
+            <span>Protocolos</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- =================================================
+     ÚLTIMAS NOTICIAS
+================================================== -->
+
+<section
+    id="inicioNoticias"
+    class="seccion-noticias-inicio"
+    aria-labelledby="tituloUltimasNoticias"
+>
+    <div class="noticias-editorial-premium">
+        <span>ACTUALIDAD ESCOLAR</span>
+        <strong>Lo último en nuestra comunidad</strong>
+    </div>
+
+
+    <div class="noticias-inicio-cabecera">
+
+        <span
+            class="noticias-inicio-icono"
+            aria-hidden="true"
+        >
+            📰
+        </span>
+
+        <h2 id="tituloUltimasNoticias">
+            Últimas Noticias
+        </h2>
+
+        <p>
+            Información reciente de nuestra comunidad educativa.
+        </p>
+
+    </div>
+
+
+    <div
+        id="listaNoticias"
+        class="lista-noticias"
+        aria-live="polite"
+        aria-busy="true"
+    >
+
+        <div
+            id="mensajeNoticias"
+            class="estado-noticias"
+        >
+            <p>
+                Cargando últimas noticias...
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="acciones-noticias">
+
+        <button
+            id="botonVerMasNoticias"
+            class="boton-ver-mas-noticias"
+            type="button"
+            aria-expanded="false"
+            hidden
+        >
+            Ver más noticias
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     HORARIOS DE ATENCIÓN A APODERADOS
+================================================== -->
+<section id="horariosAtencionApoderados" class="seccion-afiche-apoderados" aria-labelledby="tituloHorariosApoderados">
+  <div class="afiche-apoderados-cabecera">
+    <span class="afiche-apoderados-icono" aria-hidden="true">🕒</span>
+    <h2 id="tituloHorariosApoderados">Horarios de Atención a Apoderados</h2>
+    <p>Presiona el afiche para verlo en tamaño ampliado.</p>
+  </div>
+  <button id="abrirAficheApoderados" class="boton-afiche-apoderados" type="button" aria-haspopup="dialog" aria-controls="visorAficheApoderados" aria-label="Ampliar afiche de Horarios de Atención a Apoderados">
+    <img src="imagenes/aficheinformativo.jpg" alt="Afiche informativo con los Horarios de Atención a Apoderados" loading="lazy" decoding="async">
+    <span class="afiche-indicacion">🔎 Presiona para ampliar</span>
+  </button>
+</section>
+
+<div id="visorAficheApoderados" class="visor-afiche-apoderados" role="dialog" aria-modal="true" aria-label="Horarios de Atención a Apoderados" hidden>
+  <button id="cerrarVisorAficheApoderados" class="cerrar-visor-afiche" type="button" aria-label="Cerrar afiche ampliado">×</button>
+  <div class="visor-afiche-contenido">
+    <img src="imagenes/aficheinformativo.jpg" alt="Afiche ampliado con los Horarios de Atención a Apoderados">
+  </div>
+</div>
+
+<!-- =================================================
+     ÚLTIMO COMUNICADO - INICIO
+================================================== -->
+
+<section
+    id="inicioUltimoComunicado"
+    class="seccion-ultimo-comunicado-inicio"
+    aria-labelledby="tituloUltimoComunicadoInicio"
+>
+
+    <div class="ultimo-comunicado-inicio-contenido">
+
+        <div class="ultimo-comunicado-inicio-icono" aria-hidden="true">
+            📢
+        </div>
+
+        <div class="ultimo-comunicado-inicio-texto">
+
+            <div class="ultimo-comunicado-inicio-superior">
+
+                <span class="etiqueta-ultimo-comunicado-inicio">
+                    ÚLTIMO COMUNICADO
+                </span>
+
+                <span
+                    id="nuevoUltimoComunicadoInicio"
+                    class="etiqueta-nuevo"
+                    hidden
+                >
+                    NUEVO
+                </span>
+
+            </div>
+
+            <h2 id="tituloUltimoComunicadoInicio">
+                Cargando último comunicado...
+            </h2>
+
+            <p
+                id="fechaUltimoComunicadoInicio"
+                class="fecha-publicacion"
+            ></p>
+
+            <p id="textoUltimoComunicadoInicio">
+                Buscando el comunicado más reciente del establecimiento.
+            </p>
+
+        </div>
+
+        <a
+            id="botonUltimoComunicadoInicio"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+            style="display: none;"
+        >
+            📄 Ver comunicado
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =================================================
+     CUENTA PÚBLICA
+================================================== -->
+
+<section
+    id="inicioCuentaPublica"
+    class="seccion-cuenta-publica"
+    aria-labelledby="tituloCuentaPublica"
+>
+
+    <div class="cuenta-publica-contenido">
+
+        <div class="cuenta-publica-icono" aria-hidden="true">
+            📋
+        </div>
+
+        <h2 id="tituloCuentaPublica">
+            Cuenta Pública del Establecimiento
+        </h2>
+
+        <p>
+            Ponemos a disposición de nuestra comunidad educativa
+            la Cuenta Pública del establecimiento.
+        </p>
+
+        <p class="cuenta-publica-explicacion-escritorio">
+            Puede leer el documento directamente en esta página
+            o abrirlo completo en una pestaña independiente.
+        </p>
+
+        <p class="cuenta-publica-explicacion-movil">
+            Presione el botón para visualizar la Cuenta Pública.
+        </p>
+
+        <div class="visor-cuenta-publica">
+
+            <div class="visor-cuenta-publica-cabecera">
+                <span aria-hidden="true">📖</span>
+                <strong>Vista previa de la Cuenta Pública</strong>
+            </div>
+
+            <object
+                class="visor-cuenta-publica-documento"
+                data="documentos/cuenta%20publica.pdf"
+                type="application/pdf"
+                aria-label="Cuenta Pública de la Escuela de Concentración Los Loros"
+            >
+
+                <div class="visor-cuenta-publica-alternativo">
+
+                    <p>
+                        Este navegador no permite visualizar el PDF
+                        directamente dentro de la página.
+                    </p>
+
+                    <a
+                        href="documentos/cuenta%20publica.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton-documento"
+                    >
+                        📄 Abrir Cuenta Pública
+                    </a>
+
+                </div>
+
+            </object>
+
+            <div class="visor-cuenta-publica-acciones">
+
+                <a
+                    href="documentos/cuenta%20publica.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="boton-documento"
+                >
+                    🔎 Abrir documento completo
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     SISTEMAS DE MATRÍCULA
+================================================== -->
+
+<section
+    id="inicioMatricula"
+    class="seccion-matricula"
+    aria-labelledby="tituloMatricula"
+>
+
+    <div class="matricula-contenido">
+
+        <div
+            class="matricula-icono"
+            aria-hidden="true"
+        >
+            🎓
+        </div>
+
+        <h2 id="tituloMatricula">
+            Información de Matrícula y Postulación
+        </h2>
+
+        <p class="matricula-introduccion">
+            Ponemos a disposición de madres, padres y apoderados
+            los accesos directos a los sistemas oficiales utilizados
+            para realizar procesos de postulación, matrícula y
+            continuidad de estudiantes.
+        </p>
+
+        <p class="matricula-ayuda">
+            Seleccione la opción que corresponda al proceso que
+            necesita realizar.
+        </p>
+
+
+        <div class="matricula-opciones">
+
+
+            <!-- SISTEMA DE ADMISIÓN ESCOLAR -->
+
+            <div class="matricula-card sae">
+
+                <div class="matricula-card-icono">
+                    🏫
+                </div>
+
+                <h3>
+                    Sistema de Admisión Escolar
+                </h3>
+
+                <p>
+                    Utilice este sistema para conocer y participar
+                    en los procesos de admisión escolar correspondientes
+                    a establecimientos educacionales.
+                </p>
+
+                <a
+                    href="https://www.sistemadeadmisionescolar.cl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="boton-matricula"
+                >
+                    Ingresar al Sistema de Admisión Escolar
+                </a>
+
+            </div>
+
+
+            <!-- ANÓTATE EN LA LISTA -->
+
+            <div class="matricula-card anotate">
+
+                <div class="matricula-card-icono">
+                    📝
+                </div>
+
+                <h3>
+                    Anótate en la Lista
+                </h3>
+
+                <p>
+                    Acceso directo al sistema de registro para
+                    apoderados que necesitan solicitar una vacante
+                    o realizar el proceso correspondiente.
+                </p>
+
+                <a
+                    href="https://registropublicodigital.mineduc.gob.cl/rpd-app-registro-apoderado/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="boton-matricula"
+                >
+                    Ingresar a Anótate en la Lista
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <p class="matricula-aviso">
+
+            <strong>
+                Importante:
+            </strong>
+
+            Estos accesos corresponden a plataformas externas
+            oficiales. La Escuela de Concentración Los Loros no
+            administra directamente dichos sistemas.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     COMUNICADOS
+====================================================== -->
+
+<section
+    id="comunicados"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina">
+
+    <h2>
+        Comunicados
+    </h2>
+
+    <p>
+        Información importante para nuestra comunidad educativa.
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     BUSCADOR Y CONTADOR DE COMUNICADOS
+================================================== -->
+
+<div class="buscador-listado buscador-comunicados">
+
+    <label for="buscarComunicados">
+        Buscar comunicado
+    </label>
+
+    <div class="buscador-listado-campo">
+
+        <button
+            class="boton-lupa-buscador"
+            type="button"
+            data-enfocar-buscador="buscarComunicados"
+            aria-label="Buscar en comunicados"
+            title="Buscar en comunicados"
+        >
+            🔎
+        </button>
+
+        <input
+            id="buscarComunicados"
+            type="search"
+            inputmode="numeric"
+            placeholder="Ej.: 12"
+            autocomplete="off"
+        >
+
+        <button
+            id="limpiarBuscarComunicados"
+            class="boton-limpiar-buscador"
+            type="button"
+            aria-label="Limpiar búsqueda de comunicados"
+            title="Limpiar búsqueda"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <p
+        id="resultadoBuscarComunicados"
+        class="resultado-buscador"
+        aria-live="polite"
+    ></p>
+
+</div>
+
+<div class="contador-contenido contador-comunicados">
+    <span aria-hidden="true">📢</span>
+    <strong id="contadorComunicados">0</strong>
+    <span>comunicados disponibles</span>
+</div>
+
+
+
+<!-- =================================================
+     ÚLTIMO COMUNICADO
+================================================== -->
+
+<section
+    class="seccion-ultimo-comunicado"
+    aria-labelledby="tituloUltimoComunicado"
+>
+
+    <div class="ultimo-comunicado-contenido">
+
+        <div
+            class="comunicado-icono"
+            aria-hidden="true"
+        >
+            📢
+        </div>
+
+        <span class="etiqueta-ultimo-comunicado">
+            ÚLTIMO COMUNICADO
+        </span>
+
+        <div class="ultimo-comunicado-titulo-linea">
+
+            <h2 id="tituloUltimoComunicado">
+                Información importante
+            </h2>
+
+            <span
+                id="nuevoUltimoComunicado"
+                class="etiqueta-nuevo"
+                hidden
+            >
+                NUEVO
+            </span>
+
+        </div>
+
+        <p
+            id="fechaUltimoComunicado"
+            class="fecha-publicacion"
+        ></p>
+
+        <p id="textoUltimoComunicado" aria-live="polite">
+            Cargando el último comunicado disponible...
+        </p>
+
+        <a
+            id="botonUltimoComunicado"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            📄 Ver último comunicado
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     COMUNICADOS ANTERIORES
+================================================== -->
+
+<div
+    class="titulo-pagina"
+    style="margin-top: 50px;"
+>
+
+    <h2>
+        Comunicados anteriores
+    </h2>
+
+    <p>
+        Revisa los comunicados publicados anteriormente.
+    </p>
+
+</div>
+
+
+<div
+    id="listaComunicados"
+    class="documentos-lista comunicados-lista"
+    aria-live="polite"
+    aria-busy="true"
+>
+
+    <div
+        id="mensajeComunicados"
+        class="bloque-texto"
+    >
+
+        <p>
+            Cargando comunicados disponibles...
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="acciones-comunicados">
+
+    <button
+        id="botonVerMasComunicados"
+        class="boton-ver-mas-comunicados"
+        type="button"
+    >
+        Ver más comunicados
+    </button>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     QUIÉNES SOMOS
+====================================================== -->
+
+<section
+    id="quienesSomos"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina" id="quienesSomosInicio">
+
+    <h2>
+        Quiénes Somos
+    </h2>
+
+    <p>
+        Conoce nuestra identidad, trayectoria y propósito educativo.
+    </p>
+
+</div>
+
+<!-- =================================================
+     NAVEGACIÓN INTERNA - QUIÉNES SOMOS
+================================================== -->
+
+<div class="navegacion-interna">
+
+    <button
+        class="boton-navegacion-interna"
+        type="button"
+        aria-expanded="false"
+    >
+        Ir a una sección
+        <span aria-hidden="true">▼</span>
+    </button>
+
+    <div class="opciones-navegacion-interna">
+
+        <button type="button" data-destino="quienesHistoria">
+            Historia
+        </button>
+
+        <button type="button" data-destino="quienesVision">
+            Visión
+        </button>
+
+        <button type="button" data-destino="quienesMision">
+            Misión
+        </button>
+
+    </div>
+
+</div>
+
+
+<div id="quienesHistoria" class="bloque-texto">
+
+    <h3>
+        Historia
+    </h3>
+
+    <p>
+        La Escuela de Concentración de Los Loros comenzó a funcionar
+        en el año 1857, formando parte de la historia educacional
+        de la localidad y del desarrollo de la educación pública
+        en nuestro país.
+    </p>
+
+    <p>
+        Actualmente es un establecimiento educacional de dependencia
+        del Servicio Local de Educación Pública de Atacama, que atiende
+        los niveles de Educación Parvularia, Educación Básica y
+        Educación Media Técnico Profesional.
+    </p>
+
+    <p>
+        El establecimiento cuenta con las especialidades de Técnico
+        en Agropecuaria con mención Agrícola y Técnico en Mecánica
+        Industrial, además de una tercera jornada destinada a personas
+        adultas que buscan completar su proceso de educación formal.
+    </p>
+
+    <p>
+        La escuela también cuenta con Proyecto de Integración Escolar,
+        apoyando de manera sistemática a estudiantes con necesidades
+        educativas especiales y promoviendo una educación inclusiva.
+    </p>
+
+</div>
+
+
+<div id="quienesVision" class="bloque-texto">
+
+    <h3>
+        Visión
+    </h3>
+
+    <p>
+        Ser una comunidad educativa inclusiva, segura y con identidad
+        territorial, que reconozca la diversidad como una fortaleza
+        y cultive el buen trato como base esencial para una sana
+        convivencia, proyectándose como un espacio formativo que
+        garantiza trayectorias educativas de calidad, desde el nivel
+        NT1 hasta la formación técnico-profesional, formando personas
+        íntegras, conscientes de su aporte a la sociedad, preparadas
+        para enfrentar desafíos del mundo laboral o de la educación
+        superior.
+    </p>
+
+</div>
+
+
+<div id="quienesMision" class="bloque-texto">
+
+    <h3>
+        Misión
+    </h3>
+
+    <p>
+        Brindar una educación inclusiva, segura y de calidad que
+        acompañe las trayectorias educativas de los estudiantes
+        desde el nivel NT1 hasta la formación técnico profesional,
+        promoviendo el buen trato, el respeto mutuo y la equidad
+        como pilares de la formación integral.
+    </p>
+
+    <p>
+        A través de un proyecto educativo centrado en el desarrollo
+        de aprendizajes significativos y competencias para la vida,
+        fomentamos la autonomía, la responsabilidad y el compromiso
+        social, favoreciendo tanto la continuidad de estudios en la
+        educación superior como la inserción en el mundo laboral.
+    </p>
+
+    <p>
+        Asimismo, fortalecemos la vinculación con la comunidad y con
+        los espacios productivos del territorio, contribuyendo al
+        desarrollo local y al bienestar colectivo.
+    </p>
+
+</div>
+
+
+
+<div class="volver-seccion">
+
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="quienesSomosInicio"
+    >
+        ↑ Volver al inicio de Quiénes Somos
+    </button>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+     TRAYECTORIA HISTÓRICA Y ESCUELA EN CIFRAS
+================================================== -->
+<div class="bloque-historia-institucional">
+    <div class="encabezado-bloque-institucional">
+        <span aria-hidden="true">🏫</span>
+        <h2>Nuestra Historia</h2>
+        <p>Una trayectoria educativa que acompaña a la comunidad de Los Loros desde 1857.</p>
+    </div>
+
+    <div class="linea-tiempo" aria-label="Línea de tiempo histórica de la escuela">
+        <article class="hito"><time>1857</time><div><h3>Creación de la Escuela</h3><p>Comienza la historia educativa del establecimiento en Los Loros.</p></div></article>
+        <article class="hito"><time>1898</time><div><h3>Escuela Coeducacional N.º 17</h3><p>Recibe esta denominación, que mantiene hasta el 30 de junio de 1978.</p></div></article>
+        <article class="hito"><time>1978</time><div><h3>Escuela de Concentración Fronteriza D N.º 43</h3><p>Se aplican planes y programas especiales orientados a la formación en oficios.</p></div></article>
+        <article class="hito"><time>1997</time><div><h3>Jornada Escolar Completa</h3><p>Se incorpora el régimen de Jornada Escolar Completa.</p></div></article>
+        <article class="hito"><time>1998</time><div><h3>Desempeño destacado SNED</h3><p>El establecimiento obtiene desempeño destacado en el sistema de evaluación.</p></div></article>
+        <article class="hito"><time>2003</time><div><h3>Ampliación de niveles</h3><p>Se renueva el Reconocimiento Oficial y se amplía la enseñanza a Educación Media Diurna y Nocturna.</p></div></article>
+        <article class="hito"><time>2005</time><div><h3>Primera promoción Técnico Profesional</h3><p>Egresa la primera promoción de Enseñanza Media Técnico Profesional de la mención Agrícola.</p></div></article>
+        <article class="hito"><time>2008</time><div><h3>Ley SEP</h3><p>Se firma el Convenio de Igualdad de Oportunidades y Excelencia Educativa.</p></div></article>
+        <article class="hito"><time>2009</time><div><h3>Plan de Mejoramiento Educativo</h3><p>Se aprueban los Planes de Mejoramiento Educativo del establecimiento.</p></div></article>
+        <article class="hito"><time>2014</time><div><h3>Reformulación del PEI</h3><p>Se reformula el Proyecto Educativo Institucional y se proyecta una nueva especialidad de Mecánica Industrial.</p></div></article>
+        <article class="hito"><time>2016</time><div><h3>Mecánica Industrial</h3><p>Se implementa la formación en Mecánica Industrial y se amplía la Tercera Jornada para población adulta.</p></div></article>
+        <article class="hito hito-destacado"><time>2026</time><div><h3>Excelencia Académica</h3><p>El establecimiento obtiene Excelencia Académica.</p></div></article>
+        <article class="hito hito-destacado"><time>2026</time><div><h3>Opción 4 Laboral</h3><p>Entra en funcionamiento Opción 4 Laboral, ampliando la propuesta educativa inclusiva del establecimiento.</p></div></article>
+    </div>
+</div>
+
+<div class="escuela-cifras" aria-labelledby="tituloEscuelaCifras">
+    <div class="encabezado-bloque-institucional">
+        <span aria-hidden="true">📊</span>
+        <h2 id="tituloEscuelaCifras">Nuestra Escuela en Cifras</h2>
+    </div>
+    <div class="rejilla-cifras">
+        <article><strong>1857</strong><span>Año de creación</span></article>
+        <article><strong>169</strong><span>Años de trayectoria en 2026</span></article>
+        <article><strong>NT1–4.º Medio</strong><span>Trayectoria educativa</span></article>
+        <article><strong>2</strong><span>Especialidades Técnico Profesionales</span></article>
+        <article><strong>Opción 4</strong><span>Educación especial</span></article>
+        <article><strong>Opción 4 Laboral</strong><span>En funcionamiento desde 2026</span></article>
+    </div>
+</div>
+</section>
+
+<!-- =====================================================
+     ACADÉMICA
+====================================================== -->
+
+<section
+    id="academica"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina titulo-editorial-premium" id="academicaInicio">
+    <span class="editorial-kicker">TRAYECTORIA FORMATIVA</span>
+    <h2>
+        Académica
+    </h2>
+
+    <p>
+        Información sobre nuestros niveles y especialidades.
+    </p>
+
+</div>
+
+<!-- =================================================
+     NAVEGACIÓN INTERNA - ACADÉMICA
+================================================== -->
+
+<div class="navegacion-interna">
+
+    <button
+        class="boton-navegacion-interna"
+        type="button"
+        aria-expanded="false"
+    >
+        Ir a una sección
+        <span aria-hidden="true">▼</span>
+    </button>
+
+    <div class="opciones-navegacion-interna">
+
+        <button type="button" data-destino="academicaNiveles">
+            Niveles Educativos
+        </button>
+
+        <button type="button" data-destino="academicaModalidades">
+            Otras Modalidades Educativas
+        </button>
+
+        <button type="button" data-destino="academicaEspecialidades">
+            Especialidades Técnico Profesionales
+        </button>
+
+        <button type="button" data-destino="academicaHorarios">
+            Horarios
+        </button>
+
+    </div>
+
+</div>
+
+
+<div id="academicaNiveles" class="niveles-giratorios">
+
+    <button class="nivel-giratorio tarjeta-especialidad" type="button" aria-pressed="false" aria-label="Ver información ampliada de Educación Parvularia">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <span class="nivel-icono" aria-hidden="true">🧸</span>
+                <span class="nombre-especialidad">Educación Parvularia</span>
+                <span class="nivel-rango">NT1 Pre Kinder · NT2 Kinder</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Educación Parvularia</span>
+                <span class="texto-reverso">Primera etapa de la trayectoria educativa, orientada al desarrollo integral, aprendizaje, autonomía, convivencia y participación de niños y niñas.</span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
+
+    <button class="nivel-giratorio tarjeta-especialidad" type="button" aria-pressed="false" aria-label="Ver información ampliada de Educación Básica">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <span class="nivel-icono" aria-hidden="true">📚</span>
+                <span class="nombre-especialidad">Educación Básica</span>
+                <span class="nivel-rango">1° a 8° Básico</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Educación Básica</span>
+                <span class="texto-reverso">Etapa que fortalece los aprendizajes fundamentales y el desarrollo integral de los estudiantes, promoviendo conocimientos, habilidades, autonomía, convivencia y participación.</span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
+
+    <button class="nivel-giratorio tarjeta-especialidad" type="button" aria-pressed="false" aria-label="Ver información ampliada de Educación Media Técnico Profesional">
+        <span class="tarjeta-especialidad-interior">
+            <span class="tarjeta-especialidad-frente">
+                <span class="nivel-icono" aria-hidden="true">🎓</span>
+                <span class="nombre-especialidad">Educación Media Técnico Profesional</span>
+                <span class="nivel-rango">1° a 4° Medio TP</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Educación Media Técnico Profesional</span>
+                <span class="texto-reverso">Etapa que profundiza la formación general y, en los niveles correspondientes, articula la preparación Técnico Profesional, favoreciendo la continuidad de estudios y la incorporación al mundo laboral.</span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+        </span>
+    </button>
+
+</div>
+
+
+<div class="premium-separador-seccion premium-modalidades"><span>Inclusión y desarrollo</span></div>
+
+<div id="academicaModalidades"
+    class="titulo-pagina"
+    style="margin-top: 60px;"
+>
+
+    <h2>
+        Otras Modalidades Educativas
+    </h2>
+
+</div>
+
+
+<div class="modalidades-giratorias">
+
+    <button
+        class="modalidad-giratoria tarjeta-especialidad"
+        type="button"
+        aria-pressed="false"
+        aria-label="Ver información ampliada de Opción 4"
+    >
+        <span class="tarjeta-especialidad-interior">
+
+            <span class="tarjeta-especialidad-frente">
+                <span class="modalidad-icono" aria-hidden="true">🧩</span>
+                <span class="nombre-especialidad">Opción 4</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Opción 4</span>
+                <span class="texto-reverso">
+                    Modalidad de educación especial para estudiantes que requieren
+                    apoyos especializados y una respuesta educativa ajustada a sus
+                    necesidades. Favorece el aprendizaje, la participación, la
+                    autonomía y el desarrollo integral, considerando las
+                    características y fortalezas de cada estudiante.
+                </span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+
+        </span>
+    </button>
+
+
+    <button
+        class="modalidad-giratoria tarjeta-especialidad"
+        type="button"
+        aria-pressed="false"
+        aria-label="Ver información ampliada de Opción 4 Laboral"
+    >
+        <span class="tarjeta-especialidad-interior">
+
+            <span class="tarjeta-especialidad-frente">
+                <span class="modalidad-icono" aria-hidden="true">🛠️</span>
+                <span class="nombre-especialidad">Opción 4 Laboral</span>
+                <span class="indicacion-giro">Presiona para conocer más</span>
+            </span>
+
+            <span class="tarjeta-especialidad-atras">
+                <span class="titulo-reverso">Opción 4 Laboral</span>
+                <span class="texto-reverso">
+                    Espacio formativo orientado al desarrollo de habilidades para
+                    la vida adulta y socio-laboral. Fortalece la autonomía, la
+                    independencia, la participación y las competencias necesarias
+                    para desenvolverse con mayor seguridad en distintos contextos
+                    de la vida cotidiana y laboral.
+                </span>
+                <span class="indicacion-giro">Presiona para volver</span>
+            </span>
+
+        </span>
+    </button>
+
+</div>
+
+
+<div class="premium-separador-seccion premium-especialidades"><span>Formación Técnico Profesional</span></div>
+
+<div id="academicaEspecialidades"
+    class="titulo-pagina"
+    style="margin-top: 60px;"
+>
+
+    <h2>
+        Especialidades Técnico Profesionales
+    </h2>
+
+</div>
+
+
+<div class="especialidades-academicas especialidades-academicas-giratorias">
+
+    <button
+        class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica"
+        type="button"
+        aria-pressed="false"
+        aria-label="Ver información ampliada de Técnico en Agropecuaria con mención Agrícola"
+    >
+
+        <span class="tarjeta-especialidad-interior">
+
+            <span class="tarjeta-especialidad-frente">
+
+                <img
+                    src="imagenes/logoespecialidad1.png"
+                    alt="Técnico en Agropecuaria con mención Agrícola"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <span class="nombre-especialidad">
+                    Técnico en Agropecuaria con mención Agrícola
+                </span>
+
+                <span class="indicacion-giro">
+                    Presiona para conocer la especialidad
+                </span>
+
+            </span>
+
+
+            <span class="tarjeta-especialidad-reverso tarjeta-especialidad-reverso-detallado">
+
+                <strong>
+                    🌱 Técnico en Agropecuaria con mención Agrícola
+                </strong>
+
+                <span class="detalle-especialidad">
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>¿Qué aprenderás?</b>
+                        Manejo y preparación de suelos, sistemas de riego,
+                        establecimiento y manejo de cultivos, reproducción vegetal,
+                        control de plagas y enfermedades, manejo de frutales,
+                        cosecha y postcosecha, además del uso y mantenimiento básico
+                        de maquinaria y equipos agrícolas.
+                    </span>
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>Principales competencias</b>
+                        Desarrollar labores vinculadas a la producción agrícola,
+                        aplicando procedimientos técnicos, normas de seguridad y
+                        criterios de cuidado del medioambiente.
+                    </span>
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>Campo laboral</b>
+                        Actividades productivas agrícolas, predios y explotaciones
+                        agrícolas, producción vegetal y procesos relacionados con
+                        el sector agrícola.
+                    </span>
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>Continuidad de estudios</b>
+                        Permite continuar estudios de educación superior en áreas
+                        relacionadas con el sector agropecuario y agrícola.
+                    </span>
+
+                </span>
+
+                <span class="indicacion-giro">
+                    Presiona para volver
+                </span>
+
+            </span>
+
+        </span>
+
+    </button>
+
+
+    <button
+        class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica"
+        type="button"
+        aria-pressed="false"
+        aria-label="Ver información ampliada de Técnico en Mecánica Industrial"
+    >
+
+        <span class="tarjeta-especialidad-interior">
+
+            <span class="tarjeta-especialidad-frente">
+
+                <img
+                    src="imagenes/logoespecialidad2.png"
+                    alt="Técnico en Mecánica Industrial"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <span class="nombre-especialidad">
+                    Técnico en Mecánica Industrial
+                </span>
+
+                <span class="indicacion-giro">
+                    Presiona para conocer la especialidad
+                </span>
+
+            </span>
+
+
+            <span class="tarjeta-especialidad-reverso tarjeta-especialidad-reverso-detallado">
+
+                <strong>
+                    ⚙️ Técnico en Mecánica Industrial
+                </strong>
+
+                <span class="detalle-especialidad">
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>¿Qué aprenderás?</b>
+                        Interpretación de planos y especificaciones técnicas,
+                        medición y control, fabricación, mantenimiento y reparación
+                        de piezas y componentes, utilización de herramientas y
+                        equipos, procesos de soldadura, seguridad industrial y
+                        protección medioambiental.
+                    </span>
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>Principales competencias</b>
+                        Desarrollar trabajos de fabricación, mantenimiento y
+                        reparación de componentes mecánicos y electromecánicos,
+                        utilizando procedimientos, instrumentos y equipos propios
+                        del área industrial.
+                    </span>
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>Campo laboral</b>
+                        Sectores productivos donde se desarrollen procesos de
+                        fabricación, mantenimiento y reparación mecánica e industrial.
+                    </span>
+
+                    <span class="detalle-especialidad-bloque">
+                        <b>Continuidad de estudios</b>
+                        Permite continuar estudios de educación superior en áreas
+                        relacionadas con mecánica, mantenimiento y tecnologías industriales.
+                    </span>
+
+                </span>
+
+                <span class="indicacion-giro">
+                    Presiona para volver
+                </span>
+
+            </span>
+
+        </span>
+
+    </button>
+
+</div>
+
+
+<div class="premium-separador-seccion premium-horarios"><span>Información para la jornada escolar</span></div>
+
+<div id="academicaHorarios"
+    class="titulo-pagina"
+    style="margin-top: 60px;"
+>
+    <h2>Horarios de clases</h2>
+    <p>
+        Revisa la hora de ingreso y salida de cada curso. Para consultar las asignaturas y bloques de cada jornada, utiliza el botón «Ver horario de clases».
+    </p>
+</div>
+
+
+<div id="controlHorariosPremium" class="control-horarios-premium" aria-labelledby="tituloSelectorHorario">
+    <div class="control-horarios-intro">
+        <span class="control-horarios-kicker">CONSULTA RÁPIDA</span>
+        <h3 id="tituloSelectorHorario">Encuentra tu horario</h3>
+        <p>Primero selecciona el nivel y luego el curso. Mostraremos solamente la información que necesitas.</p>
+    </div>
+
+    <div class="control-horarios-pasos">
+        <div class="control-horarios-paso">
+            <span class="numero-paso" aria-hidden="true">1</span>
+            <div>
+                <label for="nivelHorarioPremium">Nivel o modalidad</label>
+                <select id="nivelHorarioPremium">
+                    <option value="">Selecciona un nivel</option>
+                    <option value="parvularia">Educación Parvularia</option>
+                    <option value="basica">Educación Básica</option>
+                    <option value="opcion">Opción 4 / Opción 4 Laboral</option>
+                    <option value="media">Educación Media Técnico Profesional</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-horarios-paso">
+            <span class="numero-paso" aria-hidden="true">2</span>
+            <div>
+                <label for="cursoHorarioPremium">Curso</label>
+                <select id="cursoHorarioPremium" disabled>
+                    <option value="">Primero selecciona un nivel</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-horarios-acciones">
+        <button id="mostrarTodosHorariosPremium" type="button">Ver todos los cursos</button>
+        <button id="limpiarHorarioPremium" type="button">Limpiar selección</button>
+    </div>
+
+    <p id="estadoHorarioPremium" class="estado-horario-premium" role="status" aria-live="polite">
+        Selecciona un nivel para comenzar.
+    </p>
+</div>
+
+<div class="horarios-cursos-detallados">
+    <article class="horario-curso-card">
+        <h3>Pre Kinder</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/kinder.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+
+<article class="horario-curso-card">
+        <h3>Kinder</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/kinder.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>1° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>14:45</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/1basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>2° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>14:45</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/2basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>3° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/3basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>4° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/4basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>5° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/5basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>6° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/6basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>7° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/7basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>8° Básico</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/8basico.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>Opción 4</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/opcion4.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>Opción 4 Laboral</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>15:30</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:25</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/opcion4laboral.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>1° Medio</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/1medio.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>2° Medio</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/2medio.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>3° Medio Agropecuaria</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/3medioagropecuaria.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>4° Medio Agropecuaria</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/4medioagropecuaria.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>3° Medio Mecánica Industrial</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/3mediomecanica.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+    <article class="horario-curso-card">
+        <h3>4° Medio Mecánica Industrial</h3>
+        <div class="tabla-horario-curso">
+            <div class="fila-horario encabezado-tabla">
+                <div>Día</div>
+                <div>Ingreso</div>
+                <div>Salida</div>
+            </div>
+                <div class="fila-horario">
+                    <div>Lunes</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Martes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Miércoles</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Jueves</div>
+                    <div>08:15</div>
+                    <div>16:55</div>
+                </div>
+                <div class="fila-horario">
+                    <div>Viernes</div>
+                    <div>08:15</div>
+                    <div>13:10</div>
+                </div>
+        </div>
+            <div class="horario-clases-accion">
+            <a
+                href="horarios/4mediomecanica.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="boton-documento"
+            >
+                Ver horario de clases
+            </a>
+        </div>
+    </article>
+</div>
+
+
+<div class="volver-seccion">
+
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="academicaInicio"
+    >
+        ↑ Volver al inicio de Académica
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     TALLERES JEC
+====================================================== -->
+
+<section
+    id="talleresJEC"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina">
+
+    <h2>
+        Talleres JEC
+    </h2>
+
+    <p>
+        Espacios de aprendizaje, participación y desarrollo
+        de habilidades para nuestros estudiantes.
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     INFORMACIÓN GENERAL DE LOS TALLERES
+================================================== -->
+
+<div class="bloque-texto">
+
+    <h3>
+        Jornada de Talleres JEC
+    </h3>
+
+    <p>
+        Los Talleres JEC constituyen espacios formativos que buscan
+        fortalecer los intereses, habilidades y talentos de nuestros
+        estudiantes mediante experiencias prácticas, creativas y
+        vinculadas con el entorno.
+    </p>
+
+    <p>
+        Los talleres se desarrollan los días
+        <strong>miércoles y jueves</strong>,
+        en horario de
+        <strong>13:55 a 15:30 horas</strong>.
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     TALLERES
+================================================== -->
+
+<div class="especialidades-academicas talleres-jec">
+
+
+    <!-- =================================================
+         TALLER PRE DEPORTIVO
+    ================================================== -->
+
+    <div class="especialidad-academica taller-jec-card">
+
+        <div class="especialidad-imagen">
+
+            <img
+                src="taller%20jec/Taller%20Pre%20Deportivo%20Profesor%20Cristian%20Cabrera.png"
+                alt="Taller Pre Deportivo - Profesor Cristian Cabrera"
+                loading="lazy"
+        decoding="async"
+    >
+
+        </div>
+
+        <div class="especialidad-contenido">
+
+            <h4>
+                Taller Pre Deportivo
+            </h4>
+
+            <p>
+                <strong>
+                    Profesor:
+                </strong>
+                Cristian Cabrera
+            </p>
+
+            <p>
+                <strong>
+                    Horario:
+                </strong>
+                Miércoles y jueves de 13:55 a 15:30 horas
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TALLER HUERTO SUSTENTABLE
+    ================================================== -->
+
+    <div class="especialidad-academica taller-jec-card">
+
+        <div class="especialidad-imagen">
+
+            <img
+                src="taller%20jec/Taller%20Huerto%20Sustentable%20Profesor%20Ignacio%20Cortes.png"
+                alt="Taller Huerto Sustentable - Profesor Ignacio Cortés"
+                loading="lazy"
+        decoding="async"
+    >
+
+        </div>
+
+        <div class="especialidad-contenido">
+
+            <h4>
+                Taller Huerto Sustentable
+            </h4>
+
+            <p>
+                <strong>
+                    Profesor:
+                </strong>
+                Ignacio Cortés
+            </p>
+
+            <p>
+                <strong>
+                    Horario:
+                </strong>
+                Miércoles y jueves de 13:55 a 15:30 horas
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TALLER ELECTRO MECANICA
+    ================================================== -->
+
+    <div class="especialidad-academica taller-jec-card">
+
+        <div class="especialidad-imagen">
+
+            <img
+                src="taller%20jec/Taller%20Electro%20Mecanica%20Profesor%20Cristian%20Zuniga.png"
+                alt="Taller Electro Mecánica - Profesor Cristian Zúñiga"
+                loading="lazy"
+        decoding="async"
+    >
+
+        </div>
+
+        <div class="especialidad-contenido">
+
+            <h4>
+                Taller Electro Mecánica
+            </h4>
+
+            <p>
+                <strong>
+                    Profesor:
+                </strong>
+                Cristian Zúñiga
+            </p>
+
+            <p>
+                <strong>
+                    Horario:
+                </strong>
+                Miércoles y jueves de 13:55 a 15:30 horas
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TALLER RECICLAJE CHACANA
+    ================================================== -->
+
+    <div class="especialidad-academica taller-jec-card">
+
+        <div class="especialidad-imagen">
+
+            <img
+                src="taller%20jec/Taller%20Reciclaje%20Chacana%20Profesor%20Leonardo%20Silva.png"
+                alt="Taller Reciclaje Chacana - Profesor Leonardo Silva"
+                loading="lazy"
+        decoding="async"
+    >
+
+        </div>
+
+        <div class="especialidad-contenido">
+
+            <h4>
+                Taller Reciclaje Chacana
+            </h4>
+
+            <p>
+                <strong>
+                    Profesor:
+                </strong>
+                Leonardo Silva
+            </p>
+
+            <p>
+                <strong>
+                    Horario:
+                </strong>
+                Miércoles y jueves de 13:55 a 15:30 horas
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TALLER ECO ARTE
+    ================================================== -->
+
+    <div class="especialidad-academica taller-jec-card">
+
+        <div class="especialidad-imagen">
+
+            <img
+                src="taller%20jec/Taller%20Eco%20Arte%20Profesora%20Susana%20Mancilla.png"
+                alt="Taller Eco Arte - Profesora Susana Mancilla"
+                loading="lazy"
+        decoding="async"
+    >
+
+        </div>
+
+        <div class="especialidad-contenido">
+
+            <h4>
+                Taller Eco Arte
+            </h4>
+
+            <p>
+                <strong>
+                    Profesora:
+                </strong>
+                Susana Mancilla
+            </p>
+
+            <p>
+                <strong>
+                    Horario:
+                </strong>
+                Miércoles y jueves de 13:55 a 15:30 horas
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TALLER PERCULAB MÚSICA RECICLADA
+    ================================================== -->
+
+    <div class="especialidad-academica taller-jec-card">
+
+        <div class="especialidad-imagen">
+
+            <img
+                src="taller%20jec/Taller%20Perculab%20Musica%20Reciclada%20Profesor%20Simon%20Varela.png"
+                alt="Taller Perculab Música Reciclada - Profesor Simón Varela"
+                loading="lazy"
+        decoding="async"
+    >
+
+        </div>
+
+        <div class="especialidad-contenido">
+
+            <h4>
+                Taller Perculab Música Reciclada
+            </h4>
+
+            <p>
+                <strong>
+                    Profesor:
+                </strong>
+                Simón Varela
+            </p>
+
+            <p>
+                <strong>
+                    Horario:
+                </strong>
+                Miércoles y jueves de 13:55 a 15:30 horas
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =================================================
+     HORARIO GENERAL
+================================================== -->
+
+<div
+    class="bloque-documento"
+    style="margin-top: 60px;"
+>
+
+    <h3>
+        Horario general de los Talleres JEC
+    </h3>
+
+    <p>
+        <strong>
+            Días:
+        </strong>
+        Miércoles y jueves
+    </p>
+
+    <p>
+        <strong>
+            Horario:
+        </strong>
+        13:55 a 15:30 horas
+    </p>
+
+    <p>
+        Los talleres se desarrollan durante la Jornada Escolar
+        Completa (JEC), ofreciendo a nuestros estudiantes distintas
+        alternativas de participación y aprendizaje.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     VALIDACIÓN DE ESTUDIOS
+====================================================== -->
+
+<section
+    id="validacion"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina">
+
+    <h2>
+        Validación de Estudios
+    </h2>
+
+    <p>
+        Una oportunidad para continuar y completar tu trayectoria educativa.
+    </p>
+
+</div>
+
+
+<div class="bloque-texto">
+
+    <h3>
+        Valida tus estudios de Enseñanza Básica y Media con nosotros
+    </h3>
+
+    <p>
+        Si necesitas completar o regularizar tus estudios de
+        Enseñanza Básica o Enseñanza Media, te invitamos a informarte
+        sobre las alternativas disponibles para continuar tu
+        trayectoria educativa.
+    </p>
+
+    <p>
+        Nuestro establecimiento busca brindar oportunidades
+        educativas que permitan a jóvenes y adultos avanzar en su
+        formación y alcanzar nuevas metas personales, académicas
+        y laborales.
+    </p>
+
+</div>
+
+
+<div class="niveles-educativos">
+
+    <div class="nivel-card">
+
+        <h4>
+            Enseñanza Básica
+        </h4>
+
+        <p>
+            Información y orientación para quienes necesitan
+            completar o validar sus estudios de Enseñanza Básica.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Enseñanza Media
+        </h4>
+
+        <p>
+            Alternativas para completar o validar estudios de
+            Enseñanza Media y continuar avanzando en la trayectoria
+            educativa.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Orientación
+        </h4>
+
+        <p>
+            Acércate a nuestro establecimiento para conocer los
+            requisitos, fechas y alternativas disponibles.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div
+    class="bloque-documento"
+    style="margin-top: 40px;"
+>
+
+    <h3>
+        ¿Necesitas más información?
+    </h3>
+
+    <p>
+        Para conocer los requisitos, documentación necesaria,
+        fechas y proceso de inscripción, comunícate directamente
+        con nuestro establecimiento.
+    </p>
+
+    <p>
+        <strong>
+            Teléfono:
+        </strong>
+        +56 52 255 5354
+    </p>
+
+    <a
+        href="tel:+56522555354"
+        class="boton-contacto"
+    >
+        Contactar al establecimiento
+    </a>
+
+</div>
+
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     COMUNIDAD EDUCATIVA
+====================================================== -->
+
+<section
+    id="comunidad"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+<div class="titulo-pagina titulo-editorial-premium" id="comunidadInicio">
+    <span class="editorial-kicker">NUESTRA COMUNIDAD</span>
+    <h2>Comunidad Educativa</h2>
+    <p>
+        Selecciona tu perfil para acceder rápidamente a la información
+        y recursos de mayor interés para cada integrante de nuestra comunidad.
+    </p>
+</div>
+
+<div class="portal-premium-intro">
+    <span>ACCESOS POR PERFIL</span>
+    <p>Encuentra rápidamente la información más importante según tu rol en la comunidad educativa.</p>
+</div>
+
+<div class="portal-comunidad" aria-label="Accesos por integrante de la comunidad educativa">
+
+    <article id="perfilAlumnos" class="portal-perfil portal-perfil-alumnos">
+        <div class="portal-perfil-icono" aria-hidden="true">🎒</div>
+        <h3>Alumnos</h3>
+        <p>
+            Accesos rápidos a información académica, actividades,
+            comunicaciones y participación estudiantil.
+        </p>
+
+        <button
+            class="portal-perfil-boton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="accesosAlumnos"
+        >
+            Ver información
+            <span aria-hidden="true">▼</span>
+        </button>
+
+        <div id="accesosAlumnos" class="portal-perfil-accesos" hidden>
+            <button type="button" data-ir-pagina="academica">📚 Académica</button>
+            <button type="button" data-ir-pagina="talleresJEC">🎨 Talleres JEC</button>
+            <button type="button" data-ir-pagina="academica" data-destino-pagina="academicaHorarios">🕒 Horarios de clases</button>
+            <button type="button" data-ir-pagina="documentos">📄 Documentos</button>
+            <button type="button" data-ir-pagina="protocolos">🛡️ Protocolos</button>
+            <button type="button" data-ir-pagina="seguridad">🚨 Seguridad</button>
+            <button type="button" data-ir-pagina="comunicados">📢 Comunicados</button>
+            <button type="button" data-ir-pagina="comunidad" data-destino-comunidad="comunidadAlumnos">👥 Centro de Alumnos</button>
+        </div>
+    </article>
+
+    <article id="perfilApoderados" class="portal-perfil portal-perfil-apoderados">
+        <div class="portal-perfil-icono" aria-hidden="true">👨‍👩‍👧</div>
+        <h3>Apoderados</h3>
+        <p>
+            Información y accesos útiles para madres, padres
+            y apoderados de nuestro establecimiento.
+        </p>
+
+        <button
+            class="portal-perfil-boton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="accesosApoderados"
+        >
+            Ver información
+            <span aria-hidden="true">▼</span>
+        </button>
+
+        <div id="accesosApoderados" class="portal-perfil-accesos" hidden>
+            <button type="button" data-ir-inicio="inicioMatricula">🎓 Matrícula y Postulación</button>
+            <button type="button" data-ir-pagina="validacion">📝 Validación de Estudios</button>
+            <button type="button" data-ir-pagina="academica" data-destino-pagina="academicaHorarios">🕒 Horarios de clases</button>
+            <button type="button" data-ir-inicio="horariosAtencionApoderados">🕒 Horarios de Atención</button>
+            <button type="button" data-ir-pagina="comunicados">📢 Comunicados</button>
+            <button type="button" data-ir-pagina="documentos">📄 Documentos</button>
+            <button type="button" data-ir-pagina="protocolos">🛡️ Protocolos</button>
+            <button type="button" data-ir-pagina="seguridad">🚨 Seguridad</button>
+            <button type="button" data-ir-pagina="contacto">☎️ Contacto</button>
+            <button type="button" data-ir-pagina="comunidad" data-destino-comunidad="comunidadPadres">👨‍👩‍👧 Centro General de Padres y Apoderados</button>
+        </div>
+    </article>
+
+    <article id="perfilFuncionarios" class="portal-perfil portal-perfil-funcionarios">
+        <div class="portal-perfil-icono" aria-hidden="true">👩‍🏫</div>
+        <h3>Funcionarios</h3>
+        <p>
+            Accesos a documentación institucional, protocolos
+            y equipos responsables de la gestión del establecimiento.
+        </p>
+
+        <button
+            class="portal-perfil-boton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="accesosFuncionarios"
+        >
+            Ver información
+            <span aria-hidden="true">▼</span>
+        </button>
+
+        <div id="accesosFuncionarios" class="portal-perfil-accesos" hidden>
+            <button type="button" data-ir-pagina="documentos">📄 Documentos Institucionales</button>
+            <button type="button" data-ir-pagina="protocolos">🛡️ Protocolos</button>
+            <button type="button" data-ir-pagina="seguridad">🚨 Seguridad / PISE</button>
+            <button type="button" data-ir-pagina="equipo">👤 Equipo Directivo</button>
+            <button type="button" data-ir-pagina="gestion">⚙️ Equipo de Gestión</button>
+            <button type="button" data-ir-pagina="contacto">☎️ Contacto</button>
+        </div>
+    </article>
+
+</div>
+
+<section class="comunidad-institucional" aria-labelledby="tituloComunidadInstitucional">
+    <div class="titulo-pagina titulo-pagina-secundario">
+        <h2 id="tituloComunidadInstitucional">Nuestra Comunidad</h2>
+        <p>
+            Conoce quiénes forman parte de la Escuela de Concentración Los Loros
+            y sus espacios de participación.
+        </p>
+    </div>
+
+    <div class="niveles-educativos">
+        <div class="nivel-card"><h4>Estudiantes</h4><p>Son el centro de nuestra comunidad educativa y protagonistas de sus propios procesos de aprendizaje y desarrollo.</p></div>
+        <div class="nivel-card"><h4>Docentes</h4><p>Profesionales que acompañan y orientan los procesos de aprendizaje y formación integral de nuestros estudiantes.</p></div>
+        <div class="nivel-card"><h4>Equipo Directivo</h4><p>Lidera y orienta el trabajo institucional, promoviendo el cumplimiento de nuestro proyecto educativo.</p></div>
+        <div class="nivel-card"><h4>Asistentes de la Educación</h4><p>Contribuyen diariamente al funcionamiento del establecimiento y al bienestar de toda la comunidad educativa.</p></div>
+        <div class="nivel-card"><h4>Madres, Padres y Apoderados</h4><p>Participan y colaboran en el proceso educativo de los estudiantes, fortaleciendo el vínculo entre familia y escuela.</p></div>
+        <div class="nivel-card"><h4>Profesionales de Apoyo</h4><p>Apoyan el desarrollo integral de los estudiantes y contribuyen a responder a sus diversas necesidades.</p></div>
+    </div>
+</section>
+
+<div id="comunidadAlumnos" class="bloque-documento portal-bloque-participacion">
+    <h3>Centro de Alumnos</h3>
+    <p>
+        El Centro de Alumnos constituye un importante espacio de participación
+        y representación estudiantil dentro de nuestra comunidad educativa.
+    </p>
+
+    <div class="portal-imagen-centro">
+        <button
+            id="abrirImagenCentroAlumnos"
+            class="boton-imagen-centro"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="visorImagenCentroAlumnos"
+            aria-label="Ampliar imagen del Centro de Alumnos"
+        >
+            <img
+                src="imagenes/centrodealumnos.png"
+                alt="Centro de Alumnos de la Escuela de Concentración Los Loros"
+                loading="lazy"
+                decoding="async"
+            >
+            <span class="indicacion-ampliar-imagen">
+                🔎 Presiona para ampliar
+            </span>
+        </button>
+    </div>
+
+    <p><strong>El Centro de Alumnos está conformado por los siguientes estudiantes:</strong></p>
+    <p>Alejandro Zenteno Castellanos</p>
+    <p>Miguel Alucema Carrizo</p>
+    <p>Yoel Domínguez Muiba</p>
+    <p>Javier Carrizo Latorre</p>
+    <p>Anthony Alcorta Ramírez</p>
+</div>
+
+<div id="comunidadPadres" class="bloque-documento">
+    <h3>Centro General de Padres y Apoderados</h3>
+    <p>
+        Espacio de participación de las familias que contribuye al fortalecimiento
+        de la relación entre el establecimiento, los estudiantes y sus familias.
+    </p>
+    <p><strong>Información de la directiva:</strong> Próximamente.</p>
+</div>
+
+<div class="bloque-texto">
+    <h3>Participación y Convivencia Educativa</h3>
+    <p>
+        Nuestra comunidad promueve el buen trato, el respeto mutuo,
+        la inclusión y la equidad como elementos fundamentales para
+        una convivencia educativa saludable.
+    </p>
+    <p>
+        Buscamos que cada integrante tenga espacios para participar,
+        aportar y sentirse parte de la Escuela de Concentración Los Loros.
+    </p>
+</div>
+
+<div class="volver-seccion">
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="comunidadInicio"
+    >
+        ↑ Volver al inicio de Comunidad Educativa
+    </button>
+</div>
+
+</div>
+</section>
+
+<!-- =====================================================
+     EQUIPO DIRECTIVO
+====================================================== -->
+
+<section
+    id="equipo"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina">
+
+    <h2>
+        Equipo Directivo
+    </h2>
+
+    <p>
+        Equipo responsable del liderazgo y gestión del establecimiento.
+    </p>
+
+</div>
+
+
+<div class="equipo-grid">
+
+
+    <div class="directivo">
+
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Karina Briceño, Directora (S)"
+        >
+
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/directora.png"
+                        alt="Karina Briceño, Directora (S)"
+                        loading="lazy"
+        decoding="async"
+    >
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Lidera la gestión institucional y pedagógica del establecimiento, coordinando los equipos y promoviendo el cumplimiento de los objetivos educativos.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
+
+        <div class="directivo-info">
+
+            <h3>
+                Karina Briceño
+            </h3>
+
+            <p class="cargo">
+                Directora (S)
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="directivo">
+
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Muriel Henríquez, Jefa de UTP"
+        >
+
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/jefautp.png"
+                        alt="Muriel Henríquez, Jefa de UTP"
+                        loading="lazy"
+        decoding="async"
+    >
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Coordina y acompaña los procesos técnico-pedagógicos, apoyando la planificación, la evaluación y la mejora de los aprendizajes.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
+
+        <div class="directivo-info">
+
+            <h3>
+                Muriel Henríquez
+            </h3>
+
+            <p class="cargo">
+                Jefa de UTP
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="directivo">
+
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Tennyson Catrín, Inspector General"
+        >
+
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/inspectorgeneral.png"
+                        alt="Tennyson Catrín, Inspector General"
+                        loading="lazy"
+        decoding="async"
+    >
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Coordina aspectos de organización, disciplina y funcionamiento diario, favoreciendo un ambiente seguro y ordenado para la comunidad educativa.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
+
+        <div class="directivo-info">
+
+            <h3>
+                Tennyson Catrín
+            </h3>
+
+            <p class="cargo">
+                Inspector General
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="directivo">
+
+        <button
+            class="foto-directivo foto-directivo-giratoria"
+            type="button"
+            aria-pressed="false"
+            aria-label="Ver descripción del cargo de Tania Pizarro, Encargada de Convivencia Educativa"
+        >
+
+            <span class="foto-directivo-interior">
+
+                <span class="foto-directivo-frente">
+
+                    <img
+                        src="imagenes/encargadaconvivencia.png"
+                        alt="Tania Pizarro, Encargada de Convivencia Educativa"
+                        loading="lazy"
+        decoding="async"
+    >
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona la foto para conocer su función
+                    </span>
+
+                </span>
+
+                <span class="foto-directivo-reverso">
+
+                    <span>
+                        Promueve la buena convivencia educativa, el respeto y el bienestar, coordinando acciones preventivas y de apoyo para la comunidad escolar.
+                    </span>
+
+                    <span class="indicacion-giro-directivo">
+                        Presiona para volver a la foto
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
+
+        <div class="directivo-info">
+
+            <h3>
+                Tania Pizarro
+            </h3>
+
+            <p class="cargo">
+                Encargada de Convivencia Educativa
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     EQUIPO DE GESTIÓN
+====================================================== -->
+
+<section
+    id="gestion"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina" id="gestionInicio">
+
+    <h2>
+        Equipo de Gestión
+    </h2>
+
+    <p>
+        Espacio de participación y trabajo colaborativo de los
+        distintos estamentos que forman parte de nuestra comunidad educativa.
+    </p>
+
+</div>
+
+<!-- =================================================
+     NAVEGACIÓN INTERNA - EQUIPO DE GESTIÓN
+================================================== -->
+
+<div class="navegacion-interna">
+
+    <button
+        class="boton-navegacion-interna"
+        type="button"
+        aria-expanded="false"
+    >
+        Ir a una sección
+        <span aria-hidden="true">▼</span>
+    </button>
+
+    <div class="opciones-navegacion-interna">
+
+        <button type="button" data-destino="gestionQueEs">
+            ¿Qué es el Equipo de Gestión?
+        </button>
+
+        <button type="button" data-destino="gestionRepresentantes">
+            Representantes
+        </button>
+
+        <button type="button" data-destino="gestionParticipacion">
+            Participación y trabajo colaborativo
+        </button>
+
+    </div>
+
+</div>
+
+
+<div id="gestionQueEs" class="bloque-texto">
+
+    <h3>
+        ¿Qué es el Equipo de Gestión?
+    </h3>
+
+    <p>
+        El Equipo de Gestión es un espacio de participación,
+        coordinación y trabajo colaborativo que reúne a representantes
+        de los distintos estamentos de la comunidad educativa.
+    </p>
+
+    <p>
+        Su propósito es favorecer la participación de los diferentes
+        actores de la comunidad escolar, promoviendo el diálogo,
+        la colaboración y la construcción conjunta de iniciativas
+        que contribuyan al mejoramiento de la vida escolar.
+    </p>
+
+</div>
+
+
+<div id="gestionRepresentantes" class="niveles-educativos">
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Docentes
+        </h4>
+
+        <p>
+            Aportan desde su experiencia pedagógica y profesional,
+            contribuyendo al análisis de las necesidades educativas
+            y al desarrollo de acciones que favorezcan los aprendizajes
+            y la formación integral de los estudiantes.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Apoderados
+        </h4>
+
+        <p>
+            Representan la voz de las familias y contribuyen con
+            sus opiniones, propuestas y experiencias al fortalecimiento
+            de la relación entre la familia y el establecimiento.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Estudiantes
+        </h4>
+
+        <p>
+            Participan aportando sus opiniones, necesidades e iniciativas,
+            fortaleciendo la representación estudiantil y su participación
+            activa en la comunidad educativa.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Asistentes de la Educación
+        </h4>
+
+        <p>
+            Aportan desde sus diferentes funciones y experiencias,
+            contribuyendo al funcionamiento institucional, la convivencia
+            y el bienestar de los integrantes de la comunidad educativa.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Programa de Integración Escolar (PIE)
+        </h4>
+
+        <p>
+            Contribuye desde una perspectiva inclusiva al desarrollo
+            de estrategias y acciones que favorezcan la participación,
+            el aprendizaje y el bienestar de los estudiantes.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            Directiva
+        </h4>
+
+        <p>
+            Representa y canaliza las inquietudes, propuestas y
+            necesidades de los integrantes del estamento correspondiente,
+            favoreciendo la comunicación y participación organizada.
+        </p>
+
+    </div>
+
+
+    <div class="nivel-card">
+
+        <h4>
+            SLEP
+        </h4>
+
+        <p>
+            Servicio Local de Educación Pública de Atacama,
+            en su calidad de empleador y sostenedor del establecimiento,
+            participa desde su rol institucional y de apoyo a la gestión
+            educativa.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- =================================================
+     PARTICIPACIÓN Y TRABAJO COLABORATIVO
+================================================== -->
+
+<div
+    id="gestionParticipacion"
+    class="bloque-texto"
+    style="margin-top: 70px;"
+>
+
+    <h3>
+        Participación y trabajo colaborativo
+    </h3>
+
+    <p>
+        El trabajo del Equipo de Gestión busca fortalecer la comunicación
+        y colaboración entre los distintos actores de la comunidad
+        educativa, reconociendo que cada estamento tiene un rol importante
+        en la construcción de una escuela inclusiva, participativa y
+        comprometida con su territorio.
+    </p>
+
+    <p>
+        La participación de sus integrantes permite recoger diferentes
+        perspectivas y contribuir al desarrollo de acciones orientadas
+        al mejoramiento de los procesos educativos, la convivencia y
+        el bienestar de toda la comunidad escolar.
+    </p>
+
+</div>
+
+
+
+<div class="volver-seccion">
+
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="gestionInicio"
+    >
+        ↑ Volver al inicio de Equipo de Gestión
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     DOCUMENTOS
+====================================================== -->
+
+<section
+    id="documentos"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina" id="documentosInicio">
+
+    <h2>
+        Documentos
+    </h2>
+
+    <p>
+        Documentación institucional del establecimiento.
+    </p>
+
+</div>
+
+<!-- =================================================
+     NAVEGACIÓN INTERNA - DOCUMENTOS
+================================================== -->
+
+<div class="navegacion-interna">
+
+    <button
+        class="boton-navegacion-interna"
+        type="button"
+        aria-expanded="false"
+    >
+        Ir a una categoría
+        <span aria-hidden="true">▼</span>
+    </button>
+
+    <div class="opciones-navegacion-interna">
+
+        <button type="button" data-destino="documentosInstitucionales">
+            Documentos Institucionales
+        </button>
+
+        <button type="button" data-destino="documentosPlanes">
+            Planes Institucionales
+        </button>
+
+        <button type="button" data-destino="documentosReglamentos">
+            Reglamentos
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     BUSCADOR DE DOCUMENTOS
+================================================== -->
+
+<div class="buscador-listado">
+
+    <label for="buscarDocumentos">
+        Buscar documento
+    </label>
+
+    <div class="buscador-listado-campo">
+
+        <button
+            class="boton-lupa-buscador"
+            type="button"
+            data-enfocar-buscador="buscarDocumentos"
+            aria-label="Buscar en documentos"
+            title="Buscar en documentos"
+        >
+            🔎
+        </button>
+
+        <input
+            id="buscarDocumentos"
+            type="search"
+            placeholder="Ej.: inclusión, evaluación, convivencia..."
+            autocomplete="off"
+        >
+
+        <button
+            id="limpiarBuscarDocumentos"
+            class="boton-limpiar-buscador"
+            type="button"
+            aria-label="Limpiar búsqueda de documentos"
+            title="Limpiar búsqueda"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <p
+        id="resultadoBuscarDocumentos"
+        class="resultado-buscador"
+        aria-live="polite"
+    ></p>
+
+</div>
+
+
+<div class="contador-contenido">
+    <span aria-hidden="true">📄</span>
+    <strong id="contadorDocumentos">0</strong>
+    <span>documentos disponibles</span>
+</div>
+
+
+
+<div id="documentosInstitucionales" class="categoria-documentos">
+
+    <h3 class="titulo-categoria-documentos">
+        Documentos Institucionales
+    </h3>
+
+    <div class="documentos-lista">
+
+<div class="documento">
+
+        <h3>
+            Proyecto Educativo Institucional
+        </h3>
+
+        <a
+            href="documentos/pei.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+<div class="documento">
+
+        <h3>
+            Reglamento Interno de Convivencia Educativa
+        </h3>
+
+        <a
+            href="documentos/rice.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+<div class="documento">
+
+        <h3>
+            Reglamento de Evaluación
+        </h3>
+
+        <a
+            href="documentos/reglamentoevaluacion.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+
+    </div>
+
+</div>
+
+<div id="documentosPlanes" class="categoria-documentos">
+
+    <h3 class="titulo-categoria-documentos">
+        Planes Institucionales
+    </h3>
+
+    <div class="documentos-lista">
+
+
+<div class="documento">
+
+        <h3>
+            Plan de Mejoramiento Educativo
+        </h3>
+
+        <a
+            href="documentos/pme.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+<div class="documento">
+
+        <h3>
+            Plan de Gestión de Convivencia Educativa
+        </h3>
+
+        <a
+            href="documentos/Plan%20de%20gesti%C3%B3n%20de%20convivencia%20educativa.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+<div class="documento">
+
+        <h3>
+            Plan de Inclusión Escolar
+        </h3>
+
+        <a
+            href="documentos/plan%20de%20inclusi%C3%B3n%20escolar.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+<div class="documento">
+
+        <h3>
+            Plan de Educación, Sexualidad, Afectividad y Género
+        </h3>
+
+        <a
+            href="documentos/plan%20de%20educaci%C3%B3n%2C%20sexualidad%2C%20afectividad%20y%20genero.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+
+    </div>
+
+</div>
+
+<div id="documentosReglamentos" class="categoria-documentos">
+
+    <h3 class="titulo-categoria-documentos">
+        Reglamentos
+    </h3>
+
+    <div class="documentos-lista">
+
+<div class="documento">
+
+        <h3>
+            Reglamento General de Biblioteca Escolar CRA
+        </h3>
+
+        <a
+            href="documentos/Reglamento%20general%20biblioteca%20escolar%20cra.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+<div class="documento">
+
+        <h3>
+            Reglamento Interno de Orden, Higiene y Seguridad del SLEP Atacama
+        </h3>
+
+        <a
+            href="documentos/Reglamento%20Interno%20de%20Orden%2C%20Higiene%20y%20Seguridad%20del%20SLEP%20Atacama.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver documento
+        </a>
+
+    </div>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- =================================================
+     ARCHIVOS ADICIONALES AUTOMÁTICOS
+================================================== -->
+
+<div id="documentosAutomaticos" class="bloque-documento documentos-automaticos">
+    <h3>Otros archivos disponibles</h3>
+    <p>
+        Esta lista se completa automáticamente con archivos nuevos que se
+        agreguen a la carpeta <strong>documentos</strong> y que no estén ya
+        enlazados en las categorías anteriores.
+    </p>
+
+    <div
+        id="listaDocumentosAutomaticos"
+        class="lista-documentos-automaticos"
+        aria-live="polite"
+        aria-busy="true"
+    >
+        <p class="estado-documentos-automaticos">Buscando archivos adicionales...</p>
+    </div>
+</div>
+
+<div class="volver-seccion">
+
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="documentosInicio"
+    >
+        ↑ Volver al inicio de Documentos
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     SEGURIDAD
+====================================================== -->
+
+<section
+    id="seguridad"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+<div class="titulo-pagina" id="seguridadInicio">
+    <h2>Seguridad</h2>
+    <p>
+        Información preventiva, material de apoyo y documentos relacionados
+        con la seguridad de nuestra comunidad educativa.
+    </p>
+</div>
+
+<div class="bloque-documento seguridad-pise">
+    <h3>Plan Integral de Seguridad Escolar (PISE)</h3>
+    <p>
+        Documento institucional que orienta la prevención, preparación
+        y respuesta ante situaciones de emergencia.
+    </p>
+
+    <a
+        href="documentos/pise.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="boton-documento"
+    >
+        Ver PISE
+    </a>
+</div>
+
+<div class="bloque-documento seguridad-material">
+    <h3>Material de Seguridad</h3>
+    <div id="galeriaSeguridad" class="galeria-seguridad" aria-live="polite">
+        <!--
+            Aquí se incorporarán las imágenes usando exactamente
+            los nombres reales de los archivos de la carpeta seguridad.
+            No se inventan nombres para evitar rutas incorrectas.
+        -->
+    </div>
+</div>
+
+<div class="volver-seccion">
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="seguridadInicio"
+    >
+        ↑ Volver al inicio de Seguridad
+    </button>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     PROTOCOLOS
+====================================================== -->
+
+<section
+    id="protocolos"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina" id="protocolosInicio">
+
+    <h2>
+        Protocolos
+    </h2>
+
+    <p>
+        Protocolos de actuación del establecimiento educacional.
+    </p>
+
+</div>
+
+<!-- =================================================
+     NAVEGACIÓN INTERNA - PROTOCOLOS
+================================================== -->
+
+<div class="navegacion-interna">
+
+    <button
+        class="boton-navegacion-interna"
+        type="button"
+        aria-expanded="false"
+    >
+        Ir a un protocolo
+        <span aria-hidden="true">▼</span>
+    </button>
+
+    <div class="opciones-navegacion-interna">
+
+        <button type="button" data-destino="protocolo-1">
+            Protocolo 1: Actuación frente al fallecimiento de estudiantes, funcionarios, apoderados o adultos significativos
+        </button>
+
+        <button type="button" data-destino="protocolo-2">
+            Protocolo 2: Actuación frente al porte, tenencia, exhibición o uso de armas u otros elementos peligrosos
+        </button>
+
+        <button type="button" data-destino="protocolo-3">
+            Protocolo 3: Actuación frente a situaciones de ideación suicida, riesgo suicida e intento suicida en estudiantes
+        </button>
+
+        <button type="button" data-destino="protocolo-4">
+            Protocolo 4: Actuación frente al porte, tenencia, exhibición o uso de armas u otros elementos peligrosos
+        </button>
+
+        <button type="button" data-destino="protocolo-5">
+            Protocolo 5: Actuación frente a situaciones de vínculos afectivos (pololeo) entre estudiantes en el contexto escolar
+        </button>
+
+        <button type="button" data-destino="protocolo-6">
+            Protocolo 6: Actuación frente a situaciones de maltrato, acoso escolar o violencia entre integrantes de la comunidad educativa
+        </button>
+
+        <button type="button" data-destino="protocolo-7">
+            Protocolo 7: Actuación frente a vulneraciones de derechos de los estudiantes
+        </button>
+
+        <button type="button" data-destino="protocolo-8">
+            Protocolo 8: Uso de dispositivos móviles electrónicos en el establecimiento educacional
+        </button>
+
+        <button type="button" data-destino="protocolo-9">
+            Protocolo 9: Administración de medicamentos en el establecimiento educacional
+        </button>
+
+        <button type="button" data-destino="protocolo-10">
+            Protocolo 10: Frente a situaciones de consumo, porte, distribución y tráfico de alcohol y drogas
+        </button>
+
+        <button type="button" data-destino="protocolo-11">
+            Protocolo 11: Retención, acompañamiento y apoyo a estudiantes embarazadas, madres y padres
+        </button>
+
+        <button type="button" data-destino="protocolo-12">
+            Protocolo 12: Actuación frente a denuncias por robo y hurto
+        </button>
+
+        <button type="button" data-destino="protocolo-13">
+            Protocolo 13: Reincorporación, acompañamiento y seguimiento de estudiantes tras conductas de alta complejidad
+        </button>
+
+        <button type="button" data-destino="protocolo-14">
+            Protocolo 14: Desarrollo seguro de las clases de educación física y salud
+        </button>
+
+        <button type="button" data-destino="protocolo-15">
+            Protocolo 15: Actuación del procedimiento especial Ley N.° 21.128 "Aula Segura"
+        </button>
+
+        <button type="button" data-destino="protocolo-16">
+            Protocolo 16: Actuación frente a medidas judiciales de protección y órdenes de alejamiento
+        </button>
+
+        <button type="button" data-destino="protocolo-17">
+            Protocolo 17: Actuación frente a desregulación socioemocional y conductual, incluyendo ajustes para estudiantes autistas
+        </button>
+
+        <button type="button" data-destino="protocolo-18">
+            Protocolo 18: Actuación frente al ciberacoso (ciberbullying) y grooming
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     BUSCADOR DE PROTOCOLOS
+================================================== -->
+
+<div class="buscador-listado">
+
+    <label for="buscarProtocolos">
+        Buscar protocolo
+    </label>
+
+    <div class="buscador-listado-campo">
+
+        <button
+            class="boton-lupa-buscador"
+            type="button"
+            data-enfocar-buscador="buscarProtocolos"
+            aria-label="Buscar en protocolos"
+            title="Buscar en protocolos"
+        >
+            🔎
+        </button>
+
+        <input
+            id="buscarProtocolos"
+            type="search"
+            placeholder="Ej.: armas, acoso, fallecimiento..."
+            autocomplete="off"
+        >
+
+        <button
+            id="limpiarBuscarProtocolos"
+            class="boton-limpiar-buscador"
+            type="button"
+            aria-label="Limpiar búsqueda de protocolos"
+            title="Limpiar búsqueda"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <p
+        id="resultadoBuscarProtocolos"
+        class="resultado-buscador"
+        aria-live="polite"
+    ></p>
+
+</div>
+
+
+<div class="contador-contenido">
+    <span aria-hidden="true">📋</span>
+    <strong id="contadorProtocolos">0</strong>
+    <span>protocolos disponibles</span>
+</div>
+
+
+
+
+<div class="documentos-lista">
+
+
+    <div id="protocolo-1" class="documento">
+
+        <h3>
+            Protocolo 1: Actuación frente al fallecimiento de
+            estudiantes, funcionarios, apoderados o adultos significativos
+        </h3>
+
+        <a
+            href="protocolos/protocolo1.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-2" class="documento">
+
+        <h3>
+            Protocolo 2: Actuación frente al porte, tenencia,
+            exhibición o uso de armas u otros elementos peligrosos
+        </h3>
+
+        <a
+            href="protocolos/protocolo2.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-3" class="documento">
+
+        <h3>
+            Protocolo 3: Actuación frente a situaciones de ideación
+            suicida, riesgo suicida e intento suicida en estudiantes
+        </h3>
+
+        <a
+            href="protocolos/protocolo3.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-4" class="documento">
+
+        <h3>
+            Protocolo 4: Actuación frente al porte, tenencia,
+            exhibición o uso de armas u otros elementos peligrosos
+        </h3>
+
+        <a
+            href="protocolos/protocolo4.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-5" class="documento">
+
+        <h3>
+            Protocolo 5: Actuación frente a situaciones de vínculos
+            afectivos (pololeo) entre estudiantes en el contexto escolar
+        </h3>
+
+        <a
+            href="protocolos/protocolo5.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-6" class="documento">
+
+        <h3>
+            Protocolo 6: Actuación frente a situaciones de maltrato,
+            acoso escolar o violencia entre integrantes de la comunidad educativa
+        </h3>
+
+        <a
+            href="protocolos/protocolo6.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+<div id="protocolo-7" class="documento">
+
+        <h3>
+            Protocolo 7: Actuación frente a vulneraciones de derechos
+            de los estudiantes
+        </h3>
+
+        <a
+            href="protocolos/protocolo7.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-8" class="documento">
+
+        <h3>
+            Protocolo 8: Uso de dispositivos móviles electrónicos
+            en el establecimiento educacional
+        </h3>
+
+        <a
+            href="protocolos/protocolo8.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-9" class="documento">
+
+        <h3>
+            Protocolo 9: Administración de medicamentos
+            en el establecimiento educacional
+        </h3>
+
+        <a
+            href="protocolos/protocolo9.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-10" class="documento">
+
+        <h3>
+            Protocolo 10: Frente a situaciones de consumo, porte,
+            distribución y tráfico de alcohol y drogas
+        </h3>
+
+        <a
+            href="protocolos/protocolo10.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-11" class="documento">
+
+        <h3>
+            Protocolo 11: Retención, acompañamiento y apoyo
+            a estudiantes embarazadas, madres y padres
+        </h3>
+
+        <a
+            href="protocolos/protocolo11.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-12" class="documento">
+
+        <h3>
+            Protocolo 12: Actuación frente a denuncias
+            por robo y hurto
+        </h3>
+
+        <a
+            href="protocolos/protocolo12.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+<div id="protocolo-13" class="documento">
+
+        <h3>
+            Protocolo 13: Reincorporación, acompañamiento y seguimiento
+            de estudiantes tras conductas de alta complejidad
+        </h3>
+
+        <a
+            href="protocolos/protocolo13.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-14" class="documento">
+
+        <h3>
+            Protocolo 14: Desarrollo seguro de las clases
+            de educación física y salud
+        </h3>
+
+        <a
+            href="protocolos/protocolo14.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-15" class="documento">
+
+        <h3>
+            Protocolo 15: Actuación del procedimiento especial
+            Ley N.° 21.128 "Aula Segura"
+        </h3>
+
+        <a
+            href="protocolos/protocolo15.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-16" class="documento">
+
+        <h3>
+            Protocolo 16: Actuación frente a medidas judiciales
+            de protección y órdenes de alejamiento
+        </h3>
+
+        <a
+            href="protocolos/protocolo16.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-17" class="documento">
+
+        <h3>
+            Protocolo 17: Actuación frente a desregulación
+            socioemocional y conductual, incluyendo ajustes
+            para estudiantes autistas
+        </h3>
+
+        <a
+            href="protocolos/protocolo17.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+    <div id="protocolo-18" class="documento">
+
+        <h3>
+            Protocolo 18: Actuación frente al ciberacoso
+            (ciberbullying) y grooming
+        </h3>
+
+        <a
+            href="protocolos/protocolo18.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-documento"
+        >
+            Ver protocolo
+        </a>
+
+    </div>
+
+
+</div>
+
+<div class="acciones-listado acciones-protocolos">
+
+    <button
+        id="botonVerMasProtocolos"
+        class="boton-ver-mas-listado"
+        type="button"
+        aria-expanded="false"
+    >
+        Ver todos los protocolos
+    </button>
+
+</div>
+
+
+
+
+<div class="volver-seccion">
+
+    <button
+        class="boton-volver-seccion"
+        type="button"
+        data-destino="protocolosInicio"
+    >
+        ↑ Volver al inicio de Protocolos
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     CONTACTO
+====================================================== -->
+
+<section
+    id="contacto"
+    class="pagina"
+>
+
+<div class="contenedor">
+
+
+<div class="titulo-pagina">
+
+    <h2>
+        Contacto
+    </h2>
+
+    <p>
+        Encuentra aquí nuestra información de contacto y ubicación.
+    </p>
+
+</div>
+
+
+<div class="contacto-grid">
+
+    <div class="contacto-card">
+
+        <div
+            class="contacto-icono"
+            aria-hidden="true"
+        >
+            📍
+        </div>
+
+        <h3>
+            Dirección
+        </h3>
+
+        <p>
+            Calle Ferrocarril 175A
+        </p>
+
+        <p>
+            Los Loros
+        </p>
+
+    </div>
+
+
+    <div class="contacto-card">
+
+        <div
+            class="contacto-icono"
+            aria-hidden="true"
+        >
+            ☎
+        </div>
+
+        <h3>
+            Teléfono
+        </h3>
+
+        <p>
+            +56 52 255 5354
+        </p>
+
+        <a
+            href="tel:+56522555354"
+            class="boton-contacto"
+        >
+            Llamar
+        </a>
+
+    </div>
+
+
+    <div class="contacto-card">
+
+        <div
+            class="contacto-icono"
+            aria-hidden="true"
+        >
+            🏫
+        </div>
+
+        <h3>
+            Establecimiento
+        </h3>
+
+        <p>
+            Escuela de Concentración Los Loros
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="ubicacion">
+
+    <div class="ubicacion-titulo">
+
+        <h3>
+            Ubicación
+        </h3>
+
+        <p>
+            Encuentra nuestro establecimiento en el mapa.
+        </p>
+
+    </div>
+
+
+    <div class="mapa">
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3528.303518836328!2d-70.10961112571628!3d-27.83120168220349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9698370026ca8dc5%3A0x6547b499e42843f0!2sEscuela%20fronteriza%20D%20-43%20los%20loros!5e0!3m2!1ses-419!2scl!4v1786674911118!5m2!1ses-419!2scl"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Ubicación de la Escuela de Concentración Los Loros"
+        >
+        </iframe>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     BOTÓN FLOTANTE VOLVER ARRIBA
+====================================================== -->
+
+<button
+id="btnArriba"
+class="btn-arriba"
+type="button"
+aria-label="Volver arriba"
+title="Volver arriba"
+>
+
+↑
+
+</button>
+
+<!-- =====================================================
+     PIE DE PÁGINA
+====================================================== -->
+
+
+
+<section id="legado1857" class="legado-premium" aria-labelledby="tituloLegado1857">
+    <div class="contenedor legado-premium-contenido">
+        <div class="legado-premium-cabecera">
+            <span class="legado-kicker">NUESTRA HISTORIA</span>
+            <h2 id="tituloLegado1857">Una trayectoria que comienza en 1857</h2>
+            <p>
+                Generaciones de estudiantes han sido parte de una comunidad educativa
+                vinculada a Los Loros, su territorio y su desarrollo.
+            </p>
+        </div>
+
+        <div class="legado-linea" aria-label="Hitos de nuestra trayectoria">
+            <article class="legado-hito legado-hito-principal">
+                <strong>1857</strong>
+                <span>Comienza la historia de nuestra escuela.</span>
+            </article>
+
+            <article class="legado-hito">
+                <strong>NT1 → 4° Medio</strong>
+                <span>Una trayectoria educativa que acompaña distintas etapas de formación.</span>
+            </article>
+
+            <article class="legado-hito">
+                <strong>TP</strong>
+                <span>Formación Técnico Profesional en Agropecuaria y Mecánica Industrial.</span>
+            </article>
+
+            <article class="legado-hito">
+                <strong>2026</strong>
+                <span>Opción 4 Laboral forma parte de nuestra propuesta educativa.</span>
+            </article>
+        </div>
+
+        <div class="legado-cierre">
+            <span aria-hidden="true">✦</span>
+            <strong>Educando desde 1857</strong>
+            <span aria-hidden="true">✦</span>
+        </div>
+    </div>
+</section>
+
+<footer class="pie">
+    <div class="contenedor pie-final-elegante">
+        <div class="pie-premium-sello">
+            <div class="pie-logos-institucionales">
+                        <img src="imagenes/logo.png" alt="" aria-hidden="true">
+                        <span class="pie-logo-sostenedor">
+                            <img
+                                src="imagenes/logosostenedor.png"
+                                alt="Logo del sostenedor"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </span>
+                    </div>
+            <div>
+                <strong>Escuela de Concentración Los Loros</strong>
+                <span>Educación · Identidad · Territorio · Desde 1857</span>
+            </div>
+        </div>
+
+        <nav class="pie-accesos" aria-label="Accesos del pie de página">
+            <button type="button" data-ir-pagina="inicio">Inicio</button>
+            <button type="button" data-ir-pagina="comunicados">Comunicados</button>
+            <button type="button" data-ir-pagina="academica">Académica</button>
+            <button type="button" data-ir-pagina="comunidad">Comunidad</button>
+            <button type="button" data-ir-pagina="documentos">Documentos</button>
+            <button type="button" data-ir-pagina="protocolos">Protocolos</button>
+            <button type="button" data-ir-pagina="contacto">Contacto</button>
+        </nav>
+
+        <div class="pie-contacto-final">
+            <strong>Escuela de Concentración Los Loros</strong>
+            <a href="tel:+56522555354">☎ +56 52 255 5354</a>
+            <div class="pie-redes-final">
+                <a href="https://www.facebook.com/share/1FkWEwZVDx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                <a
+                    class="instagram-pie-final"
+                    href="https://www.instagram.com/esc_losloros?igsh=MnMzYXdoZDVndzRu&amp;igsi=MnMzYXdoZDVndzRu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                ><svg class="icono-instagram-oficial" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+<circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+</svg></a>
+            </div>
+        </div>
+
+        <p class="pie-copyright">© 2026 Escuela de Concentración Los Loros</p>
+    </div>
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT EXTERNO
+====================================================== -->
+
+<script src="script.js?v=20260821-33"></script>
+
+
+<!-- =====================================================
+     INSTALACIÓN UNIVERSAL DE LA APLICACIÓN
+====================================================== -->
+
+<button
+    id="botonInstalarUniversal"
+    class="boton-instalar-universal"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="modalInstalacionApp"
+>
+    <span aria-hidden="true">📲</span>
+    <span>Instalar aplicación</span>
+</button>
+
+
+<div
+    id="modalInstalacionApp"
+    class="modal-instalacion-app"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModalInstalacion"
+    hidden
+>
+
+    <div
+        class="modal-instalacion-fondo"
+        data-cerrar-instalacion
+    ></div>
+
+
+    <div class="modal-instalacion-contenido">
+
+        <button
+            id="cerrarModalInstalacion"
+            class="cerrar-modal-instalacion"
+            type="button"
+            aria-label="Cerrar instrucciones de instalación"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-instalacion-cabecera">
+
+            <div
+                class="modal-instalacion-icono"
+                aria-hidden="true"
+            >
+                📲
+            </div>
+
+            <div>
+
+                <h2 id="tituloModalInstalacion">
+                    Instalar Escuela Los Loros
+                </h2>
+
+                <p>
+                    Guarda la página en tu teléfono y ábrela
+                    como una aplicación.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="mensajeDispositivoInstalacion"
+            class="mensaje-dispositivo-instalacion"
+            aria-live="polite"
+        ></div>
+
+
+        <button
+            id="botonInstalarAhora"
+            class="boton-instalar-ahora"
+            type="button"
+            hidden
+        >
+            📥 Instalar ahora
+        </button>
+
+
+        <div
+            id="instruccionRecomendada"
+            class="instruccion-recomendada"
+        ></div>
+
+
+        <details class="otras-formas-instalacion">
+
+            <summary>
+                Ver instrucciones para otros teléfonos
+            </summary>
+
+
+            <div class="grid-instalacion-dispositivos">
+
+                <article class="tarjeta-instalacion">
+
+                    <h3>
+                        🤖 Android · Chrome
+                    </h3>
+
+                    <ol>
+                        <li>
+                            Abre esta página directamente en Google Chrome.
+                        </li>
+                        <li>
+                            Toca el menú <strong>⋮</strong>.
+                        </li>
+                        <li>
+                            Selecciona <strong>Instalar aplicación</strong>
+                            o <strong>Agregar a pantalla principal</strong>.
+                        </li>
+                        <li>
+                            Confirma la instalación.
+                        </li>
+                    </ol>
+
+                </article>
+
+
+                <article class="tarjeta-instalacion">
+
+                    <h3>
+                        📱 Samsung Internet
+                    </h3>
+
+                    <ol>
+                        <li>
+                            Abre la página en Samsung Internet.
+                        </li>
+                        <li>
+                            Toca el menú <strong>☰</strong>.
+                        </li>
+                        <li>
+                            Busca <strong>Agregar página a</strong>
+                            o una opción similar.
+                        </li>
+                        <li>
+                            Selecciona <strong>Pantalla de inicio</strong>.
+                        </li>
+                    </ol>
+
+                </article>
+
+
+                <article class="tarjeta-instalacion">
+
+                    <h3>
+                        🍎 iPhone / iPad
+                    </h3>
+
+                    <ol>
+                        <li>
+                            Abre esta página en <strong>Safari</strong>.
+                        </li>
+                        <li>
+                            Toca el botón <strong>Compartir</strong>.
+                        </li>
+                        <li>
+                            Selecciona
+                            <strong>Agregar a pantalla de inicio</strong>.
+                        </li>
+                        <li>
+                            Toca <strong>Agregar</strong>.
+                        </li>
+                    </ol>
+
+                </article>
+
+            </div>
+
+        </details>
+
+        <p class="nota-instalacion">
+            No necesitas descargar un APK ni activar
+            “orígenes desconocidos”. La instalación se realiza
+            desde el navegador.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div id="anunciosAccesibilidad" class="solo-lectores" aria-live="polite" aria-atomic="true"></div>
+
+
+<div
+    id="visorImagenGeneral"
+    class="visor-afiche-apoderados"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Vista ampliada del aviso"
+    hidden
+>
+    <button
+        id="cerrarVisorImagenGeneral"
+        class="cerrar-visor-afiche"
+        type="button"
+        aria-label="Cerrar vista ampliada"
+        title="Cerrar"
+    >×</button>
+
+    <div class="visor-afiche-contenido visor-general-contenido">
+        <img
+            id="imagenVisorGeneral"
+            src=""
+            alt=""
+            data-ignorar-error-imagen="true"
+            hidden
+        >
+
+        <iframe
+            id="pdfVisorGeneral"
+            class="pdf-visor-general"
+            title="Documento ampliado"
+            src=""
+            hidden
+        ></iframe>
+    </div>
+</div>
+
+
+<div
+    id="buscadorGlobal"
+    class="buscador-global-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloBuscadorGlobal"
+    hidden
+>
+    <div class="buscador-global-panel">
+        <div class="buscador-global-cabecera">
+            <div>
+                <h2 id="tituloBuscadorGlobal">Buscar en el sitio</h2>
+                <p>Busca secciones, horarios, documentos, protocolos y contenidos.</p>
+            </div>
+            <button id="cerrarBuscadorGlobal" type="button" aria-label="Cerrar buscador">×</button>
+        </div>
+        <label class="buscador-global-campo">
+            <span class="solo-lectores">Escribe lo que deseas buscar</span>
+            <input
+                id="entradaBuscadorGlobal"
+                type="search"
+                autocomplete="off"
+                placeholder="Ej.: horario, PISE, matrícula, mecánica..."
+            >
+        </label>
+        
+<div id="filtrosBuscadorGlobal" class="filtros-buscador-global" aria-label="Filtrar resultados">
+<button type="button" class="activo" data-filtro-busqueda="todos">Todo</button>
+<button type="button" data-filtro-busqueda="seccion">Secciones</button>
+<button type="button" data-filtro-busqueda="comunicado">Comunicados</button>
+<button type="button" data-filtro-busqueda="documento">Documentos</button>
+<button type="button" data-filtro-busqueda="horario">Horarios</button>
+</div>
+<div id="resultadosBuscadorGlobal" class="resultados-buscador-global" role="list"></div>
+
+    </div>
+</div>
+
+<div
+    id="mensajeArchivoNoDisponible"
+    class="mensaje-archivo-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloArchivoNoDisponible"
+    hidden
+>
+    <div class="mensaje-archivo-panel">
+        <button id="cerrarArchivoNoDisponible" type="button" aria-label="Cerrar">×</button>
+        <h2 id="tituloArchivoNoDisponible">Archivo no disponible</h2>
+        <p>El archivo no está disponible en este momento. Puede estar actualizándose o aún no haber sido publicado.</p>
+        <div class="mensaje-archivo-acciones">
+            <button id="volverArchivoNoDisponible" type="button">Volver</button>
+            <button type="button" data-ir-pagina="contacto">Contactar al establecimiento</button>
+        </div>
+    </div>
+</div>
+
+<button id="volverArriba" class="volver-arriba" type="button" aria-label="Volver al inicio de la página" hidden>↑</button>
+
+<nav id="navegacionMovilPremium" class="navegacion-movil-premium" aria-label="Navegación rápida móvil">
+    <button type="button" data-nav-movil="inicio" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg>
+        <span>Inicio</span>
+    </button>
+    <button type="button" data-nav-movil="buscar" aria-label="Buscar en el sitio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
+        <span>Buscar</span>
+    </button>
+    <button type="button" data-nav-movil="comunidad" aria-label="Comunidad Educativa">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2"></circle><path d="M3 20c0-4 2.5-6 6-6s6 2 6 6"></path><path d="M15 15c3.5 0 6 1.7 6 5"></path></svg>
+        <span>Comunidad</span>
+    </button>
+    <button type="button" data-nav-movil="horarios" aria-label="Horarios">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg>
+        <span>Horarios</span>
+    </button>
+</nav>
+
+<div id="toastSitio" class="toast-sitio" role="status" aria-live="polite" hidden></div>
+<script>
+(function () {
+    "use strict";
+
+    function posicionarControlesFlotantesMobile() {
+        if (!window.matchMedia("(max-width: 768px)").matches) {
+            return;
+        }
+
+        const barra = document.getElementById("navegacionMovilPremium");
+        const flecha = document.getElementById("volverArriba");
+        const lupa = document.getElementById("abrirBuscadorGlobal");
+
+        const altoBarra = barra
+            ? Math.ceil(barra.getBoundingClientRect().height)
+            : 72;
+
+        const separacion = 22;
+        const base = altoBarra + separacion + 12;
+
+        if (lupa) {
+            lupa.style.setProperty(
+                "bottom",
+                base + "px",
+                "important"
+            );
+        }
+
+        if (flecha) {
+            flecha.style.setProperty(
+                "bottom",
+                (base + 64) + "px",
+                "important"
+            );
+        }
+    }
+
+    window.addEventListener(
+        "DOMContentLoaded",
+        posicionarControlesFlotantesMobile
+    );
+
+    window.addEventListener(
+        "load",
+        posicionarControlesFlotantesMobile
+    );
+
+    window.addEventListener(
+        "resize",
+        posicionarControlesFlotantesMobile,
+        { passive: true }
+    );
+
+    window.addEventListener(
+        "orientationchange",
+        function () {
+            window.setTimeout(
+                posicionarControlesFlotantesMobile,
+                150
+            );
+        }
+    );
+})();
+</script>
+
+</body>
+
+</html>
