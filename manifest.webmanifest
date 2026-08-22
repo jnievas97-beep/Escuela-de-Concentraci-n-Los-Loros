@@ -1,5 +1,4 @@
 {
-  "id": "./",
   "name": "Escuela de Concentración Los Loros",
   "short_name": "Escuela Los Loros",
   "description": "Sitio oficial de la Escuela de Concentración Los Loros.",
@@ -8,26 +7,13 @@
   "scope": "./",
   "display": "standalone",
   "background_color": "#f4f6f8",
-  "theme_color": "#075A96",
-  "prefer_related_applications": false,
+  "theme_color": "#1f5f3b",
   "icons": [
     {
-      "src": "icono192.png",
-      "sizes": "192x192",
+      "src": "imagenes/logo.png",
+      "sizes": "any",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "icono512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "iconomaskable512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ]
 }
