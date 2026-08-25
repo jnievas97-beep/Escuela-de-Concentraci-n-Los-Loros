@@ -7,6 +7,11 @@ on:
 
   workflow_dispatch:
 
+  # Regenera el sitio todos los días para activar o vencer avisos
+  # aunque nadie haga un nuevo push al repositorio.
+  schedule:
+    - cron: "10 8 * * *"
+
 permissions:
   contents: read
   pages: write
@@ -46,6 +51,7 @@ jobs:
           import subprocess
           from pathlib import Path
           from datetime import datetime
+          from zoneinfo import ZoneInfo
           from urllib.parse import quote
 
           def fecha_git(archivo):
@@ -523,7 +529,9 @@ jobs:
                   .lower()
               )
 
-              hoy = datetime.now().date()
+              hoy = datetime.now(
+                  ZoneInfo("America/Santiago")
+              ).date()
 
               if fecha_desde:
                   if hoy < datetime.strptime(
@@ -596,6 +604,11 @@ jobs:
           avisos.sort(
               key=lambda item: item["numero"],
               reverse=True
+          )
+
+          print(
+              "Fecha usada para vigencia de avisos:",
+              hoy.isoformat()
           )
 
           salida_avisos = (
