@@ -1,12 +1,15 @@
-const CACHE_VERSION = "escuela-los-loros-20260825-7";
+const CACHE_VERSION = "escuela-los-loros-20260825-10";
 
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
-    "./style.css",
-    "./script.js",
-    "./manifest.webmanifest",
+    "./style.css?v=20260825-10",
+    "./script.js?v=20260825-10",
+    "./manifest.webmanifest?v=20260825-10",
     "./imagenes/logo.png",
+    "./imagenes/logoespecialidad1.png",
+    "./imagenes/logoespecialidad2.png",
+    "./imagenes/logosostenedor.png",
     "./imagenes/frontis-colegio.jpg",
     "./icono192.png",
     "./icono512.png",
@@ -15,10 +18,20 @@ const ARCHIVOS_BASE = [
 
 self.addEventListener("install", function (evento) {
     evento.waitUntil(
-        caches.open(CACHE_VERSION)
-            .then(function (cache) {
-                return cache.addAll(ARCHIVOS_BASE);
-            })
+        caches.open(CACHE_VERSION).then(async function (cache) {
+            await Promise.allSettled(
+                ARCHIVOS_BASE.map(async function (ruta) {
+                    try {
+                        const respuesta = await fetch(ruta, { cache: "reload" });
+                        if (respuesta && respuesta.ok) {
+                            await cache.put(ruta, respuesta.clone());
+                        }
+                    } catch (error) {
+                        console.warn("No se pudo precargar:", ruta);
+                    }
+                })
+            );
+        })
     );
     self.skipWaiting();
 });
@@ -43,23 +56,22 @@ self.addEventListener("activate", function (evento) {
 self.addEventListener("fetch", function (evento) {
     const solicitud = evento.request;
 
-    if (solicitud.method !== "GET") {
-        return;
-    }
+    if (solicitud.method !== "GET") return;
 
     const url = new URL(solicitud.url);
+    if (url.origin !== self.location.origin) return;
 
-    if (url.origin !== self.location.origin) {
+    const esDocumento =
+        /\.(pdf|doc|docx|ppt|pptx|xls|xlsx)(?:$|\?)/i.test(url.pathname + url.search);
+
+    if (esDocumento) {
+        evento.respondWith(
+            fetch(solicitud, { cache: "no-store" })
+                .catch(function () { return caches.match(solicitud); })
+        );
         return;
     }
 
-    /* PDF y archivos editables siempre se solicitan a la red.
-       Evita que un documento actualizado quede atrapado en caché. */
-    if (/\.(pdf|doc|docx|ppt|pptx|xls|xlsx)(?:$|\?)/i.test(url.pathname + url.search)) {
-        return;
-    }
-
-    /* HTML/CSS/JS/JSON: network-first para recibir mejoras rápidamente. */
     const esActualizable =
         solicitud.mode === "navigate" ||
         /\.(html|css|js|json|webmanifest)(?:$|\?)/i.test(url.pathname + url.search);
@@ -68,11 +80,12 @@ self.addEventListener("fetch", function (evento) {
         evento.respondWith(
             fetch(solicitud, { cache: "no-store" })
                 .then(function (respuesta) {
-                    const copia = respuesta.clone();
-                    caches.open(CACHE_VERSION)
-                        .then(function (cache) {
+                    if (respuesta && respuesta.ok) {
+                        const copia = respuesta.clone();
+                        caches.open(CACHE_VERSION).then(function (cache) {
                             cache.put(solicitud, copia);
                         });
+                    }
                     return respuesta;
                 })
                 .catch(function () {
@@ -82,23 +95,43 @@ self.addEventListener("fetch", function (evento) {
         return;
     }
 
-    /* Imágenes y recursos estáticos: caché primero, red como respaldo. */
-    evento.respondWith(
-        caches.match(solicitud)
-            .then(function (enCache) {
-                if (enCache) {
-                    return enCache;
-                }
+    const esImagen =
+        solicitud.destination === "image" ||
+        /\.(png|jpe?g|webp|gif|svg|ico)(?:$|\?)/i.test(url.pathname + url.search);
 
-                return fetch(solicitud)
-                    .then(function (respuesta) {
+    if (esImagen) {
+        /* Red primero: evita que el teléfono conserve logos/fotos antiguas o incompletas. */
+        evento.respondWith(
+            fetch(solicitud, { cache: "no-store" })
+                .then(function (respuesta) {
+                    if (respuesta && respuesta.ok) {
                         const copia = respuesta.clone();
-                        caches.open(CACHE_VERSION)
-                            .then(function (cache) {
-                                cache.put(solicitud, copia);
-                            });
-                        return respuesta;
+                        caches.open(CACHE_VERSION).then(function (cache) {
+                            cache.put(solicitud, copia);
+                        });
+                    }
+                    return respuesta;
+                })
+                .catch(function () {
+                    return caches.match(solicitud);
+                })
+        );
+        return;
+    }
+
+    evento.respondWith(
+        fetch(solicitud)
+            .then(function (respuesta) {
+                if (respuesta && respuesta.ok) {
+                    const copia = respuesta.clone();
+                    caches.open(CACHE_VERSION).then(function (cache) {
+                        cache.put(solicitud, copia);
                     });
+                }
+                return respuesta;
+            })
+            .catch(function () {
+                return caches.match(solicitud);
             })
     );
 });
