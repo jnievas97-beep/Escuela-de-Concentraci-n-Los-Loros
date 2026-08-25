@@ -13627,3 +13627,103 @@ body {
     }
 }
 
+
+/* =========================================================
+   NOTICIAS · CORRECCIÓN PC · 20260825-8
+   Evita que la Noticia N.º 1 quede cortada a la mitad.
+   Móvil mantiene su comportamiento actual.
+========================================================= */
+
+@media (min-width: 769px) {
+
+    #inicioNoticias.seccion-noticias-inicio {
+        width: min(760px, 100%) !important;
+        max-width: 760px !important;
+        overflow: visible !important;
+    }
+
+    #inicioNoticias .lista-noticias {
+        width: 100% !important;
+        max-width: 760px !important;
+        overflow: visible !important;
+        grid-auto-rows: max-content !important;
+        align-items: start !important;
+    }
+
+    #inicioNoticias .noticia-card {
+        width: 100% !important;
+        max-width: 760px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        align-self: start !important;
+    }
+
+    #inicioNoticias .noticia-contenido {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding: 16px !important;
+    }
+
+    #inicioNoticias .noticia-imagen,
+    #inicioNoticias .noticia-pagina-pdf {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        object-position: center top !important;
+        margin: 0 auto !important;
+    }
+
+    #inicioNoticias .noticia-paginas-pdf,
+    #inicioNoticias .noticia-paginas-pdf > div {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    /* Conserva el borde redondeado sin recortar el contenido. */
+    #inicioNoticias .noticia-card {
+        border-radius: 20px !important;
+    }
+
+    #inicioNoticias .noticia-encabezado {
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+/* En pantallas PC amplias damos un poco más de ancho a la noticia. */
+@media (min-width: 1200px) {
+    #inicioNoticias.seccion-noticias-inicio,
+    #inicioNoticias .lista-noticias,
+    #inicioNoticias .noticia-card {
+        max-width: 820px !important;
+    }
+}
+
+
+/* PERSONAS QUE DEJARON HUELLA · PERSONAS RESTAURADAS · 20260825-10 */
+@media (min-width:1100px){
+  #personasHuella .personas-huella-grid{
+    max-width:1180px!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    align-items:start!important;
+  }
+}
+#personasHuella .persona-foto-pendiente{
+  background:#eef3f6;
+}
+#personasHuella .persona-foto-pendiente img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
