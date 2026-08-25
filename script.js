@@ -1,4 +1,3 @@
-
 /* =========================================================
    AVISOS IMPORTANTES CON VIGENCIA EN EL NOMBRE · 20260825-5
    Formato admitido:
@@ -611,9 +610,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function () {
 
                 navigator.serviceWorker
-                    .register(
-                        "sw.js"
-                    )
+                    .register("sw.js?v=20260825-10")
                     .then(
                         function (registro) {
 
@@ -7931,4 +7928,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+});
+
+
+
+/* =========================================================
+   RECUPERACIÓN DE IMÁGENES + ACTUALIZACIÓN PWA · 20260825-10
+========================================================= */
+window.addEventListener("load", function () {
+
+    document.querySelectorAll("img").forEach(function (imagen) {
+        imagen.addEventListener("error", function reintentarImagen() {
+            if (imagen.dataset.reintentoImagen === "1") return;
+
+            imagen.dataset.reintentoImagen = "1";
+
+            try {
+                const url = new URL(imagen.currentSrc || imagen.src, window.location.href);
+                url.searchParams.set("vimg", "20260825-10");
+                imagen.src = url.href;
+            } catch (error) {
+                console.warn("No se pudo reintentar una imagen:", imagen.src);
+            }
+        }, { once: true });
+    });
+
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistration().then(function (registro) {
+            if (registro) {
+                registro.update();
+            }
+        }).catch(function () {});
+    }
 });
