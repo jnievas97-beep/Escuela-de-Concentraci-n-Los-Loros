@@ -44,8 +44,14 @@
 <!-- =====================================================
      HOJA DE ESTILOS
 ====================================================== -->
-<link href="style.css?v=20260825-7" rel="stylesheet"/>
-<link href="manifest.webmanifest?v=20260824-7" rel="manifest"/>
+<link href="style.css?v=20260825-10" rel="stylesheet"/>
+<link href="manifest.webmanifest?v=20260825-10" rel="manifest"/>
+
+<link rel="preload" as="image" href="imagenes/logo.png">
+<link rel="preload" as="image" href="imagenes/logoespecialidad1.png">
+<link rel="preload" as="image" href="imagenes/logoespecialidad2.png">
+<link rel="preload" as="image" href="imagenes/logosostenedor.png">
+
 <meta content="Escuela de Concentración Los Loros" name="application-name"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
@@ -122,11 +128,11 @@
 <header class="encabezado encabezado-integrado">
 <div class="contenedor encabezado-integrado-contenido">
 <div class="encabezado-integrado-especialidad">
-<img alt="Especialidad Técnico en Agropecuaria con mención Agrícola" decoding="async" src="imagenes/logoespecialidad1.png"/>
+<img alt="Especialidad Técnico en Agropecuaria con mención Agrícola" decoding="async" src="imagenes/logoespecialidad1.png"/ loading="eager" fetchpriority="high">
 <span>Agropecuaria con mención Agrícola</span>
 </div>
 <div class="encabezado-integrado-centro">
-<img alt="Escuela de Concentración Los Loros" decoding="async" src="imagenes/logo.png"/>
+<img alt="Escuela de Concentración Los Loros" decoding="async" src="imagenes/logo.png"/ loading="eager" fetchpriority="high">
 <div class="encabezado-identidad-texto">
 <span class="encabezado-integrado-desde">Desde 1857</span>
 <strong>Escuela de Concentración Los Loros</strong>
@@ -137,7 +143,7 @@
 </div>
 <div class="encabezado-integrado-derecha">
 <div class="encabezado-integrado-especialidad">
-<img alt="Especialidad Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" src="imagenes/logoespecialidad2.png"/>
+<img alt="Especialidad Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" src="imagenes/logoespecialidad2.png"/ loading="eager" fetchpriority="high">
 <span>Mecánica Industrial con mención Mantenimiento Electromecánico</span>
 </div>
 <div class="redes-sociales redes-sociales-integradas">
@@ -429,7 +435,7 @@
 <button aria-label="Ver descripción de Técnico en Agropecuaria con mención Agrícola" aria-pressed="false" class="logo-especialidad tarjeta-especialidad" type="button">
 <span class="tarjeta-especialidad-interior">
 <span class="tarjeta-especialidad-frente">
-<img alt="Logo de Técnico en Agropecuaria con mención Agrícola" decoding="async" loading="lazy" src="imagenes/logoespecialidad1.png"/>
+<img alt="Logo de Técnico en Agropecuaria con mención Agrícola" decoding="async" src="imagenes/logoespecialidad1.png"/ loading="eager" fetchpriority="high">
 <span class="nombre-especialidad">
                     Técnico en Agropecuaria con mención Agrícola
                 </span>
@@ -449,7 +455,7 @@
 <button aria-label="Ver descripción de Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" aria-pressed="false" class="logo-especialidad tarjeta-especialidad" type="button">
 <span class="tarjeta-especialidad-interior">
 <span class="tarjeta-especialidad-frente">
-<img alt="Logo de Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" loading="lazy" src="imagenes/logoespecialidad2.png"/>
+<img alt="Logo de Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" src="imagenes/logoespecialidad2.png"/ loading="eager" fetchpriority="high">
 <span class="nombre-especialidad">
                     Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico
                 </span>
@@ -935,11 +941,11 @@
 <div class="titulo-pagina titulo-editorial-premium" id="personasHuellaInicio">
 <span class="editorial-kicker">MEMORIA E IDENTIDAD</span>
 <h2>Personas que dejaron huella</h2>
-<p>Historias de tres educadores cuyo compromiso, vocación y legado forman parte esencial de la memoria de la Escuela de Concentración Los Loros.</p>
+<p>Historias de personas cuyo compromiso, vocación y trayectoria forman parte de la memoria de la Escuela de Concentración Los Loros.</p>
 </div>
 <div class="historia-aviso-fuentes" role="note">
 <span aria-hidden="true">✦</span>
-<p>Este espacio reconoce a tres educadores especialmente significativos para nuestra memoria institucional. Alexis Herrera ocupa un lugar central por la profundidad y permanencia de su legado en la escuela y en Los Loros.</p>
+<p>Este espacio reconoce a personas especialmente significativas para nuestra memoria institucional. Alexis Herrera mantiene un lugar central por la profundidad y permanencia de su legado en la escuela y en Los Loros.</p>
 </div>
 <!-- ALEXIS: FIGURA PRINCIPAL -->
 <article class="persona-destacada-principal persona-alexis-horizontal" id="alexisHerrera">
@@ -1004,7 +1010,7 @@
 </aside>
 </article>
 </div>
-<div class="personas-secundarias-titulo"><h3>También dejaron una huella imborrable</h3><p>Romaldo Rojas Aros y María Órdenes Latorre permanecen en la memoria de generaciones de estudiantes, familias y funcionarios.</p></div><div aria-label="Personas que dejaron una huella fundamental en nuestra historia" class="personas-huella-grid">
+<div class="personas-secundarias-titulo"><h3>También dejaron y siguen dejando huella</h3><p>Docentes, directivos y funcionarios cuyas trayectorias forman parte de la historia y memoria de nuestra comunidad educativa.</p></div><div aria-label="Personas que dejaron una huella fundamental en nuestra historia" class="personas-huella-grid">
 
 <article class="persona-huella-card persona-memoria-card">
 <div class="persona-avatar persona-avatar-foto">
@@ -1068,6 +1074,57 @@
             </p>
 <p class="persona-descanso">Descansa en el cementerio de su querido pueblo de Los Loros.</p>
 </div>
+</article>
+
+
+<article class="persona-huella-card">
+<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/franciscolopezmerino.png" alt="Francisco López Merino" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Trayectoria institucional</span>
+<h3>Francisco López Merino</h3>
+<p class="persona-cargo">Director</p>
+<p class="persona-resumen">Formó parte de la conducción del establecimiento y de una etapa significativa de su trayectoria institucional.</p>
+<button aria-controls="historiaFranciscoLopez" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
+<div class="persona-historia-detalle" hidden id="historiaFranciscoLopez"><p>Su período de dirección forma parte de la memoria reciente de la Escuela de Concentración Los Loros. Durante su gestión, Elizabeth Maldonado Roche continuó desempeñándose como secretaria del establecimiento.</p></div>
+</article>
+
+<article class="persona-huella-card">
+<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/ramonbarraza.png" alt="Ramón Barraza" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Memoria institucional</span>
+<h3>Ramón Barraza</h3>
+<p class="persona-cargo">Trayectoria vinculada al establecimiento</p>
+<p class="persona-resumen">Su nombre forma parte de las personas recordadas por su aporte a la historia de la comunidad educativa.</p>
+<button aria-controls="historiaRamonBarraza" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
+<div class="persona-historia-detalle" hidden id="historiaRamonBarraza"><p>Esta reseña se mantendrá centrada en los antecedentes institucionales que podamos documentar y complementar progresivamente.</p></div>
+</article>
+
+<article class="persona-huella-card">
+<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/mariateresapincheira.png" alt="María Teresa Pincheira" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Pionera en Enseñanza Media</span>
+<h3>María Teresa Pincheira</h3>
+<p class="persona-cargo">Profesora de Inglés · Primera Jefa de UTP de Enseñanza Media</p>
+<p class="persona-resumen">Cumplió un papel pionero en la organización académica de la Enseñanza Media del establecimiento.</p>
+<button aria-controls="historiaMariaTeresa" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
+<div class="persona-historia-detalle" hidden id="historiaMariaTeresa"><p>Profesora de Inglés, fue la primera Jefa de la Unidad Técnico-Pedagógica de Enseñanza Media, formando parte del proceso de consolidación de este nivel educativo en la escuela.</p></div>
+</article>
+
+<article class="persona-huella-card">
+<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/patriciaolmos.png" alt="Patricia Olmos" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Trayectoria docente</span>
+<h3>Patricia Olmos</h3>
+<p class="persona-cargo">Profesora</p>
+<p class="persona-resumen">Más de 40 años de trayectoria docente en la comuna de Tierra Amarilla y vinculada al establecimiento desde aproximadamente 2018.</p>
+<button aria-controls="historiaPatriciaOlmos" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
+<div class="persona-historia-detalle" hidden id="historiaPatriciaOlmos"><p>Su extensa trayectoria como profesora supera las cuatro décadas de servicio en la comuna de Tierra Amarilla. Desde aproximadamente 2018 desarrolla su labor en la Escuela de Concentración Los Loros.</p></div>
+</article>
+
+<article class="persona-huella-card">
+<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/elizabethmaldonado.png" alt="Elizabeth Maldonado Roche" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Continuidad y memoria institucional</span>
+<h3>Elizabeth Maldonado Roche</h3>
+<p class="persona-cargo">Secretaria del establecimiento</p>
+<p class="persona-resumen">Una trayectoria de continuidad institucional que enlaza distintas etapas de la historia reciente de la escuela.</p>
+<button aria-controls="historiaElizabethMaldonado" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
+<div class="persona-historia-detalle" hidden id="historiaElizabethMaldonado"><p>Continúa desempeñándose actualmente como secretaria de la Escuela de Concentración Los Loros. Ejerció el mismo puesto durante la etapa de Alexis Herrera y posteriormente durante el período de Francisco López Merino, permaneciendo hasta la actualidad como parte de la continuidad administrativa e histórica del establecimiento.</p></div>
 </article>
 
 </div>
@@ -1347,7 +1404,7 @@
 <button aria-label="Ver información ampliada de Técnico en Agropecuaria con mención Agrícola" aria-pressed="false" class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica" type="button">
 <span class="tarjeta-especialidad-interior">
 <span class="tarjeta-especialidad-frente">
-<img alt="Técnico en Agropecuaria con mención Agrícola" decoding="async" loading="lazy" src="imagenes/logoespecialidad1.png"/>
+<img alt="Técnico en Agropecuaria con mención Agrícola" decoding="async" src="imagenes/logoespecialidad1.png"/ loading="eager" fetchpriority="high">
 <span class="nombre-especialidad">
                     Técnico en Agropecuaria con mención Agrícola
                 </span>
@@ -1395,7 +1452,7 @@
 <button aria-label="Ver información ampliada de Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" aria-pressed="false" class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica" type="button">
 <span class="tarjeta-especialidad-interior">
 <span class="tarjeta-especialidad-frente">
-<img alt="Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" loading="lazy" src="imagenes/logoespecialidad2.png"/>
+<img alt="Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" src="imagenes/logoespecialidad2.png"/ loading="eager" fetchpriority="high">
 <span class="nombre-especialidad">
                     Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico
                 </span>
@@ -3549,9 +3606,9 @@
 <div class="contenedor pie-final-elegante">
 <div class="pie-premium-sello">
 <div class="pie-logos-institucionales">
-<img alt="" aria-hidden="true" src="imagenes/logo.png"/>
+<img alt="" aria-hidden="true" src="imagenes/logo.png"/ loading="eager" fetchpriority="high">
 <span class="pie-logo-sostenedor">
-<img alt="Logo del sostenedor" decoding="async" loading="lazy" src="imagenes/logosostenedor.png"/>
+<img alt="Logo del sostenedor" decoding="async" src="imagenes/logosostenedor.png"/ loading="eager" fetchpriority="high">
 </span>
 </div>
 <div>
@@ -3588,7 +3645,7 @@
 <!-- =====================================================
      JAVASCRIPT EXTERNO
 ====================================================== -->
-<script src="script.js?v=20260825-7"></script>
+<script src="script.js?v=20260825-10"></script>
 <!-- =====================================================
      INSTALACIÓN UNIVERSAL DE LA APLICACIÓN
 ====================================================== -->
