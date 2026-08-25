@@ -608,7 +608,9 @@ jobs:
 
           print(
               "Fecha usada para vigencia de avisos:",
-              hoy.isoformat()
+              datetime.now(
+                  ZoneInfo("America/Santiago")
+              ).date().isoformat()
           )
 
           salida_avisos = (
