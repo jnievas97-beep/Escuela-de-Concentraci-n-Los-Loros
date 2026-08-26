@@ -1,11 +1,11 @@
-const CACHE_VERSION = "escuela-los-loros-20260825-10";
+const CACHE_VERSION = "escuela-los-loros-20260825-11";
 
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
-    "./style.css?v=20260825-10",
-    "./script.js?v=20260825-10",
-    "./manifest.webmanifest?v=20260825-10",
+    "./style.css?v=20260825-11",
+    "./script.js?v=20260825-11",
+    "./manifest.webmanifest?v=20260825-11",
     "./imagenes/logo.png",
     "./imagenes/logoespecialidad1.png",
     "./imagenes/logoespecialidad2.png",
