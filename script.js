@@ -7970,3 +7970,54 @@ window.addEventListener("load", function () {
         }).catch(function () {});
     }
 });
+
+
+/* =========================================================
+   DESPLEGABLES EQUIPO DE INSPECTORÍA / CONVIVENCIA · 20260826-16
+========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".boton-equipo-cargo").forEach(function (boton) {
+        boton.addEventListener("click", function () {
+            const id = boton.getAttribute("aria-controls");
+            const panel = document.getElementById(id);
+            if (!panel) return;
+
+            const abierto = boton.getAttribute("aria-expanded") === "true";
+            boton.setAttribute("aria-expanded", String(!abierto));
+            panel.hidden = abierto;
+        });
+    });
+});
+
+/* =========================================================
+   VISOR GALERÍA BANDA ESCOLAR · 20260826-17
+========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    const visor = document.getElementById("visorBanda");
+    const imagen = document.getElementById("visorBandaImagen");
+    const titulo = document.getElementById("visorBandaTitulo");
+    const descripcion = document.getElementById("visorBandaDescripcion");
+    const cerrar = document.getElementById("cerrarVisorBanda");
+    if (!visor || !imagen || !titulo || !descripcion || !cerrar) return;
+
+    function cerrarVisorBanda() {
+        visor.hidden = true;
+        document.body.style.overflow = "";
+        imagen.src = "";
+    }
+
+    document.querySelectorAll(".banda-foto-ampliar").forEach(function (boton) {
+        boton.addEventListener("click", function () {
+            imagen.src = boton.dataset.bandaImagen || "";
+            imagen.alt = boton.dataset.bandaTitulo || "Fotografía ampliada de la Banda Escolar";
+            titulo.textContent = boton.dataset.bandaTitulo || "Banda Escolar";
+            descripcion.textContent = boton.dataset.bandaDescripcion || "";
+            visor.hidden = false;
+            document.body.style.overflow = "hidden";
+            cerrar.focus();
+        });
+    });
+    cerrar.addEventListener("click", cerrarVisorBanda);
+    visor.addEventListener("click", function (e) { if (e.target === visor) cerrarVisorBanda(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !visor.hidden) cerrarVisorBanda(); });
+});
