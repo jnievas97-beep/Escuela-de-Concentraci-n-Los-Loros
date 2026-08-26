@@ -13757,3 +13757,35 @@ body {
  .hero-premium-accesos{grid-template-columns:1fr 1fr!important}
 }
 @media(max-width:480px){.hero-premium-accesos{grid-template-columns:1fr!important}}
+
+
+/* =========================================================
+   CENTRO DE ALUMNOS · DIRECTIVA · 20260826-15
+========================================================= */
+.centro-alumnos-directiva{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:14px;
+    margin-top:18px;
+}
+.centro-alumnos-directiva article{
+    padding:16px 18px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#ffffff,#f4f8fa);
+    border:1px solid rgba(7,90,150,.12);
+    box-shadow:0 8px 22px rgba(16,37,51,.06);
+}
+.centro-alumnos-directiva span{
+    display:block;
+    margin-bottom:5px;
+    font-size:.78rem;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#1f5f3b;
+}
+.centro-alumnos-directiva strong{
+    display:block;
+    line-height:1.35;
+    color:#20332a;
+}
