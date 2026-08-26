@@ -13789,3 +13789,119 @@ body {
     line-height:1.35;
     color:#20332a;
 }
+
+
+/* =========================================================
+   EQUIPOS DE INSPECTORÍA Y CONVIVENCIA · 20260826-16
+========================================================= */
+#equipo .boton-equipo-cargo{
+    width:calc(100% - 24px);
+    margin:12px auto 2px;
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:1px solid rgba(31,95,59,.18);
+    border-radius:999px;
+    background:#f7faf8;
+    color:#1f5f3b;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s ease;
+}
+#equipo .boton-equipo-cargo:hover{
+    background:#edf5f0;
+    transform:translateY(-1px);
+}
+#equipo .boton-equipo-cargo[aria-expanded="true"] span{
+    transform:rotate(180deg);
+}
+#equipo .boton-equipo-cargo span{
+    transition:transform .2s ease;
+}
+#equipo .equipo-cargo-desplegable{
+    width:100%;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid rgba(20,55,39,.10);
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+}
+#equipo .equipo-cargo-desplegable[hidden]{
+    display:none!important;
+}
+#equipo .integrante-equipo-cargo{
+    min-width:0;
+    padding:10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border-radius:16px;
+    background:linear-gradient(145deg,#fff,#f5f8f6);
+    border:1px solid rgba(31,95,59,.10);
+    box-shadow:0 6px 16px rgba(22,50,36,.06);
+}
+#equipo .integrante-equipo-cargo img{
+    width:58px;
+    height:68px;
+    flex:0 0 58px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:12px;
+    background:#eef3f0;
+}
+#equipo .integrante-equipo-cargo strong{
+    display:block;
+    font-size:.88rem;
+    line-height:1.25;
+    color:#20342a;
+}
+#equipo .integrante-equipo-cargo span{
+    display:block;
+    margin-top:3px;
+    font-size:.75rem;
+    line-height:1.25;
+    color:#66776d;
+}
+@media(max-width:680px){
+    #equipo .equipo-cargo-desplegable{
+        grid-template-columns:1fr;
+    }
+    #equipo .integrante-equipo-cargo img{
+        width:64px;
+        height:76px;
+        flex-basis:64px;
+    }
+}
+
+/* =========================================================
+   GALERÍA BANDA ESCOLAR · AYER Y HOY · 20260826-17
+========================================================= */
+.banda-galeria{margin:34px 0}
+.banda-galeria-bloque{margin-top:22px;padding:22px;border-radius:24px;background:linear-gradient(145deg,#fff,#f6f9f7);border:1px solid rgba(31,95,59,.12);box-shadow:0 12px 30px rgba(20,52,36,.07)}
+.banda-galeria-historica{background:linear-gradient(145deg,#fffdf7,#f8f4e8)}
+.banda-galeria-titulo{margin-bottom:17px}
+.banda-galeria-titulo>span{display:block;font-size:.73rem;font-weight:900;letter-spacing:.13em;color:#9a791b;margin-bottom:5px}
+.banda-galeria-titulo h4{margin:0 0 6px;color:#173f2b;font-size:1.25rem}
+.banda-galeria-titulo p{margin:0;color:#627168;line-height:1.55}
+.banda-fotos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.banda-fotos-grid-actual{grid-template-columns:minmax(0,620px)}
+.banda-foto-card{margin:0;overflow:hidden;border-radius:19px;background:#fff;border:1px solid rgba(22,54,38,.10);box-shadow:0 8px 22px rgba(16,42,28,.07)}
+.banda-foto-ampliar{position:relative;display:block;width:100%;padding:0;border:0;background:#e9eeeb;cursor:zoom-in;overflow:hidden}
+.banda-foto-ampliar img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .25s ease}
+.banda-foto-ampliar:hover img{transform:scale(1.025)}
+.banda-foto-lupa{position:absolute;right:12px;bottom:12px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:rgba(15,42,28,.82);color:#fff;font-size:1.2rem}
+.banda-foto-card figcaption{padding:13px 15px}
+.banda-foto-card figcaption strong,.banda-foto-card figcaption span{display:block}
+.banda-foto-card figcaption strong{color:#263d31;font-size:.94rem}
+.banda-foto-card figcaption span{margin-top:3px;color:#758078;font-size:.8rem}
+.banda-visor{position:fixed;z-index:99999;inset:0;padding:24px;background:rgba(8,19,13,.88);display:grid;place-items:center}
+.banda-visor[hidden]{display:none!important}
+.banda-visor-contenido{width:min(1050px,96vw);max-height:90vh;overflow:auto;border-radius:20px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.banda-visor-contenido img{display:block;width:100%;max-height:72vh;object-fit:contain;background:#111}
+.banda-visor-texto{padding:17px 20px}.banda-visor-texto h3{margin:0 0 5px;color:#173f2b}.banda-visor-texto p{margin:0;color:#637169}
+.banda-visor-cerrar{position:fixed;z-index:100000;right:22px;top:18px;width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:#173f2b;font-size:2rem;line-height:1;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.22)}
+@media(max-width:800px){.banda-fotos-grid{grid-template-columns:1fr 1fr}.banda-fotos-grid-actual{grid-template-columns:1fr}}
+@media(max-width:520px){.banda-fotos-grid{grid-template-columns:1fr}.banda-galeria-bloque{padding:14px}.banda-visor{padding:12px}}
