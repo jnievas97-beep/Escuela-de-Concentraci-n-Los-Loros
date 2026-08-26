@@ -610,7 +610,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function () {
 
                 navigator.serviceWorker
-                    .register("sw.js?v=20260825-10")
+                    .register("sw.js?v=20260825-11")
                     .then(
                         function (registro) {
 
@@ -7676,7 +7676,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 ["academica","academicaHorarios","Horarios","Consulta ingreso, salida y horario de clases"],
                 ["academica","academicaInicio","Académica","Niveles, modalidades y especialidades"],
                 ["documentos","","Documentos","Documentación disponible"],
-                ["protocolos","","Protocolos","Protocolos institucionales"]
+                ["protocolos","","Protocolos","Protocolos institucionales"],
+                ["bandaEscolar","","Banda Escolar","Tradición escolar desde 1968"],
+                ["quienesSomos","quienesHimno","Himno","Himno e identidad institucional"],
+                ["personasHuella","","Personas que dejaron huella","Historia y memoria de nuestra escuela"]
             ]
         },
         apoderados:{
@@ -7685,7 +7688,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 ["academica","academicaHorarios","Horarios","Consulta el horario de cada curso"],
                 ["inicio","inicioMatricula","Matrícula","Postulación y admisión"],
                 ["validacion","","Validación de Estudios","Información para validación"],
-                ["comunicados","","Comunicados","Información oficial reciente"]
+                ["comunicados","","Comunicados","Información oficial reciente"],
+                ["quienesSomos","quienesHimno","Himno","Himno e identidad institucional"],
+                ["personasHuella","","Personas que dejaron huella","Historia y memoria institucional"],
+                ["bandaEscolar","","Banda Escolar","Tradición e identidad escolar"]
             ]
         },
         funcionarios:{
@@ -7694,7 +7700,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 ["documentos","","Documentos","Documentación institucional"],
                 ["protocolos","","Protocolos","Protocolos vigentes"],
                 ["seguridad","","Seguridad / PISE","Material preventivo y PISE"],
-                ["gestion","","Equipo de Gestión","Información de gestión"]
+                ["gestion","","Equipo de Gestión","Información de gestión"],
+                ["quienesSomos","quienesHimno","Himno","Identidad institucional"],
+                ["personasHuella","","Personas que dejaron huella","Memoria y trayectoria institucional"],
+                ["bandaEscolar","","Banda Escolar","Tradición escolar"]
             ]
         }
     };
@@ -7933,7 +7942,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =========================================================
-   RECUPERACIÓN DE IMÁGENES + ACTUALIZACIÓN PWA · 20260825-10
+   RECUPERACIÓN DE IMÁGENES + ACTUALIZACIÓN PWA · 20260825-11
 ========================================================= */
 window.addEventListener("load", function () {
 
@@ -7945,7 +7954,7 @@ window.addEventListener("load", function () {
 
             try {
                 const url = new URL(imagen.currentSrc || imagen.src, window.location.href);
-                url.searchParams.set("vimg", "20260825-10");
+                url.searchParams.set("vimg", "20260825-11");
                 imagen.src = url.href;
             } catch (error) {
                 console.warn("No se pudo reintentar una imagen:", imagen.src);
