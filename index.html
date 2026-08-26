@@ -44,8 +44,8 @@
 <!-- =====================================================
      HOJA DE ESTILOS
 ====================================================== -->
-<link href="style.css?v=20260825-10" rel="stylesheet"/>
-<link href="manifest.webmanifest?v=20260825-10" rel="manifest"/>
+<link href="style.css?v=20260825-13" rel="stylesheet"/>
+<link href="manifest.webmanifest?v=20260825-13" rel="manifest"/>
 
 <link rel="preload" as="image" href="imagenes/logo.png">
 <link rel="preload" as="image" href="imagenes/logoespecialidad1.png">
@@ -308,6 +308,18 @@
 </span>
 <span><strong>Matrícula</strong><small>Postulación y admisión</small></span>
 </button>
+<button data-premium-destino="quienesHimno" data-premium-pagina="quienesSomos" type="button">
+<span aria-hidden="true" class="premium-icono-wrap"><svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="16" cy="16" r="3"></circle></svg></span>
+<span><strong>Himno</strong><small>Identidad institucional</small></span>
+</button>
+<button data-premium-pagina="personasHuella" type="button">
+<span aria-hidden="true" class="premium-icono-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-5 3-8 8-8s8 3 8 8"></path></svg></span>
+<span><strong>Personas que dejaron huella</strong><small>Historia y memoria</small></span>
+</button>
+<button data-premium-pagina="bandaEscolar" type="button">
+<span aria-hidden="true" class="premium-icono-wrap"><svg viewBox="0 0 24 24"><path d="M5 4h14v12H5z"></path><path d="M8 20h8M12 16v4"></path></svg></span>
+<span><strong>Banda Escolar</strong><small>Tradición desde 1968</small></span>
+</button>
 <button id="premiumAbrirBusqueda" type="button">
 <span aria-hidden="true" class="premium-icono-wrap">
 <svg viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
@@ -330,7 +342,7 @@
 </span>
 <span>
 <strong>Estudiantes</strong>
-<small>Horarios, académica, documentos y protocolos</small>
+<small>Horarios, académica, Banda Escolar, himno, memoria, documentos y protocolos</small>
 </span>
 <span aria-hidden="true" class="acceso-perfil-flecha">→</span>
 </button>
@@ -340,7 +352,7 @@
 </span>
 <span>
 <strong>Madres, Padres y Apoderados</strong>
-<small>Horarios, matrícula, validación, comunicados y documentos</small>
+<small>Horarios, matrícula, comunicados, himno, historia, documentos y contacto</small>
 </span>
 <span aria-hidden="true" class="acceso-perfil-flecha">→</span>
 </button>
@@ -350,7 +362,7 @@
 </span>
 <span>
 <strong>Funcionarios</strong>
-<small>Documentos institucionales, protocolos, seguridad y gestión</small>
+<small>Gestión, documentos, protocolos, seguridad, historia institucional e himno</small>
 </span>
 <span aria-hidden="true" class="acceso-perfil-flecha">→</span>
 </button>
@@ -815,6 +827,9 @@
 <button data-destino="quienesMision" type="button">
             Misión
         </button>
+<button data-destino="quienesHimno" type="button">
+            Himno de la Escuela
+        </button>
 </div>
 </div>
 <div class="bloque-texto" id="quienesHistoria">
@@ -885,6 +900,38 @@
         desarrollo local y al bienestar colectivo.
     </p>
 </div>
+
+
+<section class="himno-institucional" id="quienesHimno" aria-labelledby="tituloHimnoEscuela">
+<div class="himno-encabezado">
+<span class="himno-kicker">IDENTIDAD · HISTORIA · COMUNIDAD</span>
+<div class="himno-simbolo" aria-hidden="true">♫</div>
+<h3 id="tituloHimnoEscuela">Himno de nuestra Escuela</h3>
+<p>Una expresión de identidad y pertenencia que acompaña la memoria de generaciones de nuestra comunidad educativa.</p>
+</div>
+<div class="himno-cuerpo">
+<div class="himno-letra">
+<p>Entre valle y montaña resuena<br>jubilosa la viva canción,<br>con un bello saludo a la escuela,<br>casa y templo de la educación.</p>
+
+<p>Bajo ella nuestra alma se enciende,<br>bajo su aroma de luz y unidad,<br>donde se anidan virtud y valores,<br>la conquista de un gran ideal.</p>
+
+<p class="himno-coro"><strong>Fronteriza, escuela querida,</strong><br>dulce alero de paz y de bien,<br>aula eterna de nobles virtudes,<br>del trabajo, de ciencia y saber.</p>
+
+<p>Juventud fronteriza, adelante,<br>la sublime tarea a seguir:<br>construir la grandeza de Chile,<br>por la senda de gloria seguir.</p>
+
+<p>Noble escuela de buenos maestros,<br>los que nunca se olvidarán;<br>en los pechos, fértil semilla,<br>como un faro de luz brillará.</p>
+
+<p class="himno-coro himno-coro-final"><strong>Fronteriza, escuela querida…</strong></p>
+</div>
+<aside class="himno-nota">
+<span aria-hidden="true">♪</span>
+<strong>Patrimonio de nuestra memoria escolar</strong>
+<p>La letra se incorpora como transcripción de la versión conservada por la comunidad. Podrá complementarse si posteriormente se recupera una fuente histórica, partitura o grabación institucional.</p>
+<button type="button" data-ir-pagina="bandaEscolar" data-destino-pagina="bandaHimnoConexion">Conocer la Banda Escolar →</button>
+</aside>
+</div>
+</section>
+
 <div class="volver-seccion">
 <button class="boton-volver-seccion" data-destino="quienesSomosInicio" type="button">
         ↑ Volver al inicio de Quiénes Somos
@@ -1078,23 +1125,34 @@
 
 
 <article class="persona-huella-card">
-<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/franciscolopezmerino.png" alt="Francisco López Merino" loading="lazy" decoding="async"></div>
-<span class="persona-etiqueta">Trayectoria institucional</span>
+<div class="persona-avatar persona-avatar-foto"><img src="imagenes/franciscolopezmerino.png" alt="Francisco López Merino" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Docencia · Gestión · Dirección</span>
 <h3>Francisco López Merino</h3>
-<p class="persona-cargo">Director</p>
-<p class="persona-resumen">Formó parte de la conducción del establecimiento y de una etapa significativa de su trayectoria institucional.</p>
+<p class="persona-cargo">Profesor de Historia y Geografía · Exdirector</p>
+<p class="persona-resumen">Inició su trayectoria en la Escuela de Concentración Fronteriza de Los Loros ejerciendo docencia y posteriormente asumió responsabilidades de gestión hasta llegar a la Dirección del establecimiento.</p>
 <button aria-controls="historiaFranciscoLopez" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
-<div class="persona-historia-detalle" hidden id="historiaFranciscoLopez"><p>Su período de dirección forma parte de la memoria reciente de la Escuela de Concentración Los Loros. Durante su gestión, Elizabeth Maldonado Roche continuó desempeñándose como secretaria del establecimiento.</p></div>
+<div class="persona-historia-detalle" hidden id="historiaFranciscoLopez">
+<p>Profesor de Historia y Geografía, desarrolló una trayectoria estrechamente vinculada a la escuela. Registros institucionales lo sitúan primero en labores docentes; posteriormente desempeñó funciones de gestión y llegó a ejercer como Director.</p>
+<p>En 2012 acompañó a estudiantes de la D-43 en el Seminario de Civilidad y Democracia realizado en Casino Antay. En 2018 figura como Inspector General de Enseñanza Básica y, para 2019, documentación académica ya lo registra como Director de la Escuela Concentración Fronteriza de Los Loros.</p>
+<p>Durante su dirección participó en procesos de fortalecimiento institucional y de la Educación Media Técnico Profesional. En 2019 elaboró un diagnóstico institucional y Plan de Mejoramiento Educativo como trabajo para optar al grado de Magíster en Educación, mención Gestión de Calidad.</p>
+<p>En 2020 aparece representando al establecimiento en actividades nacionales de formación docente y durante la pandemia fue identificado por MINEDUC como Director en una experiencia de acompañamiento educativo de la escuela. En 2021 continuaba ejerciendo la Dirección y abordó junto al SLEP Atacama materias de infraestructura y retorno seguro a clases.</p>
+<p>Posteriormente continuó su trayectoria directiva fuera del establecimiento, siendo presentado en 2022 como nuevo Director del Instituto Comercial de Copiapó.</p>
+</div>
 </article>
 
 <article class="persona-huella-card">
-<div class="persona-avatar persona-avatar-foto persona-foto-pendiente"><img src="imagenes/ramonbarraza.png" alt="Ramón Barraza" loading="lazy" decoding="async"></div>
-<span class="persona-etiqueta">Memoria institucional</span>
-<h3>Ramón Barraza</h3>
-<p class="persona-cargo">Trayectoria vinculada al establecimiento</p>
-<p class="persona-resumen">Su nombre forma parte de las personas recordadas por su aporte a la historia de la comunidad educativa.</p>
+<div class="persona-avatar persona-avatar-foto"><img src="imagenes/ramonbarraza.png" alt="Ramón Barraza Araya" loading="lazy" decoding="async"></div>
+<span class="persona-etiqueta">Dirección · Desarrollo institucional</span>
+<h3>Ramón Barraza Araya</h3>
+<p class="persona-cargo">Exdirector de la Escuela de Concentración D-43</p>
+<p class="persona-resumen">Encabezó la escuela durante una etapa de importante ampliación y creciente complejidad educativa, vinculada al desarrollo de nuevos niveles y modalidades de enseñanza.</p>
 <button aria-controls="historiaRamonBarraza" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
-<div class="persona-historia-detalle" hidden id="historiaRamonBarraza"><p>Esta reseña se mantendrá centrada en los antecedentes institucionales que podamos documentar y complementar progresivamente.</p></div>
+<div class="persona-historia-detalle" hidden id="historiaRamonBarraza">
+<p>Ramón Barraza Araya aparece documentado como Director de la Escuela de Concentración D N.º 43 de Los Loros en el Proyecto Educativo Institucional correspondiente al período 2010–2014.</p>
+<p>La etapa institucional descrita en ese PEI recoge una escuela que atendía Educación Parvularia, Educación Básica, Educación Media Técnico Profesional, integración escolar y educación de adultos, dando cuenta de la diversidad y complejidad que debía conducir su equipo directivo.</p>
+<p>El mismo documento recuerda transformaciones que marcaron el desarrollo previo del establecimiento: la incorporación de la Jornada Escolar Completa, el reconocimiento SNED y la expansión de la enseñanza desde 2003 hacia Educación Parvularia y Educación Media, incluida la formación técnico-profesional agrícola.</p>
+<p>Su nombre queda así asociado a una etapa de consolidación de la Escuela D-43 como establecimiento con una oferta educativa amplia para Los Loros y localidades cercanas, manteniendo como ejes la calidad de los aprendizajes, la cobertura, la inclusión, la convivencia y el mejoramiento continuo.</p>
+</div>
 </article>
 
 <article class="persona-huella-card">
@@ -1124,7 +1182,7 @@
 <p class="persona-cargo">Secretaria del establecimiento</p>
 <p class="persona-resumen">Una trayectoria de continuidad institucional que enlaza distintas etapas de la historia reciente de la escuela.</p>
 <button aria-controls="historiaElizabethMaldonado" aria-expanded="false" class="persona-historia-boton" type="button">Conocer su historia</button>
-<div class="persona-historia-detalle" hidden id="historiaElizabethMaldonado"><p>Continúa desempeñándose actualmente como secretaria de la Escuela de Concentración Los Loros. Ejerció el mismo puesto durante la etapa de Alexis Herrera y posteriormente durante el período de Francisco López Merino, permaneciendo hasta la actualidad como parte de la continuidad administrativa e histórica del establecimiento.</p></div>
+<div class="persona-historia-detalle" hidden id="historiaElizabethMaldonado"><p>Elizabeth Maldonado Roche ha desarrollado una extensa trayectoria como secretaria de la Escuela de Concentración Los Loros, desempeñando este cargo durante los períodos de dirección de Alexis Herrera, Ramón Barraza y Francisco López Merino. En la actualidad continúa ejerciendo la misma función junto a la actual Dirección del establecimiento, constituyéndose en un importante vínculo de continuidad entre distintas etapas de la historia reciente de nuestra comunidad educativa. A través de los años, su compromiso, dedicación y cariño por el establecimiento se han mantenido intactos, formando parte de la memoria y de la identidad institucional de la escuela.</p></div>
 </article>
 
 </div>
@@ -1249,6 +1307,17 @@
         </p>
 </div>
 </div>
+
+<section class="banda-himno-conexion" id="bandaHimnoConexion" aria-labelledby="tituloBandaHimno">
+<div class="banda-himno-icono" aria-hidden="true">♫</div>
+<div>
+<span>IDENTIDAD INSTITUCIONAL</span>
+<h3 id="tituloBandaHimno">Himno de nuestra Escuela</h3>
+<p>La tradición musical de la escuela también se conecta con su himno, una expresión de identidad que pertenece a toda la comunidad educativa.</p>
+</div>
+<button type="button" data-ir-pagina="quienesSomos" data-destino-pagina="quienesHimno">Leer el Himno →</button>
+</section>
+
 <div class="banda-conexion-alexis">
 <p>Conoce también la historia de la persona cuyo legado da nombre a nuestra Banda Escolar.</p>
 <button data-destino-pagina="alexisHerrera" data-ir-pagina="personasHuella" type="button">
@@ -2607,6 +2676,10 @@
 <button data-ir-pagina="seguridad" type="button">🚨 Seguridad</button>
 <button data-ir-pagina="comunicados" type="button">📢 Comunicados</button>
 <button data-destino-comunidad="comunidadAlumnos" data-ir-pagina="comunidad" type="button">👥 Centro de Alumnos</button>
+
+<button data-ir-pagina="bandaEscolar" type="button">🥁 Banda Escolar</button>
+<button data-destino-pagina="quienesHimno" data-ir-pagina="quienesSomos" type="button">🎵 Himno de la Escuela</button>
+<button data-ir-pagina="personasHuella" type="button">⭐ Personas que dejaron huella</button>
 </div>
 </article>
 <article class="portal-perfil portal-perfil-apoderados" id="perfilApoderados">
@@ -2631,6 +2704,10 @@
 <button data-ir-pagina="seguridad" type="button">🚨 Seguridad</button>
 <button data-ir-pagina="contacto" type="button">☎️ Contacto</button>
 <button data-destino-comunidad="comunidadPadres" data-ir-pagina="comunidad" type="button">👨‍👩‍👧 Centro General de Padres y Apoderados</button>
+
+<button data-destino-pagina="quienesHimno" data-ir-pagina="quienesSomos" type="button">🎵 Himno de la Escuela</button>
+<button data-ir-pagina="personasHuella" type="button">⭐ Personas que dejaron huella</button>
+<button data-ir-pagina="bandaEscolar" type="button">🥁 Banda Escolar</button>
 </div>
 </article>
 <article class="portal-perfil portal-perfil-funcionarios" id="perfilFuncionarios">
@@ -2651,6 +2728,10 @@
 <button data-ir-pagina="equipo" type="button">👤 Equipo Directivo</button>
 <button data-ir-pagina="gestion" type="button">⚙️ Equipo de Gestión</button>
 <button data-ir-pagina="contacto" type="button">☎️ Contacto</button>
+
+<button data-destino-pagina="quienesHimno" data-ir-pagina="quienesSomos" type="button">🎵 Himno de la Escuela</button>
+<button data-ir-pagina="personasHuella" type="button">⭐ Personas que dejaron huella</button>
+<button data-ir-pagina="bandaEscolar" type="button">🥁 Banda Escolar</button>
 </div>
 </article>
 </div>
@@ -3621,6 +3702,7 @@
 <button data-ir-pagina="comunicados" type="button">Comunicados</button>
 <button data-ir-pagina="personasHuella" type="button">Personas que dejaron huella</button>
 <button data-ir-pagina="bandaEscolar" type="button">Banda Escolar</button>
+<button data-ir-pagina="quienesSomos" data-destino-pagina="quienesHimno" type="button">Himno</button>
 <button data-ir-pagina="academica" type="button">Académica</button>
 <button data-ir-pagina="comunidad" type="button">Comunidad</button>
 <button data-ir-pagina="documentos" type="button">Documentos</button>
@@ -3645,7 +3727,7 @@
 <!-- =====================================================
      JAVASCRIPT EXTERNO
 ====================================================== -->
-<script src="script.js?v=20260825-10"></script>
+<script src="script.js?v=20260825-13"></script>
 <!-- =====================================================
      INSTALACIÓN UNIVERSAL DE LA APLICACIÓN
 ====================================================== -->
