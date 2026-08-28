@@ -1,3 +1,4 @@
+
 /* =========================================================
    AVISOS IMPORTANTES CON VIGENCIA EN EL NOMBRE · 20260825-5
    Formato admitido:
@@ -8063,23 +8064,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const documentos = contarRutasUnicas('#documentos a[href*="documentos/"]');
         const protocolos = contarRutasUnicas('#protocolos a[href*="protocolos/"]');
 
-        if (cCom && comunicados > 0) cCom.textContent = comunicados;
-        if (cDoc && documentos > 0) cDoc.textContent = documentos;
-        if (cPro && protocolos > 0) cPro.textContent = protocolos;
-        if (cInicioCom && comunicados > 0) cInicioCom.textContent = comunicados;
-        if (cInicioPro) cInicioPro.textContent = protocolos;
+        if (cCom && comunicados > 0 && cCom.textContent !== String(comunicados)) cCom.textContent = comunicados;
+        if (cDoc && documentos > 0 && cDoc.textContent !== String(documentos)) cDoc.textContent = documentos;
+        if (cPro && protocolos > 0 && cPro.textContent !== String(protocolos)) cPro.textContent = protocolos;
+        if (cInicioCom && comunicados > 0 && cInicioCom.textContent !== String(comunicados)) cInicioCom.textContent = comunicados;
+        if (cInicioPro && cInicioPro.textContent !== String(protocolos)) cInicioPro.textContent = protocolos;
     }
 
     actualizarContadoresRespaldo();
     window.setTimeout(actualizarContadoresRespaldo, 700);
     window.setTimeout(actualizarContadoresRespaldo, 1800);
 
-    ["listaComunicados", "documentos", "protocolos"].forEach(function(id) {
-        const objetivo = document.getElementById(id);
-        if (!objetivo || typeof MutationObserver === "undefined") return;
-        new MutationObserver(actualizarContadoresRespaldo).observe(objetivo, {
-            childList: true,
-            subtree: true
-        });
-    });
+    // Observadores eliminados: los temporizadores ya actualizan los contadores sin bloquear la interfaz.
 });
