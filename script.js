@@ -6115,19 +6115,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* Buscador general */
     function mejoraConstruirIndice() {
-        const items = [];
+        const items = [
+            {titulo:"Horarios de clases", detalle:"horario horarios curso 1 2 3 4 medio básica basica kinder opción opcion laboral agropecuaria mecánica mecanica", pagina:"academica", destino:"academicaHorarios", categoria:"horario"},
+            {titulo:"PISE y Seguridad", detalle:"PISE plan integral seguridad escolar emergencia sismo incendio gases evacuación evacuacion", pagina:"seguridad", destino:"seguridad", categoria:"seccion"},
+            {titulo:"Matrícula y postulación", detalle:"matricula matrícula postulación postulacion SAE anótate anotate lista admisión admision escolar", pagina:"inicio", destino:"inicioMatricula", categoria:"seccion"},
+            {titulo:"Banda Escolar Alexis Herrera", detalle:"banda escolar alexis herrera glorias navales historia desfile", pagina:"bandaEscolar", destino:"bandaEscolar", categoria:"seccion"},
+            {titulo:"Protocolos", detalle:"protocolos convivencia armas acoso fallecimiento suicida actuación actuacion", pagina:"protocolos", destino:"protocolos", categoria:"protocolo"},
+            {titulo:"Documentos institucionales", detalle:"documentos PEI RICE reglamento evaluación evaluacion convivencia inclusión inclusion", pagina:"documentos", destino:"documentos", categoria:"documento"},
+            {titulo:"Contacto del establecimiento", detalle:"contacto teléfono telefono redes sociales dirección direccion establecimiento", pagina:"contacto", destino:"contacto", categoria:"seccion"}
+        ];
         document.querySelectorAll("section.pagina, section[id]").forEach(function(sec) {
             if (!sec.id) return;
             const titulo = sec.querySelector("h1,h2,h3");
             if (!titulo) return;
-            items.push({titulo:mejoraTexto(titulo), detalle:"Sección del sitio", pagina:sec.id, destino:sec.id});
+            items.push({titulo:mejoraTexto(titulo), detalle:"Sección del sitio", pagina:sec.id, destino:sec.id, categoria:"seccion"});
         });
         document.querySelectorAll(".documento, .horario-curso-card, .categoria-documentos, [id^='academica']").forEach(function(el) {
             const titulo = el.querySelector("h2,h3,h4,strong") || el;
             const texto = mejoraTexto(titulo);
             if (!texto || texto.length > 120) return;
             const pagina = el.closest(".pagina");
-            items.push({titulo:texto, detalle:mejoraTexto(el).slice(0,150), pagina:pagina ? pagina.id : "inicio", destino:el.id || (pagina ? pagina.id : "inicio")});
+            const categoria = el.classList.contains("horario-curso-card") ? "horario" :
+                (pagina && pagina.id === "protocolos") ? "protocolo" :
+                (pagina && pagina.id === "documentos") ? "documento" : "seccion";
+            items.push({titulo:texto, detalle:mejoraTexto(el).slice(0,150), pagina:pagina ? pagina.id : "inicio", destino:el.id || (pagina ? pagina.id : "inicio"), categoria:categoria});
         });
         return items.filter(function(item, i, arr) {
             return arr.findIndex(function(x){return x.titulo===item.titulo && x.destino===item.destino;})===i;
@@ -6143,8 +6154,13 @@ document.addEventListener("DOMContentLoaded", function () {
             mejoraResultadosBusqueda.innerHTML = '<p>Escribe al menos 2 caracteres.</p>';
             return;
         }
+        const tokens = q.split(/\s+/).filter(Boolean);
         const encontrados = mejoraIndice.filter(function(item) {
-            return mejoraNormalizar(item.titulo + " " + item.detalle).includes(q);
+            const contenido = mejoraNormalizar(item.titulo + " " + item.detalle);
+            const coincideTexto = tokens.every(function(token){ return contenido.includes(token); });
+            const filtro = (typeof premiumFiltroActivo !== "undefined") ? premiumFiltroActivo : "todos";
+            const coincideFiltro = filtro === "todos" || filtro === item.categoria;
+            return coincideTexto && coincideFiltro;
         }).slice(0,20);
         if (!encontrados.length) {
             mejoraResultadosBusqueda.innerHTML = '<p>No encontramos resultados para esa búsqueda.</p>';
@@ -6506,7 +6522,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cargarPremium("comunicados/comunicados.json","comunicado","comunicados"),
         cargarPremium("noticias/noticias.json","noticia","inicio"),
         cargarPremium("documentos/documentos.json","documento","documentos"),
-        cargarPremium("protocolos/protocolos.json","documento","protocolos"),
+        Promise.resolve(), /* Protocolos ya están definidos en el HTML; no se solicita protocolos.json */
         cargarPremium("seguridad/seguridad.json","documento","seguridad"),
         cargarPremium("horarios/horarios.json","horario","academica")
     ]);
@@ -6689,7 +6705,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ],
             [
                 "#protocolos .documento",
-                "documento",
+                "protocolo",
                 "protocolos"
             ],
             [
@@ -6716,11 +6732,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                     elemento
                                 );
 
-                            if (
-                                !mejoraNormalizar(
-                                    texto
-                                ).includes(q)
-                            ) {
+                            const contenidoNormalizado = mejoraNormalizar(texto);
+                            const tokensBusqueda = q.split(/\s+/).filter(Boolean);
+                            if (!tokensBusqueda.every(function(token){ return contenidoNormalizado.includes(token); })) {
                                 return;
                             }
 
@@ -8020,4 +8034,52 @@ document.addEventListener("DOMContentLoaded", function () {
     cerrar.addEventListener("click", cerrarVisorBanda);
     visor.addEventListener("click", function (e) { if (e.target === visor) cerrarVisorBanda(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !visor.hidden) cerrarVisorBanda(); });
+});
+
+
+/* =========================================================
+   DEPURACIÓN REAL · CONTADORES ROBUSTOS · 20260828-20
+   Si un JSON no existe o tarda en cargar, el sitio cuenta
+   directamente el contenido visible ya disponible en el HTML.
+========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    function contarRutasUnicas(selector) {
+        const rutas = new Set();
+        document.querySelectorAll(selector).forEach(function(enlace) {
+            const href = enlace.getAttribute("href");
+            if (href && href !== "#") rutas.add(href.split("?")[0]);
+        });
+        return rutas.size;
+    }
+
+    function actualizarContadoresRespaldo() {
+        const cCom = document.getElementById("contadorComunicados");
+        const cDoc = document.getElementById("contadorDocumentos");
+        const cPro = document.getElementById("contadorProtocolos");
+        const cInicioCom = document.getElementById("contadorInicioComunicados");
+        const cInicioPro = document.getElementById("contadorInicioProtocolos");
+
+        const comunicados = contarRutasUnicas('#listaComunicados a[href*="comunicados/"], #botonUltimoComunicado[href*="comunicados/"]');
+        const documentos = contarRutasUnicas('#documentos a[href*="documentos/"]');
+        const protocolos = contarRutasUnicas('#protocolos a[href*="protocolos/"]');
+
+        if (cCom && comunicados > 0) cCom.textContent = comunicados;
+        if (cDoc && documentos > 0) cDoc.textContent = documentos;
+        if (cPro && protocolos > 0) cPro.textContent = protocolos;
+        if (cInicioCom && comunicados > 0) cInicioCom.textContent = comunicados;
+        if (cInicioPro) cInicioPro.textContent = protocolos;
+    }
+
+    actualizarContadoresRespaldo();
+    window.setTimeout(actualizarContadoresRespaldo, 700);
+    window.setTimeout(actualizarContadoresRespaldo, 1800);
+
+    ["listaComunicados", "documentos", "protocolos"].forEach(function(id) {
+        const objetivo = document.getElementById(id);
+        if (!objetivo || typeof MutationObserver === "undefined") return;
+        new MutationObserver(actualizarContadoresRespaldo).observe(objetivo, {
+            childList: true,
+            subtree: true
+        });
+    });
 });
