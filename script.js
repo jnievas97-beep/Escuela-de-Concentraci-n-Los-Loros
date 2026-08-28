@@ -7990,7 +7990,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =========================================================
-   VISOR GALERÍA BANDA ESCOLAR · 20260826-17
+   VISOR GALERÍA BANDA ESCOLAR · 20260826-18
 ========================================================= */
 document.addEventListener("DOMContentLoaded", function () {
     const visor = document.getElementById("visorBanda");
