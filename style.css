@@ -13910,3 +13910,105 @@ body {
 .opcion4-laboral-logo{width:118px!important;height:118px!important;object-fit:contain!important;margin:0 auto 8px!important;filter:drop-shadow(0 7px 12px rgba(0,0,0,.12))}
 .opcion4-laboral-atras .texto-reverso{margin-bottom:9px}.opcion4-historia-insignia{display:block;padding:9px 11px;border-radius:12px;background:rgba(255,255,255,.12);font-size:.78rem;line-height:1.4}
 #equipo .integrante-equipo-cargo div>span{display:block!important;visibility:visible!important;opacity:1!important;margin-top:5px!important;color:#52685b!important;font-size:.82rem!important;font-weight:700!important}
+
+
+/* =========================================================
+   INICIO · ACCESOS FRECUENTES · 20260828-20
+========================================================= */
+.inicio-accesos-frecuentes{
+    margin:34px auto 28px;
+    padding:24px;
+    border:1px solid rgba(31,95,59,.14);
+    border-radius:24px;
+    background:linear-gradient(145deg,#ffffff,#f7faf8);
+    box-shadow:0 12px 34px rgba(20,55,36,.07);
+}
+.inicio-accesos-cabecera{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:17px;
+}
+.inicio-accesos-cabecera>span{
+    display:grid;
+    place-items:center;
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    background:rgba(201,167,46,.13);
+    font-size:1.35rem;
+}
+.inicio-accesos-cabecera h2{
+    margin:0;
+    color:#183f2b;
+    font-size:clamp(1.18rem,2vw,1.55rem);
+}
+.inicio-accesos-cabecera p{
+    margin:4px 0 0;
+    color:#66756c;
+    line-height:1.45;
+}
+.inicio-accesos-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+}
+.inicio-acceso-card{
+    width:100%;
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto;
+    align-items:center;
+    gap:13px;
+    padding:15px 16px;
+    border:1px solid rgba(31,95,59,.12);
+    border-radius:17px;
+    background:#fff;
+    color:#243b2e;
+    text-align:left;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(20,55,36,.045);
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.inicio-acceso-card:hover,
+.inicio-acceso-card:focus-visible{
+    transform:translateY(-2px);
+    border-color:rgba(31,95,59,.30);
+    box-shadow:0 10px 22px rgba(20,55,36,.09);
+}
+.inicio-acceso-icono{
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:#f2f7f4;
+    font-size:1.25rem;
+}
+.inicio-acceso-card strong{
+    display:block;
+    color:#173f2b;
+    font-size:.96rem;
+}
+.inicio-acceso-card small{
+    display:block;
+    margin-top:3px;
+    color:#6b786f;
+    font-size:.79rem;
+    line-height:1.35;
+}
+.inicio-acceso-flecha{
+    color:#9b7b15;
+    font-size:1.15rem;
+    font-weight:900;
+}
+@media(max-width:700px){
+    .inicio-accesos-frecuentes{padding:18px 14px;border-radius:20px}
+    .inicio-accesos-grid{grid-template-columns:1fr}
+    .inicio-acceso-card{padding:13px}
+    .inicio-acceso-card small{font-size:.77rem}
+}
+
+/* Buscador: deja más aire cuando hay seis filtros. */
+#filtrosBuscadorGlobal{
+    flex-wrap:wrap;
+}
