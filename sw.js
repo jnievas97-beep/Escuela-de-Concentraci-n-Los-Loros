@@ -1,4 +1,4 @@
-const CACHE_VERSION = "escuela-los-loros-20260826-17";
+const CACHE_VERSION = "escuela-los-loros-20260827-19";
 
 const ARCHIVOS_BASE = [
     "./",
