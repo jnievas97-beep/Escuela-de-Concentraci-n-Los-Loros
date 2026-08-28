@@ -44,7 +44,7 @@
 <!-- =====================================================
      HOJA DE ESTILOS
 ====================================================== -->
-<link href="style.css?v=20260828-20" rel="stylesheet"/>
+<link href="style.css?v=20260828-24" rel="stylesheet"/>
 <link href="manifest.webmanifest?v=20260828-20" rel="manifest"/>
 
 <link rel="preload" as="image" href="imagenes/logo.png">
@@ -225,6 +225,9 @@
 ================================================== -->
 <button class="boton-menu" data-pagina="protocolos" type="button">
     Protocolos
+</button>
+<button class="boton-menu boton-menu-largo" data-pagina="justificarInasistencia" type="button">
+    Justificar Inasistencia
 </button>
 <button class="boton-menu" data-pagina="contacto" type="button">
     Contacto
@@ -3756,6 +3759,116 @@
 </div>
 </div>
 </section>
+<!-- =====================================================
+     JUSTIFICACIÓN DE INASISTENCIAS - MODO PRUEBA
+====================================================== -->
+<section class="pagina" id="justificarInasistencia">
+<div class="contenedor">
+<div class="titulo-pagina">
+<h2>Justificar Inasistencia</h2>
+<p>Formulario para que padres, madres y apoderados puedan registrar una justificación de inasistencia.</p>
+</div>
+
+<div class="justificacion-aviso-prueba justificacion-aviso-activo" role="status">
+<strong>Envío de justificación</strong>
+<span>Complete los antecedentes solicitados. Los datos serán enviados al registro de justificaciones del establecimiento. El documento de respaldo es opcional.</span>
+</div>
+
+<form class="justificacion-formulario" id="formularioJustificacion" novalidate>
+<div class="justificacion-grid">
+<div class="justificacion-campo justificacion-campo-ancho">
+<label for="justificacionEstudiante">Nombre completo del estudiante <span aria-hidden="true">*</span></label>
+<input autocomplete="name" id="justificacionEstudiante" name="estudiante" required type="text" placeholder="Ej.: Nombre y apellidos del estudiante"/>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionCurso">Curso <span aria-hidden="true">*</span></label>
+<select id="justificacionCurso" name="curso" required>
+<option value="">Seleccione un curso</option>
+<option>NT1 - Pre Kinder</option>
+<option>NT2 - Kinder</option>
+<option>1° Básico</option>
+<option>2° Básico</option>
+<option>3° Básico</option>
+<option>4° Básico</option>
+<option>5° Básico</option>
+<option>6° Básico</option>
+<option>7° Básico</option>
+<option>8° Básico</option>
+<option>1° Medio</option>
+<option>2° Medio</option>
+<option>3° Medio</option>
+<option>4° Medio</option>
+<option>Opción 4</option>
+<option>Opción 4 Laboral</option>
+</select>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionFechaDesde">Fecha de inicio de la inasistencia *</label>
+<input type="date" id="justificacionFechaDesde" name="fechaDesde" required>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionFechaHasta">Fecha de término de la inasistencia *</label>
+<input type="date" id="justificacionFechaHasta" name="fechaHasta" required>
+<small>Si la inasistencia corresponde a un solo día, seleccione la misma fecha en ambos campos.</small>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionMotivo">Motivo de la inasistencia <span aria-hidden="true">*</span></label>
+<select id="justificacionMotivo" name="motivo" required>
+<option value="">Seleccione un motivo</option>
+<option>Motivo de salud</option>
+<option>Atención médica</option>
+<option>Situación familiar</option>
+<option>Trámite personal o familiar</option>
+<option>Viaje dentro del país</option>
+<option>Viaje al extranjero</option>
+<option>Otro motivo</option>
+</select>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionRespaldo">Documento de respaldo</label>
+<input accept=".pdf,.jpg,.jpeg,.png,.webp" id="justificacionRespaldo" name="respaldo" type="file"/>
+<small>Opcional. Puede adjuntar PDF, JPG, PNG o WEBP, con un máximo de 5 MB.</small>
+</div>
+
+<div class="justificacion-campo justificacion-campo-ancho">
+<label for="justificacionDetalle">Detalle de la justificación <span aria-hidden="true">*</span></label>
+<textarea id="justificacionDetalle" name="detalle" required rows="5" maxlength="1000" placeholder="Explique brevemente el motivo de la inasistencia."></textarea>
+<small>Máximo 1000 caracteres.</small>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionApoderado">Nombre del apoderado/a <span aria-hidden="true">*</span></label>
+<input id="justificacionApoderado" name="apoderado" required type="text" placeholder="Nombre y apellidos"/>
+</div>
+
+<div class="justificacion-campo">
+<label for="justificacionContacto">Teléfono o correo de contacto <span aria-hidden="true">*</span></label>
+<input id="justificacionContacto" name="contacto" required type="text" placeholder="Ej.: +56 9... o correo@ejemplo.cl"/>
+</div>
+
+<div class="justificacion-campo justificacion-campo-ancho">
+<label class="justificacion-confirmacion">
+<input id="justificacionConfirmacion" required type="checkbox"/>
+<span>Confirmo que los antecedentes ingresados son correctos y corresponden a la justificación de inasistencia del estudiante.</span>
+</label>
+</div>
+</div>
+
+<div class="justificacion-acciones">
+<button class="justificacion-boton-enviar" type="submit">Enviar justificación</button>
+<button class="justificacion-boton-limpiar" type="reset">Limpiar formulario</button>
+</div>
+
+<div aria-live="polite" class="justificacion-resultado" hidden id="resultadoJustificacion"></div>
+</form>
+</div>
+</section>
+
 </main>
 <!-- =====================================================
      BOTÓN FLOTANTE NUEVO - VOLVER ARRIBA
@@ -3845,7 +3958,7 @@
 <!-- =====================================================
      JAVASCRIPT EXTERNO
 ====================================================== -->
-<script src="script.js?v=20260828-20"></script>
+<script src="script.js?v=20260828-24"></script>
 <!-- =====================================================
      INSTALACIÓN UNIVERSAL DE LA APLICACIÓN
 ====================================================== -->
