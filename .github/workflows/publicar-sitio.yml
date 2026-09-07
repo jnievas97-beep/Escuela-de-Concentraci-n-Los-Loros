@@ -809,8 +809,10 @@ jobs:
             evento="archivo:${archivo}"
             echo "Notificando: $categoria -> $archivo"
 
+            # No usar --request POST aquí. Apps Script responde con una redirección HTTP;
+            # --data-urlencode ya hace que la primera solicitud sea POST y curl -L puede
+            # seguir correctamente la redirección sin forzar POST en el destino.
             curl --fail --silent --show-error --location \
-              --request POST \
               --data-urlencode "accion=notificar_automatico" \
               --data-urlencode "secreto=${NOTIFICACIONES_SECRET}" \
               --data-urlencode "categoria=${categoria}" \
@@ -849,8 +851,9 @@ jobs:
               evento="archivo:${archivo}"
               echo "Activando notificación programada: $archivo"
 
+              # Igual que arriba: --data-urlencode inicia POST y --location sigue
+              # la redirección de Apps Script sin volver a forzar POST.
               curl --fail --silent --show-error --location \
-                --request POST \
                 --data-urlencode "accion=notificar_automatico" \
                 --data-urlencode "secreto=${NOTIFICACIONES_SECRET}" \
                 --data-urlencode "categoria=Avisos importantes" \
