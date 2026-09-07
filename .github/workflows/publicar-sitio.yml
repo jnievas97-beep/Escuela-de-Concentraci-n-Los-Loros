@@ -743,3 +743,124 @@ jobs:
       - name: Publicar sitio
         id: deployment
         uses: actions/deploy-pages@v4
+
+
+      # =====================================================
+      # NOTIFICACIONES AUTOMÁTICAS
+      # Comunicado · Noticias · Avisos importantes
+      # Se ejecuta DESPUÉS de publicar correctamente el sitio.
+      # =====================================================
+      - name: Notificar archivos nuevos a los suscriptores
+        if: github.event_name == 'push'
+        shell: bash
+        env:
+          APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxrR_Gbk40Kn2Q2Kmg7Si9CZs184bVJ9bzMqCugiS8McOCA21bp3GXR0aJR4JTNMYWIWg/exec"
+          NOTIFICACIONES_SECRET: ${{ secrets.NOTIFICACIONES_SECRET }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${NOTIFICACIONES_SECRET:-}" ]; then
+            echo "ERROR: falta el Secret NOTIFICACIONES_SECRET en GitHub."
+            exit 1
+          fi
+
+          echo "Buscando publicaciones nuevas..."
+
+          # GitHub usa 40 ceros cuando no existe un commit anterior.
+          if [[ "${BEFORE_SHA}" =~ ^0+$ ]]; then
+            echo "Primer push detectado. Se evita notificar archivos históricos."
+            exit 0
+          fi
+
+          git diff --diff-filter=A --name-only "${BEFORE_SHA}" "${AFTER_SHA}" > /tmp/archivos_nuevos.txt
+
+          if [ ! -s /tmp/archivos_nuevos.txt ]; then
+            echo "No hay archivos nuevos. No se envían notificaciones."
+            exit 0
+          fi
+
+          shopt -s nocasematch
+          enviados=0
+
+          while IFS= read -r archivo; do
+            categoria=""
+
+            if [[ "$archivo" =~ ^comunicados/COMUNICADO[[:space:]]+[0-9]+\.pdf$ ]]; then
+              categoria="Comunicado"
+            elif [[ "$archivo" =~ ^noticias/noticias[0-9]+\.(pdf|png|jpg|jpeg)$ ]]; then
+              categoria="Noticias"
+            elif [[ "$archivo" =~ ^avisos/aviso[[:space:]]*[0-9]+(_desde_[0-9]{4}-[0-9]{2}-[0-9]{2})?(_hasta_[0-9]{4}-[0-9]{2}-[0-9]{2})?\.(pdf|png|jpg|jpeg)$ ]]; then
+              # Si el aviso tiene _desde_ en una fecha futura, no se notifica todavía.
+              if [[ "$archivo" =~ _desde_([0-9]{4}-[0-9]{2}-[0-9]{2}) ]]; then
+                fecha_desde="${BASH_REMATCH[1]}"
+                hoy=$(TZ=America/Santiago date +%F)
+                if [[ "$fecha_desde" > "$hoy" ]]; then
+                  echo "Aviso programado para $fecha_desde: se notificará al comenzar su vigencia."
+                  continue
+                fi
+              fi
+              categoria="Avisos importantes"
+            else
+              continue
+            fi
+
+            evento="archivo:${archivo}"
+            echo "Notificando: $categoria -> $archivo"
+
+            curl --fail --silent --show-error --location \
+              --request POST \
+              --data-urlencode "accion=notificar_automatico" \
+              --data-urlencode "secreto=${NOTIFICACIONES_SECRET}" \
+              --data-urlencode "categoria=${categoria}" \
+              --data-urlencode "archivo=${archivo}" \
+              --data-urlencode "evento=${evento}" \
+              "${APPS_SCRIPT_URL}"
+
+            echo
+            enviados=$((enviados + 1))
+          done < /tmp/archivos_nuevos.txt
+
+          echo "Solicitudes automáticas enviadas: ${enviados}"
+
+      - name: Notificar Avisos importantes programados que comienzan hoy
+        if: github.event_name == 'schedule'
+        shell: bash
+        env:
+          APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxrR_Gbk40Kn2Q2Kmg7Si9CZs184bVJ9bzMqCugiS8McOCA21bp3GXR0aJR4JTNMYWIWg/exec"
+          NOTIFICACIONES_SECRET: ${{ secrets.NOTIFICACIONES_SECRET }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${NOTIFICACIONES_SECRET:-}" ]; then
+            echo "ERROR: falta el Secret NOTIFICACIONES_SECRET en GitHub."
+            exit 1
+          fi
+
+          hoy=$(TZ=America/Santiago date +%F)
+          encontrados=0
+          shopt -s nullglob nocasematch
+
+          for archivo in avisos/*; do
+            [ -f "$archivo" ] || continue
+
+            if [[ "$archivo" =~ ^avisos/aviso[[:space:]]*[0-9]+_desde_${hoy}(_hasta_[0-9]{4}-[0-9]{2}-[0-9]{2})?\.(pdf|png|jpg|jpeg)$ ]]; then
+              evento="archivo:${archivo}"
+              echo "Activando notificación programada: $archivo"
+
+              curl --fail --silent --show-error --location \
+                --request POST \
+                --data-urlencode "accion=notificar_automatico" \
+                --data-urlencode "secreto=${NOTIFICACIONES_SECRET}" \
+                --data-urlencode "categoria=Avisos importantes" \
+                --data-urlencode "archivo=${archivo}" \
+                --data-urlencode "evento=${evento}" \
+                "${APPS_SCRIPT_URL}"
+
+              echo
+              encontrados=$((encontrados + 1))
+            fi
+          done
+
+          echo "Avisos programados enviados hoy: ${encontrados}"
