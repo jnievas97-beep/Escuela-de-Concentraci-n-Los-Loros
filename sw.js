@@ -46,7 +46,7 @@ firebaseMessaging.onBackgroundMessage(function (payload) {
     return self.registration.showNotification(titulo, {
         body: cuerpo,
         icon: "./icono192.png",
-        badge: "./icono192.png",
+        badge: "./icononotificacion.png",
         tag: tag,
         renotify: true,
         data: {
@@ -91,7 +91,7 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260908-5";
+const CACHE_VERSION = "escuela-los-loros-20260908-6";
 
 const ARCHIVOS_BASE = [
     "./",
@@ -106,6 +106,7 @@ const ARCHIVOS_BASE = [
     "./imagenes/logosostenedor.png",
     "./imagenes/frontis-colegio.jpg",
     "./icono192.png",
+    "./icononotificacion.png",
     "./icono512.png",
     "./apple-touch-icon.png"
 ];
