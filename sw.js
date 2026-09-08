@@ -1,4 +1,4 @@
-/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260908-5 */
+/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260908-7 */
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js");
 
@@ -91,7 +91,7 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260908-6";
+const CACHE_VERSION = "escuela-los-loros-20260908-7";
 
 const ARCHIVOS_BASE = [
     "./",
