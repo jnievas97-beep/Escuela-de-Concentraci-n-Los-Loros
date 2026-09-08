@@ -34,8 +34,8 @@ button:disabled{opacity:.55} #estado{margin-top:16px;line-height:1.45}
 <p class="aviso">Esta página no aparece en los menús del sitio. La autorización se realiza una sola vez por teléfono, salvo cambio de dispositivo o pérdida del token.</p>
 </div></main>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-messaging-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js"></script>
 <script>
 (function(){
 "use strict";
@@ -121,7 +121,7 @@ async function resincronizarPrivadoSilencioso(){
   sincronizandoPrivado=true; ultimaSincSesion=ahora;
   try{
     if(!firebase.apps.length) firebase.initializeApp(CONFIG);
-    const reg=await navigator.serviceWorker.register("sw.js?v=20260908-fase2-dos-correos-final");
+    const reg=await navigator.serviceWorker.register("sw.js?v=20260908-fase2-dos-correos-final-2");
     await navigator.serviceWorker.ready;
     const token=await firebase.messaging().getToken({vapidKey:VAPID,serviceWorkerRegistration:reg});
     if(!token) return;
