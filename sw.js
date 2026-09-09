@@ -1,4 +1,4 @@
-/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260908-7 */
+/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260908-8 */
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js");
 
@@ -91,15 +91,15 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260908-7";
+const CACHE_VERSION = "escuela-los-loros-20260908-8";
 
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
-    "./style.css?v=20260908-5",
-    "./script.js?v=20260908-5",
-    "./notificaciones-config.js?v=20260908-5",
-    "./manifest.webmanifest?v=20260908-5",
+    "./style.css?v=20260908-8",
+    "./script.js?v=20260908-8",
+    "./notificaciones-config.js?v=20260908-8",
+    "./manifest.webmanifest?v=20260908-8",
     "./imagenes/logo.png",
     "./imagenes/logoespecialidad1.png",
     "./imagenes/logoespecialidad2.png",

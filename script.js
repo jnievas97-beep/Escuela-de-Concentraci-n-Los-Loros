@@ -619,7 +619,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function () {
 
                 navigator.serviceWorker
-                    .register("sw.js?v=20260908-5")
+                    .register("sw.js?v=20260908-8")
                     .then(
                         function (registro) {
 
@@ -8358,6 +8358,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 fechaEnvio: new Date()
             };
 
+            // Apps Script recibe el POST en modo no-cors. Como ese modo no permite
+            // leer la respuesta del servidor, NO mostramos éxito todavía.
             await fetch(URL_JUSTIFICACIONES, {
                 method: "POST",
                 mode: "no-cors",
@@ -8367,9 +8369,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify(datos)
             });
 
+            // Confirmación real: consultamos por el código recién enviado mediante
+            // JSONP. El mensaje de éxito aparece solo cuando Apps Script confirma
+            // que el código existe en la planilla.
+            const confirmado = await confirmarJustificacionGuardada(
+                URL_JUSTIFICACIONES,
+                datos.codigo
+            );
+
+            if (!confirmado) {
+                throw new Error("No fue posible confirmar el registro de la justificación.");
+            }
+
             mostrarResultadoJustificacion(
                 "exito",
-                "Los antecedentes fueron enviados al registro del establecimiento.",
+                "Los antecedentes fueron recibidos y registrados correctamente por el establecimiento.",
                 datos.codigo
             );
 
@@ -8419,6 +8433,90 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 0);
     });
+
+    async function confirmarJustificacionGuardada(urlServicio, codigo) {
+        const intentos = 5;
+
+        for (let intento = 1; intento <= intentos; intento++) {
+            try {
+                const confirmado = await consultarJustificacionJsonp(
+                    urlServicio,
+                    codigo
+                );
+
+                if (confirmado) {
+                    return true;
+                }
+            } catch (error) {
+                console.warn(
+                    "No fue posible confirmar todavía la justificación:",
+                    error
+                );
+            }
+
+            if (intento < intentos) {
+                await new Promise(function (resolver) {
+                    window.setTimeout(resolver, 1400);
+                });
+            }
+        }
+
+        return false;
+    }
+
+    function consultarJustificacionJsonp(urlServicio, codigo) {
+        return new Promise(function (resolver, rechazar) {
+            const nombreCallback =
+                "__confirmarJustificacion_" +
+                Date.now() + "_" +
+                Math.random().toString(36).slice(2);
+
+            const script = document.createElement("script");
+            let finalizado = false;
+
+            function limpiar() {
+                if (script.parentNode) {
+                    script.parentNode.removeChild(script);
+                }
+                try { delete window[nombreCallback]; } catch (e) {
+                    window[nombreCallback] = undefined;
+                }
+            }
+
+            const temporizador = window.setTimeout(function () {
+                if (finalizado) return;
+                finalizado = true;
+                limpiar();
+                rechazar(new Error("Tiempo de confirmación agotado."));
+            }, 10000);
+
+            window[nombreCallback] = function (respuesta) {
+                if (finalizado) return;
+                finalizado = true;
+                window.clearTimeout(temporizador);
+                limpiar();
+                resolver(Boolean(respuesta && respuesta.ok && respuesta.encontrado));
+            };
+
+            script.onerror = function () {
+                if (finalizado) return;
+                finalizado = true;
+                window.clearTimeout(temporizador);
+                limpiar();
+                rechazar(new Error("No se pudo consultar la confirmación."));
+            };
+
+            const separador = urlServicio.indexOf("?") === -1 ? "?" : "&";
+            script.src =
+                urlServicio + separador +
+                "accion=verificar" +
+                "&codigo=" + encodeURIComponent(codigo) +
+                "&callback=" + encodeURIComponent(nombreCallback) +
+                "&_=" + Date.now();
+            script.async = true;
+            document.head.appendChild(script);
+        });
+    }
 
     function obtenerValorJustificacion(id) {
         const campo = document.getElementById(id);

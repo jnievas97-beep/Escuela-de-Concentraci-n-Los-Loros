@@ -73,7 +73,7 @@ boton.addEventListener("click", async function(){
    }
 
    if(!firebase.apps.length) firebase.initializeApp(CONFIG);
-   const reg=await navigator.serviceWorker.register("sw.js?v=20260908-5");
+   const reg=await navigator.serviceWorker.register("sw.js?v=20260908-8");
    await navigator.serviceWorker.ready;
    const token=await firebase.messaging().getToken({vapidKey:VAPID,serviceWorkerRegistration:reg});
    if(!token) throw new Error("No fue posible obtener el token del teléfono.");
@@ -121,7 +121,7 @@ async function resincronizarPrivadoSilencioso(){
   sincronizandoPrivado=true; ultimaSincSesion=ahora;
   try{
     if(!firebase.apps.length) firebase.initializeApp(CONFIG);
-    const reg=await navigator.serviceWorker.register("sw.js?v=20260908-5");
+    const reg=await navigator.serviceWorker.register("sw.js?v=20260908-8");
     await navigator.serviceWorker.ready;
     const token=await firebase.messaging().getToken({vapidKey:VAPID,serviceWorkerRegistration:reg});
     if(!token) return;
