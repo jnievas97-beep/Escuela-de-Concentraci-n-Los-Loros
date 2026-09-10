@@ -1,0 +1,32 @@
+{
+  "id": "./autorizar-revisor.html",
+  "name": "Escuela Los Loros · Revisor",
+  "short_name": "Los Loros Revisor",
+  "description": "Autorización privada de dispositivos revisores de la Escuela de Concentración Los Loros.",
+  "lang": "es-CL",
+  "start_url": "./autorizar-revisor.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#1f5f3b",
+  "icons": [
+    {
+      "src": "icono192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icono512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "iconomaskable512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
