@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#1f5f3b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Escuela Los Loros">
+<link rel="manifest" href="manifest-revisor.json?v=20260910-10">
+<link rel="apple-touch-icon" href="icono192.png">
 <title>Autorización privada · Escuela Los Loros</title>
 <style>
 body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#f4f6f5;margin:0;color:#17211b}
@@ -73,7 +79,7 @@ boton.addEventListener("click", async function(){
    }
 
    if(!firebase.apps.length) firebase.initializeApp(CONFIG);
-   const reg=await navigator.serviceWorker.register("sw.js?v=20260908-8");
+   const reg=await navigator.serviceWorker.register("sw.js?v=20260910-10");
    await navigator.serviceWorker.ready;
    const token=await firebase.messaging().getToken({vapidKey:VAPID,serviceWorkerRegistration:reg});
    if(!token) throw new Error("No fue posible obtener el token del teléfono.");
@@ -98,7 +104,9 @@ boton.addEventListener("click", async function(){
    localStorage.setItem("escuelaLosLorosClavePrivada",clave);
    localStorage.setItem("escuelaLosLorosTokenPrivado",token);
    localStorage.setItem("escuelaLosLorosUltimaSincPrivada",String(Date.now()));
-   decir("ok","Teléfono autorizado. El token privado quedará preparado para resincronizarse automáticamente.");
+   const esStandalone = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+    const sufijo = token.slice(-8);
+    decir("ok","Teléfono autorizado correctamente. Modo app: "+(esStandalone?"Sí":"No")+" · Token …"+sufijo+". El token privado quedará preparado para resincronizarse automáticamente.");
  }catch(e){
    console.error(e);
    decir("error","No fue posible autorizar este teléfono: "+(e.message||e));
@@ -121,7 +129,7 @@ async function resincronizarPrivadoSilencioso(){
   sincronizandoPrivado=true; ultimaSincSesion=ahora;
   try{
     if(!firebase.apps.length) firebase.initializeApp(CONFIG);
-    const reg=await navigator.serviceWorker.register("sw.js?v=20260908-8");
+    const reg=await navigator.serviceWorker.register("sw.js?v=20260910-10");
     await navigator.serviceWorker.ready;
     const token=await firebase.messaging().getToken({vapidKey:VAPID,serviceWorkerRegistration:reg});
     if(!token) return;
