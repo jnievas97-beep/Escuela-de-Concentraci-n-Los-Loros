@@ -1,4 +1,4 @@
-/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260908-8 */
+/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260910-9 */
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js");
 
@@ -21,6 +21,13 @@ const firebaseMessaging = firebase.messaging();
    cómo se muestra la notificación, tanto Fase 1 como Fase 2.
 ========================================================= */
 firebaseMessaging.onBackgroundMessage(function (payload) {
+    /* Fase 2: si FCM ya trae notification, FCM/navegador la muestra.
+       No la volvemos a crear aquí para evitar duplicados.
+       Fase 1 sigue data-only y usa el bloque manual inferior. */
+    if (payload && payload.notification) {
+        return;
+    }
+
     const datos = payload && payload.data ? payload.data : {};
 
     const titulo =
@@ -91,7 +98,7 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260908-8";
+const CACHE_VERSION = "escuela-los-loros-20260910-9";
 
 const ARCHIVOS_BASE = [
     "./",
