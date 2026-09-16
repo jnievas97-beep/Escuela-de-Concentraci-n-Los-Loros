@@ -4972,6 +4972,37 @@ document.addEventListener("DOMContentLoaded", function () {
                     "noticia-contenido";
 
 
+
+(function instalarEstiloAmpliarNoticias(){
+    if (document.getElementById("estiloAmpliarNoticias20260916")) return;
+    const estilo = document.createElement("style");
+    estilo.id = "estiloAmpliarNoticias20260916";
+    estilo.textContent = `
+      .boton-ampliar-noticia{
+        display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+        margin:.7rem auto .15rem;padding:.65rem 1.05rem;border:0;border-radius:999px;
+        font:700 .92rem/1.1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.16);
+        background:#1f5f3b;color:#fff;transition:transform .15s ease,box-shadow .15s ease;
+      }
+      .boton-ampliar-noticia:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(0,0,0,.2)}
+      .boton-ampliar-noticia:active{transform:translateY(0)}
+      .boton-ampliar-noticia:focus-visible{outline:3px solid #d8ad3d;outline-offset:3px}
+      #visorImagenGeneral .cerrar-visor-mejorado{
+        position:fixed!important;top:max(14px,env(safe-area-inset-top))!important;
+        right:max(14px,env(safe-area-inset-right))!important;width:46px!important;height:46px!important;
+        display:flex!important;align-items:center!important;justify-content:center!important;
+        border:2px solid rgba(255,255,255,.9)!important;border-radius:50%!important;
+        background:rgba(15,15,15,.78)!important;color:#fff!important;font:700 30px/1 Arial,sans-serif!important;
+        cursor:pointer!important;z-index:2147483647!important;box-shadow:0 3px 14px rgba(0,0,0,.35)!important;
+      }
+      @media(max-width:600px){
+        .boton-ampliar-noticia{width:min(92%,320px);min-height:44px}
+        #visorImagenGeneral .cerrar-visor-mejorado{width:48px!important;height:48px!important}
+      }`;
+    document.head.appendChild(estilo);
+})();
+
                 /* Las noticias pueden ampliarse tanto en computador
                    como en teléfono usando el visor general existente. */
                 contenido.addEventListener(
@@ -4985,6 +5016,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         if (!imagen) {
                             return;
+                        }
+
+                        /* Botón visible para indicar claramente que la noticia se puede ampliar. */
+                        const contenedorImagen = imagen.parentElement;
+                        if (contenedorImagen && !contenedorImagen.querySelector(".boton-ampliar-noticia")) {
+                            const botonAmpliar = document.createElement("button");
+                            botonAmpliar.type = "button";
+                            botonAmpliar.className = "boton-ampliar-noticia";
+                            botonAmpliar.innerHTML = '<span aria-hidden="true">🔍</span><span>Presione para ampliar</span>';
+                            botonAmpliar.addEventListener("click", function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                imagen.click();
+                            });
+                            contenedorImagen.appendChild(botonAmpliar);
                         }
 
                         /* Abre la noticia como superposición, igual que
@@ -5010,6 +5056,18 @@ document.addEventListener("DOMContentLoaded", function () {
                             visorImagenGeneral.style.height = "100dvh";
                             visorImagenGeneral.style.zIndex = "2147483647";
                             visorImagenGeneral.style.margin = "0";
+
+                            const cerrarExistente = visorImagenGeneral.querySelector(
+                                '[data-cerrar], .cerrar, .close, .visor-cerrar, button[aria-label*="errar"], button[title*="errar"]'
+                            );
+                            if (cerrarExistente) {
+                                cerrarExistente.classList.add("cerrar-visor-mejorado");
+                                cerrarExistente.setAttribute("aria-label", "Cerrar imagen ampliada");
+                                cerrarExistente.setAttribute("title", "Cerrar");
+                                if (!String(cerrarExistente.textContent || "").trim()) {
+                                    cerrarExistente.textContent = "×";
+                                }
+                            }
                         }
 
                     }
