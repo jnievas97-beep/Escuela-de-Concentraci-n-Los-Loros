@@ -4525,7 +4525,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "noticias/noticias.json";
 
     const CANTIDAD_INICIAL_NOTICIAS =
-        3;
+        1;
 
     const listaNoticias =
         document.getElementById(
@@ -4658,6 +4658,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
         imagen.decoding =
             "async";
+
+        if (
+            clase === "noticia-imagen" ||
+            clase === "noticia-pagina-pdf"
+        ) {
+            imagen.tabIndex = 0;
+            imagen.setAttribute(
+                "role",
+                "button"
+            );
+            imagen.setAttribute(
+                "aria-label",
+                (textoAlternativo || "Noticia") +
+                ". Presiona para ampliar"
+            );
+            imagen.style.cursor =
+                "zoom-in";
+        }
 
 
         return imagen;
@@ -4946,6 +4964,62 @@ document.addEventListener("DOMContentLoaded", function () {
                     "noticia-contenido";
 
 
+                /* Las noticias pueden ampliarse tanto en computador
+                   como en teléfono usando el visor general existente. */
+                contenido.addEventListener(
+                    "click",
+                    function (evento) {
+
+                        const imagen =
+                            evento.target.closest(
+                                ".noticia-imagen, .noticia-pagina-pdf"
+                            );
+
+                        if (!imagen) {
+                            return;
+                        }
+
+                        abrirVisorGeneral(
+                            imagen.currentSrc || imagen.src,
+                            "imagen",
+                            imagen.alt ||
+                                ("Noticia N.º " + noticia.numero),
+                            imagen
+                        );
+
+                    }
+                );
+
+                contenido.addEventListener(
+                    "keydown",
+                    function (evento) {
+
+                        const imagen =
+                            evento.target.closest(
+                                ".noticia-imagen, .noticia-pagina-pdf"
+                            );
+
+                        if (
+                            !imagen ||
+                            (evento.key !== "Enter" && evento.key !== " ")
+                        ) {
+                            return;
+                        }
+
+                        evento.preventDefault();
+
+                        abrirVisorGeneral(
+                            imagen.currentSrc || imagen.src,
+                            "imagen",
+                            imagen.alt ||
+                                ("Noticia N.º " + noticia.numero),
+                            imagen
+                        );
+
+                    }
+                );
+
+
                 if (
                     noticia.tipo === "pdf" &&
                     Array.isArray(
@@ -5095,8 +5169,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 botonVerMasNoticias.textContent =
                     mostrarTodasNoticias
-                        ? "Mostrar menos noticias"
-                        : "Ver más noticias";
+                        ? "Ocultar noticias anteriores"
+                        : "Ver noticias anteriores";
 
 
                 botonVerMasNoticias.setAttribute(
