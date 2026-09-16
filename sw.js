@@ -1,4 +1,4 @@
-/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260910-9 */
+/* Firebase Cloud Messaging · PUSH FONDO Fase 1 + Fase 2 · 20260916-1 */
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js");
 
@@ -98,8 +98,14 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260910-9";
+const CACHE_VERSION = "escuela-los-loros-20260916-1";
 
+/*
+   Precarga liviana:
+   se mantienen solo los archivos esenciales de la aplicación.
+   Las imágenes pesadas se cargan cuando realmente se necesitan
+   y luego quedan disponibles en la caché normal del Service Worker.
+*/
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
@@ -107,11 +113,6 @@ const ARCHIVOS_BASE = [
     "./script.js?v=20260908-8",
     "./notificaciones-config.js?v=20260908-8",
     "./manifest.webmanifest?v=20260908-8",
-    "./imagenes/logo.png",
-    "./imagenes/logoespecialidad1.png",
-    "./imagenes/logoespecialidad2.png",
-    "./imagenes/logosostenedor.png",
-    "./imagenes/frontis-colegio.jpg",
     "./icono192.png",
     "./icononotificacion.png",
     "./icono512.png",
@@ -202,7 +203,10 @@ self.addEventListener("fetch", function (evento) {
         /\.(png|jpe?g|webp|gif|svg|ico)(?:$|\?)/i.test(url.pathname + url.search);
 
     if (esImagen) {
-        /* Red primero: evita que el teléfono conserve logos/fotos antiguas o incompletas. */
+        /*
+           Red primero para conservar siempre las fotos/logos actualizados,
+           pero sin precargar todas las imágenes pesadas al instalar la PWA.
+        */
         evento.respondWith(
             fetch(solicitud, { cache: "no-store" })
                 .then(function (respuesta) {
