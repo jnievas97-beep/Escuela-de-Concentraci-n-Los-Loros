@@ -4016,6 +4016,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+        const contadorInicioComunicadosSincronizado =
+            document.getElementById("contadorInicioComunicados");
+
+        if (contadorInicioComunicadosSincronizado) {
+            contadorInicioComunicadosSincronizado.textContent =
+                comunicadosDisponibles.length;
+        }
+
 
         renderizarComunicados();
 
@@ -4979,6 +4987,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             return;
                         }
 
+                        /* Abre la noticia como superposición, igual que
+                           la fotografía del Centro de Alumnos. */
+                        evento.preventDefault();
+                        evento.stopPropagation();
+
                         abrirVisorGeneral(
                             imagen.currentSrc || imagen.src,
                             "imagen",
@@ -4986,6 +4999,18 @@ document.addEventListener("DOMContentLoaded", function () {
                                 ("Noticia N.º " + noticia.numero),
                             imagen
                         );
+
+                        if (visorImagenGeneral) {
+                            if (visorImagenGeneral.parentElement !== document.body) {
+                                document.body.appendChild(visorImagenGeneral);
+                            }
+                            visorImagenGeneral.style.position = "fixed";
+                            visorImagenGeneral.style.inset = "0";
+                            visorImagenGeneral.style.width = "100vw";
+                            visorImagenGeneral.style.height = "100dvh";
+                            visorImagenGeneral.style.zIndex = "2147483647";
+                            visorImagenGeneral.style.margin = "0";
+                        }
 
                     }
                 );
@@ -8204,11 +8229,21 @@ document.addEventListener("DOMContentLoaded", function () {
         const documentos = contarRutasUnicas('#documentos a[href*="documentos/"]');
         const protocolos = contarRutasUnicas('#protocolos a[href*="protocolos/"]');
 
-        if (cCom && comunicados > 0 && cCom.textContent !== String(comunicados)) cCom.textContent = comunicados;
-        if (cDoc && documentos > 0 && cDoc.textContent !== String(documentos)) cDoc.textContent = documentos;
-        if (cPro && protocolos > 0 && cPro.textContent !== String(protocolos)) cPro.textContent = protocolos;
-        if (cInicioCom && comunicados > 0 && cInicioCom.textContent !== String(comunicados)) cInicioCom.textContent = comunicados;
-        if (cInicioPro && cInicioPro.textContent !== String(protocolos)) cInicioPro.textContent = protocolos;
+        /* El conteo visible es SOLO respaldo.
+           Si comunicados.json ya cargó un total real, no lo reemplazamos
+           por las tarjetas actualmente visibles (por ejemplo, 7). */
+        function contadorNecesitaRespaldo(elemento) {
+            if (!elemento) return false;
+            const valor = String(elemento.textContent || "").trim();
+            const numero = Number(valor);
+            return valor === "" || !Number.isFinite(numero) || numero <= 0;
+        }
+
+        if (cCom && comunicados > 0 && contadorNecesitaRespaldo(cCom)) cCom.textContent = comunicados;
+        if (cDoc && documentos > 0 && contadorNecesitaRespaldo(cDoc)) cDoc.textContent = documentos;
+        if (cPro && protocolos > 0 && contadorNecesitaRespaldo(cPro)) cPro.textContent = protocolos;
+        if (cInicioCom && comunicados > 0 && contadorNecesitaRespaldo(cInicioCom)) cInicioCom.textContent = comunicados;
+        if (cInicioPro && protocolos > 0 && contadorNecesitaRespaldo(cInicioPro)) cInicioPro.textContent = protocolos;
     }
 
     actualizarContadoresRespaldo();
