@@ -4016,14 +4016,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        const contadorInicioComunicadosSincronizado =
-            document.getElementById("contadorInicioComunicados");
-
-        if (contadorInicioComunicadosSincronizado) {
-            contadorInicioComunicadosSincronizado.textContent =
-                comunicadosDisponibles.length;
-        }
-
 
         renderizarComunicados();
 
@@ -4533,7 +4525,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "noticias/noticias.json";
 
     const CANTIDAD_INICIAL_NOTICIAS =
-        1;
+        3;
 
     const listaNoticias =
         document.getElementById(
@@ -4666,24 +4658,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         imagen.decoding =
             "async";
-
-        if (
-            clase === "noticia-imagen" ||
-            clase === "noticia-pagina-pdf"
-        ) {
-            imagen.tabIndex = 0;
-            imagen.setAttribute(
-                "role",
-                "button"
-            );
-            imagen.setAttribute(
-                "aria-label",
-                (textoAlternativo || "Noticia") +
-                ". Presiona para ampliar"
-            );
-            imagen.style.cursor =
-                "zoom-in";
-        }
 
 
         return imagen;
@@ -4972,137 +4946,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     "noticia-contenido";
 
 
-
-(function instalarEstiloAmpliarNoticias(){
-    if (document.getElementById("estiloAmpliarNoticias20260916")) return;
-    const estilo = document.createElement("style");
-    estilo.id = "estiloAmpliarNoticias20260916";
-    estilo.textContent = `
-      .boton-ampliar-noticia{
-        display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
-        margin:.7rem auto .15rem;padding:.65rem 1.05rem;border:0;border-radius:999px;
-        font:700 .92rem/1.1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-        cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.16);
-        background:#1f5f3b;color:#fff;transition:transform .15s ease,box-shadow .15s ease;
-      }
-      .boton-ampliar-noticia:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(0,0,0,.2)}
-      .boton-ampliar-noticia:active{transform:translateY(0)}
-      .boton-ampliar-noticia:focus-visible{outline:3px solid #d8ad3d;outline-offset:3px}
-      #visorImagenGeneral .cerrar-visor-mejorado{
-        position:fixed!important;top:max(14px,env(safe-area-inset-top))!important;
-        right:max(14px,env(safe-area-inset-right))!important;width:46px!important;height:46px!important;
-        display:flex!important;align-items:center!important;justify-content:center!important;
-        border:2px solid rgba(255,255,255,.9)!important;border-radius:50%!important;
-        background:rgba(15,15,15,.78)!important;color:#fff!important;font:700 30px/1 Arial,sans-serif!important;
-        cursor:pointer!important;z-index:2147483647!important;box-shadow:0 3px 14px rgba(0,0,0,.35)!important;
-      }
-      @media(max-width:600px){
-        .boton-ampliar-noticia{width:min(92%,320px);min-height:44px}
-        #visorImagenGeneral .cerrar-visor-mejorado{width:48px!important;height:48px!important}
-      }`;
-    document.head.appendChild(estilo);
-})();
-
-                /* Las noticias pueden ampliarse tanto en computador
-                   como en teléfono usando el visor general existente. */
-                contenido.addEventListener(
-                    "click",
-                    function (evento) {
-
-                        const imagen =
-                            evento.target.closest(
-                                ".noticia-imagen, .noticia-pagina-pdf"
-                            );
-
-                        if (!imagen) {
-                            return;
-                        }
-
-                        /* Botón visible para indicar claramente que la noticia se puede ampliar. */
-                        const contenedorImagen = imagen.parentElement;
-                        if (contenedorImagen && !contenedorImagen.querySelector(".boton-ampliar-noticia")) {
-                            const botonAmpliar = document.createElement("button");
-                            botonAmpliar.type = "button";
-                            botonAmpliar.className = "boton-ampliar-noticia";
-                            botonAmpliar.innerHTML = '<span aria-hidden="true">🔍</span><span>Presione para ampliar</span>';
-                            botonAmpliar.addEventListener("click", function(e) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                imagen.click();
-                            });
-                            contenedorImagen.appendChild(botonAmpliar);
-                        }
-
-                        /* Abre la noticia como superposición, igual que
-                           la fotografía del Centro de Alumnos. */
-                        evento.preventDefault();
-                        evento.stopPropagation();
-
-                        abrirVisorGeneral(
-                            imagen.currentSrc || imagen.src,
-                            "imagen",
-                            imagen.alt ||
-                                ("Noticia N.º " + noticia.numero),
-                            imagen
-                        );
-
-                        if (visorImagenGeneral) {
-                            if (visorImagenGeneral.parentElement !== document.body) {
-                                document.body.appendChild(visorImagenGeneral);
-                            }
-                            visorImagenGeneral.style.position = "fixed";
-                            visorImagenGeneral.style.inset = "0";
-                            visorImagenGeneral.style.width = "100vw";
-                            visorImagenGeneral.style.height = "100dvh";
-                            visorImagenGeneral.style.zIndex = "2147483647";
-                            visorImagenGeneral.style.margin = "0";
-
-                            const cerrarExistente = visorImagenGeneral.querySelector(
-                                '[data-cerrar], .cerrar, .close, .visor-cerrar, button[aria-label*="errar"], button[title*="errar"]'
-                            );
-                            if (cerrarExistente) {
-                                cerrarExistente.classList.add("cerrar-visor-mejorado");
-                                cerrarExistente.setAttribute("aria-label", "Cerrar imagen ampliada");
-                                cerrarExistente.setAttribute("title", "Cerrar");
-                                if (!String(cerrarExistente.textContent || "").trim()) {
-                                    cerrarExistente.textContent = "×";
-                                }
-                            }
-                        }
-
-                    }
-                );
-
-                contenido.addEventListener(
-                    "keydown",
-                    function (evento) {
-
-                        const imagen =
-                            evento.target.closest(
-                                ".noticia-imagen, .noticia-pagina-pdf"
-                            );
-
-                        if (
-                            !imagen ||
-                            (evento.key !== "Enter" && evento.key !== " ")
-                        ) {
-                            return;
-                        }
-
-                        evento.preventDefault();
-
-                        abrirVisorGeneral(
-                            imagen.currentSrc || imagen.src,
-                            "imagen",
-                            imagen.alt ||
-                                ("Noticia N.º " + noticia.numero),
-                            imagen
-                        );
-
-                    }
-                );
-
-
                 if (
                     noticia.tipo === "pdf" &&
                     Array.isArray(
@@ -5252,8 +5095,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 botonVerMasNoticias.textContent =
                     mostrarTodasNoticias
-                        ? "Ocultar noticias anteriores"
-                        : "Ver noticias anteriores";
+                        ? "Mostrar menos noticias"
+                        : "Ver más noticias";
 
 
                 botonVerMasNoticias.setAttribute(
@@ -8287,21 +8130,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const documentos = contarRutasUnicas('#documentos a[href*="documentos/"]');
         const protocolos = contarRutasUnicas('#protocolos a[href*="protocolos/"]');
 
-        /* El conteo visible es SOLO respaldo.
-           Si comunicados.json ya cargó un total real, no lo reemplazamos
-           por las tarjetas actualmente visibles (por ejemplo, 7). */
-        function contadorNecesitaRespaldo(elemento) {
-            if (!elemento) return false;
-            const valor = String(elemento.textContent || "").trim();
-            const numero = Number(valor);
-            return valor === "" || !Number.isFinite(numero) || numero <= 0;
-        }
-
-        if (cCom && comunicados > 0 && contadorNecesitaRespaldo(cCom)) cCom.textContent = comunicados;
-        if (cDoc && documentos > 0 && contadorNecesitaRespaldo(cDoc)) cDoc.textContent = documentos;
-        if (cPro && protocolos > 0 && contadorNecesitaRespaldo(cPro)) cPro.textContent = protocolos;
-        if (cInicioCom && comunicados > 0 && contadorNecesitaRespaldo(cInicioCom)) cInicioCom.textContent = comunicados;
-        if (cInicioPro && protocolos > 0 && contadorNecesitaRespaldo(cInicioPro)) cInicioPro.textContent = protocolos;
+        if (cCom && comunicados > 0 && cCom.textContent !== String(comunicados)) cCom.textContent = comunicados;
+        if (cDoc && documentos > 0 && cDoc.textContent !== String(documentos)) cDoc.textContent = documentos;
+        if (cPro && protocolos > 0 && cPro.textContent !== String(protocolos)) cPro.textContent = protocolos;
+        if (cInicioCom && comunicados > 0 && cInicioCom.textContent !== String(comunicados)) cInicioCom.textContent = comunicados;
+        if (cInicioPro && cInicioPro.textContent !== String(protocolos)) cInicioPro.textContent = protocolos;
     }
 
     actualizarContadoresRespaldo();
@@ -9578,4 +9411,148 @@ window.addEventListener("load", function () {
         // consulta a Firebase el token vigente y lo vuelve a registrar en Apps Script.
         sincronizarTokenAutomaticamente(true);
     });
+})();
+
+
+/* =========================================================
+   VISOR DE NOTICIAS · MEJORA PC + MÓVIL · 20260916-1
+   Usa el visor general existente para las imágenes dinámicas
+   de Noticias. No modifica ni recomprime ninguna fotografía.
+========================================================= */
+(function () {
+    "use strict";
+
+    function iniciarVisorNoticias() {
+        const listaNoticias = document.getElementById("listaNoticias");
+        const visor = document.getElementById("visorImagenGeneral");
+        const imagenVisor = document.getElementById("imagenVisorGeneral");
+        const pdfVisor = document.getElementById("pdfVisorGeneral");
+        const cerrar = document.getElementById("cerrarVisorImagenGeneral");
+
+        if (!listaNoticias || !visor || !imagenVisor) return;
+
+        let focoAnterior = null;
+
+        function esImagenNoticia(elemento) {
+            return elemento && elemento.matches(
+                ".noticia-imagen, .noticia-pagina-pdf"
+            );
+        }
+
+        function abrir(imagen) {
+            if (!esImagenNoticia(imagen)) return;
+
+            focoAnterior = imagen;
+
+            if (pdfVisor) {
+                pdfVisor.hidden = true;
+                pdfVisor.removeAttribute("src");
+            }
+
+            imagenVisor.hidden = false;
+            imagenVisor.src = imagen.currentSrc || imagen.src;
+            imagenVisor.alt = imagen.alt || "Imagen de noticia ampliada";
+
+            visor.classList.add("visor-noticia-activo");
+            visor.hidden = false;
+            document.body.classList.add("visor-afiche-abierto");
+
+            if (cerrar) cerrar.focus();
+        }
+
+        function limpiarModoNoticias() {
+            if (visor.hidden) {
+                visor.classList.remove("visor-noticia-activo");
+            }
+        }
+
+        listaNoticias.addEventListener("click", function (evento) {
+            const imagen = evento.target.closest(
+                ".noticia-imagen, .noticia-pagina-pdf"
+            );
+            if (!imagen) return;
+
+            evento.preventDefault();
+            abrir(imagen);
+        });
+
+        listaNoticias.addEventListener("keydown", function (evento) {
+            const imagen = evento.target.closest(
+                ".noticia-imagen, .noticia-pagina-pdf"
+            );
+
+            if (
+                !imagen ||
+                (evento.key !== "Enter" && evento.key !== " ")
+            ) return;
+
+            evento.preventDefault();
+            abrir(imagen);
+        });
+
+        /* Las noticias se generan dinámicamente: hacemos que cada
+           imagen nueva sea accesible también con teclado. */
+        function prepararImagenes() {
+            listaNoticias.querySelectorAll(
+                ".noticia-imagen, .noticia-pagina-pdf"
+            ).forEach(function (imagen) {
+                if (!imagen.hasAttribute("tabindex")) {
+                    imagen.setAttribute("tabindex", "0");
+                }
+                imagen.setAttribute("role", "button");
+                imagen.setAttribute(
+                    "aria-label",
+                    (imagen.alt || "Imagen de noticia") + ". Presiona para ampliar."
+                );
+            });
+        }
+
+        prepararImagenes();
+
+        new MutationObserver(prepararImagenes).observe(
+            listaNoticias,
+            { childList: true, subtree: true }
+        );
+
+        if (cerrar) {
+            cerrar.addEventListener("click", function () {
+                setTimeout(limpiarModoNoticias, 0);
+            });
+        }
+
+        visor.addEventListener("click", function (evento) {
+            if (evento.target === visor) {
+                setTimeout(limpiarModoNoticias, 0);
+            }
+        });
+
+        document.addEventListener("keydown", function (evento) {
+            if (evento.key === "Escape") {
+                setTimeout(limpiarModoNoticias, 0);
+            }
+        });
+
+        /* Si otro visor reutiliza el mismo modal, no hereda
+           accidentalmente el aspecto de Noticias. */
+        const observadorVisor = new MutationObserver(function () {
+            if (visor.hidden) {
+                visor.classList.remove("visor-noticia-activo");
+                if (focoAnterior && typeof focoAnterior.focus === "function") {
+                    focoAnterior.focus();
+                }
+                focoAnterior = null;
+            }
+        });
+
+        observadorVisor.observe(visor, {
+            attributes: true,
+            attributeFilter: ["hidden"]
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", iniciarVisorNoticias);
+    } else {
+        iniciarVisorNoticias();
+    }
 })();
