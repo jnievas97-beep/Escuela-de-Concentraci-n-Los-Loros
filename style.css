@@ -5713,7 +5713,6 @@ textarea:focus-visible {
 }
 
 
-
 /* =========================================================
    NAVEGACIÓN INTERNA - INICIO
 ========================================================= */
@@ -5747,7 +5746,6 @@ textarea:focus-visible {
 }
 
 
-
 @keyframes resaltarDestinoInicio {
 
     0% {
@@ -5767,7 +5765,6 @@ textarea:focus-visible {
 .destino-inicio-activo {
     animation: resaltarDestinoInicio 1.1s ease;
 }
-
 
 
 /* =========================================================
@@ -6109,8 +6106,6 @@ textarea:focus-visible {
     }
 
 }
-
-
 
 
 /* =========================================================
@@ -6591,7 +6586,6 @@ textarea:focus-visible {
 }
 
 
-
 /* =========================================================
    TALLERES JEC - AFICHES MÁS GRANDES Y LEGIBLES
    Ajuste específico para PC y móvil.
@@ -6772,7 +6766,6 @@ textarea:focus-visible {
 }
 
 
-
 /* =========================================================
    AYUDA DE INSTALACIÓN - iPHONE / iPAD
 ========================================================= */
@@ -6828,7 +6821,6 @@ textarea:focus-visible {
     }
 
 }
-
 
 
 /* =========================================================
@@ -7024,7 +7016,6 @@ textarea:focus-visible {
     }
 
 }
-
 
 
 /* =========================================================
@@ -7331,7 +7322,6 @@ body.modal-instalacion-abierto {
 }
 
 
-
 /* =========================================================
    INSTALACIÓN - SOLO TELÉFONOS Y TABLETS
 ========================================================= */
@@ -7355,7 +7345,6 @@ body.modal-instalacion-abierto {
         display: none !important;
     }
 }
-
 
 
 /* =========================================================
@@ -7507,7 +7496,6 @@ body.modal-instalacion-abierto {
     }
 
 }
-
 
 
 /* =========================================================
@@ -7670,7 +7658,6 @@ body.modal-instalacion-abierto {
 }
 
 
-
 /* =========================================================
    TARJETAS GIRATORIAS DETALLADAS - ACADÉMICA
 ========================================================= */
@@ -7799,7 +7786,6 @@ body.modal-instalacion-abierto {
     }
 
 }
-
 
 
 /* =========================================================
@@ -13547,7 +13533,6 @@ body {
 }
 
 
-
 /* PERSONAS QUE DEJARON HUELLA · FOTOS MÁS GRANDES · 20260825-2 */
 #personasHuella .persona-avatar-principal.persona-avatar-foto{
     width:190px!important;
@@ -14577,7 +14562,6 @@ img[src*="rominacarrizo"]{
 html{
     scroll-behavior:auto !important;
 }
-
 
 
 /* =========================================================

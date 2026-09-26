@@ -98,7 +98,7 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260926-2";
+const CACHE_VERSION = "escuela-los-loros-20260926-3";
 
 /*
    Precarga liviana:
@@ -109,8 +109,8 @@ const CACHE_VERSION = "escuela-los-loros-20260926-2";
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
-    "./style.css?v=20260926-1",
-    "./script.js?v=20260926-1",
+    "./style.css?v=20260926-2",
+    "./script.js?v=20260926-2",
     "./notificaciones-config.js?v=20260908-8",
     "./manifest.webmanifest?v=20260908-8",
     "./icono192.png",
