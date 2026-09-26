@@ -1302,6 +1302,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
+            prepararBotonesGaleriaSeguridad();
+
         } catch (error) {
 
             galeriaSeguridad.innerHTML =
@@ -1312,6 +1314,70 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
+
+
+    function prepararBotonesGaleriaSeguridad() {
+
+        if (!galeriaSeguridad) {
+            return;
+        }
+
+        galeriaSeguridad
+            .querySelectorAll(
+                "figure"
+            )
+            .forEach(function (figura) {
+
+                if (
+                    figura.querySelector(
+                        ".boton-ampliar-seguridad"
+                    )
+                ) {
+                    return;
+                }
+
+                const imagen =
+                    figura.querySelector("img");
+
+                if (!imagen) {
+                    return;
+                }
+
+                const boton =
+                    document.createElement("button");
+
+                boton.type = "button";
+                boton.className =
+                    "boton-documento boton-ampliar-seguridad";
+                boton.textContent =
+                    "🔎 Presionar para ampliar";
+                boton.setAttribute(
+                    "aria-label",
+                    "Ampliar " +
+                    (imagen.alt || "material de seguridad")
+                );
+
+                boton.addEventListener(
+                    "click",
+                    function () {
+                        abrirVisorGeneral(
+                            imagen.currentSrc || imagen.src,
+                            "imagen",
+                            imagen.alt ||
+                                "Material de seguridad",
+                            boton
+                        );
+                    }
+                );
+
+                figura.appendChild(boton);
+            });
+    }
+
+
+    /* Prepara también las imágenes estáticas del HTML mientras
+       seguridad.json termina de cargar o si no estuviera disponible. */
+    prepararBotonesGaleriaSeguridad();
 
 
     cargarGaleriaSeguridad();
@@ -3997,6 +4063,13 @@ document.addEventListener("DOMContentLoaded", function () {
         false;
 
 
+    /* Filtro activo del archivo de comunicados.
+       Se aplica sobre los datos completos, no solamente sobre las
+       tarjetas que estén visibles en ese momento. */
+    let filtroComunicadosActivo =
+        "todos";
+
+
     const CANTIDAD_INICIAL_COMUNICADOS =
         6;
 
@@ -4091,22 +4164,44 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-        const totalFiltrados =
+        const totalBusqueda =
             filtrados.length;
 
 
         if (
+            filtroComunicadosActivo ===
+            "recientes"
+        ) {
+
+            filtrados = filtrados.slice(
+                0,
+                CANTIDAD_INICIAL_COMUNICADOS
+            );
+
+        } else if (
+            filtroComunicadosActivo ===
+            "antiguos"
+        ) {
+
+            filtrados = filtrados.slice(
+                CANTIDAD_INICIAL_COMUNICADOS
+            );
+
+        } else if (
             termino === "" &&
             !mostrarTodosComunicados
         ) {
 
-            filtrados =
-                filtrados.slice(
-                    0,
-                    CANTIDAD_INICIAL_COMUNICADOS
-                );
+            filtrados = filtrados.slice(
+                0,
+                CANTIDAD_INICIAL_COMUNICADOS
+            );
 
         }
+
+
+        const totalFiltrados =
+            filtrados.length;
 
 
         filtrados.forEach(
@@ -4295,6 +4390,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (botonVerMasComunicados) {
 
             if (
+                filtroComunicadosActivo !== "todos" ||
                 termino !== "" ||
                 comunicadosDisponibles.length <=
                     CANTIDAD_INICIAL_COMUNICADOS
@@ -6730,24 +6826,80 @@ document.addEventListener("DOMContentLoaded", function () {
         cargarPremium("horarios/horarios.json","horario","academica")
     ]);
 
-    const listaPremium=document.getElementById("listaComunicados");
-    if(listaPremium&&!document.querySelector(".archivo-comunicados-filtros")){
-        const f=document.createElement("div");
-        f.className="archivo-comunicados-filtros";
-        f.setAttribute("aria-label","Filtrar comunicados");
-        [["todos","Todos"],["recientes","Recientes"],["anteriores","Anteriores"]].forEach(op=>{
-            const b=document.createElement("button");
-            b.type="button";b.dataset.filtroComunicado=op[0];b.textContent=op[1];
-            if(op[0]==="todos")b.classList.add("activo");
-            b.addEventListener("click",function(){
-                f.querySelectorAll("button").forEach(x=>x.classList.toggle("activo",x===b));
-                Array.from(listaPremium.querySelectorAll(".comunicado")).forEach((card,i)=>{
-                    card.hidden=op[0]==="recientes"?i>=6:op[0]==="anteriores"?i<6:false;
-                });
-            });
-            f.appendChild(b);
+    /* =====================================================
+       FILTROS DEL ARCHIVO DE COMUNICADOS
+       Todos / Recientes / Antiguos
+    ===================================================== */
+
+    const listaPremium =
+        document.getElementById(
+            "listaComunicados"
+        );
+
+    if (
+        listaPremium &&
+        !document.querySelector(
+            ".archivo-comunicados-filtros"
+        )
+    ) {
+
+        const filtrosComunicados =
+            document.createElement("div");
+
+        filtrosComunicados.className =
+            "archivo-comunicados-filtros";
+
+        [
+            ["todos", "Todos"],
+            ["recientes", "Recientes"],
+            ["antiguos", "Antiguos"]
+        ].forEach(function (opcion) {
+
+            const botonFiltro =
+                document.createElement("button");
+
+            botonFiltro.type = "button";
+            botonFiltro.dataset.filtroComunicado =
+                opcion[0];
+            botonFiltro.textContent =
+                opcion[1];
+
+            if (opcion[0] === "todos") {
+                botonFiltro.classList.add("activo");
+            }
+
+            botonFiltro.addEventListener(
+                "click",
+                function () {
+
+                    filtroComunicadosActivo =
+                        opcion[0];
+
+                    mostrarTodosComunicados =
+                        false;
+
+                    filtrosComunicados
+                        .querySelectorAll("button")
+                        .forEach(function (otroBoton) {
+                            otroBoton.classList.toggle(
+                                "activo",
+                                otroBoton === botonFiltro
+                            );
+                        });
+
+                    renderizarComunicados();
+                }
+            );
+
+            filtrosComunicados.appendChild(
+                botonFiltro
+            );
         });
-        listaPremium.parentNode.insertBefore(f,listaPremium);
+
+        listaPremium.parentNode.insertBefore(
+            filtrosComunicados,
+            listaPremium
+        );
     }
 
 
@@ -7201,135 +7353,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Filtros de archivo de comunicados: si ya existen, los respetamos;
-       si no, los creamos sin tocar el cargador automático. */
-    const premiumListaComunicados =
-        document.getElementById(
-            "listaComunicados"
-        );
-
-    if (
-        premiumListaComunicados &&
-        !document.querySelector(
-            ".archivo-comunicados-filtros"
-        )
-    ) {
-
-        const filtros =
-            document.createElement(
-                "div"
-            );
-
-        filtros.className =
-            "archivo-comunicados-filtros";
-
-        [
-            [
-                "todos",
-                "Todos"
-            ],
-            [
-                "recientes",
-                "Recientes"
-            ],
-            [
-                "anteriores",
-                "Anteriores"
-            ]
-        ].forEach(
-            function (opcion) {
-
-                const boton =
-                    document.createElement(
-                        "button"
-                    );
-
-                boton.type =
-                    "button";
-
-                boton.textContent =
-                    opcion[1];
-
-                if (
-                    opcion[0] ===
-                    "todos"
-                ) {
-                    boton.classList.add(
-                        "activo"
-                    );
-                }
-
-                boton.addEventListener(
-                    "click",
-                    function () {
-
-                        filtros
-                            .querySelectorAll(
-                                "button"
-                            )
-                            .forEach(
-                                function (
-                                    otro
-                                ) {
-                                    otro.classList
-                                        .toggle(
-                                            "activo",
-                                            otro ===
-                                                boton
-                                        );
-                                }
-                            );
-
-                        Array.from(
-                            premiumListaComunicados
-                                .querySelectorAll(
-                                    ".comunicado"
-                                )
-                        ).forEach(
-                            function (
-                                tarjeta,
-                                indice
-                            ) {
-
-                                if (
-                                    opcion[0] ===
-                                    "todos"
-                                ) {
-                                    tarjeta.hidden =
-                                        false;
-                                } else if (
-                                    opcion[0] ===
-                                    "recientes"
-                                ) {
-                                    tarjeta.hidden =
-                                        indice >= 6;
-                                } else {
-                                    tarjeta.hidden =
-                                        indice < 6;
-                                }
-
-                            }
-                        );
-
-                    }
-                );
-
-                filtros.appendChild(
-                    boton
-                );
-
-            }
-        );
-
-        premiumListaComunicados
-            .parentNode
-            .insertBefore(
-                filtros,
-                premiumListaComunicados
-            );
-
-    }
-
+    /* Los filtros de Comunicados se inicializan una sola vez
+       en el bloque FILTROS DEL ARCHIVO DE COMUNICADOS. */
 
 
     /* =====================================================

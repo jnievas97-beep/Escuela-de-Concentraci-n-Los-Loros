@@ -14750,3 +14750,25 @@ body:has(#visorImagenGeneral:not([hidden])){
         font-size:27px;
     }
 }
+
+/* =========================================================
+   SEGURIDAD · BOTÓN PARA AMPLIAR MATERIAL GRÁFICO
+   20260926
+========================================================= */
+#seguridad .seguridad-item .boton-ampliar-seguridad,
+#seguridad .galeria-seguridad-item .boton-ampliar-seguridad {
+    display: block;
+    width: calc(100% - 28px);
+    margin: 0 14px 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #seguridad .seguridad-item .boton-ampliar-seguridad,
+    #seguridad .galeria-seguridad-item .boton-ampliar-seguridad {
+        min-height: 46px;
+        width: calc(100% - 24px);
+        margin: 0 12px 14px;
+    }
+}
