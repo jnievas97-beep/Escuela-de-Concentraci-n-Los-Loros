@@ -52,8 +52,8 @@ firebaseMessaging.onBackgroundMessage(function (payload) {
 
     return self.registration.showNotification(titulo, {
         body: cuerpo,
-        icon: "./icono192.png",
-        badge: "./icononotificacion.png",
+        icon: "./icono192.png?v=20260926-4",
+        badge: "./icononotificacion.png?v=20260926-4",
         tag: tag,
         renotify: true,
         data: {
@@ -98,7 +98,7 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20260926-3";
+const CACHE_VERSION = "escuela-los-loros-20260926-4";
 
 /*
    Precarga liviana:
@@ -109,13 +109,14 @@ const CACHE_VERSION = "escuela-los-loros-20260926-3";
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
-    "./style.css?v=20260926-2",
-    "./script.js?v=20260926-2",
+    "./style.css?v=20260926-1",
+    "./script.js?v=20260926-1",
     "./notificaciones-config.js?v=20260908-8",
-    "./manifest.webmanifest?v=20260908-8",
-    "./icono192.png",
-    "./icononotificacion.png",
-    "./icono512.png",
+    "./manifest.webmanifest?v=20260926-4",
+    "./icono192.png?v=20260926-4",
+    "./icononotificacion.png?v=20260926-4",
+    "./icono512.png?v=20260926-4",
+    "./iconomaskable512.png?v=20260926-4",
     "./apple-touch-icon.png"
 ];
 
