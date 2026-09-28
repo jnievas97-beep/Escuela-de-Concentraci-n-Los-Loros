@@ -17701,3 +17701,77 @@ body.portal-2027{
     margin-top:7px!important;
   }
 }
+
+
+/* ============================================================
+   R23 · EQUIPOS DE INSPECTORÍA Y CONVIVENCIA
+   Alineación uniforme de foto, nombre y cargo.
+============================================================ */
+.portal-2027 #equipo .equipo-cargo-desplegable{
+  width:100%!important;
+  grid-column:1/-1!important;
+}
+.portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo{
+  display:grid!important;
+  grid-template-columns:72px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:16px!important;
+  min-height:96px!important;
+  padding:12px!important;
+  text-align:left!important;
+}
+.portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo img{
+  width:72px!important;
+  height:72px!important;
+  aspect-ratio:1/1!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+}
+.portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo > div{
+  min-width:0!important;
+  width:100%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  text-align:left!important;
+}
+.portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo strong{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  color:#071b2d!important;
+  font-size:.98rem!important;
+  line-height:1.22!important;
+  font-weight:900!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+  word-break:normal!important;
+}
+.portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo span{
+  display:block!important;
+  width:100%!important;
+  margin-top:4px!important;
+  line-height:1.25!important;
+  white-space:normal!important;
+}
+
+@media(max-width:800px){
+  .portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo{
+    grid-template-columns:58px minmax(0,1fr)!important;
+    gap:11px!important;
+    min-height:78px!important;
+    padding:9px!important;
+  }
+  .portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo img{
+    width:58px!important;
+    height:58px!important;
+  }
+  .portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo strong{
+    font-size:.88rem!important;
+  }
+  .portal-2027 #equipo .equipo-cargo-desplegable .integrante-equipo-cargo span{
+    font-size:.78rem!important;
+  }
+}
