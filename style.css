@@ -18572,3 +18572,22 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   FOOTER MÓVIL · NOMBRE EN DOS LÍNEAS · 20260930
+============================================================ */
+@media (max-width:768px){
+  body.portal-2027 .pie-premium-sello > div:last-child strong{
+    font-size:0 !important;
+    line-height:1.2 !important;
+  }
+
+  body.portal-2027 .pie-premium-sello > div:last-child strong::before{
+    content:"Escuela de Concentración\A Los Loros";
+    white-space:pre-line !important;
+    display:block !important;
+    font-size:clamp(1.05rem,4.8vw,1.35rem) !important;
+    line-height:1.25 !important;
+    text-align:center !important;
+  }
+}
+
