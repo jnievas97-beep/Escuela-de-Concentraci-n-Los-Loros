@@ -18299,3 +18299,65 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   AJUSTE PUNTUAL MÓVIL · CUENTA PÚBLICA + LOS LOROS · 20260930
+============================================================ */
+@media (max-width:768px){
+
+  /* Cuenta Pública: título sin partir palabras */
+  body.portal-2027 #inicioCuentaPublica .cuenta-publica-contenido{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  body.portal-2027 #inicioCuentaPublica #tituloCuentaPublica{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    font-size:clamp(1.35rem,6vw,2rem) !important;
+    line-height:1.12 !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+    text-align:center !important;
+  }
+
+  body.portal-2027 #inicioCuentaPublica p,
+  body.portal-2027 #inicioCuentaPublica strong,
+  body.portal-2027 #inicioCuentaPublica a{
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+  }
+
+  /* Encabezado: "LOS LOROS" siempre juntos */
+  body.portal-2027 .encabezado-identidad-texto strong{
+    font-size:0 !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto strong::before{
+    content:"ESCUELA DE CONCENTRACIÓN\A LOS\00A0LOROS" !important;
+    display:block !important;
+    width:100% !important;
+    white-space:pre-line !important;
+    color:#fff !important;
+    font-size:clamp(.72rem,3vw,.94rem) !important;
+    line-height:1.15 !important;
+    text-align:center !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+  }
+}
+
+@media (max-width:380px){
+  body.portal-2027 #inicioCuentaPublica #tituloCuentaPublica{
+    font-size:1.28rem !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto strong::before{
+    font-size:.70rem !important;
+  }
+}
+
