@@ -17993,3 +17993,111 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   CORRECCIÓN DEFINITIVA ENCABEZADO MÓVIL · 20260930
+   Separa físicamente logo e identidad para impedir superposición.
+============================================================ */
+@media (max-width: 768px){
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    padding-left:30px !important;
+    padding-right:16px !important;
+    overflow:hidden !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    display:grid !important;
+    grid-template-columns:118px minmax(0,1fr) !important;
+    column-gap:14px !important;
+    align-items:center !important;
+    width:100% !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    width:88px !important;
+    height:88px !important;
+    max-width:88px !important;
+    min-width:88px !important;
+    margin:0 auto !important;
+    justify-self:center !important;
+    align-self:center !important;
+    position:static !important;
+    transform:none !important;
+    object-fit:contain !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    overflow:hidden !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto h1,
+  body.portal-2027 .encabezado-identidad-texto .encabezado-nombre{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 0 6px !important;
+    padding:0 !important;
+    font-size:clamp(.78rem,3.15vw,1rem) !important;
+    line-height:1.12 !important;
+    text-align:center !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto .desde-1857,
+  body.portal-2027 .encabezado-identidad-texto .encabezado-desde,
+  body.portal-2027 .encabezado-identidad-texto p{
+    display:table !important;
+    width:auto !important;
+    max-width:100% !important;
+    align-self:center !important;
+    margin:0 auto !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    padding-left:22px !important;
+    padding-right:10px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    grid-template-columns:108px minmax(0,1fr) !important;
+    column-gap:8px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    width:82px !important;
+    height:82px !important;
+    max-width:82px !important;
+    min-width:82px !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto h1,
+  body.portal-2027 .encabezado-identidad-texto .encabezado-nombre{
+    font-size:clamp(.72rem,3.05vw,.92rem) !important;
+  }
+}
+
