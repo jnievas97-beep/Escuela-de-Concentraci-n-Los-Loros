@@ -18101,3 +18101,124 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   CORRECCIÓN ENCABEZADO MÓVIL · ESTRUCTURA REAL · 20260930
+============================================================ */
+@media (max-width: 768px){
+  body.portal-2027 .encabezado-integrado{
+    overflow:hidden !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    width:100% !important;
+    max-width:100% !important;
+    min-height:160px !important;
+    padding:18px 22px 18px 42px !important;
+    margin:0 !important;
+    display:block !important;
+    overflow:hidden !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-contenido > .encabezado-integrado-especialidad,
+  body.portal-2027 .encabezado-integrado-derecha{
+    display:none !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    height:124px !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:grid !important;
+    grid-template-columns:112px minmax(0,1fr) !important;
+    column-gap:14px !important;
+    align-items:center !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    grid-column:1 !important;
+    width:100px !important;
+    height:100px !important;
+    max-width:100px !important;
+    min-width:100px !important;
+    margin:0 !important;
+    padding:0 !important;
+    justify-self:center !important;
+    position:static !important;
+    transform:none !important;
+    object-fit:contain !important;
+    clip-path:none !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto{
+    grid-column:2 !important;
+    min-width:0 !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto strong{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    color:#fff !important;
+    font-size:clamp(.82rem,3.2vw,1.05rem) !important;
+    line-height:1.15 !important;
+    text-align:center !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    word-break:normal !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-desde{
+    display:block !important;
+    order:2 !important;
+    width:max-content !important;
+    max-width:100% !important;
+    margin:7px auto 0 !important;
+    padding:4px 14px !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+  }
+
+  body.portal-2027 .encabezado-subtitulo{
+    display:none !important;
+  }
+}
+
+@media (max-width:480px){
+  body.portal-2027 .encabezado-integrado-contenido{
+    padding-left:34px !important;
+    padding-right:12px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    grid-template-columns:104px minmax(0,1fr) !important;
+    column-gap:8px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    width:92px !important;
+    height:92px !important;
+    max-width:92px !important;
+    min-width:92px !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto strong{
+    font-size:clamp(.74rem,3vw,.92rem) !important;
+  }
+}
+
