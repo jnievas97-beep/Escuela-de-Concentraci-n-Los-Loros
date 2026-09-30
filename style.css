@@ -17896,3 +17896,100 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   AJUSTE MÓVIL ENCABEZADO 2 · 20260930
+   - Insignia centrada dentro de su rectángulo
+   - Nombre completo visible, incluido "LOS LOROS"
+   - "DESDE 1857" centrado bajo el nombre
+============================================================ */
+@media (max-width: 768px){
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    padding-left:30px !important;
+    padding-right:18px !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    display:grid !important;
+    grid-template-columns:112px minmax(0,1fr) !important;
+    gap:14px !important;
+    align-items:center !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    width:88px !important;
+    height:88px !important;
+    max-width:88px !important;
+    justify-self:center !important;
+    align-self:center !important;
+    margin:0 !important;
+    position:static !important;
+    transform:none !important;
+    object-fit:contain !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto{
+    min-width:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto h1,
+  body.portal-2027 .encabezado-identidad-texto .encabezado-nombre{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    text-align:center !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+    line-height:1.12 !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto .desde-1857,
+  body.portal-2027 .encabezado-identidad-texto .encabezado-desde,
+  body.portal-2027 .encabezado-identidad-texto p{
+    align-self:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    padding-left:22px !important;
+    padding-right:12px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    grid-template-columns:108px minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    width:84px !important;
+    height:84px !important;
+    max-width:84px !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto h1,
+  body.portal-2027 .encabezado-identidad-texto .encabezado-nombre{
+    font-size:clamp(.86rem,3.8vw,1.08rem) !important;
+  }
+}
+
