@@ -18511,3 +18511,64 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   AJUSTE FINAL FOOTER MÓVIL · 20260930
+   Reorganiza únicamente la identidad superior del pie.
+============================================================ */
+@media (max-width:768px){
+  body.portal-2027 .pie-premium-sello{
+    width:100% !important;
+    max-width:560px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:14px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  body.portal-2027 .pie-premium-sello .pie-logos-institucionales{
+    width:auto !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:14px !important;
+  }
+
+  body.portal-2027 .pie-premium-sello > div:last-child{
+    width:100% !important;
+    max-width:520px !important;
+    min-width:0 !important;
+    padding:0 16px !important;
+    text-align:center !important;
+    box-sizing:border-box !important;
+  }
+
+  body.portal-2027 .pie-premium-sello > div:last-child strong{
+    display:block !important;
+    width:100% !important;
+    margin:0 auto 7px !important;
+    text-align:center !important;
+    font-size:clamp(1.05rem,4.8vw,1.35rem) !important;
+    line-height:1.22 !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+  }
+
+  body.portal-2027 .pie-premium-sello > div:last-child span{
+    display:block !important;
+    width:100% !important;
+    margin:0 auto !important;
+    text-align:center !important;
+    font-size:clamp(.82rem,3.7vw,.98rem) !important;
+    line-height:1.45 !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+  }
+}
+
