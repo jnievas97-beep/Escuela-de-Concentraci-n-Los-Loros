@@ -5079,6 +5079,27 @@ document.addEventListener("DOMContentLoaded", function () {
                     "noticia-contenido";
 
 
+function prepararBotonesAmpliarNoticias() {
+    document.querySelectorAll("#listaNoticias .noticia-imagen, #listaNoticias .noticia-pagina-pdf").forEach(function(imagen) {
+        const contenedorImagen = imagen.parentElement;
+        if (!contenedorImagen || contenedorImagen.querySelector(".boton-ampliar-noticia")) return;
+
+        const botonAmpliar = document.createElement("button");
+        botonAmpliar.type = "button";
+        botonAmpliar.className = "boton-ampliar-noticia";
+        botonAmpliar.innerHTML = '<span aria-hidden="true">🔍</span><span>Presione para ampliar</span>';
+        botonAmpliar.setAttribute("aria-label", "Ampliar noticia");
+
+        botonAmpliar.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            imagen.click();
+        });
+
+        contenedorImagen.appendChild(botonAmpliar);
+    });
+}
+
 (function instalarEstiloAmpliarNoticias(){
     if (document.getElementById("estiloAmpliarNoticias20260916")) return;
     const estilo = document.createElement("style");
@@ -5109,6 +5130,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.head.appendChild(estilo);
 })();
 
+prepararBotonesAmpliarNoticias();
+
+const observadorBotonesAmpliarNoticias = new MutationObserver(function() {
+    prepararBotonesAmpliarNoticias();
+});
+
+const listaNoticiasParaAmpliar = document.getElementById("listaNoticias");
+if (listaNoticiasParaAmpliar) {
+    observadorBotonesAmpliarNoticias.observe(listaNoticiasParaAmpliar, {
+        childList: true,
+        subtree: true
+    });
+}
+
                 /* Las noticias pueden ampliarse tanto en computador
                    como en teléfono usando el visor general existente. */
                 contenido.addEventListener(
@@ -5122,21 +5157,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         if (!imagen) {
                             return;
-                        }
-
-                        /* Botón visible para indicar claramente que la noticia se puede ampliar. */
-                        const contenedorImagen = imagen.parentElement;
-                        if (contenedorImagen && !contenedorImagen.querySelector(".boton-ampliar-noticia")) {
-                            const botonAmpliar = document.createElement("button");
-                            botonAmpliar.type = "button";
-                            botonAmpliar.className = "boton-ampliar-noticia";
-                            botonAmpliar.innerHTML = '<span aria-hidden="true">🔍</span><span>Presione para ampliar</span>';
-                            botonAmpliar.addEventListener("click", function(e) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                imagen.click();
-                            });
-                            contenedorImagen.appendChild(botonAmpliar);
                         }
 
                         evento.preventDefault();
