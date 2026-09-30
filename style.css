@@ -18222,3 +18222,80 @@ body.portal-2027{
   }
 }
 
+/* ============================================================
+   REVISIÓN MÓVIL · TEXTOS Y ENCABEZADO · 20260930
+============================================================ */
+@media (max-width:768px){
+
+  /* Evitar palabras partidas/cortadas en Cuenta Pública y bloques de Inicio */
+  body.portal-2027 .seccion-cuenta-publica,
+  body.portal-2027 .cuenta-publica-contenido,
+  body.portal-2027 .cuenta-publica-contenido h2,
+  body.portal-2027 .cuenta-publica-contenido p,
+  body.portal-2027 .cuenta-publica-explicacion-movil,
+  body.portal-2027 .visor-cuenta-publica,
+  body.portal-2027 .visor-cuenta-publica-acciones,
+  body.portal-2027 .boton-cuenta-publica{
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+  }
+
+  body.portal-2027 .cuenta-publica-contenido{
+    width:100% !important;
+    padding-left:20px !important;
+    padding-right:20px !important;
+    overflow:visible !important;
+  }
+
+  body.portal-2027 .cuenta-publica-contenido h2,
+  body.portal-2027 .cuenta-publica-contenido p,
+  body.portal-2027 .cuenta-publica-explicacion-movil{
+    white-space:normal !important;
+    text-wrap:pretty !important;
+  }
+
+  body.portal-2027 .boton-cuenta-publica{
+    white-space:normal !important;
+    text-align:center !important;
+  }
+
+  /* Encabezado: reservar "Los Loros" como unidad inseparable */
+  body.portal-2027 .encabezado-identidad-texto strong{
+    font-size:0 !important;
+    line-height:1.15 !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto strong::before{
+    content:"ESCUELA DE CONCENTRACIÓN\A LOS\00A0LOROS";
+    white-space:pre-line !important;
+    display:block !important;
+    width:100% !important;
+    color:#fff !important;
+    font-size:clamp(.76rem,3.05vw,.98rem) !important;
+    line-height:1.15 !important;
+    text-align:center !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-desde{
+    order:2 !important;
+    margin:7px auto 0 !important;
+  }
+}
+
+@media (max-width:380px){
+  body.portal-2027 .cuenta-publica-contenido{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto strong::before{
+    font-size:.72rem !important;
+  }
+}
+
