@@ -3531,16 +3531,26 @@ document.addEventListener("DOMContentLoaded", function () {
             .filter(
                 function (comunicado) {
 
-                    return (
-                        comunicado &&
-                        Number.isInteger(
-                            comunicado.numero
-                        ) &&
-                        comunicado.numero > 0 &&
-                        typeof comunicado.nombre ===
-                            "string" &&
-                        typeof comunicado.ruta ===
+                    if (
+                        !comunicado ||
+                        typeof comunicado.nombre !==
+                            "string" ||
+                        typeof comunicado.ruta !==
                             "string"
+                    ) {
+
+                        return false;
+                    }
+
+
+                    const numero =
+                        String(
+                            comunicado.numero
+                        ).trim();
+
+
+                    return /^\d+(?:-\d+)?$/.test(
+                        numero
                     );
 
                 }
@@ -3548,9 +3558,32 @@ document.addEventListener("DOMContentLoaded", function () {
             .sort(
                 function (a, b) {
 
+                    const partesA =
+                        String(a.numero)
+                            .split("-")
+                            .map(Number);
+
+                    const partesB =
+                        String(b.numero)
+                            .split("-")
+                            .map(Number);
+
+
+                    if (
+                        partesB[0] !==
+                        partesA[0]
+                    ) {
+
+                        return (
+                            partesB[0] -
+                            partesA[0]
+                        );
+                    }
+
+
                     return (
-                        b.numero -
-                        a.numero
+                        (partesB[1] || 0) -
+                        (partesA[1] || 0)
                     );
 
                 }
