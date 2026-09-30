@@ -17820,3 +17820,79 @@ body.portal-2027{
     grid-column:1!important;
   }
 }
+
+/* ============================================================
+   AJUSTE MÓVIL · LOGO ENCABEZADO · 20260930
+   Mantiene la insignia completamente dentro del encabezado.
+   No modifica la versión de escritorio.
+============================================================ */
+@media (max-width: 768px){
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:30px !important;
+    padding-right:18px !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    overflow:hidden !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:grid !important;
+    grid-template-columns:110px minmax(0,1fr) !important;
+    column-gap:12px !important;
+    align-items:center !important;
+    justify-content:start !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    grid-column:1 !important;
+    position:static !important;
+    display:block !important;
+    width:96px !important;
+    height:96px !important;
+    max-width:96px !important;
+    min-width:0 !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    object-fit:contain !important;
+    transform:none !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+  }
+
+  body.portal-2027 .encabezado-identidad-texto{
+    grid-column:2 !important;
+    min-width:0 !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:visible !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  body.portal-2027 .encabezado-integrado-contenido{
+    padding-left:24px !important;
+    padding-right:14px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro{
+    grid-template-columns:102px minmax(0,1fr) !important;
+    column-gap:10px !important;
+  }
+
+  body.portal-2027 .encabezado-integrado-centro > img{
+    width:90px !important;
+    height:90px !important;
+    max-width:90px !important;
+  }
+}
+
