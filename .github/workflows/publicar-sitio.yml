@@ -98,7 +98,7 @@ jobs:
           )
 
           patron_comunicado = re.compile(
-              r"^COMUNICADO\s+(\d+)\.pdf$",
+              r"^COMUNICADO\s+(\d+)(?:-(\d+))?\.pdf$",
               re.IGNORECASE
           )
 
@@ -116,12 +116,28 @@ jobs:
               if not coincidencia:
                   continue
 
-              numero = int(
+              numero_base = int(
                   coincidencia.group(1)
+              )
+
+              subnumero = (
+                  int(coincidencia.group(2))
+                  if coincidencia.group(2)
+                  else None
+              )
+
+              numero = (
+                  f"{numero_base}-{subnumero}"
+                  if subnumero is not None
+                  else str(numero_base)
               )
 
               comunicados.append({
                   "numero": numero,
+                  "_orden": (
+                      numero_base,
+                      subnumero if subnumero is not None else 0
+                  ),
                   "nombre": archivo.name,
                   "ruta": (
                       "comunicados/" +
@@ -136,9 +152,12 @@ jobs:
               })
 
           comunicados.sort(
-              key=lambda item: item["numero"],
+              key=lambda item: item["_orden"],
               reverse=True
           )
+
+          for comunicado in comunicados:
+              comunicado.pop("_orden", None)
 
           salida_comunicados = (
               carpeta_comunicados /
@@ -899,7 +918,7 @@ jobs:
             categoria=""
 
             shopt -s nocasematch
-            if [[ "$archivo" =~ ^comunicados/COMUNICADO[[:space:]]+[0-9]+\.pdf$ ]]; then
+            if [[ "$archivo" =~ ^comunicados/COMUNICADO[[:space:]]+[0-9]+(-[0-9]+)?\.pdf$ ]]; then
               categoria="Comunicado"
             elif [[ "$archivo" =~ ^noticias/noticias[0-9]+\.(pdf|png|jpg|jpeg)$ ]]; then
               categoria="Noticias"
