@@ -818,6 +818,34 @@ jobs:
             exit 1
           fi
 
+          # DIAGNÓSTICO TEMPORAL:
+          # Comprueba si este mismo runner de GitHub puede acceder al Web App
+          # mediante GET antes de intentar la solicitud POST de notificación.
+          echo "===== DIAGNÓSTICO GET APPS SCRIPT ====="
+          diagnostico_respuesta="$(mktemp)"
+
+          set +e
+          diagnostico_http=$(curl \
+            --http1.1 \
+            --silent \
+            --show-error \
+            --location \
+            --connect-timeout 20 \
+            --max-time 60 \
+            --header "Accept: application/json,text/plain,*/*" \
+            --output "$diagnostico_respuesta" \
+            --write-out "%{http_code}" \
+            "${APPS_SCRIPT_URL}")
+          diagnostico_curl=$?
+          set -e
+
+          echo "GET diagnóstico: curl=${diagnostico_curl}, HTTP=${diagnostico_http:-sin_codigo}"
+          echo "Respuesta GET (máximo 600 caracteres):"
+          head -c 600 "$diagnostico_respuesta" || true
+          echo
+          rm -f "$diagnostico_respuesta"
+          echo "===== FIN DIAGNÓSTICO GET ====="
+
           # Envía una solicitud a Apps Script y comprueba tanto el HTTP
           # como el JSON devuelto por nuestro código. No se usa -X POST:
           # --data-urlencode inicia POST y curl cambia a GET al seguir el
