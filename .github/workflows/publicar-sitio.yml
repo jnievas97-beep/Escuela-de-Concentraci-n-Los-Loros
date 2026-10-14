@@ -174,20 +174,17 @@ jobs:
           )
 
           # ===============================================
-          # NOTICIAS
+          # INFORMACIÓN IMPORTANTE (ARCHIVOS HISTÓRICOS)
           #
           # Formatos:
-          # noticias01.jpg
-          # noticias02.jpeg
-          # noticias03.png
-          # noticias04.pdf
+          # infoimportante01.jpg
+          # infoimportante02.jpeg
+          # infoimportante03.png
+          # infoimportante04.pdf
           # ===============================================
 
-          carpeta_noticias = Path("noticias")
-          carpeta_noticias.mkdir(
-              parents=True,
-              exist_ok=True
-          )
+          carpeta_noticias = Path("informacion-importante")
+          carpeta_noticias.mkdir(parents=True, exist_ok=True)
 
           carpeta_previews = (
               carpeta_noticias /
@@ -205,7 +202,7 @@ jobs:
           )
 
           patron_noticia = re.compile(
-              r"^noticias(\d+)\.(pdf|png|jpe?g)$",
+              r"^infoimportante(\d+)\.(pdf|png|jpe?g)$",
               re.IGNORECASE
           )
 
@@ -234,7 +231,7 @@ jobs:
 
 
               ruta_original = (
-                  "noticias/" +
+                  "informacion-importante/" +
                   quote(
                       archivo.name,
                       safe=""
@@ -245,7 +242,7 @@ jobs:
 
                   destino_pdf = (
                       carpeta_previews /
-                      f"noticias{numero:02d}"
+                      f"infoimportante{numero:02d}"
                   )
 
                   destino_pdf.mkdir(
@@ -278,7 +275,7 @@ jobs:
 
                   paginas = [
                       (
-                          "noticias/previews/" +
+                          "informacion-importante/previews/" +
                           f"noticias{numero:02d}/" +
                           pagina.name
                       )
@@ -316,7 +313,7 @@ jobs:
 
           salida_noticias = (
               carpeta_noticias /
-              "noticias.json"
+              "informacion-importante.json"
           )
 
           salida_noticias.write_text(
@@ -330,6 +327,36 @@ jobs:
 
 
 
+          # ===============================================
+          # ===============================================
+          # NOTICIAS DE NUESTRA ESCUELA (IMAGEN COMPLETA)
+          # Subir noticias/noticia01.png, noticia02.jpg, etc.
+          # La imagen incluye título, fecha, fotografías y texto.
+          # ===============================================
+          carpeta_noticias_escolares = Path("noticias")
+          carpeta_noticias_escolares.mkdir(parents=True, exist_ok=True)
+          patron_noticia_escolar = re.compile(r"^noticia(\d+)\.(png|jpe?g|webp)$", re.I)
+          noticias_escolares = []
+          for archivo in carpeta_noticias_escolares.iterdir():
+              if not archivo.is_file():
+                  continue
+              coincidencia = patron_noticia_escolar.fullmatch(archivo.name)
+              if not coincidencia:
+                  continue
+              numero = int(coincidencia.group(1))
+              noticias_escolares.append({
+                  "numero": numero,
+                  "nombre": archivo.name,
+                  "ruta": "noticias/" + quote(archivo.name, safe=""),
+                  "fecha": fecha_git(archivo)
+              })
+          noticias_escolares.sort(key=lambda n: n["numero"], reverse=True)
+          (carpeta_noticias_escolares / "noticias.json").write_text(
+              json.dumps(noticias_escolares, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+
+          # ===============================================
           # ===============================================
           # DOCUMENTOS - LISTA AUTOMÁTICA MULTIFORMATO
           #
@@ -700,7 +727,7 @@ jobs:
           cat comunicados/comunicados.json
           echo
           echo "===== NOTICIAS ====="
-          cat noticias/noticias.json
+          cat informacion-importante/informacion-importante.json
           echo
           echo "===== SEGURIDAD ====="
           cat seguridad/seguridad.json
@@ -715,7 +742,7 @@ jobs:
           find avisos/previews -type f -maxdepth 2 -print || true
           echo
           echo "===== VISTAS PREVIAS DE PDF ====="
-          find noticias/previews -type f -maxdepth 3 -print || true
+          find informacion-importante/previews -type f -maxdepth 3 -print || true
 
       - name: Actualizar fecha visible del sitio
         shell: bash
@@ -948,7 +975,7 @@ jobs:
             shopt -s nocasematch
             if [[ "$archivo" =~ ^comunicados/COMUNICADO[[:space:]]+[0-9]+(-[0-9]+)?\.pdf$ ]]; then
               categoria="Comunicado"
-            elif [[ "$archivo" =~ ^noticias/noticias[0-9]+\.(pdf|png|jpg|jpeg)$ ]]; then
+            elif [[ "$archivo" =~ ^(informacion-importante/infoimportante[0-9]+\.(pdf|png|jpg|jpeg)|noticias/noticia[0-9]+\.(png|jpg|jpeg|webp))$ ]]; then
               categoria="Noticias"
             elif [[ "$archivo" =~ ^avisos/aviso[[:space:]]*[0-9]+(_desde_[0-9]{4}-[0-9]{2}-[0-9]{2})?(_hasta_[0-9]{4}-[0-9]{2}-[0-9]{2})?\.(pdf|png|jpg|jpeg)$ ]]; then
               categoria="Avisos importantes"
@@ -961,6 +988,11 @@ jobs:
           procesar_archivo() {
             archivo="$1"
             categoria="$(categoria_archivo "$archivo")"
+
+            if [[ "$archivo" =~ ^informacion-importante/infoimportante(01|02)\.(png|jpg|jpeg|pdf)$ ]]; then
+              echo "Publicación histórica migrada: no se envía aviso duplicado: $archivo"
+              return 0
+            fi
 
             if [ -z "$categoria" ]; then
               echo "Se omite archivo no notificable: $archivo"
