@@ -4625,7 +4625,7 @@ document.addEventListener("DOMContentLoaded", function () {
        SISTEMA AUTOMÁTICO DE ÚLTIMAS NOTICIAS
 
        GitHub Actions genera:
-       noticias/noticias.json
+       informacion-importante/informacion-importante.json
 
        Formatos aceptados:
        noticias01.jpg
@@ -4639,7 +4639,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
     const ARCHIVO_LISTA_NOTICIAS =
-        "noticias/noticias.json";
+        "informacion-importante/informacion-importante.json";
 
     const CANTIDAD_INICIAL_NOTICIAS =
         1;
@@ -4687,7 +4687,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             mensajeNoticias.innerHTML = `
                 <p>
-                    Cargando últimas noticias...
+                    Cargando información importante...
                 </p>
             `;
 
@@ -5376,8 +5376,8 @@ if (listaNoticiasParaAmpliar) {
 
                 botonVerMasNoticias.textContent =
                     mostrarTodasNoticias
-                        ? "Ocultar noticias anteriores"
-                        : "Ver noticias anteriores";
+                        ? "Ocultar publicaciones anteriores"
+                        : "Ver publicaciones anteriores";
 
 
                 botonVerMasNoticias.setAttribute(
@@ -5684,7 +5684,7 @@ if (listaNoticiasParaAmpliar) {
 
             const respuestaNoticias =
                 await fetch(
-                    "noticias/noticias.json?ts=" +
+                    "informacion-importante/informacion-importante.json?ts=" +
                     Date.now(),
                     { cache: "no-store" }
                 );
@@ -6840,7 +6840,7 @@ if (listaNoticiasParaAmpliar) {
 
     Promise.all([
         cargarPremium("comunicados/comunicados.json","comunicado","comunicados"),
-        cargarPremium("noticias/noticias.json","noticia","inicio"),
+        cargarPremium("informacion-importante/informacion-importante.json","noticia","inicio"),
         cargarPremium("documentos/documentos.json","documento","documentos"),
         Promise.resolve(), /* Protocolos ya están definidos en el HTML; no se solicita protocolos.json */
         cargarPremium("seguridad/seguridad.json","documento","seguridad"),
@@ -9615,4 +9615,96 @@ window.addEventListener("load", function () {
         // consulta a Firebase el token vigente y lo vuelve a registrar en Apps Script.
         sincronizarTokenAutomaticamente(true);
     });
+})();
+
+
+/* NOTICIAS DE NUESTRA ESCUELA · IMÁGENES CON NOTICIA COMPLETA */
+(function () {
+  'use strict';
+  const lista = document.getElementById('noticiasEscuelaLista');
+  const botonMas = document.getElementById('noticiasEscuelaVerMas');
+  const dialogo = document.getElementById('noticiasEscuelaDialogo');
+  const detalle = document.getElementById('noticiasEscuelaDetalle');
+  const cerrar = document.getElementById('noticiasEscuelaCerrar');
+  if (!lista || !dialogo || !detalle) return;
+  let noticias = [], todas = false, escala = 1;
+  function crear(tag, clase, texto) {
+    const el = document.createElement(tag);
+    if (clase) el.className = clase;
+    if (texto !== undefined) el.textContent = texto;
+    return el;
+  }
+  function rutaSegura(ruta) {
+    if (typeof ruta !== 'string' || !/^noticias\/noticia\d+\.(png|jpe?g|webp)$/i.test(ruta)) return null;
+    return new URL(ruta, document.baseURI).href;
+  }
+  function abrir(item) {
+    const url = rutaSegura(item.ruta);
+    if (!url) return;
+    detalle.replaceChildren();
+    const imagen = crear('img', 'noticias-escolares-imagen-completa');
+    imagen.src = url;
+    imagen.alt = 'Noticia escolar completa ' + item.numero;
+    imagen.decoding = 'async';
+    const controles = crear('div', 'noticias-escolares-zoom');
+    const menos = crear('button', '', '− Alejar');
+    const mas = crear('button', '', '+ Acercar');
+    const restaurar = crear('button', '', 'Restablecer');
+    const porcentaje = crear('span', '', '100 %');
+    [menos, mas, restaurar].forEach(b => b.type = 'button');
+    escala = 1;
+    function aplicar() {
+      imagen.style.width = (escala * 100) + '%';
+      porcentaje.textContent = Math.round(escala * 100) + ' %';
+    }
+    menos.addEventListener('click', () => { escala = Math.max(0.6, +(escala - 0.2).toFixed(2)); aplicar(); });
+    mas.addEventListener('click', () => { escala = Math.min(3, +(escala + 0.2).toFixed(2)); aplicar(); });
+    restaurar.addEventListener('click', () => { escala = 1; aplicar(); });
+    controles.append(menos, porcentaje, mas, restaurar);
+    const marco = crear('div', 'noticias-escolares-marco');
+    marco.append(imagen);
+    detalle.append(controles, marco);
+    if (typeof dialogo.showModal === 'function') dialogo.showModal();
+    else dialogo.setAttribute('open', '');
+  }
+  function dibujar() {
+    lista.replaceChildren();
+    if (!noticias.length) {
+      lista.append(crear('p', 'noticias-escolares-vacio', 'Próximamente compartiremos las actividades y experiencias de nuestra escuela.'));
+      if (botonMas) botonMas.hidden = true;
+      return;
+    }
+    (todas ? noticias : noticias.slice(0, 3)).forEach((item, i) => {
+      const url = rutaSegura(item.ruta);
+      if (!url) return;
+      const tarjeta = crear('article', 'noticias-escolares-tarjeta' + (i === 0 ? ' destacada' : ''));
+      const imagen = crear('img', 'noticias-escolares-portada');
+      imagen.src = url;
+      imagen.alt = 'Noticia escolar número ' + item.numero;
+      imagen.loading = 'lazy';
+      const cuerpo = crear('div', 'noticias-escolares-cuerpo');
+      cuerpo.append(crear('h3', '', 'Noticia ' + String(item.numero).padStart(2, '0')));
+      const boton = crear('button', 'noticias-escolares-leer', 'Ampliar noticia');
+      boton.type = 'button';
+      boton.addEventListener('click', () => abrir(item));
+      cuerpo.append(boton);
+      tarjeta.append(imagen, cuerpo);
+      lista.append(tarjeta);
+    });
+    if (botonMas) {
+      botonMas.hidden = noticias.length <= 3;
+      botonMas.textContent = todas ? 'Mostrar menos' : 'Ver noticias anteriores';
+    }
+  }
+  if (botonMas) botonMas.addEventListener('click', () => { todas = !todas; dibujar(); });
+  if (cerrar) cerrar.addEventListener('click', () => dialogo.close ? dialogo.close() : dialogo.removeAttribute('open'));
+  dialogo.addEventListener('click', e => { if (e.target === dialogo && dialogo.close) dialogo.close(); });
+  fetch('noticias/noticias.json?v=' + Date.now(), {cache: 'no-store'})
+    .then(r => { if (!r.ok) throw Error('Catálogo no disponible'); return r.json(); })
+    .then(datos => {
+      noticias = (Array.isArray(datos) ? datos : [])
+        .filter(n => n && Number.isInteger(n.numero) && rutaSegura(n.ruta))
+        .sort((a,b) => b.numero - a.numero);
+      dibujar();
+    }).catch(e => { console.warn('Noticias escolares:', e); dibujar(); });
 })();

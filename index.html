@@ -48,7 +48,7 @@
 <!-- =====================================================
      HOJA DE ESTILOS
 ====================================================== -->
-<link href="style.css?v=20260928-r22" rel="stylesheet"/>
+<link href="style.css?v=20261014-noticias-1" rel="stylesheet"/>
 <link href="manifest.webmanifest?v=20260908-8" rel="manifest"/>
 
 
@@ -207,13 +207,13 @@
     Comunidad Educativa
 </button>
 <button class="boton-menu boton-menu-largo" data-pagina="equipo" type="button">
-    Equipo Directivo
+    Equipo de Gestión
 </button>
 <!-- =================================================
      EQUIPO DE GESTIÓN
 ================================================== -->
 <button class="boton-menu boton-menu-largo" data-pagina="gestion" type="button">
-    Equipo de Gestión
+    Consejo Escolar
 </button>
 <button class="boton-menu" data-pagina="documentos" type="button">
     Documentos
@@ -458,7 +458,7 @@
             🛠️ Especialidades
         </button>
 <button data-destino="inicioNoticias" type="button">
-            📰 Últimas Noticias
+            📰 Información importante
         </button>
 <button data-destino="inicioUltimoComunicado" type="button">
             📢 Último Comunicado
@@ -591,7 +591,7 @@
 <div class="resumen-contenido-item">
 <span aria-hidden="true" class="resumen-icono">📰</span>
 <strong id="contadorInicioNoticias">—</strong>
-<span>Noticias</span>
+<span>Información importante</span>
 </div>
 <div class="resumen-contenido-item">
 <span aria-hidden="true" class="resumen-icono">📄</span>
@@ -601,28 +601,28 @@
 </div>
 </section>
 <!-- =================================================
-     ÚLTIMAS NOTICIAS
+     INFORMACIÓN IMPORTANTE
 ================================================== -->
 <section aria-labelledby="tituloUltimasNoticias" class="seccion-noticias-inicio" id="inicioNoticias">
 <div class="noticias-editorial-premium">
-<span>ACTUALIDAD ESCOLAR</span>
-<strong>Lo último en nuestra comunidad</strong>
+<span>INFORMACIÓN INSTITUCIONAL</span>
+<strong>Información para nuestra comunidad</strong>
 </div>
 <div class="noticias-inicio-cabecera">
 <span aria-hidden="true" class="noticias-inicio-icono">
             📰
         </span>
 <h2 id="tituloUltimasNoticias">
-            Últimas Noticias
+            Información importante
         </h2>
 <p>
-            Información reciente de nuestra comunidad educativa.
+            Publicaciones institucionales de interés permanente para nuestra comunidad educativa.
         </p>
 </div>
 <div aria-busy="true" aria-live="polite" class="lista-noticias" id="listaNoticias">
 <div class="estado-noticias" id="mensajeNoticias">
 <p>
-                Cargando últimas noticias...
+                Cargando información importante...
             </p>
 </div>
 </div>
@@ -632,6 +632,19 @@
         </button>
 </div>
 </section>
+
+<!-- NOTICIAS DE NUESTRA ESCUELA: publicaciones de actividades realizadas -->
+<section class="seccion-noticias-escolares" id="noticiasEscuelaInicio" aria-labelledby="tituloNoticiasEscuela">
+  <div class="noticias-escolares-encabezado"><span class="noticias-escolares-kicker">VIDA ESCOLAR</span>
+  <h2 id="tituloNoticiasEscuela">Noticias de nuestra escuela</h2>
+  <p>Actividades, experiencias y logros que vivimos como comunidad educativa.</p></div>
+  <div class="noticias-escolares-grid" id="noticiasEscuelaLista" aria-live="polite"><p class="noticias-escolares-vacio">Cargando noticias de nuestra escuela…</p></div>
+  <div class="noticias-escolares-acciones"><button id="noticiasEscuelaVerMas" class="boton-ver-mas-noticias" type="button" hidden>Ver noticias anteriores</button></div>
+</section>
+<dialog id="noticiasEscuelaDialogo" class="noticias-escolares-dialogo" aria-label="Noticia de nuestra escuela">
+ <div class="noticias-escolares-dialogo-cabecera"><button type="button" id="noticiasEscuelaCerrar" aria-label="Cerrar noticia">✕ Cerrar</button></div>
+ <article id="noticiasEscuelaDetalle"></article>
+</dialog>
 <!-- =================================================
      CONVIVENCIA Y BIENESTAR ESCOLAR
 ================================================== -->
@@ -3012,8 +3025,8 @@
 <button data-ir-pagina="documentos" type="button">📄 Documentos Institucionales</button>
 <button data-ir-pagina="protocolos" type="button">🛡️ Protocolos</button>
 <button data-ir-pagina="seguridad" type="button">🚨 Seguridad / PISE</button>
-<button data-ir-pagina="equipo" type="button">👤 Equipo Directivo</button>
-<button data-ir-pagina="gestion" type="button">⚙️ Equipo de Gestión</button>
+<button data-ir-pagina="equipo" type="button">👤 Equipo de Gestión</button>
+<button data-ir-pagina="gestion" type="button">⚙️ Consejo Escolar</button>
 <button data-ir-pagina="contacto" type="button">☎️ Contacto</button>
 
 <button data-destino-pagina="quienesHimno" data-ir-pagina="quienesSomos" type="button">🎵 Himno de la Escuela</button>
@@ -3033,7 +3046,7 @@
 <div class="niveles-educativos">
 <div class="nivel-card"><h4>Estudiantes</h4><p>Son el centro de nuestra comunidad educativa y protagonistas de sus propios procesos de aprendizaje y desarrollo.</p></div>
 <div class="nivel-card"><h4>Docentes</h4><p>Profesionales que acompañan y orientan los procesos de aprendizaje y formación integral de nuestros estudiantes.</p></div>
-<div class="nivel-card"><h4>Equipo Directivo</h4><p>Lidera y orienta el trabajo institucional, promoviendo el cumplimiento de nuestro proyecto educativo.</p></div>
+<div class="nivel-card"><h4>Equipo de Gestión</h4><p>Lidera y orienta el trabajo institucional, promoviendo el cumplimiento de nuestro proyecto educativo.</p></div>
 <div class="nivel-card"><h4>Asistentes de la Educación</h4><p>Contribuyen diariamente al funcionamiento del establecimiento y al bienestar de toda la comunidad educativa.</p></div>
 <div class="nivel-card"><h4>Madres, Padres y Apoderados</h4><p>Participan y colaboran en el proceso educativo de los estudiantes, fortaleciendo el vínculo entre familia y escuela.</p></div>
 <div class="nivel-card"><h4>Profesionales de Apoyo</h4><p>Apoyan el desarrollo integral de los estudiantes y contribuyen a responder a sus diversas necesidades.</p></div>
@@ -3096,7 +3109,7 @@
 <div class="contenedor">
 <div class="titulo-pagina">
 <h2>
-        Equipo Directivo
+        Equipo de Gestión
     </h2>
 <p>
         Equipo responsable del liderazgo y gestión del establecimiento.
@@ -3281,6 +3294,14 @@
             </p>
 </div>
 </div>
+<div class="directivo">
+<button aria-label="Ver descripción del cargo de Johanna Fredes, Coordinadora PIE y Docente de Opción 4 Laboral" aria-pressed="false" class="foto-directivo foto-directivo-giratoria" type="button">
+<span class="foto-directivo-interior"><span class="foto-directivo-frente">
+<img alt="Johanna Fredes, Coordinadora PIE y Docente de Opción 4 Laboral" decoding="async" loading="lazy" src="imagenes/coordinadorpie.png" onerror="this.onerror=null;this.src='imagenes/perfil-provisional.svg'"/>
+<span class="indicacion-giro-directivo">Presiona la foto para conocer su función</span></span>
+<span class="foto-directivo-reverso"><span>Coordina los apoyos del Programa de Integración Escolar y promueve la inclusión educativa, favoreciendo el desarrollo de habilidades, autonomía y preparación para la vida adulta de los estudiantes de Opción 4 Laboral.</span>
+<span class="indicacion-giro-directivo">Presiona para volver a la foto</span></span></span></button>
+<div class="directivo-info"><h3>Johanna Fredes</h3><p class="cargo">Coordinadora PIE y Docente de Opción 4 Laboral</p></div></div>
 </div>
 </div>
 </section>
@@ -3291,7 +3312,7 @@
 <div class="contenedor">
 <div class="titulo-pagina" id="gestionInicio">
 <h2>
-        Equipo de Gestión
+        Consejo Escolar
     </h2>
 <p>
         Espacio de participación y trabajo colaborativo de los
@@ -3308,7 +3329,7 @@
 </button>
 <div class="opciones-navegacion-interna">
 <button data-destino="gestionQueEs" type="button">
-            ¿Qué es el Equipo de Gestión?
+            ¿Qué es el Consejo Escolar?
         </button>
 <button data-destino="gestionRepresentantes" type="button">
             Representantes
@@ -3320,10 +3341,10 @@
 </div>
 <div class="bloque-texto" id="gestionQueEs">
 <h3>
-        ¿Qué es el Equipo de Gestión?
+        ¿Qué es el Consejo Escolar?
     </h3>
 <p>
-        El Equipo de Gestión es un espacio de participación,
+        El Consejo Escolar es un espacio de participación,
         coordinación y trabajo colaborativo que reúne a representantes
         de los distintos estamentos de la comunidad educativa.
     </p>
@@ -3416,7 +3437,7 @@
         Participación y trabajo colaborativo
     </h3>
 <p>
-        El trabajo del Equipo de Gestión busca fortalecer la comunicación
+        El trabajo del Consejo Escolar busca fortalecer la comunicación
         y colaboración entre los distintos actores de la comunidad
         educativa, reconociendo que cada estamento tiene un rol importante
         en la construcción de una escuela inclusiva, participativa y
@@ -3431,7 +3452,7 @@
 </div>
 <div class="volver-seccion">
 <button class="boton-volver-seccion" data-destino="gestionInicio" type="button">
-        ↑ Volver al inicio de Equipo de Gestión
+        ↑ Volver al inicio de Consejo Escolar
     </button>
 </div>
 </div>
@@ -4244,7 +4265,7 @@
 <script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js"></script>
 <script src="notificaciones-config.js?v=20260907-4"></script>
-<script src="script.js?v=20260926-1"></script>
+<script src="script.js?v=20261014-noticias-1"></script>
 <!-- =====================================================
      INSTALACIÓN UNIVERSAL DE LA APLICACIÓN
 ====================================================== -->
