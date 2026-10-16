@@ -98,7 +98,7 @@ self.addEventListener("notificationclick", function (evento) {
 });
 
 
-const CACHE_VERSION = "escuela-los-loros-20261014-noticias-1";
+const CACHE_VERSION = "escuela-los-loros-20261016-noticias-txt-1";
 
 /*
    Precarga liviana:
@@ -109,8 +109,8 @@ const CACHE_VERSION = "escuela-los-loros-20261014-noticias-1";
 const ARCHIVOS_BASE = [
     "./",
     "./index.html",
-    "./style.css?v=20261014-noticias-1",
-    "./script.js?v=20261014-noticias-1",
+    "./style.css?v=20261016-noticias-txt-1",
+    "./script.js?v=20261016-noticias-txt-1",
     "./notificaciones-config.js?v=20260908-8",
     "./manifest.webmanifest?v=20260926-4",
     "./icono192.png?v=20260926-4",

@@ -9618,7 +9618,7 @@ window.addEventListener("load", function () {
 })();
 
 
-/* NOTICIAS DE NUESTRA ESCUELA · IMÁGENES CON NOTICIA COMPLETA */
+/* NOTICIAS DE NUESTRA ESCUELA · TXT + GALERÍA Y FORMATO HISTÓRICO */
 (function () {
   'use strict';
   const lista = document.getElementById('noticiasEscuelaLista');
@@ -9627,84 +9627,100 @@ window.addEventListener("load", function () {
   const detalle = document.getElementById('noticiasEscuelaDetalle');
   const cerrar = document.getElementById('noticiasEscuelaCerrar');
   if (!lista || !dialogo || !detalle) return;
-  let noticias = [], todas = false, escala = 1;
-  function crear(tag, clase, texto) {
+  let noticias = [], todas = false;
+  const crear = (tag, clase, texto) => {
     const el = document.createElement(tag);
     if (clase) el.className = clase;
     if (texto !== undefined) el.textContent = texto;
     return el;
-  }
+  };
   function rutaSegura(ruta) {
-    if (typeof ruta !== 'string' || !/^noticias\/noticia\d+\.(png|jpe?g|webp)$/i.test(ruta)) return null;
+    if (typeof ruta !== 'string' || !/^noticias\/(?:noticia\d+\.(?:png|jpe?g|webp)|noticia-[a-z0-9_-]+\/foto\d+\.(?:png|jpe?g|webp))$/i.test(ruta)) return null;
     return new URL(ruta, document.baseURI).href;
   }
+  function fechaVisible(valor) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(valor || '')) return '';
+    const [a,m,d] = valor.split('-').map(Number);
+    return new Date(a,m-1,d).toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'});
+  }
   function abrir(item) {
-    const url = rutaSegura(item.ruta);
-    if (!url) return;
     detalle.replaceChildren();
-    const imagen = crear('img', 'noticias-escolares-imagen-completa');
-    imagen.src = url;
-    imagen.alt = 'Noticia escolar completa ' + item.numero;
-    imagen.decoding = 'async';
-    const controles = crear('div', 'noticias-escolares-zoom');
-    const menos = crear('button', '', '− Alejar');
-    const mas = crear('button', '', '+ Acercar');
-    const restaurar = crear('button', '', 'Restablecer');
-    const porcentaje = crear('span', '', '100 %');
-    [menos, mas, restaurar].forEach(b => b.type = 'button');
-    escala = 1;
-    function aplicar() {
-      imagen.style.width = (escala * 100) + '%';
-      porcentaje.textContent = Math.round(escala * 100) + ' %';
+    if (item.formato === 'texto') {
+      detalle.append(crear('div','noticias-escolares-fecha',fechaVisible(item.fecha)));
+      detalle.append(crear('h2','',item.titulo));
+      (item.parrafos || []).forEach(p => detalle.append(crear('p','noticias-escolares-parrafo',p)));
+      const fotos = (item.fotos || []).map(rutaSegura).filter(Boolean);
+      if (fotos.length) {
+        detalle.append(crear('h3','noticias-escolares-galeria-titulo','Galería fotográfica'));
+        const galeria = crear('div','noticias-escolares-galeria');
+        fotos.forEach((url,i) => {
+          const boton = crear('button','noticias-escolares-foto-boton');
+          boton.type='button'; boton.setAttribute('aria-label','Ampliar fotografía '+(i+1));
+          const img = crear('img'); img.src=url; img.alt='Fotografía '+(i+1)+' de '+item.titulo; img.loading='lazy';
+          boton.append(img);
+          boton.addEventListener('click',()=>{
+            const ampliada=crear('dialog','noticias-escolares-foto-ampliada');
+            const cerrarFoto=crear('button','', '✕ Cerrar fotografía'); cerrarFoto.type='button';
+            cerrarFoto.addEventListener('click',()=>ampliada.close());
+            const foto=crear('img'); foto.src=url; foto.alt=img.alt;
+            ampliada.append(cerrarFoto,foto); document.body.append(ampliada);
+            ampliada.addEventListener('close',()=>ampliada.remove());
+            ampliada.addEventListener('click',e=>{if(e.target===ampliada) ampliada.close();});
+            ampliada.showModal();
+          });
+          galeria.append(boton);
+        });
+        detalle.append(galeria);
+      }
+    } else {
+      const url = rutaSegura(item.ruta);
+      if (!url) return;
+      const img = crear('img','noticias-escolares-imagen-completa');
+      img.src=url; img.alt='Noticia escolar completa '+item.numero;
+      const controles=crear('div','noticias-escolares-zoom');
+      let escala=1; const porcentaje=crear('span','','100 %');
+      [['− Alejar',-.2],['+ Acercar',.2],['Restablecer',0]].forEach(([texto,paso])=>{
+        const b=crear('button','',texto); b.type='button';
+        b.addEventListener('click',()=>{escala=paso===0?1:Math.max(.6,Math.min(3,+(escala+paso).toFixed(2)));img.style.width=(escala*100)+'%';porcentaje.textContent=Math.round(escala*100)+' %';});
+        controles.append(b); if(texto==='− Alejar') controles.append(porcentaje);
+      });
+      const marco=crear('div','noticias-escolares-marco');marco.append(img);detalle.append(controles,marco);
     }
-    menos.addEventListener('click', () => { escala = Math.max(0.6, +(escala - 0.2).toFixed(2)); aplicar(); });
-    mas.addEventListener('click', () => { escala = Math.min(3, +(escala + 0.2).toFixed(2)); aplicar(); });
-    restaurar.addEventListener('click', () => { escala = 1; aplicar(); });
-    controles.append(menos, porcentaje, mas, restaurar);
-    const marco = crear('div', 'noticias-escolares-marco');
-    marco.append(imagen);
-    detalle.append(controles, marco);
-    if (typeof dialogo.showModal === 'function') dialogo.showModal();
-    else dialogo.setAttribute('open', '');
+    if (typeof dialogo.showModal==='function') dialogo.showModal();
+    else dialogo.setAttribute('open','');
   }
   function dibujar() {
     lista.replaceChildren();
     if (!noticias.length) {
-      lista.append(crear('p', 'noticias-escolares-vacio', 'Próximamente compartiremos las actividades y experiencias de nuestra escuela.'));
-      if (botonMas) botonMas.hidden = true;
+      lista.append(crear('p','noticias-escolares-vacio','Próximamente compartiremos las actividades y experiencias de nuestra escuela.'));
+      if(botonMas) botonMas.hidden=true;
       return;
     }
-    (todas ? noticias : noticias.slice(0, 3)).forEach((item, i) => {
-      const url = rutaSegura(item.ruta);
-      if (!url) return;
-      const tarjeta = crear('article', 'noticias-escolares-tarjeta' + (i === 0 ? ' destacada' : ''));
-      const imagen = crear('img', 'noticias-escolares-portada');
-      imagen.src = url;
-      imagen.alt = 'Noticia escolar número ' + item.numero;
-      imagen.loading = 'lazy';
-      const cuerpo = crear('div', 'noticias-escolares-cuerpo');
-      cuerpo.append(crear('h3', '', 'Noticia ' + String(item.numero).padStart(2, '0')));
-      const boton = crear('button', 'noticias-escolares-leer', 'Ampliar noticia');
-      boton.type = 'button';
-      boton.addEventListener('click', () => abrir(item));
-      cuerpo.append(boton);
-      tarjeta.append(imagen, cuerpo);
-      lista.append(tarjeta);
+    (todas?noticias:noticias.slice(0,3)).forEach((item,i)=>{
+      const tarjeta=crear('article','noticias-escolares-tarjeta'+(i===0?' destacada':''));
+      const url=rutaSegura(item.ruta);
+      if(url){const img=crear('img','noticias-escolares-portada');img.src=url;img.alt=item.titulo||'Noticia escolar';img.loading=i===0?'eager':'lazy';tarjeta.append(img);}
+      else tarjeta.append(crear('div','noticias-escolares-sin-foto','Escuela de Concentración Los Loros'));
+      const cuerpo=crear('div','noticias-escolares-cuerpo');
+      if(item.formato==='texto') {
+        cuerpo.append(crear('span','noticias-escolares-fecha',fechaVisible(item.fecha)));
+        cuerpo.append(crear('h3','',item.titulo));
+        if(item.parrafos?.length) cuerpo.append(crear('p','',item.parrafos[0].slice(0,210)+(item.parrafos[0].length>210?'…':'')));
+      } else cuerpo.append(crear('h3','','Noticia '+String(item.numero).padStart(2,'0')));
+      const boton=crear('button','noticias-escolares-leer',item.formato==='texto'?'Leer noticia completa':'Ampliar noticia');
+      boton.type='button';boton.addEventListener('click',()=>abrir(item));cuerpo.append(boton);
+      tarjeta.append(cuerpo);lista.append(tarjeta);
     });
-    if (botonMas) {
-      botonMas.hidden = noticias.length <= 3;
-      botonMas.textContent = todas ? 'Mostrar menos' : 'Ver noticias anteriores';
-    }
+    if(botonMas){botonMas.hidden=noticias.length<=3;botonMas.textContent=todas?'Mostrar menos':'Ver noticias anteriores';}
   }
-  if (botonMas) botonMas.addEventListener('click', () => { todas = !todas; dibujar(); });
-  if (cerrar) cerrar.addEventListener('click', () => dialogo.close ? dialogo.close() : dialogo.removeAttribute('open'));
-  dialogo.addEventListener('click', e => { if (e.target === dialogo && dialogo.close) dialogo.close(); });
-  fetch('noticias/noticias.json?v=' + Date.now(), {cache: 'no-store'})
-    .then(r => { if (!r.ok) throw Error('Catálogo no disponible'); return r.json(); })
-    .then(datos => {
-      noticias = (Array.isArray(datos) ? datos : [])
-        .filter(n => n && Number.isInteger(n.numero) && rutaSegura(n.ruta))
-        .sort((a,b) => b.numero - a.numero);
-      dibujar();
-    }).catch(e => { console.warn('Noticias escolares:', e); dibujar(); });
+  if(botonMas) botonMas.addEventListener('click',()=>{todas=!todas;dibujar();});
+  if(cerrar) cerrar.addEventListener('click',()=>dialogo.close?dialogo.close():dialogo.removeAttribute('open'));
+  dialogo.addEventListener('click',e=>{if(e.target===dialogo&&dialogo.close)dialogo.close();});
+  fetch('noticias/noticias.json?v='+Date.now(),{cache:'no-store'})
+    .then(r=>{if(!r.ok) throw Error('Catálogo no disponible');return r.json();})
+    .then(datos=>{noticias=(Array.isArray(datos)?datos:[]).filter(n=>n&&(
+      (n.formato==='texto'&&typeof n.titulo==='string'&&Array.isArray(n.parrafos)) ||
+      (Number.isInteger(n.numero)&&rutaSegura(n.ruta))
+    )); noticias.sort((a,b)=>String(b.fecha||'').slice(0,10).localeCompare(String(a.fecha||'').slice(0,10)) || String(b.id||'').localeCompare(String(a.id||'')) || (b.numero||0)-(a.numero||0));dibujar();})
+    .catch(e=>{console.warn('Noticias escolares:',e);dibujar();});
 })();

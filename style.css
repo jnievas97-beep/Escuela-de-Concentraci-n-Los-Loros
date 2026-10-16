@@ -18606,3 +18606,16 @@ body.portal-2027{
 .noticias-escolares-marco{overflow:auto;max-height:73vh;text-align:center;background:#f1f5f9;border-radius:12px}
 .noticias-escolares-imagen-completa{display:block;width:100%;height:auto;max-width:none;margin:0 auto}
 @media(max-width:700px){.noticias-escolares-tarjeta .noticias-escolares-portada{height:250px}.noticias-escolares-tarjeta.destacada .noticias-escolares-portada{height:290px}.noticias-escolares-dialogo{padding:10px}}
+
+/* Noticias con texto y galería: mejora progresiva sin alterar otras secciones */
+.noticias-escolares-sin-foto{display:flex;align-items:center;justify-content:center;min-height:220px;padding:25px;text-align:center;background:linear-gradient(135deg,#075a96,#1688d4);color:#fff;font-weight:800}
+.noticias-escolares-tarjeta.destacada .noticias-escolares-sin-foto{min-height:300px}
+.noticias-escolares-dialogo .noticias-escolares-parrafo{line-height:1.85;text-align:left;white-space:pre-line;color:#263747}
+.noticias-escolares-dialogo .noticias-escolares-galeria-titulo{margin-top:24px;color:#075a96}
+.noticias-escolares-foto-boton{padding:0;border:0;background:none;cursor:zoom-in}
+.noticias-escolares-foto-boton img{height:200px;width:100%;object-fit:cover}
+.noticias-escolares-foto-ampliada{max-width:96vw;max-height:96vh;border:0;border-radius:12px;padding:12px;margin:auto}
+.noticias-escolares-foto-ampliada::backdrop{background:#071d34d9}
+.noticias-escolares-foto-ampliada img{max-width:90vw;max-height:82vh;object-fit:contain;margin:auto}
+.noticias-escolares-foto-ampliada button{display:block;margin:0 0 10px auto;padding:8px 12px;border:0;border-radius:8px;background:#075a96;color:white;cursor:pointer}
+@media(max-width:700px){.noticias-escolares-foto-boton img{height:150px}.noticias-escolares-tarjeta.destacada .noticias-escolares-sin-foto{min-height:200px}}
