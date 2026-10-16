@@ -329,33 +329,62 @@ jobs:
 
           # ===============================================
           # ===============================================
-          # NOTICIAS DE NUESTRA ESCUELA (IMAGEN COMPLETA)
-          # Subir noticias/noticia01.png, noticia02.jpg, etc.
-          # La imagen incluye título, fecha, fotografías y texto.
+          # NOTICIAS ESCOLARES: TXT + FOTOS, conservando imágenes históricas
+          # Cada subcarpeta contiene noticia.txt y fotos numeradas.
           # ===============================================
           carpeta_noticias_escolares = Path("noticias")
           carpeta_noticias_escolares.mkdir(parents=True, exist_ok=True)
           patron_noticia_escolar = re.compile(r"^noticia(\d+)\.(png|jpe?g|webp)$", re.I)
           noticias_escolares = []
           for archivo in carpeta_noticias_escolares.iterdir():
-              if not archivo.is_file():
-                  continue
-              coincidencia = patron_noticia_escolar.fullmatch(archivo.name)
-              if not coincidencia:
-                  continue
-              numero = int(coincidencia.group(1))
-              noticias_escolares.append({
-                  "numero": numero,
-                  "nombre": archivo.name,
-                  "ruta": "noticias/" + quote(archivo.name, safe=""),
-                  "fecha": fecha_git(archivo)
-              })
-          noticias_escolares.sort(key=lambda n: n["numero"], reverse=True)
+              if archivo.is_file():
+                  coincidencia = patron_noticia_escolar.fullmatch(archivo.name)
+                  if coincidencia:
+                      numero = int(coincidencia.group(1))
+                      noticias_escolares.append({
+                          "numero": numero, "nombre": archivo.name,
+                          "ruta": "noticias/" + quote(archivo.name, safe=""),
+                          "fecha": fecha_git(archivo), "formato": "imagen"
+                      })
+              elif archivo.is_dir() and re.fullmatch(r"noticia-[a-zA-Z0-9_-]+", archivo.name, re.I):
+                  texto_archivo = archivo / "noticia.txt"
+                  if not texto_archivo.is_file():
+                      continue
+                  contenido = texto_archivo.read_text(encoding="utf-8-sig").strip()
+                  lineas = contenido.splitlines()
+                  metadatos = {}
+                  i = 0
+                  for i, linea in enumerate(lineas):
+                      if not linea.strip():
+                          i += 1
+                          break
+                      match = re.fullmatch(r"(TITULO|FECHA):\s*(.*)", linea.strip(), re.I)
+                      if not match:
+                          break
+                      metadatos[match.group(1).upper()] = match.group(2).strip()
+                  else:
+                      i = len(lineas)
+                  titulo = metadatos.get("TITULO", "")
+                  fecha = metadatos.get("FECHA", "")
+                  if not titulo or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", fecha):
+                      raise ValueError(f"Título o fecha incorrecta en {texto_archivo}")
+                  datetime.strptime(fecha, "%Y-%m-%d")
+                  parrafos = [x.strip() for x in re.split(r"\n\s*\n", "\n".join(lineas[i:])) if x.strip()]
+                  fotos = sorted((f for f in archivo.iterdir() if f.is_file() and re.fullmatch(r"foto\d+\.(jpg|jpeg|png|webp)", f.name, re.I)), key=lambda f: (int(re.search(r"\d+", f.stem).group()), f.name.lower()))
+                  rutas_fotos = ["noticias/" + quote(archivo.name, safe="") + "/" + quote(f.name, safe="") for f in fotos]
+                  noticias_escolares.append({
+                      "id": archivo.name, "titulo": titulo, "fecha": fecha,
+                      "parrafos": parrafos, "fotos": rutas_fotos,
+                      "ruta": rutas_fotos[0] if rutas_fotos else "",
+                      "formato": "texto"
+                  })
+          noticias_escolares.sort(key=lambda n: (n.get("fecha", "")[:10], n.get("id", ""), n.get("numero", 0)), reverse=True)
           (carpeta_noticias_escolares / "noticias.json").write_text(
-              json.dumps(noticias_escolares, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8"
+              json.dumps(noticias_escolares, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
 
+          # ===============================================
+          # ===============================================
           # ===============================================
           # ===============================================
           # DOCUMENTOS - LISTA AUTOMÁTICA MULTIFORMATO
