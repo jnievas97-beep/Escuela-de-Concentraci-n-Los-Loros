@@ -18633,3 +18633,40 @@ body.portal-2027{
     box-sizing: border-box;
   }
 }
+
+
+/* AJUSTES DE PRESENTACIÓN · 2026-10-19 · sin alterar funciones */
+/* Número de tarjeta Seguridad y demás tarjetas: espacio real para numeración */
+body.portal-2027 .portal-tile { padding-top: 54px !important; }
+body.portal-2027 .portal-tile .portal-num { top: 17px !important; left: 24px !important; z-index: 2; }
+body.portal-2027 .portal-tile strong { overflow-wrap: normal !important; word-break: normal !important; hyphens: none !important; }
+/* Comunicados: no dividir palabras en columnas estrechas */
+body.portal-2027 #listaComunicados .documento.comunicado {
+  min-width: 0 !important; display: flex !important; flex-wrap: wrap !important;
+  align-items: center !important; gap: 14px !important;
+}
+body.portal-2027 #listaComunicados .documento.comunicado h3,
+body.portal-2027 #listaComunicados .comunicado-contenido,
+body.portal-2027 #listaComunicados .comunicado-contenido h3 {
+  min-width: min(100%, 185px) !important; flex: 1 1 185px !important;
+  overflow-wrap: normal !important; word-break: normal !important; hyphens: none !important;
+}
+body.portal-2027 #listaComunicados .boton-documento,
+body.portal-2027 #listaComunicados .acciones-archivo-extra a { white-space: nowrap !important; overflow-wrap: normal !important; word-break: normal !important; }
+/* Documentos: botones completos y tarjetas que puedan redistribuirse */
+body.portal-2027 #documentos .documento,
+body.portal-2027 #documentos .bloque-documento,
+body.portal-2027 #documentos .documento-card { min-width: 0 !important; gap: 14px !important; }
+body.portal-2027 #documentos a,
+body.portal-2027 #documentos button { overflow-wrap: normal !important; word-break: normal !important; hyphens: none !important; }
+body.portal-2027 #documentos a[download],
+body.portal-2027 #documentos a[href][download],
+body.portal-2027 #documentos .boton-descargar,
+body.portal-2027 #documentos .descargar-documento { white-space: nowrap !important; width: auto !important; min-width: max-content !important; }
+@media (max-width: 900px) {
+  body.portal-2027 #listaComunicados .documento.comunicado { flex-direction: column !important; align-items: stretch !important; }
+  body.portal-2027 #listaComunicados .documento.comunicado h3,
+  body.portal-2027 #listaComunicados .comunicado-contenido { min-width: 0 !important; flex: 0 1 auto !important; }
+  body.portal-2027 #documentos .documentos-grid,
+  body.portal-2027 #documentos .lista-documentos { grid-template-columns: minmax(0, 1fr) !important; }
+}

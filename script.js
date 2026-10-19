@@ -7523,12 +7523,10 @@ if (listaNoticiasParaAmpliar) {
             return "opcion";
         }
 
-        if (
-            texto.includes(
-                "medio"
-            )
-        ) {
-            return "media";
+        if (texto.includes("medio")) {
+            // 1° y 2° Medio: Educación Media; 3° y 4°: TP.
+            if (/^(3|4)(?:°|º|o)?\s*medio\b/.test(texto)) return "media_tp";
+            return "media_general";
         }
 
         return "basica";
@@ -7540,7 +7538,8 @@ if (listaNoticiasParaAmpliar) {
         parvularia: [],
         basica: [],
         opcion: [],
-        media: []
+        media_general: [],
+        media_tp: []
     };
 
 
