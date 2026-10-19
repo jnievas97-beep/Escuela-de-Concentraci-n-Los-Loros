@@ -18619,3 +18619,17 @@ body.portal-2027{
 .noticias-escolares-foto-ampliada img{max-width:90vw;max-height:82vh;object-fit:contain;margin:auto}
 .noticias-escolares-foto-ampliada button{display:block;margin:0 0 10px auto;padding:8px 12px;border:0;border-radius:8px;background:#075a96;color:white;cursor:pointer}
 @media(max-width:700px){.noticias-escolares-foto-boton img{height:150px}.noticias-escolares-tarjeta.destacada .noticias-escolares-sin-foto{min-height:200px}}
+
+
+/* CORRECCIÓN: DESPLAZAMIENTO DEL MENÚ MÓVIL */
+@media (max-width: 768px) {
+  .menu-contenido.abierto {
+    max-height: calc(100vh - 190px);
+    max-height: calc(100dvh - 190px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 110px;
+    box-sizing: border-box;
+  }
+}
