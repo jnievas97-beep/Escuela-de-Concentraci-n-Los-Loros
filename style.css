@@ -18740,3 +18740,5 @@ body.portal-2027 .otras-formas-instalacion > summary::after {
   transition:transform .2s ease;
 }
 body.portal-2027 .otras-formas-instalacion[open] > summary::after {transform:rotate(180deg)}
+
+/* Actualización caché flechas circulares 20261021-2 */

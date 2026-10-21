@@ -48,7 +48,7 @@
 <!-- =====================================================
      HOJA DE ESTILOS
 ====================================================== -->
-<link href="style.css?v=20261021-menu-agrupado-1" rel="stylesheet"/>
+<link href="style.css?v=20261021-flechas-circulares-2" rel="stylesheet"/>
 <link href="manifest.webmanifest?v=20260908-8" rel="manifest"/>
 
 
@@ -114,6 +114,23 @@
     }
 }
 </style>
+<style id="flechas-circulares-refuerzo">
+/* Indicador SVG uniforme: circulo con chevron, sin depender de fuentes */
+body.portal-2027 .menu-grupo-flecha,
+body.portal-2027 #documentos .documento-indicador {
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ width:27px!important;height:27px!important;min-width:27px!important;
+ border:1.6px solid currentColor!important;border-radius:50%!important;
+ background-color:rgba(255,255,255,.10)!important;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23075a96' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;
+ background-position:center!important;background-size:18px 18px!important;background-repeat:no-repeat!important;
+ font-size:0!important;line-height:0!important;flex-shrink:0!important;
+ transition:transform .2s ease!important;
+}
+body.portal-2027 .menu-grupo[open] > .menu-grupo-titulo .menu-grupo-flecha,
+body.portal-2027 #documentos details[open] > summary .documento-indicador {transform:rotate(180deg)!important}
+body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(255,255,255,.85)!important;color:#075a96!important}
+</style>
 </head>
 <body class="portal-2027">
 <div aria-hidden="true" class="progreso-lectura-sitio" id="progresoLecturaSitio">
@@ -173,7 +190,7 @@
 </button>
 </div>
 <div class="contenedor menu-contenido menu-agrupado" id="menuPrincipalOpciones">
-<button class="boton-menu activo" data-pagina="inicio" type="button">Inicio</button><button class="boton-menu" data-pagina="comunicados" type="button">Comunicados</button><details class="menu-grupo"><summary class="menu-grupo-titulo">Quiénes Somos<span aria-hidden="true" class="menu-grupo-flecha">⌄</span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="quienesSomos" type="button">Quiénes Somos</button><button class="boton-menu" data-pagina="personasHuella" type="button">Personas que dejaron huella</button><button class="boton-menu" data-pagina="equipo" type="button">Equipo de Gestión</button><button class="boton-menu" data-pagina="gestion" type="button">Consejo Escolar</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Académica<span aria-hidden="true" class="menu-grupo-flecha">⌄</span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="academica" type="button">Académica</button><button class="boton-menu" data-pagina="talleresJEC" type="button">Talleres JEC</button><button class="boton-menu" data-pagina="validacion" type="button">Validación de Estudios</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Comunidad<span aria-hidden="true" class="menu-grupo-flecha">⌄</span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="comunidad" type="button">Comunidad Educativa</button><button class="boton-menu" data-pagina="bandaEscolar" type="button">Banda Escolar</button><button class="boton-menu" data-pagina="justificarInasistencia" type="button">Justificar Inasistencia</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Documentos<span aria-hidden="true" class="menu-grupo-flecha">⌄</span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="documentos" type="button">Documentos</button><button class="boton-menu" data-pagina="protocolos" type="button">Protocolos</button><button class="boton-menu" data-pagina="seguridad" type="button">Seguridad</button></div></details><button class="boton-menu" data-pagina="contacto" type="button">Contacto</button>
+<button class="boton-menu activo" data-pagina="inicio" type="button">Inicio</button><button class="boton-menu" data-pagina="comunicados" type="button">Comunicados</button><details class="menu-grupo"><summary class="menu-grupo-titulo">Quiénes Somos<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="quienesSomos" type="button">Quiénes Somos</button><button class="boton-menu" data-pagina="personasHuella" type="button">Personas que dejaron huella</button><button class="boton-menu" data-pagina="equipo" type="button">Equipo de Gestión</button><button class="boton-menu" data-pagina="gestion" type="button">Consejo Escolar</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Académica<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="academica" type="button">Académica</button><button class="boton-menu" data-pagina="talleresJEC" type="button">Talleres JEC</button><button class="boton-menu" data-pagina="validacion" type="button">Validación de Estudios</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Comunidad<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="comunidad" type="button">Comunidad Educativa</button><button class="boton-menu" data-pagina="bandaEscolar" type="button">Banda Escolar</button><button class="boton-menu" data-pagina="justificarInasistencia" type="button">Justificar Inasistencia</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Documentos<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="documentos" type="button">Documentos</button><button class="boton-menu" data-pagina="protocolos" type="button">Protocolos</button><button class="boton-menu" data-pagina="seguridad" type="button">Seguridad</button></div></details><button class="boton-menu" data-pagina="contacto" type="button">Contacto</button>
 </div>
 </nav>
 <!-- =====================================================
