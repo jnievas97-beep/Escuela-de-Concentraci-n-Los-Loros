@@ -9723,3 +9723,24 @@ window.addEventListener("load", function () {
     )); noticias.sort((a,b)=>String(b.fecha||'').slice(0,10).localeCompare(String(a.fecha||'').slice(0,10)) || String(b.id||'').localeCompare(String(a.id||'')) || (b.numero||0)-(a.numero||0));dibujar();})
     .catch(e=>{console.warn('Noticias escolares:',e);dibujar();});
 })();
+
+/* MENÚ AGRUPADO: un grupo abierto a la vez; cerrar al navegar, fuera del menú o con Escape. */
+document.addEventListener('DOMContentLoaded', function(){
+ const menu=document.getElementById('menuPrincipalOpciones');
+ if(!menu)return;
+ const grupos=Array.from(menu.querySelectorAll('.menu-grupo'));
+ grupos.forEach(function(grupo){
+   grupo.addEventListener('toggle',function(){
+     if(grupo.open)grupos.forEach(function(otro){if(otro!==grupo)otro.open=false;});
+   });
+ });
+ menu.querySelectorAll('.boton-menu[data-pagina]').forEach(function(boton){
+   boton.addEventListener('click',function(){grupos.forEach(function(grupo){grupo.open=false;});});
+ });
+ document.addEventListener('click',function(e){
+   if(!e.target.closest('.menu-principal'))grupos.forEach(function(grupo){grupo.open=false;});
+ });
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape')grupos.forEach(function(grupo){grupo.open=false;});
+ });
+});

@@ -18670,3 +18670,29 @@ body.portal-2027 #documentos .descargar-documento { white-space: nowrap !importa
   body.portal-2027 #documentos .documentos-grid,
   body.portal-2027 #documentos .lista-documentos { grid-template-columns: minmax(0, 1fr) !important; }
 }
+
+/* MENÚ AGRUPADO · 2026-10-21 */
+body.portal-2027 .menu-agrupado{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:2px!important;overflow:visible}
+body.portal-2027 .menu-agrupado>.boton-menu{flex:0 0 auto;white-space:nowrap}
+body.portal-2027 .menu-grupo{position:relative;flex:0 0 auto;min-width:0}
+body.portal-2027 .menu-grupo-titulo{list-style:none;display:flex;align-items:center;justify-content:center;gap:7px;min-height:50px;padding:0 12px;cursor:pointer;color:#16344f;font-size:.76rem;font-weight:800;white-space:nowrap;user-select:none}
+body.portal-2027 .menu-grupo-titulo::-webkit-details-marker{display:none}
+body.portal-2027 .menu-grupo-titulo:hover,body.portal-2027 .menu-grupo[open]>.menu-grupo-titulo{background:#f4f8f5;color:#0b7b45}
+body.portal-2027 .menu-grupo-titulo:focus-visible{outline:3px solid #1688d4;outline-offset:-3px}
+body.portal-2027 .menu-grupo-flecha{font-size:1.15em;transition:transform .2s}
+body.portal-2027 .menu-grupo[open] .menu-grupo-flecha{transform:rotate(180deg)}
+body.portal-2027 .menu-grupo-opciones{position:absolute;z-index:1200;top:100%;left:0;min-width:235px;max-width:310px;display:flex;flex-direction:column;padding:8px;background:#fff;border:1px solid #dfe7ec;border-radius:0 0 12px 12px;box-shadow:0 12px 26px #071b2d2e}
+body.portal-2027 .menu-grupo-opciones .boton-menu{width:100%;min-height:42px;text-align:left;white-space:normal;padding:10px 13px!important;border:0!important;border-radius:7px!important}
+body.portal-2027 .menu-grupo-opciones .boton-menu.activo{background:#eef6f1!important;color:#0b7b45!important}
+@media(max-width:900px){
+ body.portal-2027 .menu-agrupado:not(.abierto){display:none}
+ body.portal-2027 .menu-agrupado.abierto{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;overflow-y:auto;max-height:calc(100dvh - 140px);padding:5px 12px 90px!important;gap:0!important}
+ body.portal-2027 .menu-agrupado>.boton-menu{text-align:left;width:100%;min-height:46px}
+ body.portal-2027 .menu-grupo{width:100%}
+ body.portal-2027 .menu-grupo-titulo{justify-content:space-between;padding:0 11px;min-height:46px}
+ body.portal-2027 .menu-grupo-opciones{position:static;max-width:none;min-width:0;width:100%;box-shadow:none;border:0;border-left:3px solid #0b7b45;border-radius:0;padding:2px 0 5px 10px}
+ body.portal-2027 .menu-grupo-opciones .boton-menu{min-height:42px}
+ .menu-movil-cabecera{display:flex!important}
+ .boton-menu-movil{display:flex!important}
+}
+@media(min-width:901px) and (max-width:1200px){body.portal-2027 .menu-grupo-titulo{padding:0 7px;font-size:.72rem}body.portal-2027 .menu-agrupado>.boton-menu{padding:0 7px!important;font-size:.72rem!important}}
