@@ -18742,3 +18742,81 @@ body.portal-2027 .otras-formas-instalacion > summary::after {
 body.portal-2027 .otras-formas-instalacion[open] > summary::after {transform:rotate(180deg)}
 
 /* Actualización caché flechas circulares 20261021-2 */
+
+/* AJUSTE DEL ICONO: centrar el chevron real dentro del círculo.
+   Se oculta el glifo tipográfico ⌄, que quedaba desplazado hacia abajo. */
+body.portal-2027 .menu-grupo-flecha,
+body.portal-2027 #documentos .documento-indicador,
+body.portal-2027 .boton-navegacion-interna > span[aria-hidden="true"],
+body.portal-2027 .portal-perfil-boton > span[aria-hidden="true"],
+body.portal-2027 #equipo .boton-equipo-cargo > span[aria-hidden="true"] {
+  font-size:0!important;
+  position:relative;
+}
+body.portal-2027 .menu-grupo-flecha::after,
+body.portal-2027 #documentos .documento-indicador::after,
+body.portal-2027 .boton-navegacion-interna > span[aria-hidden="true"]::after,
+body.portal-2027 .portal-perfil-boton > span[aria-hidden="true"]::after,
+body.portal-2027 #equipo .boton-equipo-cargo > span[aria-hidden="true"]::after {
+  content:""!important;
+  display:block!important;
+  width:15px!important;height:15px!important;
+  flex:0 0 15px!important;
+  background-color:currentColor!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m5%209%207%207%207-7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m5%209%207%207%207-7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;
+}
+body.portal-2027 .otras-formas-instalacion > summary::after {
+  content:""!important;
+  background-color:currentColor!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m5%209%207%207%207-7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/15px 15px no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m5%209%207%207%207-7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/15px 15px no-repeat!important;
+}
+
+/* Indicador SVG centrado para «Ir a una categoría» (Documentos).
+   El SVG sustituye el glifo tipográfico anterior. */
+body.portal-2027 #documentos .boton-navegacion-interna .flecha-categoria-svg {
+  display:block!important; width:28px!important; height:28px!important;
+  min-width:28px!important; flex:0 0 28px!important;
+  overflow:visible!important; color:#fff!important;
+  transform:none!important; transition:transform .2s ease!important;
+}
+body.portal-2027 #documentos .navegacion-interna.abierta .boton-navegacion-interna .flecha-categoria-svg {transform:rotate(180deg)!important;}
+
+/* =========================================================
+   AJUSTE LOCAL DE FLECHAS — 21 OCTUBRE 2026
+   Protocolos, Consejo Escolar, Académica y Comunidad Educativa.
+   Se conservan tamaños, colores, bordes y estados de los botones.
+   ========================================================= */
+body.portal-2027 :is(#protocolos,#gestion,#academica,#comunidad)
+  .boton-navegacion-interna > span[aria-hidden="true"],
+body.portal-2027 #comunidad .portal-perfil-boton > span[aria-hidden="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: center !important;
+  box-sizing: border-box !important;
+  flex: 0 0 auto !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  padding: 0 !important;
+  font-variant-ligatures: none;
+}
+/* Centrado estable de texto e indicador, sin alterar altura ni anchura. */
+body.portal-2027 :is(#protocolos,#gestion,#academica,#comunidad)
+  .boton-navegacion-interna {
+  column-gap: 12px !important;
+}
+/* La separación del perfil la determina el botón; evita desplazamiento
+   adicional del carácter al interior del círculo. */
+body.portal-2027 #comunidad .portal-perfil-boton > span[aria-hidden="true"] {
+  margin-left: 8px;
+}
+/* Alineación del contenido de los enlaces a protocolos. */
+body.portal-2027 #protocolos a.boton-documento {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+}
