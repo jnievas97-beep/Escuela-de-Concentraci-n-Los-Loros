@@ -18696,3 +18696,47 @@ body.portal-2027 .menu-grupo-opciones .boton-menu.activo{background:#eef6f1!impo
  .boton-menu-movil{display:flex!important}
 }
 @media(min-width:901px) and (max-width:1200px){body.portal-2027 .menu-grupo-titulo{padding:0 7px;font-size:.72rem}body.portal-2027 .menu-agrupado>.boton-menu{padding:0 7px!important;font-size:.72rem!important}}
+
+
+/* FLECHAS CIRCULARES UNIFICADAS · 2026-10-21
+   Sólo indicadores de controles desplegables; no afecta flechas de navegación. */
+body.portal-2027 .menu-grupo-flecha,
+body.portal-2027 #documentos .documento-indicador,
+body.portal-2027 .boton-navegacion-interna > span[aria-hidden="true"],
+body.portal-2027 .portal-perfil-boton > span[aria-hidden="true"],
+body.portal-2027 #equipo .boton-equipo-cargo > span[aria-hidden="true"] {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:25px!important;
+  height:25px!important;
+  min-width:25px!important;
+  border-radius:50%!important;
+  border:1.5px solid currentColor!important;
+  font-family:Arial,sans-serif!important;
+  font-size:20px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  text-align:center!important;
+  flex-shrink:0!important;
+  transition:transform .2s ease,background-color .2s ease!important;
+}
+body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background:rgba(7,90,150,.08)}
+body.portal-2027 #documentos .documento-indicador {background:rgba(7,90,150,.06)}
+body.portal-2027 .menu-grupo[open] > .menu-grupo-titulo .menu-grupo-flecha,
+body.portal-2027 #documentos details[open] > summary .documento-indicador,
+body.portal-2027 .nav-interna-abierta .boton-navegacion-interna > span[aria-hidden="true"],
+body.portal-2027 .portal-perfil-boton[aria-expanded="true"] > span[aria-hidden="true"],
+body.portal-2027 #equipo .boton-equipo-cargo[aria-expanded="true"] > span[aria-hidden="true"] {
+  transform:rotate(180deg)!important;
+}
+/* Selector nativo de instrucciones de instalación */
+body.portal-2027 .otras-formas-instalacion > summary {list-style:none;display:flex;align-items:center;gap:10px;cursor:pointer}
+body.portal-2027 .otras-formas-instalacion > summary::-webkit-details-marker {display:none}
+body.portal-2027 .otras-formas-instalacion > summary::after {
+  content:"⌄";display:inline-flex;align-items:center;justify-content:center;
+  width:25px;height:25px;min-width:25px;border:1.5px solid currentColor;
+  border-radius:50%;font:700 20px/1 Arial,sans-serif;
+  transition:transform .2s ease;
+}
+body.portal-2027 .otras-formas-instalacion[open] > summary::after {transform:rotate(180deg)}
