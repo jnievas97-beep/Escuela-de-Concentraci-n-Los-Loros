@@ -3464,6 +3464,19 @@
         Documentación institucional del establecimiento.
     </p>
 </div>
+<style>
+/* Documentos: títulos desplegables; no afecta otras secciones */
+#documentos .documento-desplegable .documento-detalle{width:100%;}
+#documentos .documento-desplegable .documento-titulo{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;font-weight:700;line-height:1.45;list-style:none;}
+#documentos .documento-desplegable .documento-titulo::-webkit-details-marker{display:none;}
+#documentos .documento-desplegable .documento-titulo::marker{content:"";}
+#documentos .documento-desplegable .documento-titulo:focus-visible{outline:3px solid #087c49;outline-offset:5px;border-radius:5px;}
+#documentos .documento-desplegable .documento-indicador{flex-shrink:0;font-size:1.3em;transition:transform .2s ease;}
+#documentos .documento-desplegable details[open] .documento-indicador{transform:rotate(180deg);}
+#documentos .documento-desplegable .documento-descripcion{padding-top:14px;}
+#documentos .documento-desplegable .documento-descripcion p{margin:0 0 15px;line-height:1.65;}
+#documentos .documento-desplegable .boton-documento{display:inline-flex;align-items:center;justify-content:center;}
+</style>
 <!-- =================================================
      NAVEGACIÓN INTERNA - DOCUMENTOS
 ================================================== -->
@@ -3512,29 +3525,38 @@
         Documentos Institucionales
     </h3>
 <div class="documentos-lista">
-<div class="documento">
-<h3>
-            Proyecto Educativo Institucional
-        </h3>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Proyecto Educativo Institucional<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Presenta la identidad, misión, visión y orientaciones que guían el proyecto educativo del establecimiento.</p>
 <a class="boton-documento" href="documentos/pei.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Reglamento Interno de Convivencia Educativa
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Reglamento Interno de Convivencia Educativa<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Establece las normas de convivencia, derechos, deberes y procedimientos que orientan la vida escolar.</p>
 <a class="boton-documento" href="documentos/rice.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Reglamento de Evaluación
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Reglamento de Evaluación<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Explica los criterios y procedimientos de evaluación, calificación y promoción de los estudiantes.</p>
 <a class="boton-documento" href="documentos/reglamentoevaluacion.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -3543,53 +3565,71 @@
         Planes Institucionales
     </h3>
 <div class="documentos-lista">
-<div class="documento">
-<h3>
-            Plan de Mejoramiento Educativo
-        </h3>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Plan de Mejoramiento Educativo<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Organiza las acciones y prioridades de mejora para fortalecer los aprendizajes y la gestión escolar.</p>
 <a class="boton-documento" href="documentos/pme.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Plan de Gestión de Convivencia Educativa
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Plan de Gestión de Convivencia Educativa<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Orienta las acciones para promover el buen trato, la participación y una convivencia escolar respetuosa.</p>
 <a class="boton-documento" href="documentos/Plan%20de%20gesti%C3%B3n%20de%20convivencia%20educativa.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Plan de Inclusión Escolar
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Plan de Inclusión Escolar<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Propone acciones para favorecer la participación, la equidad y la atención a la diversidad de estudiantes.</p>
 <a class="boton-documento" href="documentos/plan%20de%20inclusi%C3%B3n%20escolar.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Plan de Educación, Sexualidad, Afectividad y Género
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Plan de Educación, Sexualidad, Afectividad y Género<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Orienta la formación integral en afectividad, sexualidad, respeto y relaciones responsables, de acuerdo con las etapas de desarrollo.</p>
 <a class="boton-documento" href="documentos/plan%20de%20educaci%C3%B3n%2C%20sexualidad%2C%20afectividad%20y%20genero.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Plan de Formación Ciudadana
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Plan de Formación Ciudadana<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Promueve la participación democrática, el respeto por los derechos y deberes y el compromiso con la comunidad.</p>
 <a class="boton-documento" href="documentos/plan%20de%20formacion%20ciudadana.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Plan de Desarrollo Profesional Docente
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Plan de Desarrollo Profesional Docente<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Orienta las acciones de formación y trabajo colaborativo para fortalecer las prácticas pedagógicas del equipo docente.</p>
 <a class="boton-documento" href="documentos/plan%20de%20desarrollo%20profesional%20docente.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -3598,21 +3638,27 @@
         Reglamentos
     </h3>
 <div class="documentos-lista">
-<div class="documento">
-<h3>
-            Reglamento General de Biblioteca Escolar CRA
-        </h3>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Reglamento General de Biblioteca Escolar CRA<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Presenta las normas de uso, préstamo y cuidado de los recursos de la biblioteca escolar.</p>
 <a class="boton-documento" href="documentos/Reglamento%20general%20biblioteca%20escolar%20cra.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
 </div>
-<div class="documento">
-<h3>
-            Reglamento Interno de Orden, Higiene y Seguridad del SLEP Atacama
-        </h3>
+</details>
+</div>
+<div class="documento documento-desplegable">
+<details class="documento-detalle">
+<summary class="documento-titulo">Reglamento Interno de Orden, Higiene y Seguridad del SLEP Atacama<span class="documento-indicador" aria-hidden="true">⌄</span></summary>
+<div class="documento-descripcion">
+<p>Establece normas laborales, de orden, higiene y seguridad aplicables al personal del SLEP Atacama.</p>
 <a class="boton-documento" href="documentos/Reglamento%20Interno%20de%20Orden%2C%20Higiene%20y%20Seguridad%20del%20SLEP%20Atacama.pdf" rel="noopener noreferrer" target="_blank">
-            Ver documento
+            Abrir aquí para ver el documento
         </a>
+</div>
+</details>
 </div>
 </div>
 </div>
