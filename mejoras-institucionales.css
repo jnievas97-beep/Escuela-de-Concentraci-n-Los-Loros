@@ -1,0 +1,18 @@
+/* Mejoras de navegación, noticias e historia. Se preserva el estilo institucional. */
+.inicio-detalles-contenido {margin-block:1.25rem;}
+.inicio-detalles-contenido > summary {cursor:pointer;font-weight:700;padding:1rem 1.2rem;border:1px solid #d7e2ed;border-radius:14px;background:#f7fafc;color:#173e60;}
+.inicio-detalles-contenido[open] > summary {margin-bottom:1rem;}
+.noticias-filtros {display:flex;align-items:end;flex-wrap:wrap;gap:.7rem;padding:1rem;margin:1rem 0 1.5rem;background:#f7fafc;border:1px solid #dce5ee;border-radius:14px;}
+.noticias-filtros label {font-weight:650;font-size:.92rem;}
+.noticias-filtros input,.noticias-filtros select {min-height:44px;max-width:100%;border:1px solid #b7c7d5;border-radius:9px;padding:.65rem .8rem;background:white;color:#172e42;font:inherit;}
+.noticias-filtros input {flex:1 1 230px;}
+.noticias-filtros button {min-height:44px;padding:.6rem 1rem;border:1px solid #345b7b;border-radius:9px;background:white;color:#173e60;cursor:pointer;font-weight:650;}
+#estadoFiltrosNoticias {flex-basis:100%;margin:0;color:#39566e;font-size:.9rem;}
+.noticias-escolares-tarjeta[hidden] {display:none!important;}
+.historia-saltos {display:flex;gap:.55rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem;}
+.historia-saltos a {padding:.65rem .9rem;border-radius:999px;border:1px solid #c5d5e3;background:#f5f9fc;color:#164368;font-weight:650;text-decoration:none;}
+.historia-saltos a:hover,.historia-saltos a:focus-visible {background:#e7f1f8;}
+.linea-tiempo .hito {scroll-margin-top:6rem;}
+:where(a,button,input,select,summary):focus-visible {outline:3px solid #1769aa;outline-offset:3px;}
+@media(max-width:640px){.noticias-filtros{align-items:stretch;flex-direction:column}.noticias-filtros input,.noticias-filtros select,.noticias-filtros button{width:100%;flex:auto}.historia-saltos a{font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

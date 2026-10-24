@@ -131,6 +131,7 @@ body.portal-2027 .menu-grupo[open] > .menu-grupo-titulo .menu-grupo-flecha,
 body.portal-2027 #documentos details[open] > summary .documento-indicador {transform:rotate(180deg)!important}
 body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(255,255,255,.85)!important;color:#075a96!important}
 </style>
+<link rel="stylesheet" href="mejoras-institucionales.css?v=20261024-1">
 </head>
 <body class="portal-2027">
 <div aria-hidden="true" class="progreso-lectura-sitio" id="progresoLecturaSitio">
@@ -538,7 +539,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <!-- =================================================
      INFORMACIÓN DISPONIBLE EN EL SITIO
 ================================================== -->
-<section aria-labelledby="tituloResumenContenido" class="resumen-contenido-sitio" id="resumenContenidoInicio">
+<details class="inicio-detalles-contenido"><summary>Ver resumen del contenido disponible en el sitio</summary><section aria-labelledby="tituloResumenContenido" class="resumen-contenido-sitio" id="resumenContenidoInicio">
 <h2 id="tituloResumenContenido">Información disponible en el sitio</h2>
 <div class="resumen-contenido-grid">
 <div class="resumen-contenido-item">
@@ -557,7 +558,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <span>Protocolos</span>
 </div>
 </div>
-</section>
+</section></details>
 <!-- =================================================
      INFORMACIÓN IMPORTANTE
 ================================================== -->
@@ -596,7 +597,15 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
   <div class="noticias-escolares-encabezado"><span class="noticias-escolares-kicker">VIDA ESCOLAR</span>
   <h2 id="tituloNoticiasEscuela">Noticias de nuestra escuela</h2>
   <p>Actividades, experiencias y logros que vivimos como comunidad educativa.</p></div>
-  <div class="noticias-escolares-grid" id="noticiasEscuelaLista" aria-live="polite"><p class="noticias-escolares-vacio">Cargando noticias de nuestra escuela…</p></div>
+  <div class="noticias-filtros" role="search" aria-label="Buscar noticias escolares">
+<label for="buscarNoticiasEscolares">Buscar noticias</label>
+<input id="buscarNoticiasEscolares" type="search" placeholder="Buscar por actividad, empresa o palabra clave" autocomplete="off">
+<label for="filtrarAnioNoticias">Año</label>
+<select id="filtrarAnioNoticias"><option value="">Todos los años</option></select>
+<button type="button" id="limpiarFiltrosNoticias">Limpiar</button>
+<p id="estadoFiltrosNoticias" role="status" aria-live="polite"></p>
+</div>
+<div class="noticias-escolares-grid" id="noticiasEscuelaLista" aria-live="polite"><p class="noticias-escolares-vacio">Cargando noticias de nuestra escuela…</p></div>
   <div class="noticias-escolares-acciones"><button id="noticiasEscuelaVerMas" class="boton-ver-mas-noticias" type="button" hidden>Ver noticias anteriores</button></div>
 </section>
 <dialog id="noticiasEscuelaDialogo" class="noticias-escolares-dialogo" aria-label="Noticia de nuestra escuela">
@@ -1073,12 +1082,15 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <h2>Nuestra Historia</h2>
 <p>Una trayectoria educativa que acompaña a la comunidad de Los Loros desde 1857.</p>
 </div>
+<nav class="historia-saltos" aria-label="Ir a etapas de la historia">
+<a href="#historia-1857">Orígenes</a><a href="#historia-1968">Tradiciones</a><a href="#historia-1992">Desarrollo</a><a href="#historia-2026">Actualidad</a>
+</nav>
 <div aria-label="Línea de tiempo histórica de la escuela" class="linea-tiempo">
-<article class="hito"><time>1857</time><div><h3>Creación de la Escuela</h3><p>Comienza la historia educativa del establecimiento en Los Loros.</p></div></article>
+<article id="historia-1857" class="hito"><time>1857</time><div><h3>Creación de la Escuela</h3><p>Comienza la historia educativa del establecimiento en Los Loros.</p></div></article>
 <article class="hito"><time>1898</time><div><h3>Escuela Coeducacional N.º 17</h3><p>Recibe esta denominación, que mantiene hasta el 30 de junio de 1978.</p></div></article>
-<article class="hito"><time>1968</time><div><h3>Nace una tradición escolar</h3><p>El profesor Alexis Herrera impulsa la Primera Banda de Guerra Comunal, antecedente histórico de la actual Banda Escolar Alexis Herrera.</p></div></article>
+<article id="historia-1968" class="hito"><time>1968</time><div><h3>Nace una tradición escolar</h3><p>El profesor Alexis Herrera impulsa la Primera Banda de Guerra Comunal, antecedente histórico de la actual Banda Escolar Alexis Herrera.</p></div></article>
 <article class="hito"><time>1978</time><div><h3>Escuela de Concentración Fronteriza D N.º 43</h3><p>Se aplican planes y programas especiales orientados a la formación en oficios.</p></div></article>
-<article class="hito"><time>1992</time><div><h3>Innovación agrícola</h3><p>Se impulsa un proyecto de innovación curricular vinculado a la viticultura y tecnificación del parronal escolar, fortaleciendo la relación entre educación y territorio.</p></div></article>
+<article id="historia-1992" class="hito"><time>1992</time><div><h3>Innovación agrícola</h3><p>Se impulsa un proyecto de innovación curricular vinculado a la viticultura y tecnificación del parronal escolar, fortaleciendo la relación entre educación y territorio.</p></div></article>
 <article class="hito"><time>1997</time><div><h3>Jornada Escolar Completa</h3><p>Se incorpora el régimen de Jornada Escolar Completa.</p></div></article>
 <article class="hito"><time>1998</time><div><h3>Desempeño destacado SNED</h3><p>El establecimiento obtiene desempeño destacado en el sistema de evaluación.</p></div></article>
 <article class="hito"><time>2003</time><div><h3>Ampliación de niveles</h3><p>Se renueva el Reconocimiento Oficial y se amplía la enseñanza a Educación Media Diurna y Nocturna.</p></div></article>
@@ -1087,7 +1099,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <article class="hito"><time>2009</time><div><h3>Plan de Mejoramiento Educativo</h3><p>Se aprueban los Planes de Mejoramiento Educativo del establecimiento.</p></div></article>
 <article class="hito"><time>2014</time><div><h3>Reformulación del PEI</h3><p>Se reformula el Proyecto Educativo Institucional y se proyecta una nueva especialidad de Mecánica Industrial con mención Mantenimiento Electromecánico.</p></div></article>
 <article class="hito"><time>2016</time><div><h3>Mecánica Industrial con mención Mantenimiento Electromecánico</h3><p>Se implementa la formación en Mecánica Industrial con mención Mantenimiento Electromecánico y se amplía la Tercera Jornada para población adulta.</p></div></article>
-<article class="hito hito-destacado"><time>2026</time><div><h3>Excelencia Académica</h3><p>El establecimiento obtiene Excelencia Académica.</p></div></article>
+<article id="historia-2026" class="hito hito-destacado"><time>2026</time><div><h3>Excelencia Académica</h3><p>El establecimiento obtiene Excelencia Académica.</p></div></article>
 <article class="hito hito-destacado"><time>2026</time><div><h3>Opción 4 Laboral</h3><p>Entra en funcionamiento Opción 4 Laboral, ampliando la propuesta educativa inclusiva del establecimiento.</p></div></article>
 </div>
 </div>
@@ -4426,5 +4438,6 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 </nav>
 <div aria-live="polite" class="toast-sitio" hidden="" id="toastSitio" role="status"></div>
 
+<script defer src="mejoras-institucionales.js?v=20261024-1"></script>
 </body>
 </html>
