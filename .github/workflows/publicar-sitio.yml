@@ -6,6 +6,12 @@ on:
       - main
 
   workflow_dispatch:
+    inputs:
+      archivo_notificacion:
+        description: "Ruta para enviar o reintentar una notificación (opcional)"
+        required: false
+        default: ""
+        type: string
 
   # Regenera el sitio todos los días para activar o vencer avisos
   # aunque nadie haga un nuevo push al repositorio.
@@ -823,3 +829,128 @@ jobs:
       - name: Publicar sitio
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Recuperado del sistema FCM anterior. No altera la publicación de Pages.
+  notificaciones:
+    name: Enviar notificaciones
+    needs: build-and-deploy
+    runs-on: macos-15-intel
+    permissions:
+      contents: read
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Detectar publicaciones y notificar
+        shell: bash
+        env:
+          APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxrR_Gbk40Kn2Q2Kmg7Si9CZs184bVJ9bzMqCugiS8McOCA21bp3GXR0aJR4JTNMYWIWg/exec"
+          NOTIFICACIONES_SECRET: ${{ secrets.NOTIFICACIONES_SECRET }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          ARCHIVO_MANUAL: ${{ inputs.archivo_notificacion }}
+        run: |
+          set -euo pipefail
+          if [ -z "${NOTIFICACIONES_SECRET:-}" ]; then
+            echo "ERROR: falta NOTIFICACIONES_SECRET en GitHub Actions"
+            exit 1
+          fi
+
+          categoria_archivo() {
+            local archivo="$1"
+            shopt -s nocasematch
+            if [[ "$archivo" =~ ^comunicados/COMUNICADO[[:space:]]+[0-9]+(-[0-9]+)?\.pdf$ ]]; then
+              echo "Comunicado"
+            elif [[ "$archivo" =~ ^informacion-importante/infoimportante[0-9]+\.(pdf|png|jpg|jpeg)$ || "$archivo" =~ ^noticias/noticia[0-9]+\.(png|jpg|jpeg|webp)$ || "$archivo" =~ ^noticias/noticia-[a-zA-Z0-9_-]+/noticia\.txt$ ]]; then
+              echo "Noticias"
+            elif [[ "$archivo" =~ ^avisos/aviso[[:space:]]*[0-9]+(_desde_[0-9]{4}-[0-9]{2}-[0-9]{2})?(_hasta_[0-9]{4}-[0-9]{2}-[0-9]{2})?\.(pdf|png|jpg|jpeg)$ ]]; then
+              echo "Avisos importantes"
+            fi
+            shopt -u nocasematch
+          }
+
+          enviar() {
+            local archivo="$1" categoria fecha_desde hoy respuesta codigo estado intento
+            categoria="$(categoria_archivo "$archivo")"
+            if [ -z "$categoria" ]; then return 0; fi
+            if [[ "$archivo" =~ ^informacion-importante/infoimportante(01|02)\.(png|jpg|jpeg|pdf)$ ]]; then return 0; fi
+            if [ "$categoria" = "Avisos importantes" ] && [ "$EVENT_NAME" = "push" ]; then
+              if [[ "$archivo" =~ _desde_([0-9]{4}-[0-9]{2}-[0-9]{2}) ]]; then
+                fecha_desde="${BASH_REMATCH[1]}"
+                hoy="$(TZ=America/Santiago date +%F)"
+                if [[ "$fecha_desde" > "$hoy" ]]; then
+                  echo "Aviso futuro, se notificará en su fecha: $archivo"
+                  return 0
+                fi
+              fi
+            fi
+            respuesta="$(mktemp)"
+            for intento in 1 2 3 4; do
+              echo "Enviando ($intento/4): $categoria -> $archivo"
+              set +e
+              codigo="$(curl --http1.1 --silent --show-error --location \
+                --connect-timeout 20 --max-time 90 \
+                --header 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/152 Safari/537.36' \
+                --header 'Accept: application/json,text/plain,*/*' \
+                --data-urlencode 'accion=notificar_automatico' \
+                --data-urlencode "secreto=${NOTIFICACIONES_SECRET}" \
+                --data-urlencode "categoria=${categoria}" \
+                --data-urlencode "archivo=${archivo}" \
+                --data-urlencode "evento=archivo:${archivo}" \
+                --output "$respuesta" --write-out '%{http_code}' "$APPS_SCRIPT_URL")"
+              estado=$?
+              set -e
+              if [ "$estado" -eq 0 ] && [ "$codigo" = "200" ]; then
+                if python3 - "$respuesta" <<'PYJSON'
+          import json,sys
+          try:
+              with open(sys.argv[1], encoding='utf-8') as f: data=json.load(f)
+              if data.get('ok') is not True: raise ValueError(data.get('mensaje','ok=false'))
+              print('Apps Script confirmó la operación; duplicado:',data.get('duplicado',False), 'enviados:',data.get('enviados','sin dato'), 'errores:',data.get('errores','sin dato'))
+          except Exception as exc:
+              print('Respuesta inválida de Apps Script:',exc)
+              sys.exit(1)
+          PYJSON
+                then
+                  rm -f "$respuesta"
+                  return 0
+                fi
+              fi
+              echo "Falló solicitud: curl=$estado HTTP=$codigo"
+              if [ "$intento" -lt 4 ]; then sleep "$((intento * 5))"; fi
+            done
+            rm -f "$respuesta"
+            echo "ERROR: no se pudo confirmar la notificación: $archivo"
+            return 1
+          }
+
+          if [ "$EVENT_NAME" = "push" ]; then
+            if [[ "${BEFORE_SHA:-}" =~ ^0+$ ]]; then exit 0; fi
+            while IFS= read -r archivo; do
+              [ -n "$archivo" ] || continue
+              enviar "$archivo"
+            done < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$AFTER_SHA")
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            archivo="${ARCHIVO_MANUAL:-}"
+            if [ -z "$archivo" ]; then
+              echo "Ejecución manual sin archivo: no se envía notificación"
+              exit 0
+            fi
+            if [ ! -f "$archivo" ] || [ -z "$(categoria_archivo "$archivo")" ]; then
+              echo "ERROR: ruta inexistente o no notificable: $archivo"
+              exit 1
+            fi
+            enviar "$archivo"
+          elif [ "$EVENT_NAME" = "schedule" ]; then
+            hoy="$(TZ=America/Santiago date +%F)"
+            shopt -s nullglob nocasematch
+            for archivo in avisos/*; do
+              [ -f "$archivo" ] || continue
+              if [[ "$archivo" =~ ^avisos/aviso[[:space:]]*[0-9]+_desde_${hoy}(_hasta_[0-9]{4}-[0-9]{2}-[0-9]{2})?\.(pdf|png|jpg|jpeg)$ ]]; then
+                enviar "$archivo"
+              fi
+            done
+            shopt -u nullglob nocasematch
+          fi
