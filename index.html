@@ -220,6 +220,52 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 #especialidades .tp2026-etapas li p{grid-column:2}
 }
 @media(prefers-reduced-motion:reduce){#especialidades .tp2026-card{transition:none}}
+
+/* Recuperación de las tarjetas giratorias con la información al reverso. */
+#especialidades .tp2026-giratorias{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;align-items:stretch;margin:0 0 38px}
+#especialidades .tp2026-entrada{display:flex;flex-direction:column;gap:12px;min-width:0}
+#especialidades .tp2026-entrada[data-rama="agro"]{--acento-especialidad:#397d45}
+#especialidades .tp2026-entrada[data-rama="meca"]{--acento-especialidad:#46708d}
+#especialidades .tp2026-entrada .tarjeta-especialidad-academica{display:block;width:100%;min-height:580px;height:580px;padding:0;flex:none;border:0;border-top:5px solid var(--acento-especialidad);border-radius:17px;background:transparent;cursor:pointer;perspective:1200px;overflow:visible}
+#especialidades .tp2026-entrada .tarjeta-especialidad-interior{display:block;position:relative;width:100%;height:100%;min-height:575px;transform-style:preserve-3d;transition:transform .7s ease}
+#especialidades .tp2026-entrada .tarjeta-especialidad-frente,#especialidades .tp2026-entrada .tarjeta-especialidad-reverso{position:absolute;inset:0;width:100%;height:100%;border-radius:15px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 9px 28px rgba(19,56,78,.11)}
+#especialidades .tp2026-entrada .tarjeta-especialidad-frente{background:#fff;border:1px solid #dce5e9;border-bottom:5px solid var(--acento-especialidad);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:28px}
+#especialidades .tp2026-entrada .tarjeta-especialidad-frente img{width:min(175px,50%);height:175px;object-fit:contain;margin:0 auto 15px}
+#especialidades .tp2026-entrada .tarjeta-especialidad-frente .nombre-especialidad{font-size:1.21rem;max-width:370px;text-align:center;line-height:1.45;color:#163f62}
+#especialidades .tp2026-entrada .tarjeta-especialidad-frente .indicacion-giro{font-size:.86rem;color:#576e7c;margin-top:14px}
+#especialidades .tp2026-entrada .tarjeta-especialidad-reverso{transform:rotateY(180deg);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:24px 24px 19px;overflow-y:auto;background:linear-gradient(135deg,#123b58,#1b5a71);color:#fff;text-align:left;line-height:1.55}
+#especialidades .tp2026-entrada[data-rama="agro"] .tarjeta-especialidad-reverso{background:linear-gradient(135deg,#174e39,#23664a)}
+#especialidades .tp2026-entrada .tarjeta-especialidad-reverso>strong{width:100%;text-align:center;color:#f9de9b;font-size:1.13rem;line-height:1.35;margin:0 0 10px}
+#especialidades .tp2026-entrada .detalle-especialidad{display:flex;flex-direction:column;gap:11px;width:100%;font-size:.89rem;line-height:1.51}
+#especialidades .tp2026-entrada .detalle-especialidad-bloque{display:block;padding-top:10px;border-top:1px solid rgba(255,255,255,.21)}
+#especialidades .tp2026-entrada .detalle-especialidad-bloque:first-child{border-top:0;padding-top:0}
+#especialidades .tp2026-entrada .detalle-especialidad-bloque b{display:block;font-size:.91rem;margin-bottom:3px;color:#ffe7b4}
+#especialidades .tp2026-entrada .tarjeta-especialidad-reverso .indicacion-giro{margin-top:auto;width:100%;text-align:center;font-size:.8rem;padding-top:12px;color:#fff}
+#especialidades .tp2026-entrada .tp2026-ir-perfil{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 16px;border:0;border-radius:11px;background:#1b6748;color:#fff;font:inherit;font-weight:800;font-size:.9rem;line-height:1.4;text-align:center;cursor:pointer;transition:filter .2s ease,transform .2s ease}
+#especialidades .tp2026-entrada[data-rama="meca"] .tp2026-ir-perfil{background:#163f62}
+#especialidades .tp2026-entrada .tp2026-ir-perfil:hover{filter:brightness(1.1);transform:translateY(-2px)}
+#especialidades .tp2026-entrada .tp2026-ir-perfil:focus-visible{outline:3px solid #c69b36;outline-offset:3px}
+@media(max-width:900px){#especialidades .tp2026-giratorias{grid-template-columns:1fr;max-width:640px;margin:0 auto 33px}#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:580px;height:580px}}
+@media(max-width:600px){#especialidades .tp2026-giratorias{gap:25px}#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:640px;height:640px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:635px}#especialidades .tp2026-entrada .tarjeta-especialidad-reverso{padding:21px 18px 17px}#especialidades .tp2026-entrada .detalle-especialidad{font-size:.84rem}#especialidades .tp2026-entrada .tarjeta-especialidad-frente img{width:155px;height:155px}}
+@media(prefers-reduced-motion:reduce){#especialidades .tp2026-entrada .tarjeta-especialidad-interior{transition:none}}
+
+/* Igualdad de contenido entre tarjetas y separación de los detalles ampliados. */
+#especialidades .tp2026-intro-ampliada{margin:6px auto 25px;max-width:900px;text-align:center}
+#especialidades .tp2026-intro-ampliada h3{font-size:clamp(1.2rem,2.4vw,1.65rem);line-height:1.35;color:#163f62;margin:0 0 7px}
+#especialidades .tp2026-intro-ampliada p{font-size:.94rem;line-height:1.65;color:#546878;margin:0}
+#especialidades .tp2026-entrada[data-rama="agro"] .tarjeta-especialidad-academica{border-top-color:#397d45}
+#especialidades .tp2026-entrada[data-rama="meca"] .tarjeta-especialidad-academica{border-top-color:#46708d}
+#especialidades .tp2026-entrada[data-rama="meca"] .tarjeta-especialidad-frente{border-bottom-color:#46708d}
+#especialidades .tp2026-entrada[data-rama="agro"] .tarjeta-especialidad-frente{border-bottom-color:#397d45}
+#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:540px;height:540px}
+#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:535px}
+@media(max-width:900px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:540px;height:540px}}
+@media(max-width:600px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:580px;height:580px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:575px}}
+
+/* Altura adaptativa: mostrar los cuatro apartados completos al girar en celulares. */
+@media(max-width:600px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:665px;height:665px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:660px}}
+@media(max-width:375px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:730px;height:730px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:725px}}
+@media(max-width:345px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:780px;height:780px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:775px}}
 </style>
 </head>
 <body class="portal-2027">
@@ -1514,49 +1560,98 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <!-- ESPECIALIDADES TÉCNICO-PROFESIONALES · FICHAS COMPLETAS 2026 -->
 <section class="pagina" id="especialidades">
 <div class="contenedor tp2026">
- <div class="titulo-pagina titulo-editorial-premium" id="academicaEspecialidades"><span class="editorial-kicker">FORMACIÓN TÉCNICO PROFESIONAL</span><h2>Nuestras Especialidades</h2><p>Conoce nuestros módulos, perfiles de egreso, competencias y oportunidades para continuar tu camino después de cuarto medio.</p></div>
- <p class="tp2026-intro">En la Escuela de Concentración Los Loros ofrecemos dos trayectorias de formación técnico-profesional. Explora sus contenidos reales de 3.º y 4.º medio y descubre cómo se relacionan con tus intereses.</p>
- <div class="tp2026-cards" aria-label="Selecciona una especialidad"><article class="tp2026-card" data-rama="agro">
- <img src="imagenes/logoespecialidad1.png" alt="Insignia de Técnico en Agropecuaria" width="126" height="126" loading="lazy" decoding="async">
- <span class="tp2026-kicker">AGROPECUARIA</span>
- <h3>Técnico en Agropecuaria</h3>
- <div class="tp2026-mencion">Mención Agrícola</div>
- <p>Aprende a comprender y desarrollar procesos productivos agrícolas con responsabilidad ambiental y sentido territorial.</p>
- <button type="button" data-tp-perfil="tp2026Agro" aria-label="Ir al detalle de Técnico en Agropecuaria">Explorar esta especialidad</button>
- </article><article class="tp2026-card" data-rama="meca">
- <img src="imagenes/logoespecialidad2.png" alt="Insignia de Técnico en Mecánica Industrial" width="126" height="126" loading="lazy" decoding="async">
- <span class="tp2026-kicker">MECÁNICA INDUSTRIAL</span>
- <h3>Técnico en Mecánica Industrial</h3>
- <div class="tp2026-mencion">Mención Mantenimiento Electromecánico</div>
- <p>Desarrolla habilidades para comprender, verificar, mantener y reparar sistemas, herramientas y equipos industriales.</p>
- <button type="button" data-tp-perfil="tp2026Meca" aria-label="Ir al detalle de Técnico en Mecánica Industrial">Explorar esta especialidad</button>
- </article></div>
- <article class="tp2026-perfil" id="tp2026Agro" data-rama="agro" aria-labelledby="tp2026AgroTitulo">
+ <div class="titulo-pagina titulo-editorial-premium" id="academicaEspecialidades"><span class="editorial-kicker">FORMACIÓN TÉCNICO PROFESIONAL</span><h2>Nuestras Especialidades</h2><p>Conoce nuestras especialidades, descubre qué aprenderás y explora las oportunidades que ofrecen para tu futuro.</p></div>
+ <p class="tp2026-intro">En la Escuela de Concentración Los Loros puedes conocer ambas especialidades. Presiona cada tarjeta para girarla y leer su descripción; después, accede a la información completa de módulos, competencias, trabajo y estudios.</p>
+ <div class="especialidades-academicas especialidades-academicas-giratorias tp2026-giratorias" aria-label="Tarjetas giratorias de las especialidades">
+<div class="tp2026-entrada" data-rama="agro">
+<button aria-label="Girar tarjeta de Agropecuaria y consultar su descripción" aria-pressed="false" class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica" data-rama="agro" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente">
+<img alt="Técnico en Agropecuaria con mención Agrícola" decoding="async" loading="lazy" src="imagenes/logoespecialidad1.png"/>
+<span class="nombre-especialidad">
+                    Técnico en Agropecuaria con mención Agrícola
+                </span>
+<span class="indicacion-giro">
+                    Presiona para conocer la especialidad
+                </span>
+</span>
+<span class="tarjeta-especialidad-reverso tarjeta-especialidad-reverso-detallado">
+<strong>
+                    🌱 Técnico en Agropecuaria con mención Agrícola
+                </strong>
+<span class="detalle-especialidad">
+<span class="detalle-especialidad-bloque"><b>¿Qué aprenderás?</b>Conocerás cómo se producen y cuidan los cultivos: desde las condiciones del suelo y el agua hasta el manejo de plantas y productos agrícolas.</span>
+<span class="detalle-especialidad-bloque"><b>Principales competencias</b>Aprenderás a organizar labores agrícolas, observar el desarrollo de los cultivos y utilizar técnicas y recursos con responsabilidad y seguridad.</span>
+<span class="detalle-especialidad-bloque"><b>Campo laboral</b>Esta formación se relaciona con actividades en predios agrícolas, viveros, huertos y otros espacios de producción vegetal.</span>
+<span class="detalle-especialidad-bloque"><b>Continuidad de estudios</b>Puede ser un punto de partida para explorar estudios agrícolas, agroalimentarios y otras carreras relacionadas con tus intereses.</span>
+</span>
+<span class="indicacion-giro">
+                    Presiona para volver
+                </span>
+</span>
+</span>
+</button>
+<button class="tp2026-ir-perfil" type="button" data-tp-perfil="tp2026Agro" aria-label="Ver módulos, perfil de egreso y oportunidades de Agropecuaria">Ver información completa de Agropecuaria <span aria-hidden="true">↗</span></button>
+</div>
+<div class="tp2026-entrada" data-rama="meca">
+<button aria-label="Girar tarjeta de Mecánica Industrial y consultar su descripción" aria-pressed="false" class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica" data-rama="meca" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente">
+<img alt="Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" loading="lazy" src="imagenes/logoespecialidad2.png"/>
+<span class="nombre-especialidad">
+                    Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico
+                </span>
+<span class="indicacion-giro">
+                    Presiona para conocer la especialidad
+                </span>
+</span>
+<span class="tarjeta-especialidad-reverso tarjeta-especialidad-reverso-detallado">
+<strong>
+                    ⚙️ Técnico en Mecánica Industrial<br>Mención Mantenimiento Electromecánico
+                </br></strong>
+<span class="detalle-especialidad">
+<span class="detalle-especialidad-bloque"><b>¿Qué aprenderás?</b>Conocerás cómo funcionan y se mantienen las máquinas y los equipos, desde los trabajos mecánicos y las mediciones hasta los sistemas industriales.</span>
+<span class="detalle-especialidad-bloque"><b>Principales competencias</b>Aprenderás a interpretar información técnica, usar herramientas con precisión, reconocer fallas y aplicar procedimientos de trabajo seguro.</span>
+<span class="detalle-especialidad-bloque"><b>Campo laboral</b>Esta formación se relaciona con actividades en talleres, servicios de mantenimiento y empresas que utilizan maquinaria industrial.</span>
+<span class="detalle-especialidad-bloque"><b>Continuidad de estudios</b>Puede ser un punto de partida para explorar estudios de mecánica, mantenimiento, electricidad y otras carreras relacionadas con tus intereses.</span>
+</span>
+<span class="indicacion-giro">
+                    Presiona para volver
+                </span>
+</span>
+</span>
+</button>
+<button class="tp2026-ir-perfil" type="button" data-tp-perfil="tp2026Meca" aria-label="Ver módulos, perfil de egreso y oportunidades de Mecánica Industrial">Ver información completa de Mecánica Industrial <span aria-hidden="true">↗</span></button>
+</div>
+</div>
+ <div class="tp2026-intro-ampliada">
+<h3>Explora cada especialidad en detalle</h3>
+<p>Las tarjetas ofrecen una primera mirada. A continuación encontrarás los módulos de 3.º y 4.º medio, el perfil de egreso, las competencias, el campo laboral y las alternativas de estudios de ambas especialidades.</p>
+</div>
+<article class="tp2026-perfil" id="tp2026Agro" data-rama="agro" aria-labelledby="tp2026AgroTitulo">
  <header class="tp2026-perfil-cabecera"><span class="tp2026-kicker">AGROPECUARIA</span><h3 id="tp2026AgroTitulo">Técnico en Agropecuaria</h3><p>Mención Agrícola</p></header>
  <div class="tp2026-resumen"><span class="tp2026-chip">3.º medio · 6 módulos</span><span class="tp2026-chip">4.º medio · 6 módulos</span><span class="tp2026-chip">Formación técnico-profesional</span></div>
  <div class="tp2026-acordiones">
- <details open><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Módulos registrados en las asignaturas de 3.º y 4.º medio del establecimiento. Se presentan solo los correspondientes al ámbito TP, de acuerdo con los antecedentes entregados.</p>
+ <details open><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Estos son los módulos de formación técnico-profesional que se imparten en 3.º y 4.º medio de nuestro establecimiento.</p>
  <div class="tp2026-cols"><div class="tp2026-col"><h4>3.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Manejo de Suelo y Residuos</li><li>Técnicas de Reproducción Vegetal</li><li>Manejo de Técnicas de Riego</li><li>Control de Plagas y Enfermedades</li><li>Alimentación y Pesaje Pecuario</li><li>Seguridad, Prevención de Riesgos y Cuidado del Medio Ambiente</li></ol></div><div class="tp2026-col"><h4>4.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Manejos para Optimización Productiva de Frutales</li><li>Post Cosecha y Guarda de Productos Agrícolas</li><li>Técnicas de Cultivo de Especies Vegetales</li><li>Mantenimiento de Maquinarias y Equipos Agrícolas</li><li>Emprendimiento y Empleabilidad</li><li>Cosecha y Transporte de Vides</li></ol></div></div></div></details>
- <details ><summary><span class="tp2026-num" aria-hidden="true">02</span>Perfil de egreso según el MINEDUC</summary><div class="tp2026-contenido"><p>La formación prepara para participar en la producción agropecuaria y agrícola: preparación y manejo de suelos, riego, reproducción vegetal, control sanitario, manejo de cultivos y frutales, cosecha, postcosecha y mantenimiento básico de equipos. Incluye el registro de información productiva, el uso responsable de recursos y la aplicación de normas de seguridad. En las Bases Curriculares del MINEDUC, la mención se denomina «Agricultura».</p><p class="tp2026-nota">Síntesis informativa de los Objetivos de Aprendizaje oficiales, no transcripción textual del perfil del MINEDUC.</p></div></details>
+ <details ><summary><span class="tp2026-num" aria-hidden="true">02</span>Perfil de egreso</summary><div class="tp2026-contenido"><p>La formación prepara para participar en la producción agropecuaria y agrícola: preparación y manejo de suelos, riego, reproducción vegetal, control sanitario, manejo de cultivos y frutales, cosecha, postcosecha y mantenimiento básico de equipos. Incluye el registro de información productiva, el uso responsable de recursos y la aplicación de normas de seguridad.</p></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">03</span>Principales competencias</summary><div class="tp2026-contenido"><ul class="tp2026-lista-competencias"><li><strong>Suelos y recursos hídricos</strong>Preparar terrenos, manejar residuos y aplicar técnicas de riego y drenaje con criterios de uso eficiente del agua.</li><li><strong>Producción y reproducción vegetal</strong>Establecer cultivos, aplicar técnicas de reproducción vegetal y realizar labores productivas de acuerdo con cada especie.</li><li><strong>Sanidad de los cultivos</strong>Reconocer y controlar plagas, enfermedades y malezas mediante medidas preventivas y correctivas pertinentes.</li><li><strong>Manejo de frutales</strong>Apoyar labores de poda, raleo, conducción y optimización de la producción frutícola.</li><li><strong>Cosecha y postcosecha</strong>Participar en recolección, manejo, acopio, clasificación y guarda de productos agrícolas.</li><li><strong>Equipos, registros y seguridad</strong>Realizar mantenimiento básico de implementos, registrar información productiva y trabajar con prevención de riesgos y cuidado ambiental.</li></ul></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">04</span>Campo laboral y continuidad de estudios</summary><div class="tp2026-contenido"><div class="tp2026-cols"><div class="tp2026-col"><h4>Posibles ámbitos laborales</h4><ul><li>Predios, huertos frutales y empresas agrícolas.</li><li>Viveros, producción de hortalizas y actividades de propagación vegetal.</li><li>Empresas agroindustriales, de cosecha, selección y postcosecha.</li><li>Servicios agrícolas, riego, sanidad vegetal y apoyo técnico en producción.</li></ul></div>
- <div class="tp2026-col"><h4>Alternativas de continuidad de estudios</h4><p><strong>Técnico de Nivel Superior:</strong> Técnico Agrícola, Técnico Agropecuario, Producción Agrícola y programas afines.</p><p><strong>Carreras profesionales:</strong> Agronomía, Ingeniería Agrícola, Ingeniería en Agronomía, Agroindustria y ámbitos relacionados.</p><p><strong>Afinidad complementaria:</strong> Gastronomía, Ingeniería en Alimentos y otras carreras ligadas al origen, la calidad y la transformación de materias primas.</p></div></div>
+ <div class="tp2026-col"><h4>Alternativas de continuidad de estudios</h4><p><strong>Técnico de Nivel Superior:</strong> Técnico Agrícola, Técnico Agropecuario, Producción Agrícola y otras carreras afines.</p><p><strong>Carreras profesionales:</strong> Agronomía, Ingeniería Agrícola, Ingeniería en Agronomía, Agroindustria y ámbitos relacionados.</p><p><strong>Afinidad complementaria:</strong> Gastronomía, Ingeniería en Alimentos y otras carreras ligadas al origen, la calidad y la transformación de materias primas.</p></div></div>
  <p class="tp2026-nota" style="margin-top:15px">El campo laboral describe ámbitos posibles; no representa una promesa de contratación. Las carreras mencionadas son orientativas y su oferta, admisión y eventuales convalidaciones dependen de cada institución de educación superior.</p></div></details>
- <p class="tp2026-fuente">Fuentes curriculares: <a href="https://www.curriculumnacional.cl/curriculum/3o-4o-medio-tecnico-profesional/especialidad-agropecuaria-mencion-agricultura" target="_blank" rel="noopener noreferrer">Objetivos de Aprendizaje MINEDUC</a> · <a href="https://www.curriculumnacional.cl/614/w3-propertyvalue-138769.html" target="_blank" rel="noopener noreferrer">Programa y Bases Curriculares</a>.</p>
  </div>
  </article>
  <article class="tp2026-perfil" id="tp2026Meca" data-rama="meca" aria-labelledby="tp2026MecaTitulo">
  <header class="tp2026-perfil-cabecera"><span class="tp2026-kicker">MECÁNICA INDUSTRIAL</span><h3 id="tp2026MecaTitulo">Técnico en Mecánica Industrial</h3><p>Mención Mantenimiento Electromecánico</p></header>
  <div class="tp2026-resumen"><span class="tp2026-chip">3.º medio · 6 módulos</span><span class="tp2026-chip">4.º medio · 6 módulos</span><span class="tp2026-chip">Formación técnico-profesional</span></div>
  <div class="tp2026-acordiones">
- <details open><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Módulos registrados en las asignaturas de 3.º y 4.º medio del establecimiento. Se presentan solo los correspondientes al ámbito TP, de acuerdo con los antecedentes entregados.</p>
+ <details open><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Estos son los módulos de formación técnico-profesional que se imparten en 3.º y 4.º medio de nuestro establecimiento.</p>
  <div class="tp2026-cols"><div class="tp2026-col"><h4>3.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Soldadura</li><li>Mantenimiento de Herramientas</li><li>Medición y Verificación</li><li>Mecánica de Banco</li><li>Lectura de Manuales y Planos</li><li>Legislación y Prevención de Riesgos en la Minería</li></ol></div><div class="tp2026-col"><h4>4.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Mantenimiento y Reparación Industrial</li><li>Control de Procesos Industriales</li><li>Detección de Fallas en Sistemas Industriales</li><li>Montaje de Equipos y Sistemas Industriales</li><li>Emprendimiento y Empleabilidad</li><li>Instalaciones Eléctricas Industriales</li></ol></div></div></div></details>
- <details ><summary><span class="tp2026-num" aria-hidden="true">02</span>Perfil de egreso según el MINEDUC</summary><div class="tp2026-contenido"><p>La formación prepara para interpretar planos y manuales técnicos, realizar mediciones y verificaciones, desarrollar operaciones de banco y soldadura y ejecutar labores de mantenimiento de maquinaria. En la mención Mantenimiento Electromecánico se profundiza en el diagnóstico, montaje, reparación y puesta en funcionamiento de sistemas mecánicos, eléctricos, electromecánicos, hidráulicos y neumáticos, respetando normas de seguridad y protección ambiental.</p><p class="tp2026-nota">Síntesis informativa de los Objetivos de Aprendizaje oficiales, no transcripción textual del perfil del MINEDUC.</p></div></details>
+ <details ><summary><span class="tp2026-num" aria-hidden="true">02</span>Perfil de egreso</summary><div class="tp2026-contenido"><p>La formación prepara para interpretar planos y manuales técnicos, realizar mediciones y verificaciones, desarrollar operaciones de banco y soldadura y ejecutar labores de mantenimiento de maquinaria. En la mención Mantenimiento Electromecánico se profundiza en el diagnóstico, montaje, reparación y puesta en funcionamiento de sistemas mecánicos, eléctricos, electromecánicos, hidráulicos y neumáticos, respetando normas de seguridad y protección ambiental.</p></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">03</span>Principales competencias</summary><div class="tp2026-contenido"><ul class="tp2026-lista-competencias"><li><strong>Lectura de información técnica</strong>Interpretar planos, manuales, simbología y especificaciones de equipos y componentes.</li><li><strong>Medición y verificación</strong>Utilizar instrumentos para comprobar dimensiones, magnitudes y condiciones de funcionamiento.</li><li><strong>Soldadura y trabajos mecánicos</strong>Realizar uniones, ajustes y operaciones básicas de fabricación o reparación de piezas.</li><li><strong>Mantenimiento industrial</strong>Aplicar procedimientos de mantenimiento preventivo y reparación de maquinaria y equipos.</li><li><strong>Diagnóstico electromecánico</strong>Detectar problemas eléctricos y mecánicos en sistemas industriales, hidráulicos y neumáticos.</li><li><strong>Montaje y puesta en marcha</strong>Instalar, verificar y poner en funcionamiento equipos y sistemas, considerando seguridad y protección ambiental.</li></ul></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">04</span>Campo laboral y continuidad de estudios</summary><div class="tp2026-contenido"><div class="tp2026-cols"><div class="tp2026-col"><h4>Posibles ámbitos laborales</h4><ul><li>Talleres y empresas de mantenimiento mecánico y electromecánico.</li><li>Plantas de producción, manufactura y procesamiento industrial.</li><li>Empresas que utilizan maquinaria, equipos y sistemas automatizados.</li><li>Servicios de reparación, montaje y mantenimiento industrial, incluidos entornos productivos vinculados a la minería cuando corresponda.</li></ul></div>
  <div class="tp2026-col"><h4>Alternativas de continuidad de estudios</h4><p><strong>Técnico de Nivel Superior:</strong> Técnico en Mecánica Industrial, Mantenimiento Industrial, Mecatrónica y Automatización.</p><p><strong>Carreras profesionales:</strong> Ingeniería Mecánica, Ingeniería en Mantenimiento Industrial, Ingeniería Electromecánica y Automatización y Control.</p><p><strong>Afinidades relacionadas:</strong> Electricidad Industrial, Ingeniería en Minas y otras áreas técnicas vinculadas a equipos y procesos industriales.</p></div></div>
  <p class="tp2026-nota" style="margin-top:15px">El campo laboral describe ámbitos posibles; no representa una promesa de contratación. Las carreras mencionadas son orientativas y su oferta, admisión y eventuales convalidaciones dependen de cada institución de educación superior.</p></div></details>
- <p class="tp2026-fuente">Fuentes curriculares: <a href="https://www.curriculumnacional.cl/curriculum/3o-4o-medio-tecnico-profesional/especialidad-mecanica-industrial-mencion-mantenimiento-electromecanico/4-medio-tp" target="_blank" rel="noopener noreferrer">Objetivos de Aprendizaje MINEDUC</a> · <a href="https://www.curriculumnacional.cl/614/w3-propertyvalue-138826.html" target="_blank" rel="noopener noreferrer">Programa y Bases Curriculares</a>.</p>
  </div>
  </article>
  <section class="tp2026-bloque-general" aria-labelledby="tp2026CaminoTitulo">
