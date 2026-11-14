@@ -16,3 +16,85 @@
 :where(a,button,input,select,summary):focus-visible {outline:3px solid #1769aa;outline-offset:3px;}
 @media(max-width:640px){.noticias-filtros{align-items:stretch;flex-direction:column}.noticias-filtros input,.noticias-filtros select,.noticias-filtros button{width:100%;flex:auto}.historia-saltos a{font-size:.9rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* REORGANIZACIÓN PORTAL 2026 · Secciones independientes, sin afectar el diseño institucional */
+body.portal-2027 #inicio .hero-premium-accesos-simplificados{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:560px;}
+body.portal-2027 #inicio .hero-premium-accesos-simplificados .premium-icono-wrap{font-size:1.25rem;line-height:1;}
+body.portal-2027 #inicio .portal-hub-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:none!important;gap:10px!important;}
+body.portal-2027 #inicio .portal-hub-grid>.portal-tile{grid-column:auto!important;grid-row:auto!important;min-height:175px!important;}
+body.portal-2027 #inicio .portal-hub-grid>.portal-tile strong{font-size:clamp(1.1rem,1.65vw,1.75rem)!important;}
+body.portal-2027 #noticias .contenedor,body.portal-2027 #especialidades .contenedor{max-width:1300px;}
+body.portal-2027 #noticias .seccion-noticias-escolares{width:100%;margin-top:0;}
+body.portal-2027 #noticias .noticias-escolares-encabezado{margin-bottom:20px;}
+body.portal-2027 #especialidades .especialidades-academicas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:12px 0;align-items:stretch;}
+body.portal-2027 #especialidades .especialidad-academica{min-width:0;border:1px solid #dce5ed;border-top:5px solid #e3b333;border-radius:18px;overflow:hidden;}
+body.portal-2027 #inicio .seccion-noticias-inicio .noticias-inicio-cabecera h2{font-size:clamp(1.5rem,3vw,2.5rem);}
+@media(min-width:901px) and (max-width:1280px){body.portal-2027 .menu-agrupado{flex-wrap:wrap!important;justify-content:center;}}
+@media(max-width:900px){
+ body.portal-2027 #inicio .portal-hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+ body.portal-2027 #especialidades .especialidades-academicas{grid-template-columns:1fr;max-width:680px;margin-inline:auto;}
+}
+@media(max-width:600px){
+ body.portal-2027 #inicio .hero-premium-accesos-simplificados{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+ body.portal-2027 #inicio .portal-hub-grid>.portal-tile{min-height:145px!important;padding:15px!important;}
+ body.portal-2027 #inicio .portal-hub-grid>.portal-tile strong{font-size:1.14rem!important;}
+ body.portal-2027 .navegacion-movil-premium span{font-size:.61rem!important;}
+}
+@media(max-width:370px){body.portal-2027 .navegacion-movil-premium span{font-size:.55rem!important;}}
+
+/* VIDEO DEL HIMNO ESCOLAR — Seccion Nuestra Escuela */
+/* Evita que el modulo original de dos columnas reparta video y letra en columnas separadas. */
+body.portal-2027 #quienesSomos .himno-institucional {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+body.portal-2027 #quienesHimno .himno-video {
+  width: min(100%, 960px);
+  margin: 24px auto 34px;
+  padding: 0;
+}
+body.portal-2027 #quienesHimno .himno-video-reproductor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #071b2d;
+  box-shadow: 0 16px 36px rgba(6, 31, 55, .16);
+}
+body.portal-2027 #quienesHimno .himno-video-reproductor iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+body.portal-2027 #quienesHimno .himno-video-ayuda {
+  margin: 12px 0 0;
+  color: #3d5567;
+  font-size: .9rem;
+  line-height: 1.6;
+  text-align: center;
+}
+body.portal-2027 #quienesHimno .himno-video-ayuda a {
+  color: #095e43;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 600px) {
+  body.portal-2027 #quienesHimno .himno-video {margin: 18px auto 26px;}
+  body.portal-2027 #quienesHimno .himno-video-reproductor {border-radius: 12px;}
+  body.portal-2027 #quienesHimno .himno-video-ayuda {font-size: .82rem;}
+}
+
+/* Himno definitivo: letra completa sin nota lateral ni columna vacía. */
+body.portal-2027 #quienesHimno .himno-cuerpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) !important;
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+body.portal-2027 #quienesHimno .himno-letra {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}

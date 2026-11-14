@@ -4622,16 +4622,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       SISTEMA AUTOMÁTICO DE ÚLTIMAS NOTICIAS
+       SISTEMA AUTOMÁTICO DE INFORMACIÓN DE INTERÉS
 
        GitHub Actions genera:
        informacion-importante/informacion-importante.json
 
        Formatos aceptados:
-       noticias01.jpg
-       noticias02.jpeg
-       noticias03.png
-       noticias04.pdf
+       infoimportante01.png
+       infoimportante02.png
+       publicaciones de interés en imagen o PDF
 
        Los PDF son convertidos automáticamente a imágenes
        por página durante la publicación, para que su
@@ -4642,7 +4641,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "informacion-importante/informacion-importante.json";
 
     const CANTIDAD_INICIAL_NOTICIAS =
-        1;
+        2;
 
     const listaNoticias =
         document.getElementById(
@@ -4687,7 +4686,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             mensajeNoticias.innerHTML = `
                 <p>
-                    Cargando información importante...
+                    Cargando publicaciones de interés...
                 </p>
             `;
 
@@ -4731,7 +4730,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mensajeNoticias.innerHTML = `
                 <p>
                     <strong>
-                        Aún no hay noticias disponibles.
+                        Aún no hay publicaciones de interés disponibles.
                     </strong>
                 </p>
             `;
@@ -4787,7 +4786,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
             imagen.setAttribute(
                 "aria-label",
-                (textoAlternativo || "Noticia") +
+                (textoAlternativo || "Publicación de interés") +
                 ". Presiona para ampliar"
             );
             imagen.style.cursor =
@@ -4818,7 +4817,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const texto =
-            "Noticia N.º " +
+            "Publicación de interés N.º " +
             noticia.numero +
             " - Escuela de Concentración Los Loros\n" +
             rutaCompartida;
@@ -4870,7 +4869,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         boton.setAttribute(
             "aria-label",
-            "Compartir Noticia N.º " +
+            "Compartir Publicación de interés N.º " +
             noticia.numero +
             " por WhatsApp"
         );
@@ -4975,7 +4974,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 titulo.textContent =
-                    "Noticia N.º " +
+                    "Publicación de interés N.º " +
                     noticia.numero;
 
 
@@ -5088,7 +5087,7 @@ function prepararBotonesAmpliarNoticias() {
         botonAmpliar.type = "button";
         botonAmpliar.className = "boton-ampliar-noticia";
         botonAmpliar.innerHTML = '<span aria-hidden="true">🔍</span><span>Presione para ampliar</span>';
-        botonAmpliar.setAttribute("aria-label", "Ampliar noticia");
+        botonAmpliar.setAttribute("aria-label", "Ampliar publicación de interés");
 
         botonAmpliar.addEventListener("click", function(e) {
             e.preventDefault();
@@ -5144,7 +5143,7 @@ if (listaNoticiasParaAmpliar) {
     });
 }
 
-                /* Las noticias pueden ampliarse tanto en computador
+                /* Las publicaciones de interés pueden ampliarse tanto en computador
                    como en teléfono usando el visor general existente. */
                 contenido.addEventListener(
                     "click",
@@ -5166,7 +5165,7 @@ if (listaNoticiasParaAmpliar) {
                             imagen.currentSrc || imagen.src,
                             "imagen",
                             imagen.alt ||
-                                ("Noticia N.º " + noticia.numero),
+                                ("Publicación de interés N.º " + noticia.numero),
                             imagen
                         );
 
@@ -5219,7 +5218,7 @@ if (listaNoticiasParaAmpliar) {
                             imagen.currentSrc || imagen.src,
                             "imagen",
                             imagen.alt ||
-                                ("Noticia N.º " + noticia.numero),
+                                ("Publicación de interés N.º " + noticia.numero),
                             imagen
                         );
 
@@ -5257,7 +5256,7 @@ if (listaNoticiasParaAmpliar) {
                             const imagenPagina =
                                 crearImagenNoticia(
                                     pagina,
-                                    "Noticia N.º " +
+                                    "Publicación de interés N.º " +
                                     noticia.numero +
                                     ", página " +
                                     (indice + 1),
@@ -5318,7 +5317,7 @@ if (listaNoticiasParaAmpliar) {
                     contenido.appendChild(
                         crearImagenNoticia(
                             noticia.ruta,
-                            "Noticia N.º " +
+                            "Publicación de interés N.º " +
                             noticia.numero,
                             "noticia-imagen"
                         )
@@ -5376,8 +5375,8 @@ if (listaNoticiasParaAmpliar) {
 
                 botonVerMasNoticias.textContent =
                     mostrarTodasNoticias
-                        ? "Ocultar publicaciones anteriores"
-                        : "Ver publicaciones anteriores";
+                        ? "Mostrar menos publicaciones"
+                        : "Ver más publicaciones";
 
 
                 botonVerMasNoticias.setAttribute(
@@ -6441,6 +6440,9 @@ if (listaNoticiasParaAmpliar) {
     /* Buscador general */
     function mejoraConstruirIndice() {
         const items = [
+            {titulo:"Noticias de nuestra escuela",detalle:"noticias actividades reconocimientos fotografías ceremonias salidas pedagógicas",pagina:"noticias",destino:"noticiasInicio",categoria:"seccion"},
+            {titulo:"Nuestras Especialidades",detalle:"agropecuaria agrícola mecánica industrial mantenimiento electromecánico",pagina:"especialidades",destino:"academicaEspecialidades",categoria:"seccion"},
+            {titulo:"Nuestra Escuela",detalle:"historia institución misión visión 1857",pagina:"quienesSomos",destino:"quienesSomosInicio",categoria:"seccion"},
             {titulo:"Horarios de clases", detalle:"horario horarios curso 1 2 3 4 medio básica basica kinder opción opcion laboral agropecuaria mecánica mecanica", pagina:"academica", destino:"academicaHorarios", categoria:"horario"},
             {titulo:"PISE y Seguridad", detalle:"PISE plan integral seguridad escolar emergencia sismo incendio gases evacuación evacuacion", pagina:"seguridad", destino:"seguridad", categoria:"seccion"},
             {titulo:"Matrícula y postulación", detalle:"matricula matrícula postulación postulacion SAE anótate anotate lista admisión admision escolar", pagina:"inicio", destino:"inicioMatricula", categoria:"seccion"},
@@ -8044,7 +8046,8 @@ if (listaNoticiasParaAmpliar) {
             if(accion==="inicio")navegarSeguro("inicio","");
             else if(accion==="buscar"){
                 const x=document.getElementById("abrirBuscadorGlobal");if(x)x.click();
-            }else if(accion==="comunidad")navegarSeguro("comunidad","comunidadInicio");
+            }else if(accion==="noticias")navegarSeguro("noticias","");
+            else if(accion==="comunidad")navegarSeguro("comunidad","comunidadInicio");
             else if(accion==="horarios")navegarSeguro("academica","academicaHorarios");
             else if(accion==="menu"){
                 const m=document.getElementById("botonMenuMovil");if(m)m.click();
@@ -8061,6 +8064,7 @@ if (listaNoticiasParaAmpliar) {
             const a=b.dataset.navMovil;
             b.classList.toggle("activo",
                 (a==="inicio"&&pagina==="inicio")||
+                (a==="noticias"&&pagina==="noticias")||
                 (a==="comunidad"&&pagina==="comunidad")||
                 (a==="horarios"&&pagina==="academica")
             );

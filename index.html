@@ -89,7 +89,7 @@
 <style>
 @media(max-width:768px){
     .navegacion-movil-premium{
-        grid-template-columns:repeat(4,minmax(0,1fr));
+        grid-template-columns:repeat(5,minmax(0,1fr));
     }
 }
 </style>
@@ -131,7 +131,7 @@ body.portal-2027 .menu-grupo[open] > .menu-grupo-titulo .menu-grupo-flecha,
 body.portal-2027 #documentos details[open] > summary .documento-indicador {transform:rotate(180deg)!important}
 body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(255,255,255,.85)!important;color:#075a96!important}
 </style>
-<link rel="stylesheet" href="mejoras-institucionales.css?v=20261024-1">
+<link rel="stylesheet" href="mejoras-institucionales.css?v=20261114-himno-final-v2">
 </head>
 <body class="portal-2027">
 <div aria-hidden="true" class="progreso-lectura-sitio" id="progresoLecturaSitio">
@@ -191,7 +191,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 </button>
 </div>
 <div class="contenedor menu-contenido menu-agrupado" id="menuPrincipalOpciones">
-<button class="boton-menu activo" data-pagina="inicio" type="button">Inicio</button><button class="boton-menu" data-pagina="comunicados" type="button">Comunicados</button><details class="menu-grupo"><summary class="menu-grupo-titulo">Quiénes Somos<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="quienesSomos" type="button">Quiénes Somos</button><button class="boton-menu" data-pagina="personasHuella" type="button">Personas que dejaron huella</button><button class="boton-menu" data-pagina="equipo" type="button">Equipo de Gestión</button><button class="boton-menu" data-pagina="gestion" type="button">Consejo Escolar</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Académica<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="academica" type="button">Académica</button><button class="boton-menu" data-pagina="talleresJEC" type="button">Talleres JEC</button><button class="boton-menu" data-pagina="validacion" type="button">Validación de Estudios</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Comunidad<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="comunidad" type="button">Comunidad Educativa</button><button class="boton-menu" data-pagina="bandaEscolar" type="button">Banda Escolar</button><button class="boton-menu" data-pagina="justificarInasistencia" type="button">Justificar Inasistencia</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Documentos<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="documentos" type="button">Documentos</button><button class="boton-menu" data-pagina="protocolos" type="button">Protocolos</button><button class="boton-menu" data-pagina="seguridad" type="button">Seguridad</button></div></details><button class="boton-menu" data-pagina="contacto" type="button">Contacto</button>
+<button class="boton-menu activo" data-pagina="inicio" type="button">Inicio</button><button class="boton-menu" data-pagina="noticias" type="button">Noticias</button><button class="boton-menu" data-pagina="comunicados" type="button">Comunicados</button><details class="menu-grupo"><summary class="menu-grupo-titulo">Nuestra Escuela<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="quienesSomos" type="button">Nuestra Escuela</button><button class="boton-menu" data-pagina="personasHuella" type="button">Personas que dejaron huella</button><button class="boton-menu" data-pagina="equipo" type="button">Equipo de Gestión</button><button class="boton-menu" data-pagina="gestion" type="button">Consejo Escolar</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Académica<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="academica" type="button">Académica</button><button class="boton-menu" data-pagina="talleresJEC" type="button">Talleres JEC</button><button class="boton-menu" data-pagina="validacion" type="button">Validación de Estudios</button></div></details><button class="boton-menu" data-pagina="especialidades" type="button">Nuestras Especialidades</button><details class="menu-grupo"><summary class="menu-grupo-titulo">Comunidad<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="comunidad" type="button">Comunidad Educativa</button><button class="boton-menu" data-pagina="bandaEscolar" type="button">Banda Escolar</button><button class="boton-menu" data-pagina="justificarInasistencia" type="button">Justificar Inasistencia</button></div></details><details class="menu-grupo"><summary class="menu-grupo-titulo">Documentos<span aria-hidden="true" class="menu-grupo-flecha"></span></summary><div class="menu-grupo-opciones"><button class="boton-menu" data-pagina="documentos" type="button">Documentos</button><button class="boton-menu" data-pagina="protocolos" type="button">Protocolos</button><button class="boton-menu" data-pagina="seguridad" type="button">Seguridad</button></div></details><button class="boton-menu" data-pagina="contacto" type="button">Contacto</button>
 </div>
 </nav>
 <!-- =====================================================
@@ -250,42 +250,14 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
             formación integral y una propuesta Técnico Profesional
             vinculada al futuro de nuestros estudiantes.
         </p>
-<div aria-label="Accesos principales" class="hero-premium-accesos">
-<button data-premium-pagina="comunicados" type="button">
-<span aria-hidden="true" class="premium-icono-wrap">
-<svg viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h8M8 17h5"></path></svg>
-</span>
-<span><strong>Comunicados</strong><small>Información oficial</small></span>
+<div aria-label="Conoce el establecimiento" class="hero-premium-accesos hero-premium-accesos-simplificados">
+<button data-premium-pagina="quienesSomos" type="button">
+<span aria-hidden="true" class="premium-icono-wrap">🏫</span>
+<span><strong>Nuestra Escuela</strong><small>Historia e identidad</small></span>
 </button>
-<button data-premium-destino="academicaHorarios" data-premium-pagina="academica" type="button">
-<span aria-hidden="true" class="premium-icono-wrap">
-<svg viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg>
-</span>
-<span><strong>Horarios</strong><small>Ingreso, salida y clases</small></span>
-</button>
-<button data-premium-destino="inicioMatricula" data-premium-pagina="inicio" type="button">
-<span aria-hidden="true" class="premium-icono-wrap">
-<svg viewbox="0 0 24 24"><path d="M3 10 12 5l9 5-9 5z"></path><path d="M7 12v5c3 2 7 2 10 0v-5"></path></svg>
-</span>
-<span><strong>Matrícula</strong><small>Postulación y admisión</small></span>
-</button>
-<button data-premium-destino="quienesHimno" data-premium-pagina="quienesSomos" type="button">
-<span aria-hidden="true" class="premium-icono-wrap"><svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="16" cy="16" r="3"></circle></svg></span>
-<span><strong>Himno</strong><small>Identidad institucional</small></span>
-</button>
-<button data-premium-pagina="personasHuella" type="button">
-<span aria-hidden="true" class="premium-icono-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-5 3-8 8-8s8 3 8 8"></path></svg></span>
-<span><strong>Personas que dejaron huella</strong><small>Historia y memoria</small></span>
-</button>
-<button data-premium-pagina="bandaEscolar" type="button">
-<span aria-hidden="true" class="premium-icono-wrap"><svg viewBox="0 0 24 24"><path d="M5 4h14v12H5z"></path><path d="M8 20h8M12 16v4"></path></svg></span>
-<span><strong>Banda Escolar</strong><small>Tradición desde 1968</small></span>
-</button>
-<button id="premiumAbrirBusqueda" type="button">
-<span aria-hidden="true" class="premium-icono-wrap">
-<svg viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
-</span>
-<span><strong>Buscar</strong><small>Encuentra cualquier contenido</small></span>
+<button data-premium-pagina="noticias" type="button">
+<span aria-hidden="true" class="premium-icono-wrap">📰</span>
+<span><strong>Noticias</strong><small>Vida y actividades escolares</small></span>
 </button>
 </div>
 </div>
@@ -304,87 +276,21 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
       <span class="portal-num">01</span><span class="portal-symbol">✓</span>
       <strong>Justificar<br>Inasistencia</strong><small>Trámite en línea</small><b>Entrar →</b>
     </button>
-    <button class="portal-tile portal-tile-blue" data-premium-pagina="comunicados" type="button">
-      <span class="portal-num">02</span><span class="portal-symbol">▤</span>
-      <strong>Comunicados</strong><small>Información oficial</small><b>Revisar →</b>
-    </button>
     <button class="portal-tile portal-tile-gold" data-premium-destino="academicaHorarios" data-premium-pagina="academica" type="button">
-      <span class="portal-num">03</span><span class="portal-symbol">◷</span>
+      <span class="portal-num">02</span><span class="portal-symbol">◷</span>
       <strong>Horarios</strong><small>Jornada escolar</small><b>Consultar →</b>
     </button>
     <button class="portal-tile portal-tile-photo" data-premium-destino="inicioMatricula" data-premium-pagina="inicio" type="button">
-      <span class="portal-num">04</span><span class="portal-symbol">⌂</span>
+      <span class="portal-num">03</span><span class="portal-symbol">⌂</span>
       <strong>Matrícula y<br>Postulación</strong><small>Admisión escolar</small><b>Ver información →</b>
     </button>
     <button class="portal-tile portal-tile-dark" data-premium-pagina="documentos" type="button">
-      <span class="portal-num">05</span><span class="portal-symbol">▰</span>
+      <span class="portal-num">04</span><span class="portal-symbol">▰</span>
       <strong>Documentos</strong><small>Archivos institucionales</small><b>Abrir →</b>
     </button>
-    <button class="portal-tile portal-tile-line" data-premium-pagina="seguridad" type="button">
-      <span class="portal-num">06</span><span class="portal-symbol">✦</span>
-      <strong>Seguridad</strong><small>PISE y emergencias</small><b>Conocer →</b>
-    </button>
   </div>
 </section>
 
-<section class="portal-identidad">
-  <div class="portal-identidad-copy">
-    <span class="portal-kicker">DESDE 1857 · LOS LOROS</span>
-    <h2>Raíces en el territorio.<br><em>Educación para avanzar.</em></h2>
-    <p>Una comunidad educativa que une historia, formación integral e innovación, desde los primeros niveles hasta la Educación Técnico Profesional.</p>
-    <button data-premium-pagina="quienesSomos" type="button">Conoce nuestra historia <span>→</span></button>
-  </div>
-  <div class="portal-especialidades">
-    <article class="portal-especialidad agro">
-      <img src="imagenes/logoespecialidad1.png" alt="Logo Especialidad Agropecuaria">
-      <div><small>ESPECIALIDAD TP</small><strong>Agropecuaria</strong><span>Mención Agrícola</span></div>
-    </article>
-    <article class="portal-especialidad mecanica">
-      <img src="imagenes/logoespecialidad2.png" alt="Logo Especialidad Mecánica Industrial">
-      <div><small>ESPECIALIDAD TP</small><strong>Mecánica Industrial</strong><span>Mantenimiento Electromecánico</span></div>
-    </article>
-  </div>
-</section>
-
-<section aria-labelledby="tituloAccesoPerfil" class="acceso-perfil-premium" id="accesoPorPerfil">
-<div class="acceso-perfil-cabecera">
-<span>ACCESO DIRECTO</span>
-<h2 id="tituloAccesoPerfil">¿Qué información necesitas?</h2>
-<p>Selecciona tu perfil y te llevamos directamente a los accesos más útiles para ti.</p>
-</div>
-<div class="acceso-perfil-opciones">
-<button data-perfil-directo="alumnos" type="button">
-<span aria-hidden="true" class="acceso-perfil-icono">
-<svg viewbox="0 0 24 24"><path d="M4 19h16"></path><path d="M6 17V8l6-4 6 4v9"></path><path d="M9 17v-5h6v5"></path></svg>
-</span>
-<span>
-<strong>Estudiantes</strong>
-<small>Horarios, académica, Banda Escolar, himno, memoria, documentos y protocolos</small>
-</span>
-<span aria-hidden="true" class="acceso-perfil-flecha">→</span>
-</button>
-<button data-perfil-directo="apoderados" type="button">
-<span aria-hidden="true" class="acceso-perfil-icono">
-<svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="16.5" cy="9" r="2.5"></circle><path d="M3 20c0-4 2.5-6 6-6s6 2 6 6"></path><path d="M14 15c4 0 7 1.8 7 5"></path></svg>
-</span>
-<span>
-<strong>Madres, Padres y Apoderados</strong>
-<small>Horarios, matrícula, comunicados, himno, historia, documentos y contacto</small>
-</span>
-<span aria-hidden="true" class="acceso-perfil-flecha">→</span>
-</button>
-<button data-perfil-directo="funcionarios" type="button">
-<span aria-hidden="true" class="acceso-perfil-icono">
-<svg viewbox="0 0 24 24"><circle cx="12" cy="7" r="3"></circle><path d="M5 21v-2c0-4 3-7 7-7s7 3 7 7v2"></path><path d="M9 17h6"></path></svg>
-</span>
-<span>
-<strong>Funcionarios</strong>
-<small>Gestión, documentos, protocolos, seguridad, historia institucional e himno</small>
-</span>
-<span aria-hidden="true" class="acceso-perfil-flecha">→</span>
-</button>
-</div>
-</section>
 <section aria-labelledby="tituloMiAcceso" class="mi-acceso-premium" id="panelMiAcceso">
 <div class="mi-acceso-cabecera">
 <div>
@@ -404,32 +310,6 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <!-- =================================================
      NAVEGACIÓN INTERNA - INICIO
 ================================================== -->
-<div class="navegacion-interna navegacion-inicio">
-<button aria-expanded="false" class="boton-navegacion-interna" type="button">
-        Seleccionar sección
-        <span aria-hidden="true">⌄</span>
-</button>
-<div class="opciones-navegacion-interna">
-<button data-destino="avisoImportanteInicio" hidden="" id="botonIrAvisoImportante" type="button">
-            🚨 Aviso Importante
-        </button>
-<button data-destino="inicioEspecialidades" type="button">
-            🛠️ Especialidades
-        </button>
-<button data-destino="inicioNoticias" type="button">
-            📰 Información importante
-        </button>
-<button data-destino="inicioUltimoComunicado" type="button">
-            📢 Último Comunicado
-        </button>
-<button data-destino="inicioCuentaPublica" type="button">
-            📋 Cuenta Pública
-        </button>
-<button data-destino="inicioMatricula" type="button">
-            🎓 Matrícula y Postulación
-        </button>
-</div>
-</div>
 <!-- =================================================
      AVISO IMPORTANTE TEMPORAL
      Se muestra automáticamente solo si existen avisos.
@@ -460,82 +340,9 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <!-- =================================================
      ESPECIALIDADES
 ================================================== -->
-<div class="logos-especialidades" id="inicioEspecialidades">
-<button aria-label="Ver descripción de Técnico en Agropecuaria con mención Agrícola" aria-pressed="false" class="logo-especialidad tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente">
-<img alt="Logo de Técnico en Agropecuaria con mención Agrícola" decoding="async" loading="lazy" src="imagenes/logoespecialidad1.png">
-<span class="nombre-especialidad">
-                    Técnico en Agropecuaria con mención Agrícola
-                </span>
-<span class="indicacion-giro">Presiona para conocer la especialidad</span>
-</span>
-<span class="tarjeta-especialidad-reverso">
-<strong>Técnico en Agropecuaria con mención Agrícola</strong>
-<span>
-                    Forma estudiantes con conocimientos y habilidades para desarrollar
-                    labores agrícolas, manejo de cultivos y procesos productivos del
-                    sector agropecuario.
-                </span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-<button aria-label="Ver descripción de Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" aria-pressed="false" class="logo-especialidad tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente">
-<img alt="Logo de Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico" decoding="async" loading="lazy" src="imagenes/logoespecialidad2.png">
-<span class="nombre-especialidad">
-                    Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico
-                </span>
-<span class="indicacion-giro">Presiona para conocer la especialidad</span>
-</span>
-<span class="tarjeta-especialidad-reverso">
-<strong>Técnico en Mecánica Industrial con mención Mantenimiento Electromecánico</strong>
-<span>
-                    Forma estudiantes con conocimientos y habilidades para realizar
-                    trabajos de mantenimiento, reparación y operación de máquinas
-                    y equipos industriales.
-                </span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-</div>
 <!-- =================================================
      INFORMACIÓN ÚTIL Y ACCESOS FRECUENTES
 ================================================== -->
-<section class="inicio-accesos-frecuentes" id="inicioAccesosFrecuentes" aria-labelledby="tituloAccesosFrecuentes">
-<div class="inicio-accesos-cabecera">
-<span aria-hidden="true">⚡</span>
-<div>
-<h2 id="tituloAccesosFrecuentes">Información útil y accesos frecuentes</h2>
-<p>Encuentra rápidamente lo que más consulta nuestra comunidad educativa.</p>
-</div>
-</div>
-<div class="inicio-accesos-grid">
-<button type="button" class="inicio-acceso-card" data-ir-pagina="comunicados">
-<span aria-hidden="true" class="inicio-acceso-icono">📢</span>
-<span><strong>Último comunicado</strong><small>Revisa la información más reciente del establecimiento.</small></span>
-<span aria-hidden="true" class="inicio-acceso-flecha">→</span>
-</button>
-<button type="button" class="inicio-acceso-card" data-ir-pagina="academica" data-destino-pagina="academicaHorarios">
-<span aria-hidden="true" class="inicio-acceso-icono">🕒</span>
-<span><strong>Horarios de clases</strong><small>Consulta rápidamente los horarios por curso y modalidad.</small></span>
-<span aria-hidden="true" class="inicio-acceso-flecha">→</span>
-</button>
-<button type="button" class="inicio-acceso-card" data-destino="inicioMatricula">
-<span aria-hidden="true" class="inicio-acceso-icono">🎓</span>
-<span><strong>Matrícula y postulación</strong><small>Accede a la información y sistemas disponibles para apoderados.</small></span>
-<span aria-hidden="true" class="inicio-acceso-flecha">→</span>
-</button>
-<button type="button" class="inicio-acceso-card" data-ir-pagina="contacto">
-<span aria-hidden="true" class="inicio-acceso-icono">☎️</span>
-<span><strong>Contacto</strong><small>Encuentra los canales de contacto del establecimiento.</small></span>
-<span aria-hidden="true" class="inicio-acceso-flecha">→</span>
-</button>
-</div>
-</section>
 <!-- =================================================
      INFORMACIÓN DISPONIBLE EN EL SITIO
 ================================================== -->
@@ -550,7 +357,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <div class="resumen-contenido-item">
 <span aria-hidden="true" class="resumen-icono">📰</span>
 <strong id="contadorInicioNoticias">—</strong>
-<span>Información importante</span>
+<span>Información de interés</span>
 </div>
 <div class="resumen-contenido-item">
 <span aria-hidden="true" class="resumen-icono">📄</span>
@@ -564,54 +371,34 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 ================================================== -->
 <section aria-labelledby="tituloUltimasNoticias" class="seccion-noticias-inicio" id="inicioNoticias">
 <div class="noticias-editorial-premium">
-<span>INFORMACIÓN INSTITUCIONAL</span>
-<strong>Información para nuestra comunidad</strong>
+<span>ORIENTACIONES Y RECURSOS</span>
+<strong>Publicaciones para toda la comunidad</strong>
 </div>
 <div class="noticias-inicio-cabecera">
 <span aria-hidden="true" class="noticias-inicio-icono">
-            📰
+            📘
         </span>
 <h2 id="tituloUltimasNoticias">
-            Información importante
+            Información de interés para nuestra comunidad
         </h2>
 <p>
-            Publicaciones institucionales de interés permanente para nuestra comunidad educativa.
+            Consejos, orientaciones y contenidos útiles para estudiantes, familias y funcionarios.
         </p>
 </div>
 <div aria-busy="true" aria-live="polite" class="lista-noticias" id="listaNoticias">
 <div class="estado-noticias" id="mensajeNoticias">
 <p>
-                Cargando información importante...
+                Cargando publicaciones de interés...
             </p>
 </div>
 </div>
 <div class="acciones-noticias">
 <button aria-expanded="false" class="boton-ver-mas-noticias" hidden="" id="botonVerMasNoticias" type="button">
-            Ver más noticias
+            Ver más publicaciones
         </button>
 </div>
 </section>
 
-<!-- NOTICIAS DE NUESTRA ESCUELA: publicaciones de actividades realizadas -->
-<section class="seccion-noticias-escolares" id="noticiasEscuelaInicio" aria-labelledby="tituloNoticiasEscuela">
-  <div class="noticias-escolares-encabezado"><span class="noticias-escolares-kicker">VIDA ESCOLAR</span>
-  <h2 id="tituloNoticiasEscuela">Noticias de nuestra escuela</h2>
-  <p>Actividades, experiencias y logros que vivimos como comunidad educativa.</p></div>
-  <div class="noticias-filtros" role="search" aria-label="Buscar noticias escolares">
-<label for="buscarNoticiasEscolares">Buscar noticias</label>
-<input id="buscarNoticiasEscolares" type="search" placeholder="Buscar por actividad, empresa o palabra clave" autocomplete="off">
-<label for="filtrarAnioNoticias">Año</label>
-<select id="filtrarAnioNoticias"><option value="">Todos los años</option></select>
-<button type="button" id="limpiarFiltrosNoticias">Limpiar</button>
-<p id="estadoFiltrosNoticias" role="status" aria-live="polite"></p>
-</div>
-<div class="noticias-escolares-grid" id="noticiasEscuelaLista" aria-live="polite"><p class="noticias-escolares-vacio">Cargando noticias de nuestra escuela…</p></div>
-  <div class="noticias-escolares-acciones"><button id="noticiasEscuelaVerMas" class="boton-ver-mas-noticias" type="button" hidden>Ver noticias anteriores</button></div>
-</section>
-<dialog id="noticiasEscuelaDialogo" class="noticias-escolares-dialogo" aria-label="Noticia de nuestra escuela">
- <div class="noticias-escolares-dialogo-cabecera"><button type="button" id="noticiasEscuelaCerrar" aria-label="Cerrar noticia">✕ Cerrar</button></div>
- <article id="noticiasEscuelaDetalle"></article>
-</dialog>
 <!-- =================================================
      CONVIVENCIA Y BIENESTAR ESCOLAR
 ================================================== -->
@@ -852,6 +639,37 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 </section>
 </div>
 </section>
+<!-- NOTICIAS REALES · PÁGINA INDEPENDIENTE -->
+<section class="pagina" id="noticias">
+<div class="contenedor">
+<div class="titulo-pagina titulo-editorial-premium" id="noticiasInicio">
+<span class="editorial-kicker">VIDA ESCOLAR</span>
+<h2>Noticias</h2>
+<p>Conoce nuestras actividades, experiencias y logros más recientes.</p>
+</div>
+<!-- NOTICIAS DE NUESTRA ESCUELA: publicaciones de actividades realizadas -->
+<section class="seccion-noticias-escolares" id="noticiasEscuelaInicio" aria-labelledby="tituloNoticiasEscuela">
+  <div class="noticias-escolares-encabezado"><span class="noticias-escolares-kicker">VIDA ESCOLAR</span>
+  <h2 id="tituloNoticiasEscuela">Noticias de nuestra escuela</h2>
+  <p>Actividades, experiencias y logros que vivimos como comunidad educativa.</p></div>
+  <div class="noticias-filtros" role="search" aria-label="Buscar noticias escolares">
+<label for="buscarNoticiasEscolares">Buscar noticias</label>
+<input id="buscarNoticiasEscolares" type="search" placeholder="Buscar por actividad, empresa o palabra clave" autocomplete="off">
+<label for="filtrarAnioNoticias">Año</label>
+<select id="filtrarAnioNoticias"><option value="">Todos los años</option></select>
+<button type="button" id="limpiarFiltrosNoticias">Limpiar</button>
+<p id="estadoFiltrosNoticias" role="status" aria-live="polite"></p>
+</div>
+<div class="noticias-escolares-grid" id="noticiasEscuelaLista" aria-live="polite"><p class="noticias-escolares-vacio">Cargando noticias de nuestra escuela…</p></div>
+  <div class="noticias-escolares-acciones"><button id="noticiasEscuelaVerMas" class="boton-ver-mas-noticias" type="button" hidden>Ver noticias anteriores</button></div>
+</section>
+<dialog id="noticiasEscuelaDialogo" class="noticias-escolares-dialogo" aria-label="Noticia de nuestra escuela">
+ <div class="noticias-escolares-dialogo-cabecera"><button type="button" id="noticiasEscuelaCerrar" aria-label="Cerrar noticia">✕ Cerrar</button></div>
+ <article id="noticiasEscuelaDetalle"></article>
+</dialog>
+</div>
+</section>
+
 <!-- =====================================================
      COMUNICADOS
 ====================================================== -->
@@ -948,7 +766,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <div class="contenedor">
 <div class="titulo-pagina" id="quienesSomosInicio">
 <h2>
-        Quiénes Somos
+        Nuestra Escuela
     </h2>
 <p>
         Conoce nuestra identidad, trayectoria y propósito educativo.
@@ -1044,6 +862,19 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <h3 id="tituloHimnoEscuela">Himno de nuestra Escuela</h3>
 <p>Una expresión de identidad y pertenencia que acompaña la memoria de generaciones de nuestra comunidad educativa.</p>
 </div>
+<!-- Video del himno: reproduccion dentro del sitio, sin descarga ni reproduccion automatica -->
+<div class="himno-video" aria-label="Video del himno escolar">
+  <div class="himno-video-reproductor">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/l0fockPdRGQ?rel=0&amp;playsinline=1"
+      title="Video del himno de nuestra Escuela en YouTube"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+  <p class="himno-video-ayuda">Escucha el himno desde nuestra pagina. Si el reproductor no se muestra en tu dispositivo, puedes <a href="https://www.youtube.com/watch?v=l0fockPdRGQ" target="_blank" rel="noopener noreferrer">abrir el video directamente en YouTube</a>.</p>
+</div>
 <div class="himno-cuerpo">
 <div class="himno-letra">
 <p>Entre valle y montaña resuena<br>jubilosa la viva canción,<br>con un bello saludo a la escuela,<br>casa y templo de la educación.</p>
@@ -1056,20 +887,15 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 
 <p>Noble escuela de buenos maestros,<br>los que nunca se olvidarán;<br>en los pechos, fértil semilla,<br>como un faro de luz brillará.</p>
 
-<p class="himno-coro himno-coro-final"><strong>Fronteriza, escuela querida…</strong></p>
+<p class="himno-coro himno-coro-final"><strong>Fronteriza, escuela querida,</strong><br>dulce alero de paz y de bien,<br>aula eterna de nobles virtudes,<br>del trabajo, de ciencia y saber.</p>
 </div>
-<aside class="himno-nota">
-<span aria-hidden="true">♪</span>
-<strong>Patrimonio de nuestra memoria escolar</strong>
-<p>La letra se incorpora como transcripción de la versión conservada por la comunidad. Podrá complementarse si posteriormente se recupera una fuente histórica, partitura o grabación institucional.</p>
-<button type="button" data-ir-pagina="bandaEscolar" data-destino-pagina="bandaHimnoConexion">Conocer la Banda Escolar →</button>
-</aside>
+
 </div>
 </section>
 
 <div class="volver-seccion">
 <button class="boton-volver-seccion" data-destino="quienesSomosInicio" type="button">
-        ↑ Volver al inicio de Quiénes Somos
+        ↑ Volver al inicio de Nuestra Escuela
     </button>
 </div>
 </div>
@@ -1596,138 +1422,13 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 </div>
 </div>
 </section>
-<!-- =====================================================
-     ACADÉMICA
-====================================================== -->
-<section class="pagina" id="academica">
+<!-- ESPECIALIDADES TÉCNICO-PROFESIONALES · PÁGINA INDEPENDIENTE -->
+<section class="pagina" id="especialidades">
 <div class="contenedor">
-<div class="titulo-pagina titulo-editorial-premium" id="academicaInicio">
-<span class="editorial-kicker">TRAYECTORIA FORMATIVA</span>
-<h2>
-        Académica
-    </h2>
-<p>
-        Información sobre nuestros niveles y especialidades.
-    </p>
-</div>
-<!-- =================================================
-     NAVEGACIÓN INTERNA - ACADÉMICA
-================================================== -->
-<div class="navegacion-interna">
-<button aria-expanded="false" class="boton-navegacion-interna" type="button">
-        Ir a una sección
-        <span aria-hidden="true">⌄</span>
-</button>
-<div class="opciones-navegacion-interna">
-<button data-destino="academicaNiveles" type="button">
-            Niveles Educativos
-        </button>
-<button data-destino="academicaModalidades" type="button">
-            Otras Modalidades Educativas
-        </button>
-<button data-destino="academicaEspecialidades" type="button">
-            Especialidades Técnico Profesionales
-        </button>
-<button data-destino="academicaHorarios" type="button">
-            Horarios
-        </button>
-</div>
-</div>
-<div class="niveles-giratorios" id="academicaNiveles">
-<button aria-label="Ver información ampliada de Educación Parvularia" aria-pressed="false" class="nivel-giratorio tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente">
-<span aria-hidden="true" class="nivel-icono">🧩</span>
-<span class="nombre-especialidad">Educación Parvularia</span>
-<span class="nivel-rango">NT1 Pre Kinder · NT2 Kinder</span>
-<span class="indicacion-giro">Presiona para conocer más</span>
-</span>
-<span class="tarjeta-especialidad-atras">
-<span class="titulo-reverso">Educación Parvularia</span>
-<span class="texto-reverso">Primera etapa de la trayectoria educativa, orientada al desarrollo integral, aprendizaje, autonomía, convivencia y participación de niños y niñas.</span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-<button aria-label="Ver información ampliada de Educación Básica" aria-pressed="false" class="nivel-giratorio tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente">
-<span aria-hidden="true" class="nivel-icono">📚</span>
-<span class="nombre-especialidad">Educación Básica</span>
-<span class="nivel-rango">1° a 8° Básico</span>
-<span class="indicacion-giro">Presiona para conocer más</span>
-</span>
-<span class="tarjeta-especialidad-atras">
-<span class="titulo-reverso">Educación Básica</span>
-<span class="texto-reverso">Etapa que fortalece los aprendizajes fundamentales y el desarrollo integral de los estudiantes, promoviendo conocimientos, habilidades, autonomía, convivencia y participación.</span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-<button aria-label="Ver información ampliada de Educación Media Técnico Profesional" aria-pressed="false" class="nivel-giratorio tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente">
-<span aria-hidden="true" class="nivel-icono">🎓</span>
-<span class="nombre-especialidad">Educación Media Técnico Profesional</span>
-<span class="nivel-rango">1° a 4° Medio TP</span>
-<span class="indicacion-giro">Presiona para conocer más</span>
-</span>
-<span class="tarjeta-especialidad-atras">
-<span class="titulo-reverso">Educación Media Técnico Profesional</span>
-<span class="texto-reverso">Etapa que profundiza la formación general y, en los niveles correspondientes, articula la preparación Técnico Profesional, favoreciendo la continuidad de estudios y la incorporación al mundo laboral.</span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-</div>
-<div class="premium-separador-seccion premium-modalidades"><span>Inclusión y desarrollo</span></div>
-<div class="titulo-pagina" id="academicaModalidades" style="margin-top: 60px;">
-<h2>
-        Otras Modalidades Educativas
-    </h2>
-</div>
-<div class="modalidades-giratorias">
-<button aria-label="Ver información ampliada de Opción 4" aria-pressed="false" class="modalidad-giratoria tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente">
-<span aria-hidden="true" class="modalidad-icono">🧩</span>
-<span class="nombre-especialidad">Opción 4</span>
-<span class="indicacion-giro">Presiona para conocer más</span>
-</span>
-<span class="tarjeta-especialidad-atras">
-<span class="titulo-reverso">Opción 4</span>
-<span class="texto-reverso">
-                    Modalidad de educación especial para estudiantes que requieren
-                    apoyos especializados y una respuesta educativa ajustada a sus
-                    necesidades. Favorece el aprendizaje, la participación, la
-                    autonomía y el desarrollo integral, considerando las
-                    características y fortalezas de cada estudiante.
-                </span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-<button aria-label="Ver información ampliada de Opción 4 Laboral" aria-pressed="false" class="modalidad-giratoria tarjeta-especialidad" type="button">
-<span class="tarjeta-especialidad-interior">
-<span class="tarjeta-especialidad-frente opcion4-laboral-frente">
-<img class="opcion4-laboral-logo" src="imagenes/logoopcion4laboral.png" alt="Insignia de Opción 4 Laboral creada por Yohander" loading="lazy" decoding="async">
-<span class="nombre-especialidad">Opción 4 Laboral</span>
-<span class="indicacion-giro">Presiona para conocer más</span>
-</span>
-<span class="tarjeta-especialidad-atras opcion4-laboral-atras">
-<span class="titulo-reverso">Opción 4 Laboral</span>
-<span class="texto-reverso">Espacio formativo orientado al desarrollo de habilidades para la vida adulta y socio-laboral, fortaleciendo la autonomía, la independencia y la participación.</span>
-<span class="opcion4-historia-insignia"><strong>Una insignia con historia</strong> · Creada por <strong>Yohander</strong>, primer estudiante de Opción 4 Laboral, como parte de la identidad y de los primeros pasos de esta modalidad educativa en nuestro establecimiento.</span>
-<span class="indicacion-giro">Presiona para volver</span>
-</span>
-</span>
-</button>
-</div>
-<div class="premium-separador-seccion premium-especialidades"><span>Formación Técnico Profesional</span></div>
-<div class="titulo-pagina" id="academicaEspecialidades" style="margin-top: 60px;">
-<h2>
-        Especialidades Técnico Profesionales
-    </h2>
+<div class="titulo-pagina titulo-editorial-premium" id="academicaEspecialidades">
+<span class="editorial-kicker">FORMACIÓN TÉCNICO PROFESIONAL</span>
+<h2>Nuestras Especialidades</h2>
+<p>Descubre las competencias, aprendizajes, prácticas y oportunidades de formación de nuestras dos especialidades.</p>
 </div>
 <div class="especialidades-academicas especialidades-academicas-giratorias">
 <button aria-label="Ver información ampliada de Técnico en Agropecuaria con mención Agrícola" aria-pressed="false" class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica" type="button">
@@ -1823,6 +1524,136 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <span class="indicacion-giro">
                     Presiona para volver
                 </span>
+</span>
+</span>
+</button>
+</div>
+</div>
+</section>
+
+<!-- =====================================================
+     ACADÉMICA
+====================================================== -->
+<section class="pagina" id="academica">
+<div class="contenedor">
+<div class="titulo-pagina titulo-editorial-premium" id="academicaInicio">
+<span class="editorial-kicker">TRAYECTORIA FORMATIVA</span>
+<h2>
+        Académica
+    </h2>
+<p>
+        Información sobre nuestros niveles, modalidades educativas y horarios de clases.
+    </p>
+</div>
+<!-- =================================================
+     NAVEGACIÓN INTERNA - ACADÉMICA
+================================================== -->
+<div class="navegacion-interna">
+<button aria-expanded="false" class="boton-navegacion-interna" type="button">
+        Ir a una sección
+        <span aria-hidden="true">⌄</span>
+</button>
+<div class="opciones-navegacion-interna">
+<button data-destino="academicaNiveles" type="button">
+            Niveles Educativos
+        </button>
+<button data-destino="academicaModalidades" type="button">
+            Otras Modalidades Educativas
+        </button>
+<button data-ir-pagina="especialidades" type="button">
+            Nuestras Especialidades →
+        </button>
+<button data-destino="academicaHorarios" type="button">
+            Horarios
+        </button>
+</div>
+</div>
+<div class="niveles-giratorios" id="academicaNiveles">
+<button aria-label="Ver información ampliada de Educación Parvularia" aria-pressed="false" class="nivel-giratorio tarjeta-especialidad" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente">
+<span aria-hidden="true" class="nivel-icono">🧩</span>
+<span class="nombre-especialidad">Educación Parvularia</span>
+<span class="nivel-rango">NT1 Pre Kinder · NT2 Kinder</span>
+<span class="indicacion-giro">Presiona para conocer más</span>
+</span>
+<span class="tarjeta-especialidad-atras">
+<span class="titulo-reverso">Educación Parvularia</span>
+<span class="texto-reverso">Primera etapa de la trayectoria educativa, orientada al desarrollo integral, aprendizaje, autonomía, convivencia y participación de niños y niñas.</span>
+<span class="indicacion-giro">Presiona para volver</span>
+</span>
+</span>
+</button>
+<button aria-label="Ver información ampliada de Educación Básica" aria-pressed="false" class="nivel-giratorio tarjeta-especialidad" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente">
+<span aria-hidden="true" class="nivel-icono">📚</span>
+<span class="nombre-especialidad">Educación Básica</span>
+<span class="nivel-rango">1° a 8° Básico</span>
+<span class="indicacion-giro">Presiona para conocer más</span>
+</span>
+<span class="tarjeta-especialidad-atras">
+<span class="titulo-reverso">Educación Básica</span>
+<span class="texto-reverso">Etapa que fortalece los aprendizajes fundamentales y el desarrollo integral de los estudiantes, promoviendo conocimientos, habilidades, autonomía, convivencia y participación.</span>
+<span class="indicacion-giro">Presiona para volver</span>
+</span>
+</span>
+</button>
+<button aria-label="Ver información ampliada de Educación Media Técnico Profesional" aria-pressed="false" class="nivel-giratorio tarjeta-especialidad" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente">
+<span aria-hidden="true" class="nivel-icono">🎓</span>
+<span class="nombre-especialidad">Educación Media Técnico Profesional</span>
+<span class="nivel-rango">1° a 4° Medio TP</span>
+<span class="indicacion-giro">Presiona para conocer más</span>
+</span>
+<span class="tarjeta-especialidad-atras">
+<span class="titulo-reverso">Educación Media Técnico Profesional</span>
+<span class="texto-reverso">Etapa que profundiza la formación general y, en los niveles correspondientes, articula la preparación Técnico Profesional, favoreciendo la continuidad de estudios y la incorporación al mundo laboral.</span>
+<span class="indicacion-giro">Presiona para volver</span>
+</span>
+</span>
+</button>
+</div>
+<div class="premium-separador-seccion premium-modalidades"><span>Inclusión y desarrollo</span></div>
+<div class="titulo-pagina" id="academicaModalidades" style="margin-top: 60px;">
+<h2>
+        Otras Modalidades Educativas
+    </h2>
+</div>
+<div class="modalidades-giratorias">
+<button aria-label="Ver información ampliada de Opción 4" aria-pressed="false" class="modalidad-giratoria tarjeta-especialidad" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente">
+<span aria-hidden="true" class="modalidad-icono">🧩</span>
+<span class="nombre-especialidad">Opción 4</span>
+<span class="indicacion-giro">Presiona para conocer más</span>
+</span>
+<span class="tarjeta-especialidad-atras">
+<span class="titulo-reverso">Opción 4</span>
+<span class="texto-reverso">
+                    Modalidad de educación especial para estudiantes que requieren
+                    apoyos especializados y una respuesta educativa ajustada a sus
+                    necesidades. Favorece el aprendizaje, la participación, la
+                    autonomía y el desarrollo integral, considerando las
+                    características y fortalezas de cada estudiante.
+                </span>
+<span class="indicacion-giro">Presiona para volver</span>
+</span>
+</span>
+</button>
+<button aria-label="Ver información ampliada de Opción 4 Laboral" aria-pressed="false" class="modalidad-giratoria tarjeta-especialidad" type="button">
+<span class="tarjeta-especialidad-interior">
+<span class="tarjeta-especialidad-frente opcion4-laboral-frente">
+<img class="opcion4-laboral-logo" src="imagenes/logoopcion4laboral.png" alt="Insignia de Opción 4 Laboral creada por Yohander" loading="lazy" decoding="async">
+<span class="nombre-especialidad">Opción 4 Laboral</span>
+<span class="indicacion-giro">Presiona para conocer más</span>
+</span>
+<span class="tarjeta-especialidad-atras opcion4-laboral-atras">
+<span class="titulo-reverso">Opción 4 Laboral</span>
+<span class="texto-reverso">Espacio formativo orientado al desarrollo de habilidades para la vida adulta y socio-laboral, fortaleciendo la autonomía, la independencia y la participación.</span>
+<span class="opcion4-historia-insignia"><strong>Una insignia con historia</strong> · Creada por <strong>Yohander</strong>, primer estudiante de Opción 4 Laboral, como parte de la identidad y de los primeros pasos de esta modalidad educativa en nuestro establecimiento.</span>
+<span class="indicacion-giro">Presiona para volver</span>
 </span>
 </span>
 </button>
@@ -4233,6 +4064,8 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 </div>
 <nav aria-label="Accesos del pie de página" class="pie-accesos">
 <button data-ir-pagina="inicio" type="button">Inicio</button>
+<button data-ir-pagina="noticias" type="button">Noticias</button>
+<button data-ir-pagina="especialidades" type="button">Nuestras Especialidades</button>
 <button data-ir-pagina="comunicados" type="button">Comunicados</button>
 <button data-ir-pagina="personasHuella" type="button">Personas que dejaron huella</button>
 <button data-ir-pagina="bandaEscolar" type="button">Banda Escolar</button>
@@ -4264,7 +4097,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js"></script>
 <script src="notificaciones-config.js?v=20260907-4"></script>
-<script src="script.js?v=20261021-menu-agrupado-1"></script>
+<script src="script.js?v=20261114-reorganizacion-v1"></script>
 <!-- =====================================================
      INSTALACIÓN UNIVERSAL DE LA APLICACIÓN
 ====================================================== -->
@@ -4422,6 +4255,10 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <button aria-label="Inicio" data-nav-movil="inicio" type="button">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg>
 <span>Inicio</span>
+</button>
+<button aria-label="Noticias de la escuela" data-nav-movil="noticias" type="button">
+<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 8h10M7 12h10M7 16h6"></path></svg>
+<span>Noticias</span>
 </button>
 <button aria-label="Buscar en el sitio" data-nav-movil="buscar" type="button">
 <svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
