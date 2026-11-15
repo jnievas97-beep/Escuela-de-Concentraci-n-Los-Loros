@@ -266,6 +266,96 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 @media(max-width:600px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:665px;height:665px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:660px}}
 @media(max-width:375px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:730px;height:730px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:725px}}
 @media(max-width:345px){#especialidades .tp2026-entrada .tarjeta-especialidad-academica{min-height:780px;height:780px}#especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:775px}}
+
+
+/* Mejora de orientación vocacional y navegación TP · noviembre de 2026 */
+#especialidades .tp2026-atajos{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:-7px 0 25px}
+#especialidades .tp2026-atajos button{border:1px solid #c7d8df;background:#fff;color:#163f62;border-radius:999px;padding:9px 15px;min-height:44px;font:inherit;font-size:.84rem;font-weight:750;cursor:pointer}
+#especialidades .tp2026-atajos button:hover{background:#eef5f7;border-color:#8db0be}
+#especialidades .tp2026-atajos button:focus-visible{outline:3px solid #c69b36;outline-offset:3px}
+#especialidades .tp2026-comparador{margin:2px 0 27px;border:1px solid #cbdde4;border-radius:16px;background:#f9fcfd;overflow:hidden;scroll-margin-top:24px}
+#especialidades .tp2026-comparador>summary{display:flex;align-items:center;gap:14px;cursor:pointer;padding:20px 23px;list-style:none;color:#163f62;line-height:1.4}
+#especialidades .tp2026-comparador>summary::-webkit-details-marker{display:none}
+#especialidades .tp2026-comparador>summary strong{display:block;font-size:1.02rem}
+#especialidades .tp2026-comparador>summary small{display:block;color:#526b78;font-size:.84rem;margin-top:3px}
+#especialidades .tp2026-comparador>summary::after{content:'+';font-size:1.5rem;font-weight:800;margin-left:auto}
+#especialidades .tp2026-comparador[open]>summary::after{content:'−'}
+#especialidades .tp2026-comparador>summary:focus-visible{outline:3px solid #c69b36;outline-offset:-3px}
+#especialidades .tp2026-comparar-icono{font-size:1.4rem;display:grid;place-items:center;flex:0 0 45px;width:45px;height:45px;border-radius:12px;background:#e5f0ee;color:#1b6748}
+#especialidades .tp2026-comparador-contenido{border-top:1px solid #dce5e9;padding:20px}
+#especialidades .tp2026-comparador-intro{color:#526b78;margin:0 0 16px;line-height:1.65}
+#especialidades .tp2026-comparador-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+#especialidades .tp2026-comparador-col{border:1px solid #dce6e9;border-radius:13px;background:#fff;padding:18px;min-width:0}
+#especialidades .tp2026-comparador-agro{border-top:4px solid #397d45}
+#especialidades .tp2026-comparador-meca{border-top:4px solid #46708d}
+#especialidades .tp2026-comparador-col h4{color:#163f62;font-size:1.08rem;margin:0 0 13px}
+#especialidades .tp2026-comparador-col dl{margin:0}
+#especialidades .tp2026-comparador-col dt{font-size:.82rem;font-weight:850;color:#31566b;margin-top:12px}
+#especialidades .tp2026-comparador-col dd{margin:2px 0 0;color:#425866;font-size:.9rem;line-height:1.55}
+#especialidades .tp2026-comparador-contenido>.tp2026-nota{margin:16px 0 0}
+#especialidades .tp2026-buscador-form{display:grid;grid-template-columns:minmax(0,2fr) repeat(2,minmax(0,1fr));gap:12px}
+#especialidades .tp2026-campo{min-width:0}
+#especialidades .tp2026-campo label{display:block;font-size:.82rem;font-weight:800;color:#163f62;margin-bottom:6px}
+#especialidades .tp2026-campo input,#especialidades .tp2026-campo select{display:block;width:100%;height:47px;min-height:47px;padding:10px 12px;background:white;border-radius:10px;border:1px solid #bfd1db;color:#233e4d;font:inherit;font-size:.88rem}
+#especialidades .tp2026-campo input:focus-visible,#especialidades .tp2026-campo select:focus-visible{outline:3px solid #c69b36;outline-offset:2px}
+#especialidades .tp2026-explicacion-tipos{display:flex;flex-wrap:wrap;gap:7px 15px;margin:15px 0 15px;color:#586c78;font-size:.78rem;line-height:1.5}
+#especialidades .tp2026-explicacion-tipos strong{color:#29475a}
+#especialidades .tp2026-explorador-cabecera{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:5px 0 12px}
+#especialidades .tp2026-explorador-cabecera p{margin:0;color:#3b5666;font-size:.87rem;font-weight:750}
+#especialidades .tp2026-explorador-cabecera button{border:0;background:transparent;text-decoration:underline;color:#1d5576;font:inherit;font-size:.82rem;font-weight:750;cursor:pointer;padding:8px}
+#especialidades .tp2026-carreras-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#especialidades .tp2026-carrera{border:1px solid #dbe6ea;border-radius:12px;background:white;min-width:0;overflow:hidden}
+#especialidades .tp2026-carrera-boton{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:82px;padding:13px 15px;border:0;background:transparent;color:#163f62;text-align:left;font:inherit;cursor:pointer}
+#especialidades .tp2026-carrera-boton:hover{background:#f3f8fa}
+#especialidades .tp2026-carrera-boton:focus-visible{outline:3px solid #c69b36;outline-offset:-3px}
+#especialidades .tp2026-carrera-nombre{font-weight:800;font-size:.9rem;line-height:1.35;display:block}
+#especialidades .tp2026-carrera-meta{color:#607887;font-size:.75rem;line-height:1.6;display:block;margin-top:3px}
+#especialidades .tp2026-carrera-icono{flex:0 0 auto;font-size:1.2rem;color:#316982;line-height:1}
+#especialidades .tp2026-carrera-detalle{padding:12px 15px 14px;border-top:1px solid #dce6e9;font-size:.85rem;color:#405764;line-height:1.6;background:#f8fbfc}
+#especialidades .tp2026-carrera-detalle[hidden]{display:none}
+#especialidades .tp2026-carrera-vacio{grid-column:1/-1;border:1px dashed #c7d9e2;border-radius:12px;padding:24px;text-align:center;color:#506777;background:#fafcfd}
+#especialidades .tp2026-explorador-pie{text-align:center;margin:16px 0 0}
+#especialidades #tp2026VerMasCarreras{padding:12px 25px;border-radius:999px;border:1px solid #b8d0dd;background:#fff;color:#163f62;font:inherit;font-size:.9rem;font-weight:800;cursor:pointer;min-height:44px}
+#especialidades #tp2026VerMasCarreras:hover{background:#eef5f7}
+#especialidades #tp2026VerMasCarreras[hidden]{display:none}
+#especialidades .tp2026-referencias-estudios{margin:21px 0 0;padding:17px;border-radius:13px;background:#eff6f4;border:1px solid #d0e2db;line-height:1.55}
+#especialidades .tp2026-referencias-estudios>strong{color:#164734}
+#especialidades .tp2026-referencias-estudios p{font-size:.82rem;color:#4c6870;margin:6px 0 10px}
+#especialidades .tp2026-referencias-estudios>div{display:flex;flex-wrap:wrap;gap:9px 18px}
+#especialidades .tp2026-referencias-estudios a{color:#124d6c;text-decoration:underline;text-underline-offset:3px;font-size:.84rem;font-weight:800}
+/* Tarjetas sin recortar el texto al reverso y más compactas en móvil. */
+@media(max-width:900px){#especialidades .tp2026-giratorias{max-width:600px}}
+@media(max-width:700px){
+ #especialidades .tp2026-comparador-grid,#especialidades .tp2026-buscador-form{grid-template-columns:1fr}
+ #especialidades .tp2026-buscador-form{gap:10px}
+ #especialidades .tp2026-comparador-contenido{padding:13px}
+ #especialidades .tp2026-atajos{gap:7px;margin-bottom:23px}
+ #especialidades .tp2026-atajos button{flex:1 1 42%;padding:9px 7px;font-size:.78rem}
+}
+@media(max-width:600px){
+ #especialidades .tp2026-carreras-grid{grid-template-columns:1fr}
+ #especialidades .tp2026-carrera-boton{min-height:67px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-academica{height:575px;min-height:575px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:570px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-reverso{padding:18px 17px 13px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-reverso>strong{font-size:1.04rem;margin-bottom:7px}
+ #especialidades .tp2026-entrada .detalle-especialidad{gap:6px;font-size:.81rem;line-height:1.44}
+ #especialidades .tp2026-entrada .detalle-especialidad-bloque{padding-top:7px}
+ #especialidades .tp2026-entrada .detalle-especialidad-bloque b{font-size:.84rem;margin-bottom:3px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-reverso .indicacion-giro{padding-top:6px}
+ #especialidades .tp2026-giratorias{gap:20px;margin-bottom:24px}
+ #especialidades .tp2026-intro{margin-bottom:18px}
+ #especialidades .tp2026-bloque-general{margin-top:23px}
+}
+@media(max-width:375px){
+ #especialidades .tp2026-entrada .tarjeta-especialidad-academica{height:620px;min-height:620px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:615px}
+}
+@media(max-width:345px){
+ #especialidades .tp2026-entrada .tarjeta-especialidad-academica{height:670px;min-height:670px}
+ #especialidades .tp2026-entrada .tarjeta-especialidad-interior{min-height:665px}
+}
+
 </style>
 </head>
 <body class="portal-2027">
@@ -1561,7 +1651,8 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <section class="pagina" id="especialidades">
 <div class="contenedor tp2026">
  <div class="titulo-pagina titulo-editorial-premium" id="academicaEspecialidades"><span class="editorial-kicker">FORMACIÓN TÉCNICO PROFESIONAL</span><h2>Nuestras Especialidades</h2><p>Conoce nuestras especialidades, descubre qué aprenderás y explora las oportunidades que ofrecen para tu futuro.</p></div>
- <p class="tp2026-intro">En la Escuela de Concentración Los Loros puedes conocer ambas especialidades. Presiona cada tarjeta para girarla y leer su descripción; después, accede a la información completa de módulos, competencias, trabajo y estudios.</p>
+ <p class="tp2026-intro">Presiona las tarjetas para descubrir cada especialidad. Luego explora sus módulos, compara los aprendizajes y encuentra carreras relacionadas con tus intereses.</p>
+<nav class="tp2026-atajos" aria-label="Accesos rápidos de las especialidades"><button type="button" data-tp-saltar="tp2026Comparar">Comparar especialidades</button><button type="button" data-tp-perfil="tp2026Agro">Ver Agropecuaria</button><button type="button" data-tp-perfil="tp2026Meca">Ver Mecánica Industrial</button><button type="button" data-tp-saltar="tp2026Orientacion">Carreras afines</button></nav>
  <div class="especialidades-academicas especialidades-academicas-giratorias tp2026-giratorias" aria-label="Tarjetas giratorias de las especialidades">
 <div class="tp2026-entrada" data-rama="agro">
 <button aria-label="Girar tarjeta de Agropecuaria y consultar su descripción" aria-pressed="false" class="especialidad-academica tarjeta-especialidad tarjeta-especialidad-academica" data-rama="agro" type="button">
@@ -1624,15 +1715,39 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <button class="tp2026-ir-perfil" type="button" data-tp-perfil="tp2026Meca" aria-label="Ver módulos, perfil de egreso y oportunidades de Mecánica Industrial">Ver información completa de Mecánica Industrial <span aria-hidden="true">↗</span></button>
 </div>
 </div>
- <div class="tp2026-intro-ampliada">
-<h3>Explora cada especialidad en detalle</h3>
-<p>Las tarjetas ofrecen una primera mirada. A continuación encontrarás los módulos de 3.º y 4.º medio, el perfil de egreso, las competencias, el campo laboral y las alternativas de estudios de ambas especialidades.</p>
-</div>
+ <details class="tp2026-comparador" id="tp2026Comparar">
+ <summary><span class="tp2026-comparar-icono" aria-hidden="true">⇄</span><span><strong>Compara nuestras dos especialidades</strong><small>Descubre sus diferencias en aprendizajes, actividades y proyección.</small></span></summary>
+ <div class="tp2026-comparador-contenido">
+  <p class="tp2026-comparador-intro">Ambas desarrollan habilidades técnicas, trabajo colaborativo y seguridad. La diferencia está en el ámbito productivo y los procesos que se aprenden.</p>
+  <div class="tp2026-comparador-grid">
+   <div class="tp2026-comparador-col tp2026-comparador-agro">
+    <h4>🌱 Agropecuaria</h4>
+    <dl>
+     <dt>Área principal</dt><dd>Producción vegetal y procesos agrícolas.</dd>
+     <dt>Aprendizaje práctico</dt><dd>Riego, manejo de suelos, cultivos, frutales, cosecha y postcosecha.</dd>
+     <dt>Herramientas y entornos</dt><dd>Áreas de cultivo, sistemas de riego y equipamiento agrícola.</dd>
+     <dt>Proyección</dt><dd>Producción agrícola, riego, agroindustria y estudios relacionados.</dd>
+    </dl>
+   </div>
+   <div class="tp2026-comparador-col tp2026-comparador-meca">
+    <h4>⚙️ Mecánica Industrial</h4>
+    <dl>
+     <dt>Área principal</dt><dd>Máquinas, mantenimiento y sistemas electromecánicos.</dd>
+     <dt>Aprendizaje práctico</dt><dd>Soldadura, medición, montaje, diagnóstico y reparación de equipos.</dd>
+     <dt>Herramientas y entornos</dt><dd>Talleres, instrumentos de medición y equipos industriales.</dd>
+     <dt>Proyección</dt><dd>Mantenimiento industrial, electricidad, automatización y estudios relacionados.</dd>
+    </dl>
+   </div>
+  </div>
+  <p class="tp2026-nota">La comparación describe ámbitos de aprendizaje. No significa que alguna especialidad sea mejor que la otra.</p>
+ </div>
+</details>
+<div class="tp2026-intro-ampliada"><h3>Información detallada de cada especialidad</h3></div>
 <article class="tp2026-perfil" id="tp2026Agro" data-rama="agro" aria-labelledby="tp2026AgroTitulo">
  <header class="tp2026-perfil-cabecera"><span class="tp2026-kicker">AGROPECUARIA</span><h3 id="tp2026AgroTitulo">Técnico en Agropecuaria</h3><p>Mención Agrícola</p></header>
  <div class="tp2026-resumen"><span class="tp2026-chip">3.º medio · 6 módulos</span><span class="tp2026-chip">4.º medio · 6 módulos</span><span class="tp2026-chip">Formación técnico-profesional</span></div>
  <div class="tp2026-acordiones">
- <details open><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Estos son los módulos de formación técnico-profesional que se imparten en 3.º y 4.º medio de nuestro establecimiento.</p>
+ <details><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Estos son los módulos de formación técnico-profesional que se imparten en 3.º y 4.º medio de nuestro establecimiento.</p>
  <div class="tp2026-cols"><div class="tp2026-col"><h4>3.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Manejo de Suelo y Residuos</li><li>Técnicas de Reproducción Vegetal</li><li>Manejo de Técnicas de Riego</li><li>Control de Plagas y Enfermedades</li><li>Alimentación y Pesaje Pecuario</li><li>Seguridad, Prevención de Riesgos y Cuidado del Medio Ambiente</li></ol></div><div class="tp2026-col"><h4>4.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Manejos para Optimización Productiva de Frutales</li><li>Post Cosecha y Guarda de Productos Agrícolas</li><li>Técnicas de Cultivo de Especies Vegetales</li><li>Mantenimiento de Maquinarias y Equipos Agrícolas</li><li>Emprendimiento y Empleabilidad</li><li>Cosecha y Transporte de Vides</li></ol></div></div></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">02</span>Perfil de egreso</summary><div class="tp2026-contenido"><p>La formación prepara para participar en la producción agropecuaria y agrícola: preparación y manejo de suelos, riego, reproducción vegetal, control sanitario, manejo de cultivos y frutales, cosecha, postcosecha y mantenimiento básico de equipos. Incluye el registro de información productiva, el uso responsable de recursos y la aplicación de normas de seguridad.</p></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">03</span>Principales competencias</summary><div class="tp2026-contenido"><ul class="tp2026-lista-competencias"><li><strong>Suelos y recursos hídricos</strong>Preparar terrenos, manejar residuos y aplicar técnicas de riego y drenaje con criterios de uso eficiente del agua.</li><li><strong>Producción y reproducción vegetal</strong>Establecer cultivos, aplicar técnicas de reproducción vegetal y realizar labores productivas de acuerdo con cada especie.</li><li><strong>Sanidad de los cultivos</strong>Reconocer y controlar plagas, enfermedades y malezas mediante medidas preventivas y correctivas pertinentes.</li><li><strong>Manejo de frutales</strong>Apoyar labores de poda, raleo, conducción y optimización de la producción frutícola.</li><li><strong>Cosecha y postcosecha</strong>Participar en recolección, manejo, acopio, clasificación y guarda de productos agrícolas.</li><li><strong>Equipos, registros y seguridad</strong>Realizar mantenimiento básico de implementos, registrar información productiva y trabajar con prevención de riesgos y cuidado ambiental.</li></ul></div></details>
@@ -1645,7 +1760,7 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
  <header class="tp2026-perfil-cabecera"><span class="tp2026-kicker">MECÁNICA INDUSTRIAL</span><h3 id="tp2026MecaTitulo">Técnico en Mecánica Industrial</h3><p>Mención Mantenimiento Electromecánico</p></header>
  <div class="tp2026-resumen"><span class="tp2026-chip">3.º medio · 6 módulos</span><span class="tp2026-chip">4.º medio · 6 módulos</span><span class="tp2026-chip">Formación técnico-profesional</span></div>
  <div class="tp2026-acordiones">
- <details open><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Estos son los módulos de formación técnico-profesional que se imparten en 3.º y 4.º medio de nuestro establecimiento.</p>
+ <details><summary><span class="tp2026-num" aria-hidden="true">01</span>Módulos reales de 3.º y 4.º medio</summary><div class="tp2026-contenido"><p class="tp2026-nota">Estos son los módulos de formación técnico-profesional que se imparten en 3.º y 4.º medio de nuestro establecimiento.</p>
  <div class="tp2026-cols"><div class="tp2026-col"><h4>3.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Soldadura</li><li>Mantenimiento de Herramientas</li><li>Medición y Verificación</li><li>Mecánica de Banco</li><li>Lectura de Manuales y Planos</li><li>Legislación y Prevención de Riesgos en la Minería</li></ol></div><div class="tp2026-col"><h4>4.º medio · 6 módulos</h4><ol class="tp2026-lista-modulos"><li>Mantenimiento y Reparación Industrial</li><li>Control de Procesos Industriales</li><li>Detección de Fallas en Sistemas Industriales</li><li>Montaje de Equipos y Sistemas Industriales</li><li>Emprendimiento y Empleabilidad</li><li>Instalaciones Eléctricas Industriales</li></ol></div></div></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">02</span>Perfil de egreso</summary><div class="tp2026-contenido"><p>La formación prepara para interpretar planos y manuales técnicos, realizar mediciones y verificaciones, desarrollar operaciones de banco y soldadura y ejecutar labores de mantenimiento de maquinaria. En la mención Mantenimiento Electromecánico se profundiza en el diagnóstico, montaje, reparación y puesta en funcionamiento de sistemas mecánicos, eléctricos, electromecánicos, hidráulicos y neumáticos, respetando normas de seguridad y protección ambiental.</p></div></details>
  <details ><summary><span class="tp2026-num" aria-hidden="true">03</span>Principales competencias</summary><div class="tp2026-contenido"><ul class="tp2026-lista-competencias"><li><strong>Lectura de información técnica</strong>Interpretar planos, manuales, simbología y especificaciones de equipos y componentes.</li><li><strong>Medición y verificación</strong>Utilizar instrumentos para comprobar dimensiones, magnitudes y condiciones de funcionamiento.</li><li><strong>Soldadura y trabajos mecánicos</strong>Realizar uniones, ajustes y operaciones básicas de fabricación o reparación de piezas.</li><li><strong>Mantenimiento industrial</strong>Aplicar procedimientos de mantenimiento preventivo y reparación de maquinaria y equipos.</li><li><strong>Diagnóstico electromecánico</strong>Detectar problemas eléctricos y mecánicos en sistemas industriales, hidráulicos y neumáticos.</li><li><strong>Montaje y puesta en marcha</strong>Instalar, verificar y poner en funcionamiento equipos y sistemas, considerando seguridad y protección ambiental.</li></ul></div></details>
@@ -1668,28 +1783,20 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
  <div class="tp2026-resultado" id="tp2026InteresResultado" role="status" aria-live="polite"><strong>Explora tus intereses.</strong> Selecciona una opción para conocer con qué especialidad se relaciona y por qué.</div>
  <hr class="tp2026-separador">
  <div class="tp2026-orientacion-subtitulo">¿Ya tienes una carrera en mente?</div>
- <p>Selecciona una carrera de ejemplo para conocer una relación formativa posible. Algunas son continuidades directas y otras son afinidades complementarias, como Gastronomía con Agropecuaria.</p>
- <label class="tp2026-carrera-etiqueta" for="tp2026Carrera">Carrera de interés</label>
- <select class="tp2026-select" id="tp2026Carrera"><option value="" selected>Selecciona una carrera…</option><option value="0">Técnico Agrícola</option>
-<option value="1">Agronomía</option>
-<option value="2">Ingeniería Agrícola</option>
-<option value="3">Agroindustria</option>
-<option value="4">Gastronomía</option>
-<option value="5">Ingeniería en Alimentos</option>
-<option value="6">Gestión Ambiental</option>
-<option value="7">Medicina Veterinaria</option>
-<option value="8">Técnico en Mecánica Industrial</option>
-<option value="9">Ingeniería Mecánica</option>
-<option value="10">Mecatrónica</option>
-<option value="11">Mantenimiento Industrial</option>
-<option value="12">Automatización y Control Industrial</option>
-<option value="13">Electricidad Industrial</option>
-<option value="14">Ingeniería en Minas</option>
-<option value="15">Diseño Industrial</option>
-<option value="16">Prevención de Riesgos</option>
-<option value="17">Administración de Empresas</option></select>
- <div class="tp2026-resultado" id="tp2026AfinidadResultado" role="status" aria-live="polite"><strong>Descubre las relaciones posibles.</strong> Elige una carrera para ver con qué especialidad comparte aprendizajes.</div>
- <p class="tp2026-pie-seccion">Orientación vocacional informativa, no diagnóstico ni asignación automática. Una afinidad no garantiza admisión, convalidación de asignaturas ni campo laboral. Siempre puedes optar por carreras distintas a la especialidad cursada.</p>
+<p>Busca una carrera que te interese o utiliza los filtros. Por ejemplo, Gastronomía tiene una relación complementaria con Agropecuaria por el origen y la calidad de los alimentos.</p>
+<div class="tp2026-explorador" aria-label="Buscador de carreras afines">
+ <div class="tp2026-buscador-form">
+  <div class="tp2026-campo tp2026-campo-busqueda"><label for="tp2026CarreraBusqueda">Buscar carrera o área</label><input id="tp2026CarreraBusqueda" type="search" placeholder="Ej.: Gastronomía, Riego, Mecatrónica…" autocomplete="off"></div>
+  <div class="tp2026-campo"><label for="tp2026FiltroEspecialidad">Especialidad</label><select id="tp2026FiltroEspecialidad"><option value="todas">Todas</option><option value="agro">Agropecuaria</option><option value="meca">Mecánica Industrial</option></select></div>
+  <div class="tp2026-campo"><label for="tp2026FiltroAfinidad">Tipo de relación</label><select id="tp2026FiltroAfinidad"><option value="todas">Todas</option><option value="directa">Directa</option><option value="relacionada">Relacionada</option><option value="complementaria">Complementaria</option></select></div>
+ </div>
+ <div class="tp2026-explicacion-tipos"><span><strong>Directa:</strong> conocimientos muy cercanos.</span><span><strong>Relacionada:</strong> herramientas o procesos compartidos.</span><span><strong>Complementaria:</strong> aprendizajes útiles de otra área.</span></div>
+ <div class="tp2026-explorador-cabecera"><p id="tp2026CarrerasConteo" role="status" aria-live="polite">Cargando opciones de estudios…</p><button type="button" id="tp2026LimpiarFiltros">Limpiar filtros</button></div>
+ <div id="tp2026CarrerasResultados" class="tp2026-carreras-grid" aria-label="Resultados de carreras afines"></div>
+ <div class="tp2026-explorador-pie"><button id="tp2026VerMasCarreras" type="button" hidden>Mostrar más carreras</button></div>
+</div>
+<div class="tp2026-referencias-estudios"><strong>¿Quieres conocer la oferta disponible?</strong><p>Consulta carreras, instituciones, requisitos y alternativas de educación superior. Los nombres de este explorador son orientativos: no todas las denominaciones corresponden necesariamente a una oferta vigente de una institución.</p><div><a href="https://acceso.mineduc.cl/portal-admision-subsistema-tecnico-profesional/" target="_blank" rel="noopener noreferrer">Portal de admisión técnico-profesional ↗</a><a href="https://www.mifuturo.cl/" target="_blank" rel="noopener noreferrer">Mi Futuro: carreras e instituciones ↗</a></div></div>
+<p class="tp2026-pie-seccion">Orientación vocacional informativa, no diagnóstico ni asignación automática. Una afinidad no garantiza admisión, convalidación de asignaturas ni campo laboral. Siempre puedes optar por carreras distintas a la especialidad cursada.</p>
  </section>
 </div>
 </section>
@@ -4480,20 +4587,120 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
     });
   });
 
-  var carreras = [["Agropecuaria · afinidad directa", "Comparte bases de suelos, riego, cultivos, sanidad vegetal y manejo productivo."], ["Agropecuaria · afinidad directa", "Relacionada con producción vegetal, frutales, manejo agrícola y cuidado de los recursos."], ["Agropecuaria · afinidad directa", "Se vincula con gestión de sistemas de producción, tecnificación y procesos agrícolas."], ["Agropecuaria · afinidad relacionada", "Conecta la obtención de materias primas agrícolas con su manejo y procesamiento."], ["Agropecuaria · afinidad complementaria", "Conocer el origen de los ingredientes, su cultivo, cosecha, calidad y postcosecha puede enriquecer una futura formación gastronómica. No significa que Agropecuaria enseñe cocina profesional."], ["Agropecuaria · afinidad relacionada", "Aporta conocimientos sobre materias primas vegetales, calidad, postcosecha y cadena alimentaria."], ["Agropecuaria · afinidad relacionada", "Se relaciona con protección del suelo, uso eficiente del agua, manejo de residuos y sustentabilidad."], ["Agropecuaria · afinidad complementaria", "El módulo de alimentación y pesaje pecuario ofrece un primer acercamiento al ámbito animal, aunque la mención escolar está enfocada principalmente en la producción agrícola."], ["Mecánica Industrial · afinidad directa", "Comparte trabajo mecánico, medición, interpretación de planos y mantenimiento de equipos."], ["Mecánica Industrial · afinidad directa", "Relacionada con máquinas, sistemas mecánicos, fabricación, mantenimiento y procesos."], ["Mecánica Industrial · afinidad directa", "Integra sistemas mecánicos, eléctricos, electrónicos y automatizados."], ["Mecánica Industrial · afinidad directa", "Vinculada con mantenimiento preventivo, diagnóstico y reparación de máquinas y sistemas."], ["Mecánica Industrial · afinidad relacionada", "Se relaciona con instalaciones, control de procesos y verificación de sistemas automatizados."], ["Mecánica Industrial · afinidad relacionada", "Comparte fundamentos de instalaciones eléctricas industriales y componentes electromecánicos."], ["Mecánica Industrial · afinidad complementaria", "La especialidad puede aportar una base de mantenimiento de equipos y seguridad aplicable a ciertos entornos mineros; no equivale a formación especializada en explotación minera."], ["Mecánica Industrial · afinidad complementaria", "La comprensión de materiales, medición, planos y procesos puede ser útil en diseño y fabricación de productos."], ["Ambas especialidades · afinidad transversal", "Agropecuaria y Mecánica Industrial incorporan seguridad, prevención de riesgos y cuidado del entorno en sus actividades."], ["Ambas especialidades · afinidad transversal", "Emprendimiento, planificación y organización de procesos productivos pueden complementar una formación en administración."]];
-  var selector = sector.querySelector('#tp2026Carrera');
-  var resultadoCarrera = sector.querySelector('#tp2026AfinidadResultado');
-  if (selector && resultadoCarrera) {
-    selector.addEventListener('change', function () {
-      resultadoCarrera.replaceChildren();
-      var indice = selector.value === '' ? -1 : Number(selector.value);
-      var dato = Number.isInteger(indice) && indice >= 0 ? carreras[indice] : null;
-      var titulo = document.createElement('strong');
-      titulo.textContent = dato ? dato[0] : 'Descubre las relaciones posibles.';
-      resultadoCarrera.appendChild(titulo);
-      resultadoCarrera.appendChild(document.createTextNode(' ' + (dato ? dato[1] : 'Elige una carrera para ver con qué especialidad comparte aprendizajes.')));
-    });
+  /* Explorador de carreras por afinidad: filtro local, sin servicios externos. */
+  var carrerasAmpliadas = [{"nombre":"Técnico Agrícola","rama":"agro","tipo":"directa","descripcion":"Comparte suelos, sistemas de riego, establecimiento de cultivos y producción vegetal."},{"nombre":"Técnico en Mecánica Industrial","rama":"meca","tipo":"directa","descripcion":"Comparte medición, trabajo mecánico, planos y mantenimiento de equipos."},{"nombre":"Agronomía","rama":"agro","tipo":"directa","descripcion":"Se relaciona con producción vegetal, frutales, sanidad de cultivos y manejo de recursos agrícolas."},{"nombre":"Mantenimiento Industrial","rama":"meca","tipo":"directa","descripcion":"Se relaciona directamente con diagnóstico, reparación y mantenimiento preventivo."},{"nombre":"Gastronomía","rama":"agro","tipo":"complementaria","descripcion":"Conocer el origen, cosecha y calidad de los ingredientes complementa la formación gastronómica; Agropecuaria no enseña cocina profesional."},{"nombre":"Mecatrónica","rama":"meca","tipo":"directa","descripcion":"Integra mecánica, sistemas eléctricos, electrónica y automatización."},{"nombre":"Técnico en Riego","rama":"agro","tipo":"directa","descripcion":"Se relaciona con aplicación y mantenimiento básico de sistemas de riego y uso eficiente del agua."},{"nombre":"Automatización y Control Industrial","rama":"meca","tipo":"relacionada","descripcion":"Comparte instrumentación, control de procesos y sistemas industriales."},{"nombre":"Administración de Empresas","rama":"ambas","tipo":"complementaria","descripcion":"Las habilidades de emprendimiento, planificación y organización pueden complementar estudios de administración."},{"nombre":"Agroindustria","rama":"agro","tipo":"relacionada","descripcion":"Conecta materias primas de origen agrícola con procesos de conservación y transformación."},{"nombre":"Biotecnología","rama":"agro","tipo":"complementaria","descripcion":"La reproducción vegetal y los procesos biológicos pueden ser una base de interés para esta área."},{"nombre":"Calidad e Inocuidad Alimentaria","rama":"agro","tipo":"relacionada","descripcion":"Vincula la calidad de productos agrícolas con procesos de manipulación, conservación y control."},{"nombre":"Diseño Industrial","rama":"meca","tipo":"complementaria","descripcion":"Los planos, materiales, medidas y procesos de fabricación pueden complementar el diseño de productos."},{"nombre":"Electricidad Industrial","rama":"meca","tipo":"relacionada","descripcion":"Vinculada con instalaciones, componentes y sistemas eléctricos industriales."},{"nombre":"Gestión Ambiental","rama":"agro","tipo":"relacionada","descripcion":"Aporta una base sobre uso responsable del agua, suelos, residuos y sustentabilidad."},{"nombre":"Ingeniería Agrícola","rama":"agro","tipo":"directa","descripcion":"Vincula tecnificación del campo, sistemas agrícolas y gestión de procesos productivos."},{"nombre":"Ingeniería Eléctrica","rama":"meca","tipo":"relacionada","descripcion":"Comparte bases sobre instalaciones eléctricas y funcionamiento de sistemas."},{"nombre":"Ingeniería en Alimentos","rama":"agro","tipo":"relacionada","descripcion":"Se relaciona con materias primas, calidad, postcosecha y cadena de producción alimentaria."},{"nombre":"Ingeniería en Energías Renovables","rama":"meca","tipo":"relacionada","descripcion":"Vincula sistemas electromecánicos, equipos de generación y mantenimiento."},{"nombre":"Ingeniería en Minas","rama":"meca","tipo":"complementaria","descripcion":"Los conocimientos de equipos y mantenimiento pueden ser útiles en faenas; no equivale a una formación en explotación minera."},{"nombre":"Ingeniería en Recursos Naturales Renovables","rama":"agro","tipo":"relacionada","descripcion":"Relacionada con gestión responsable de agua, suelo y recursos naturales."},{"nombre":"Ingeniería Forestal","rama":"agro","tipo":"complementaria","descripcion":"Comparte fundamentos de suelo, agua y manejo vegetal, aunque el enfoque forestal es distinto."},{"nombre":"Ingeniería Industrial","rama":"meca","tipo":"complementaria","descripcion":"La experiencia en procesos, mantenimiento y producción aporta contexto para estudiar gestión industrial."},{"nombre":"Ingeniería Mecánica","rama":"meca","tipo":"directa","descripcion":"Relacionada con máquinas, componentes, funcionamiento y procesos mecánicos."},{"nombre":"Logística Agroindustrial","rama":"agro","tipo":"complementaria","descripcion":"Se relaciona con manejo, almacenamiento y traslado de productos agrícolas."},{"nombre":"Logística y Operaciones Industriales","rama":"meca","tipo":"complementaria","descripcion":"Conecta organización de procesos y disponibilidad de equipos con operaciones productivas."},{"nombre":"Medicina Veterinaria","rama":"agro","tipo":"complementaria","descripcion":"La aproximación al ámbito pecuario puede despertar interés; la mención está centrada en la producción agrícola y no sustituye la formación veterinaria."},{"nombre":"Paisajismo y Áreas Verdes","rama":"agro","tipo":"relacionada","descripcion":"Comparte conocimientos sobre plantas, suelos, riego y mantenimiento de espacios vegetales."},{"nombre":"Prevención de Riesgos","rama":"ambas","tipo":"complementaria","descripcion":"Las dos especialidades desarrollan hábitos de trabajo seguro y prevención de riesgos."},{"nombre":"Refrigeración y Climatización","rama":"meca","tipo":"relacionada","descripcion":"Se relaciona con instalaciones, máquinas, componentes y mantenimiento técnico."},{"nombre":"Robótica Industrial","rama":"meca","tipo":"relacionada","descripcion":"Integra automatización, mecanismos, sensores y mantenimiento de sistemas."},{"nombre":"Técnico en Instrumentación y Control","rama":"meca","tipo":"relacionada","descripcion":"Conecta con mediciones, sensores, regulación y control de procesos industriales."},{"nombre":"Técnico en Mantenimiento Electromecánico","rama":"meca","tipo":"directa","descripcion":"Profundiza en diagnóstico, montaje y mantenimiento de sistemas mecánicos y eléctricos."},{"nombre":"Técnico en Mantenimiento Minero","rama":"meca","tipo":"relacionada","descripcion":"Relacionada con el mantenimiento de equipos y maquinaria utilizada en operaciones mineras."},{"nombre":"Técnico en Maquinaria Pesada","rama":"meca","tipo":"relacionada","descripcion":"Se vincula con máquinas, motores, componentes mecánicos y mantenimiento."},{"nombre":"Técnico en Producción Agropecuaria","rama":"agro","tipo":"directa","descripcion":"Continúa aprendizajes de producción agrícola y manejo de procesos agropecuarios."},{"nombre":"Técnico en Producción Frutícola","rama":"agro","tipo":"directa","descripcion":"Comparte manejo productivo de frutales, sanidad, cosecha y postcosecha."},{"nombre":"Técnico en Vitivinicultura","rama":"agro","tipo":"directa","descripcion":"Conecta con manejo de vides, frutales, cosecha y calidad de uva."}];
+  var carreraBusqueda = sector.querySelector('#tp2026CarreraBusqueda');
+  var carreraRama = sector.querySelector('#tp2026FiltroEspecialidad');
+  var carreraTipo = sector.querySelector('#tp2026FiltroAfinidad');
+  var carreraLista = sector.querySelector('#tp2026CarrerasResultados');
+  var carreraConteo = sector.querySelector('#tp2026CarrerasConteo');
+  var carreraMas = sector.querySelector('#tp2026VerMasCarreras');
+  var carreraLimpiar = sector.querySelector('#tp2026LimpiarFiltros');
+  var carreraLimite = 8;
+  function textoBusqueda(value) {
+    return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
   }
+  function ramaVisible(value) {
+    return value === 'agro' ? 'Agropecuaria' : value === 'meca' ? 'Mecánica Industrial' : 'Ambas especialidades';
+  }
+  function tipoVisible(value) {
+    return value === 'directa' ? 'Afinidad directa' : value === 'relacionada' ? 'Afinidad relacionada' : 'Afinidad complementaria';
+  }
+  function crearCarrera(dato, indice) {
+    var tarjeta = document.createElement('div');
+    tarjeta.className = 'tp2026-carrera';
+    var boton = document.createElement('button');
+    boton.type = 'button';
+    boton.className = 'tp2026-carrera-boton';
+    boton.setAttribute('aria-expanded', 'false');
+    var idDetalle = 'tp2026DetalleCarrera-' + indice;
+    boton.setAttribute('aria-controls', idDetalle);
+    var envoltura = document.createElement('span');
+    var nombre = document.createElement('span');
+    nombre.className = 'tp2026-carrera-nombre';
+    nombre.textContent = dato.nombre;
+    var meta = document.createElement('span');
+    meta.className = 'tp2026-carrera-meta';
+    meta.textContent = ramaVisible(dato.rama) + ' · ' + tipoVisible(dato.tipo);
+    envoltura.appendChild(nombre);
+    envoltura.appendChild(meta);
+    var icono = document.createElement('span');
+    icono.className = 'tp2026-carrera-icono';
+    icono.textContent = '+';
+    icono.setAttribute('aria-hidden', 'true');
+    boton.appendChild(envoltura);
+    boton.appendChild(icono);
+    var detalle = document.createElement('div');
+    detalle.className = 'tp2026-carrera-detalle';
+    detalle.id = idDetalle;
+    detalle.textContent = dato.descripcion;
+    detalle.hidden = true;
+    boton.addEventListener('click', function () {
+      var abrir = detalle.hidden;
+      detalle.hidden = !abrir;
+      boton.setAttribute('aria-expanded', String(abrir));
+      icono.textContent = abrir ? '−' : '+';
+    });
+    tarjeta.appendChild(boton);
+    tarjeta.appendChild(detalle);
+    return tarjeta;
+  }
+  function renderizarCarreras() {
+    if (!carreraLista || !carreraConteo || !carreraMas) return;
+    var consulta = textoBusqueda(carreraBusqueda ? carreraBusqueda.value : '');
+    var rama = carreraRama ? carreraRama.value : 'todas';
+    var tipo = carreraTipo ? carreraTipo.value : 'todas';
+    var resultado = carrerasAmpliadas.map(function (item, i) { return { dato: item, indice: i }; })
+      .filter(function (item) {
+        var c = item.dato;
+        return (rama === 'todas' || c.rama === rama || c.rama === 'ambas') &&
+          (tipo === 'todas' || c.tipo === tipo) &&
+          (!consulta || textoBusqueda(c.nombre + ' ' + c.descripcion).includes(consulta));
+      });
+    carreraLista.replaceChildren();
+    resultado.slice(0, carreraLimite).forEach(function (item) {
+      carreraLista.appendChild(crearCarrera(item.dato, item.indice));
+    });
+    carreraConteo.textContent = resultado.length + (resultado.length === 1 ? ' opción encontrada' : ' opciones encontradas') + ' · Mostrando ' + Math.min(resultado.length, carreraLimite) + '.';
+    carreraMas.hidden = resultado.length <= carreraLimite;
+    if (!resultado.length) {
+      var vacio = document.createElement('p');
+      vacio.className = 'tp2026-carrera-vacio';
+      vacio.textContent = 'No encontramos coincidencias. Prueba otra carrera o cambia los filtros.';
+      carreraLista.appendChild(vacio);
+    }
+  }
+  [carreraBusqueda, carreraRama, carreraTipo].forEach(function (control) {
+    if (!control) return;
+    control.addEventListener(control === carreraBusqueda ? 'input' : 'change', function () {
+      carreraLimite = 8;
+      renderizarCarreras();
+    });
+  });
+  if (carreraMas) carreraMas.addEventListener('click', function () {
+    carreraLimite += 8;
+    renderizarCarreras();
+  });
+  if (carreraLimpiar) carreraLimpiar.addEventListener('click', function () {
+    if (carreraBusqueda) carreraBusqueda.value = '';
+    if (carreraRama) carreraRama.value = 'todas';
+    if (carreraTipo) carreraTipo.value = 'todas';
+    carreraLimite = 8;
+    renderizarCarreras();
+    if (carreraBusqueda) carreraBusqueda.focus();
+  });
+  renderizarCarreras();
+
+  /* Accesos directos internos. No cambian el hash de la página del sitio. */
+  sector.querySelectorAll('[data-tp-saltar]').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      var destino = sector.querySelector('#' + boton.getAttribute('data-tp-saltar'));
+      if (!destino) return;
+      if (destino.tagName.toLowerCase() === 'details') destino.open = true;
+      var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      destino.scrollIntoView({ behavior: reducir ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
 })();
 </script>
 
