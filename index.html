@@ -410,6 +410,182 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 @media(prefers-reduced-motion:reduce){#especialidades .tp2026-etapas-interactivas li button,#especialidades .tp2026-opciones-interes.tp2026-intereses-grid button,#especialidades .tp2026-ruta-barra span{transition:none}}
 
 </style>
+
+<!-- Diseño Talleres JEC: estilos locales, no afectan otras secciones -->
+<style id="jec-v2-estilos">
+#talleresJEC{--navy:#102c47;--navy2:#163957;--gold:#edb93f;--gold2:#ffcc64;--green:#4a7654;--paper:#f7f8f6;--white:#fff;--ink:#213445;--muted:#657785;--border:#e0e6e8;--shadow:0 16px 50px rgba(19,39,54,.08)}
+#talleresJEC *{box-sizing:border-box}
+#talleresJEC{scroll-behavior:smooth}
+#talleresJEC{margin:0;background:var(--paper);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+#talleresJEC button, #talleresJEC a{font:inherit}
+#talleresJEC button{cursor:pointer}
+#talleresJEC a{color:inherit;text-decoration:none}
+#talleresJEC button:focus-visible, #talleresJEC a:focus-visible, #talleresJEC summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#talleresJEC .wrap{width:min(1200px,calc(100% - 40px));margin-inline:auto}
+#talleresJEC .topline{background:var(--white);border-bottom:1px solid var(--border)}
+#talleresJEC .topline .wrap{min-height:62px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+#talleresJEC .brand{display:flex;align-items:center;gap:12px;color:var(--navy);font-size:13px;font-weight:800;letter-spacing:.02em}
+#talleresJEC .brand-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#e5eef3;color:var(--navy);font-size:21px}
+#talleresJEC .preview-tag{color:#557179;font-size:12px;background:#e9f0ef;border:1px solid #d3e4e0;border-radius:100px;padding:7px 11px;font-weight:700}
+#talleresJEC .hero{background:linear-gradient(135deg,#0c2945 0%,#1a4463 68%,#225576 100%);color:white;overflow:hidden;position:relative}
+#talleresJEC .hero:after{content:"";position:absolute;width:500px;height:500px;right:-250px;bottom:-340px;border:70px solid #ffffff0d;border-radius:100%}
+#talleresJEC .hero .wrap{display:grid;grid-template-columns:1fr .86fr;align-items:center;gap:36px;min-height:445px;padding-block:55px}
+#talleresJEC .eyebrow{color:var(--gold2);font-weight:800;font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+#talleresJEC .hero h1{font-size:clamp(40px,5vw,70px);line-height:1.03;letter-spacing:-.04em;margin:18px 0 18px;max-width:650px}
+#talleresJEC .hero h1 span{color:var(--gold2)}
+#talleresJEC .hero p{font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:#dce8ee;max-width:560px}
+#talleresJEC .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+#talleresJEC .btn-main{display:inline-flex;gap:8px;align-items:center;justify-content:center;background:var(--gold2);color:#19344a;border-radius:11px;padding:13px 19px;font-weight:800;min-height:48px}
+#talleresJEC .btn-second{display:inline-flex;align-items:center;border:1px solid #d9e3e7a3;border-radius:11px;padding:13px 19px;font-weight:700;min-height:48px}
+#talleresJEC .hero-visual{height:335px;position:relative;isolation:isolate}
+#talleresJEC .hero-poster{position:absolute;width:38%;height:87%;object-fit:cover;object-position:top center;border-radius:14px;border:5px solid white;box-shadow:0 20px 40px #081c2c81}
+#talleresJEC .hero-poster.a{left:8%;top:12%;transform:rotate(-9deg)}
+#talleresJEC .hero-poster.b{left:31%;top:3%;z-index:2;transform:rotate(3deg)}
+#talleresJEC .hero-poster.c{left:57%;top:14%;transform:rotate(10deg)}
+#talleresJEC .intro-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-33px;position:relative;z-index:3}
+#talleresJEC .stat{background:white;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:16px;min-height:103px;padding:19px 24px;display:flex;align-items:center;gap:16px}
+#talleresJEC .stat-icon{font-size:25px;background:#e9f1ee;width:49px;height:49px;border-radius:12px;display:grid;place-items:center}
+#talleresJEC .stat strong{display:block;color:var(--navy);font-size:23px;letter-spacing:-.025em}
+#talleresJEC .stat small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+#talleresJEC .intro{padding:70px 0 20px;display:grid;grid-template-columns:1fr .95fr;gap:50px;align-items:center}
+#talleresJEC .sec-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:900}
+#talleresJEC .intro h2, #talleresJEC .catalog-title h2, #talleresJEC .schedule h2{font-size:clamp(29px,3vw,43px);line-height:1.15;letter-spacing:-.035em;color:var(--navy);margin:12px 0 18px}
+#talleresJEC .intro p{line-height:1.75;color:#5a6b76;font-size:16px}
+#talleresJEC .intro-side{border:1px solid #dbe5e5;background:linear-gradient(135deg,#eaf3eb,#f3f7f6);border-radius:18px;padding:28px;display:flex;align-items:flex-start;gap:18px}
+#talleresJEC .intro-side .big{font-size:40px}
+#talleresJEC .intro-side h3{margin:0 0 9px;font-size:19px}
+#talleresJEC .intro-side p{font-size:14px;margin:0;line-height:1.65}
+#talleresJEC .catalog{padding-top:65px;padding-bottom:78px}
+#talleresJEC .catalog-title{max-width:760px}
+#talleresJEC .catalog-title p{font-size:16px;line-height:1.7;color:var(--muted)}
+#talleresJEC .filters{display:flex;gap:9px;overflow-x:auto;padding:18px 0 17px;scrollbar-width:thin}
+#talleresJEC .filter{flex-shrink:0;border:1px solid #d8e1e5;color:#354f60;background:white;border-radius:100px;padding:11px 17px;font-size:14px;font-weight:750;transition:all .18s}
+#talleresJEC .filter:hover{border-color:#91aebc;background:#f3f9f7}
+#talleresJEC .filter[aria-pressed="true"]{background:var(--navy);color:white;border-color:var(--navy)}
+#talleresJEC .count-row{display:flex;align-items:center;justify-content:space-between;margin:4px 0 20px;color:#70808c;font-size:13px}
+#talleresJEC .count-row strong{color:var(--navy)}
+#talleresJEC .jec-v2-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+#talleresJEC .jec-card{background:white;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px #243d4f0c;transition:transform .18s ease,box-shadow .18s ease}
+#talleresJEC .jec-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px #223e5420}
+#talleresJEC .jec-card[hidden]{display:none}
+#talleresJEC .jec-img-box{height:278px;overflow:hidden;position:relative;background:#e1eae8}
+#talleresJEC .jec-img-box>img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+#talleresJEC .jec-img-box:after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(transparent,#071a24a9);pointer-events:none}
+#talleresJEC .jec-number{position:absolute;z-index:1;left:15px;top:15px;color:white;background:#07283cc7;border:1px solid #ffffff57;padding:7px 10px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:.08em}
+#talleresJEC .jec-zoom{position:absolute;right:13px;bottom:13px;z-index:1;background:white;color:var(--navy);border:none;border-radius:9px;font-size:12px;font-weight:800;padding:9px 13px;box-shadow:0 4px 12px #0004}
+#talleresJEC .jec-zoom:hover{background:var(--gold2)}
+#talleresJEC .jec-card-copy{padding:23px 22px 20px}
+#talleresJEC .jec-type{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#376f58;font-weight:900}
+#talleresJEC .jec-card h3{margin:8px 0 3px;font-size:24px;letter-spacing:-.025em;color:var(--navy);line-height:1.18}
+#talleresJEC .jec-tagline{font-size:13px;color:#60727e;margin:7px 0 19px}
+#talleresJEC .jec-teacher{border-top:1px solid #e5e9e8;border-bottom:1px solid #e5e9e8;display:flex;align-items:center;gap:12px;padding:13px 0}
+#talleresJEC .jec-user-icon{border:1px solid #dce8e2;background:#f2f7f3;width:36px;height:36px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;color:#477a57}
+#talleresJEC .jec-teacher small{display:block;font-size:10px;letter-spacing:.08em;color:#789;font-weight:900}
+#talleresJEC .jec-teacher strong{display:block;margin-top:3px;font-size:14px;color:var(--navy)}
+#talleresJEC .jec-more{margin-top:13px;border-radius:9px}
+#talleresJEC .jec-more summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#1f596e;font-weight:800;padding:9px 0}
+#talleresJEC .jec-more summary::-webkit-details-marker{display:none}
+#talleresJEC .jec-more[open] summary span{transform:rotate(180deg)}
+#talleresJEC .jec-more-body{color:#5d7180;font-size:14px;line-height:1.65}
+#talleresJEC .jec-more-body p{margin:6px 0 8px}
+#talleresJEC .jec-more-body .jec-caption{font-size:11px;color:#7b8a95;margin-top:10px}
+#talleresJEC .schedule-band{padding:0 0 85px}
+#talleresJEC .schedule{background:#e8f1ec;border:1px solid #d4e5d7;padding:34px 40px;border-radius:22px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px}
+#talleresJEC .schedule h2{font-size:33px}
+#talleresJEC .schedule p{line-height:1.7;color:#577166}
+#talleresJEC .schedule-items{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+#talleresJEC .schedule-item{background:white;padding:20px;border-radius:14px;border:1px solid #d5e5dc}
+#talleresJEC .schedule-item .sym{font-size:21px}
+#talleresJEC .schedule-item small{display:block;color:#75877e;font-size:12px;font-weight:700;margin:8px 0 5px}
+#talleresJEC .schedule-item strong{font-size:18px;color:var(--navy)}
+#talleresJEC .footer{border-top:1px solid var(--border);text-align:center;font-size:12px;color:#7b8a95;padding:22px}
+#talleresJEC dialog{border:none;border-radius:18px;padding:0;background:transparent;max-width:min(680px,94vw);max-height:94vh;box-shadow:0 26px 80px #0006}
+#talleresJEC dialog::backdrop{background:#091b2cd9;backdrop-filter:blur(5px)}
+#talleresJEC .dialog-panel{background:#fff;padding:14px;border-radius:18px}
+#talleresJEC .dialog-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 3px 10px}
+#talleresJEC .dialog-top strong{font-size:15px;color:var(--navy)}
+#talleresJEC .dialog-close{padding:7px 11px;background:#ebeff0;border:none;border-radius:9px;font-size:20px;line-height:1}
+#talleresJEC .dialog-poster{display:block;max-width:100%;max-height:calc(94vh - 92px);width:auto;margin:auto;object-fit:contain;border-radius:8px}
+@media(max-width:950px){#talleresJEC .hero .wrap{grid-template-columns:1fr .75fr;gap:15px}
+#talleresJEC .hero-visual{height:295px}
+#talleresJEC .intro{gap:20px}
+#talleresJEC .jec-v2-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#talleresJEC .schedule{grid-template-columns:1fr}
+#talleresJEC .stat{padding:16px}
+#talleresJEC .stat-icon{display:none}}
+@media(max-width:680px){#talleresJEC .wrap{width:min(100% - 28px,590px)}
+#talleresJEC .topline .wrap{min-height:56px}
+#talleresJEC .brand{font-size:11px}
+#talleresJEC .preview-tag{font-size:10px;padding:5px 9px}
+#talleresJEC .hero .wrap{grid-template-columns:1fr;min-height:0;padding-block:47px 28px}
+#talleresJEC .hero h1{font-size:45px;margin-top:14px}
+#talleresJEC .hero p{font-size:15px}
+#talleresJEC .hero-visual{height:175px;margin-top:18px}
+#talleresJEC .hero-poster{width:27%;height:172px}
+#talleresJEC .hero-poster.a{left:12%;top:7%}
+#talleresJEC .hero-poster.b{left:36%;top:0%}
+#talleresJEC .hero-poster.c{left:62%;top:5%}
+#talleresJEC .intro-stats{grid-template-columns:1fr;gap:8px;margin-top:12px}
+#talleresJEC .stat{min-height:67px;padding:11px 16px;box-shadow:none;gap:12px}
+#talleresJEC .stat-icon{display:grid;width:40px;height:40px;font-size:20px}
+#talleresJEC .stat strong{font-size:18px}
+#talleresJEC .stat small{font-size:12px}
+#talleresJEC .intro{padding:55px 0 15px;grid-template-columns:1fr}
+#talleresJEC .intro-side{padding:19px}
+#talleresJEC .catalog{padding:50px 0 60px}
+#talleresJEC .catalog-title h2{font-size:34px}
+#talleresJEC .filter{font-size:13px;padding:10px 13px}
+#talleresJEC .jec-v2-grid{grid-template-columns:1fr;gap:17px}
+#talleresJEC .jec-img-box{height:240px}
+#talleresJEC .jec-card-copy{padding:19px}
+#talleresJEC .schedule{padding:24px 18px;gap:10px}
+#talleresJEC .schedule h2{font-size:28px}
+#talleresJEC .schedule-items{grid-template-columns:1fr}
+#talleresJEC .schedule-item{padding:17px}
+#talleresJEC .schedule-band{padding-bottom:50px}
+#talleresJEC .footer{padding:17px}}
+@media(prefers-reduced-motion:reduce){#talleresJEC{scroll-behavior:auto}
+#talleresJEC *, #talleresJEC *:before, #talleresJEC *:after{transition:none!important;animation:none!important}}
+/* JEC layout contract: keep cards readable despite legacy portal rules. */
+#talleresJEC .jec-v2-sitio #jec-grid {
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:22px!important;
+  width:100%;
+  align-items:stretch;
+}
+#talleresJEC .jec-v2-sitio #jec-grid>.jec-card {
+  min-width:0;
+  max-width:none;
+  background:#fff!important;
+  border:1px solid var(--border)!important;
+  transform:none!important;
+}
+#talleresJEC .jec-v2-sitio #jec-grid>.jec-card[hidden] {display:none!important}
+#talleresJEC .jec-v2-sitio #jec-grid .jec-card-copy,
+#talleresJEC .jec-v2-sitio #jec-grid h3,
+#talleresJEC .jec-v2-sitio #jec-grid p,
+#talleresJEC .jec-v2-sitio #jec-grid .jec-teacher {
+  word-break:normal!important;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+@media (max-width:950px) {
+  #talleresJEC .jec-v2-sitio #jec-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media (max-width:680px) {
+  #talleresJEC .jec-v2-sitio #jec-grid {
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:17px!important;
+  }
+}
+
+#talleresJEC .jec-card[hidden]{display:none!important}
+
+</style>
+
 </head>
 <body class="portal-2027">
 <div aria-hidden="true" class="progreso-lectura-sitio" id="progresoLecturaSitio">
@@ -2794,219 +2970,106 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 <!-- =====================================================
      TALLERES JEC
 ====================================================== -->
-<section class="pagina" id="talleresJEC">
-<div class="contenedor">
-<div class="titulo-pagina">
-<h2>
-        Talleres JEC
-    </h2>
-<p>
-        Espacios de aprendizaje, participación y desarrollo
-        de habilidades para nuestros estudiantes.
-    </p>
+<!-- =====================================================
+     TALLERES JEC · DISEÑO INSTITUCIONAL APROBADO 2026
+     Seis talleres; afiches originales del repositorio
+====================================================== -->
+<section class="pagina jec-v2-pagina" id="talleresJEC">
+<div class="jec-v2-sitio">
+<div class="hero"><div class="wrap"><div><div class="eyebrow">JORNADA ESCOLAR COMPLETA · TALLERES JEC</div><h1>Un espacio para <span>descubrir talentos.</span></h1><p>Aprender, crear y compartir. Conoce los talleres de nuestra escuela y encuentra nuevas formas de desarrollar tus intereses y habilidades.</p><div class="hero-actions"><button class="btn-main" data-jec-scroll="jec-v2-explorar" type="button">Explorar los talleres <span aria-hidden="true">↓</span></button><button class="btn-second" data-jec-scroll="jec-v2-horario" type="button">Ver días y horarios</button></div></div><div aria-label="Afiches de los talleres" class="hero-visual"><img alt="Afiche Huerto Sustentable" class="hero-poster a" data-poster-inline="huerto" src=""/><img alt="Afiche Electro Mecánica" class="hero-poster b" data-poster-inline="electro" src=""/><img alt="Afiche Eco Arte" class="hero-poster c" data-poster-inline="eco" src=""/></div></div></div>
+<div aria-label="Resumen de la jornada" class="intro-stats wrap"><div class="stat"><span class="stat-icon">✦</span><div><strong>6 talleres</strong><small>Distintas formas de aprender</small></div></div><div class="stat"><span class="stat-icon">▣</span><div><strong>Miércoles y jueves</strong><small>Días de realización</small></div></div><div class="stat"><span class="stat-icon">◷</span><div><strong>13:55 – 15:30</strong><small>Horario de los talleres</small></div></div></div>
+<div aria-label="Sobre los talleres" class="intro wrap"><div><span class="sec-kicker">Aprendizaje más allá del aula</span><h2>Más oportunidades para explorar y participar.</h2><p>Los Talleres JEC son espacios formativos que buscan fortalecer los intereses, habilidades y talentos de nuestros estudiantes mediante experiencias prácticas, creativas y vinculadas con el entorno.</p></div><div class="intro-side"><span aria-hidden="true" class="big">🌱</span><div><h3>Una experiencia para cada interés</h3><p>Deporte, sostenibilidad, tecnología, arte y música se reúnen en una misma jornada. Explora las opciones y descubre qué actividades llaman tu atención.</p></div></div></div>
+<div class="catalog wrap" id="jec-v2-explorar"><div class="catalog-title"><span class="sec-kicker">Conoce nuestra oferta de talleres</span><h2>Explora los seis talleres</h2><p>Filtra por tipo de actividad, consulta el docente a cargo y amplía los afiches originales para conocer cada propuesta.</p></div>
+<div aria-label="Filtrar talleres por tipo" class="filters" role="group"><button aria-pressed="true" class="filter" data-filter="Todos" type="button">Todos · 6</button><button aria-pressed="false" class="filter" data-filter="Deporte" type="button">Actividad física</button><button aria-pressed="false" class="filter" data-filter="Medioambiente" type="button">Medioambiente</button><button aria-pressed="false" class="filter" data-filter="Tecnología" type="button">Tecnología</button><button aria-pressed="false" class="filter" data-filter="Arte y música" type="button">Arte y música</button></div>
+<div aria-live="polite" class="count-row"><span id="filter-count"><strong>6 talleres</strong> disponibles</span><span>Selecciona un taller para ampliar su afiche</span></div><div class="jec-v2-grid" id="jec-grid"><article class="jec-card" data-category="Deporte" id="taller-pre">
+<div class="jec-img-box">
+<img alt="Afiche institucional del Taller Pre Deportivo" loading="lazy" src="taller%20jec/Taller%20Pre%20Deportivo%20Profesor%20Cristian%20Cabrera.png"/>
+<span class="jec-number">01 / 06</span>
+<button aria-label="Ampliar afiche de Pre Deportivo" class="jec-zoom" data-poster="pre" type="button">⤢ <span>Ver afiche</span></button>
 </div>
-<!-- =================================================
-     INFORMACIÓN GENERAL DE LOS TALLERES
-================================================== -->
-<div class="bloque-texto">
-<h3>
-        Jornada de Talleres JEC
-    </h3>
-<p>
-        Los Talleres JEC constituyen espacios formativos que buscan
-        fortalecer los intereses, habilidades y talentos de nuestros
-        estudiantes mediante experiencias prácticas, creativas y
-        vinculadas con el entorno.
-    </p>
-<p>
-        Los talleres se desarrollan los días
-        <strong>miércoles y jueves</strong>,
-        en horario de
-        <strong>13:55 a 15:30 horas</strong>.
-    </p>
+<div class="jec-card-copy">
+<span class="jec-type">Deporte</span>
+<h3>Pre Deportivo</h3>
+<p class="jec-tagline">Movimiento y bienestar</p>
+<div class="jec-teacher"><span class="jec-user-icon">◉</span><span><small>DOCENTE A CARGO</small><strong>Cristian Cabrera</strong></span></div>
+<details class="jec-more"><summary>Conoce este taller <span aria-hidden="true">⌄</span></summary><div class="jec-more-body"><p>Explora el movimiento, la actividad física y el trabajo en equipo mediante experiencias deportivas.</p><p class="jec-caption">Descripción orientativa basada en el afiche institucional.</p></div></details>
 </div>
-<!-- =================================================
-     TALLERES
-================================================== -->
-<div class="especialidades-academicas talleres-jec">
-<!-- =================================================
-         TALLER PRE DEPORTIVO
-    ================================================== -->
-<div class="especialidad-academica taller-jec-card">
-<div class="especialidad-imagen">
-<img alt="Taller Pre Deportivo - Profesor Cristian Cabrera" decoding="async" loading="lazy" src="taller%20jec/Taller%20Pre%20Deportivo%20Profesor%20Cristian%20Cabrera.png"/>
+</article>
+<article class="jec-card" data-category="Medioambiente" id="taller-huerto">
+<div class="jec-img-box">
+<img alt="Afiche institucional del Taller Huerto Sustentable" loading="lazy" src="taller%20jec/Taller%20Huerto%20Sustentable%20Profesor%20Ignacio%20Cortes.png"/>
+<span class="jec-number">02 / 06</span>
+<button aria-label="Ampliar afiche de Huerto Sustentable" class="jec-zoom" data-poster="huerto" type="button">⤢ <span>Ver afiche</span></button>
 </div>
-<div class="especialidad-contenido">
-<h4>
-                Taller Pre Deportivo
-            </h4>
-<p>
-<strong>
-                    Profesor:
-                </strong>
-                Cristian Cabrera
-            </p>
-<p>
-<strong>
-                    Horario:
-                </strong>
-                Miércoles y jueves de 13:55 a 15:30 horas
-            </p>
+<div class="jec-card-copy">
+<span class="jec-type">Medioambiente</span>
+<h3>Huerto Sustentable</h3>
+<p class="jec-tagline">Cultivo y naturaleza</p>
+<div class="jec-teacher"><span class="jec-user-icon">◉</span><span><small>DOCENTE A CARGO</small><strong>Ignacio Cortés</strong></span></div>
+<details class="jec-more"><summary>Conoce este taller <span aria-hidden="true">⌄</span></summary><div class="jec-more-body"><p>Acércate al cultivo de plantas y al cuidado del entorno mediante actividades prácticas.</p><p class="jec-caption">Descripción orientativa basada en el afiche institucional.</p></div></details>
 </div>
+</article>
+<article class="jec-card" data-category="Tecnología" id="taller-electro">
+<div class="jec-img-box">
+<img alt="Afiche institucional del Taller Electro Mecánica" loading="lazy" src="taller%20jec/Taller%20Electro%20Mecanica%20Profesor%20Cristian%20Zuniga.png"/>
+<span class="jec-number">03 / 06</span>
+<button aria-label="Ampliar afiche de Electro Mecánica" class="jec-zoom" data-poster="electro" type="button">⤢ <span>Ver afiche</span></button>
 </div>
-<!-- =================================================
-         TALLER HUERTO SUSTENTABLE
-    ================================================== -->
-<div class="especialidad-academica taller-jec-card">
-<div class="especialidad-imagen">
-<img alt="Taller Huerto Sustentable - Profesor Ignacio Cortés" decoding="async" loading="lazy" src="taller%20jec/Taller%20Huerto%20Sustentable%20Profesor%20Ignacio%20Cortes.png"/>
+<div class="jec-card-copy">
+<span class="jec-type">Tecnología</span>
+<h3>Electro Mecánica</h3>
+<p class="jec-tagline">Exploración técnica</p>
+<div class="jec-teacher"><span class="jec-user-icon">◉</span><span><small>DOCENTE A CARGO</small><strong>Cristian Zúñiga</strong></span></div>
+<details class="jec-more"><summary>Conoce este taller <span aria-hidden="true">⌄</span></summary><div class="jec-more-body"><p>Conoce ideas y procesos relacionados con la electricidad, la mecánica y la creación técnica.</p><p class="jec-caption">Descripción orientativa basada en el afiche institucional.</p></div></details>
 </div>
-<div class="especialidad-contenido">
-<h4>
-                Taller Huerto Sustentable
-            </h4>
-<p>
-<strong>
-                    Profesor:
-                </strong>
-                Ignacio Cortés
-            </p>
-<p>
-<strong>
-                    Horario:
-                </strong>
-                Miércoles y jueves de 13:55 a 15:30 horas
-            </p>
+</article>
+<article class="jec-card" data-category="Medioambiente" id="taller-reciclaje">
+<div class="jec-img-box">
+<img alt="Afiche institucional del Taller Reciclaje Chacana" loading="lazy" src="taller%20jec/Taller%20Reciclaje%20Chacana%20Profesor%20Leonardo%20Silva.png"/>
+<span class="jec-number">04 / 06</span>
+<button aria-label="Ampliar afiche de Reciclaje Chacana" class="jec-zoom" data-poster="reciclaje" type="button">⤢ <span>Ver afiche</span></button>
 </div>
+<div class="jec-card-copy">
+<span class="jec-type">Medioambiente</span>
+<h3>Reciclaje Chacana</h3>
+<p class="jec-tagline">Reutilizar y transformar</p>
+<div class="jec-teacher"><span class="jec-user-icon">◉</span><span><small>DOCENTE A CARGO</small><strong>Leonardo Silva</strong></span></div>
+<details class="jec-more"><summary>Conoce este taller <span aria-hidden="true">⌄</span></summary><div class="jec-more-body"><p>Promueve el cuidado ambiental y la creatividad mediante la reutilización de materiales.</p><p class="jec-caption">Descripción orientativa basada en el afiche institucional.</p></div></details>
 </div>
-<!-- =================================================
-         TALLER ELECTRO MECANICA
-    ================================================== -->
-<div class="especialidad-academica taller-jec-card">
-<div class="especialidad-imagen">
-<img alt="Taller Electro Mecánica - Profesor Cristian Zúñiga" decoding="async" loading="lazy" src="taller%20jec/Taller%20Electro%20Mecanica%20Profesor%20Cristian%20Zuniga.png"/>
+</article>
+<article class="jec-card" data-category="Arte y música" id="taller-eco">
+<div class="jec-img-box">
+<img alt="Afiche institucional del Taller Eco Arte" loading="lazy" src="taller%20jec/Taller%20Eco%20Arte%20Profesora%20Susana%20Mancilla.png"/>
+<span class="jec-number">05 / 06</span>
+<button aria-label="Ampliar afiche de Eco Arte" class="jec-zoom" data-poster="eco" type="button">⤢ <span>Ver afiche</span></button>
 </div>
-<div class="especialidad-contenido">
-<h4>
-                Taller Electro Mecánica
-            </h4>
-<p>
-<strong>
-                    Profesor:
-                </strong>
-                Cristian Zúñiga
-            </p>
-<p>
-<strong>
-                    Horario:
-                </strong>
-                Miércoles y jueves de 13:55 a 15:30 horas
-            </p>
+<div class="jec-card-copy">
+<span class="jec-type">Arte y música</span>
+<h3>Eco Arte</h3>
+<p class="jec-tagline">Arte con conciencia</p>
+<div class="jec-teacher"><span class="jec-user-icon">◉</span><span><small>DOCENTE A CARGO</small><strong>Susana Mancilla</strong></span></div>
+<details class="jec-more"><summary>Conoce este taller <span aria-hidden="true">⌄</span></summary><div class="jec-more-body"><p>Experimenta con la creación artística y el uso creativo de materiales reutilizables.</p><p class="jec-caption">Descripción orientativa basada en el afiche institucional.</p></div></details>
 </div>
+</article>
+<article class="jec-card" data-category="Arte y música" id="taller-perculab">
+<div class="jec-img-box">
+<img alt="Afiche institucional del Taller Perculab Música Reciclada" loading="lazy" src="taller%20jec/Taller%20Perculab%20Musica%20Reciclada%20Profesor%20Simon%20Varela.png"/>
+<span class="jec-number">06 / 06</span>
+<button aria-label="Ampliar afiche de Perculab Música Reciclada" class="jec-zoom" data-poster="perculab" type="button">⤢ <span>Ver afiche</span></button>
 </div>
-<!-- =================================================
-         TALLER RECICLAJE CHACANA
-    ================================================== -->
-<div class="especialidad-academica taller-jec-card">
-<div class="especialidad-imagen">
-<img alt="Taller Reciclaje Chacana - Profesor Leonardo Silva" decoding="async" loading="lazy" src="taller%20jec/Taller%20Reciclaje%20Chacana%20Profesor%20Leonardo%20Silva.png"/>
+<div class="jec-card-copy">
+<span class="jec-type">Arte y música</span>
+<h3>Perculab Música Reciclada</h3>
+<p class="jec-tagline">Ritmo y creatividad</p>
+<div class="jec-teacher"><span class="jec-user-icon">◉</span><span><small>DOCENTE A CARGO</small><strong>Simón Varela</strong></span></div>
+<details class="jec-more"><summary>Conoce este taller <span aria-hidden="true">⌄</span></summary><div class="jec-more-body"><p>Conecta música, percusión y reutilización creativa de materiales.</p><p class="jec-caption">Descripción orientativa basada en el afiche institucional.</p></div></details>
 </div>
-<div class="especialidad-contenido">
-<h4>
-                Taller Reciclaje Chacana
-            </h4>
-<p>
-<strong>
-                    Profesor:
-                </strong>
-                Leonardo Silva
-            </p>
-<p>
-<strong>
-                    Horario:
-                </strong>
-                Miércoles y jueves de 13:55 a 15:30 horas
-            </p>
-</div>
-</div>
-<!-- =================================================
-         TALLER ECO ARTE
-    ================================================== -->
-<div class="especialidad-academica taller-jec-card">
-<div class="especialidad-imagen">
-<img alt="Taller Eco Arte - Profesora Susana Mancilla" decoding="async" loading="lazy" src="taller%20jec/Taller%20Eco%20Arte%20Profesora%20Susana%20Mancilla.png"/>
-</div>
-<div class="especialidad-contenido">
-<h4>
-                Taller Eco Arte
-            </h4>
-<p>
-<strong>
-                    Profesora:
-                </strong>
-                Susana Mancilla
-            </p>
-<p>
-<strong>
-                    Horario:
-                </strong>
-                Miércoles y jueves de 13:55 a 15:30 horas
-            </p>
-</div>
-</div>
-<!-- =================================================
-         TALLER PERCULAB MÚSICA RECICLADA
-    ================================================== -->
-<div class="especialidad-academica taller-jec-card">
-<div class="especialidad-imagen">
-<img alt="Taller Perculab Música Reciclada - Profesor Simón Varela" decoding="async" loading="lazy" src="taller%20jec/Taller%20Perculab%20Musica%20Reciclada%20Profesor%20Simon%20Varela.png"/>
-</div>
-<div class="especialidad-contenido">
-<h4>
-                Taller Perculab Música Reciclada
-            </h4>
-<p>
-<strong>
-                    Profesor:
-                </strong>
-                Simón Varela
-            </p>
-<p>
-<strong>
-                    Horario:
-                </strong>
-                Miércoles y jueves de 13:55 a 15:30 horas
-            </p>
-</div>
-</div>
-</div>
-<!-- =================================================
-     HORARIO GENERAL
-================================================== -->
-<div class="bloque-documento" style="margin-top: 60px;">
-<h3>
-        Horario general de los Talleres JEC
-    </h3>
-<p>
-<strong>
-            Días:
-        </strong>
-        Miércoles y jueves
-    </p>
-<p>
-<strong>
-            Horario:
-        </strong>
-        13:55 a 15:30 horas
-    </p>
-<p>
-        Los talleres se desarrollan durante la Jornada Escolar
-        Completa (JEC), ofreciendo a nuestros estudiantes distintas
-        alternativas de participación y aprendizaje.
-    </p>
-</div>
+</article></div></div>
+<div class="schedule-band wrap" id="jec-v2-horario"><div class="schedule"><div><span class="sec-kicker">Información general</span><h2>Organiza tu participación.</h2><p>Los talleres forman parte de la Jornada Escolar Completa. Aquí encontrarás sus días y horario general, sin repetirlos en cada tarjeta.</p></div><div class="schedule-items"><div class="schedule-item"><span class="sym">▣</span><small>DÍAS</small><strong>Miércoles y jueves</strong></div><div class="schedule-item"><span class="sym">◷</span><small>HORARIO</small><strong>13:55 a 15:30 h</strong></div></div></div></div>
+<dialog aria-label="Afiche del taller" aria-modal="true" id="jec-v2-poster-modal"><div class="dialog-panel"><div class="dialog-top"><strong id="poster-title">Afiche del taller</strong><button aria-label="Cerrar afiche" class="dialog-close" id="poster-close" type="button">×</button></div><img alt="Afiche completo del taller" class="dialog-poster" id="poster-img"/></div></dialog>
 </div>
 </section>
+
 <!-- =====================================================
      VALIDACIÓN DE ESTUDIOS
 ====================================================== -->
@@ -4831,6 +4894,49 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
       destino.scrollIntoView({ behavior: reducir ? 'auto' : 'smooth', block: 'start' });
     });
   });
+})();
+</script>
+
+
+<!-- Interacciones Talleres JEC: filtros, modal y accesos internos -->
+<script id="jec-v2-interacciones">
+(function(){
+  'use strict';
+  var root=document.getElementById('talleresJEC');
+  if(!root)return;
+  var labels={pre:'Pre Deportivo',huerto:'Huerto Sustentable',electro:'Electro Mecánica',reciclaje:'Reciclaje Chacana',eco:'Eco Arte',perculab:'Perculab Música Reciclada'};
+  var cards=Array.from(root.querySelectorAll('.jec-card'));
+  root.querySelectorAll('[data-poster-inline]').forEach(function(el){
+    var card=root.querySelector('#taller-'+el.dataset.posterInline);
+    if(card)el.src=card.querySelector('.jec-img-box img').getAttribute('src');
+  });
+  var filters=Array.from(root.querySelectorAll('.filter'));
+  var result=root.querySelector('#filter-count');
+  filters.forEach(function(button){button.addEventListener('click',function(){
+    var filter=button.dataset.filter;
+    filters.forEach(function(b){b.setAttribute('aria-pressed',String(b===button));});
+    var count=0;
+    cards.forEach(function(card){var visible=filter==='Todos'||card.dataset.category===filter;card.hidden=!visible;if(visible)count++;});
+    result.textContent=count+' '+(count===1?'taller disponible':'talleres disponibles');
+  });});
+  var dlg=root.querySelector('#jec-v2-poster-modal');
+  var poster=root.querySelector('#poster-img');
+  root.querySelectorAll('[data-poster]').forEach(function(button){button.addEventListener('click',function(){
+    var key=button.dataset.poster;
+    var card=root.querySelector('#taller-'+key);
+    if(!card||!dlg)return;
+    root.querySelector('#poster-title').textContent='Taller '+labels[key];
+    poster.src=card.querySelector('.jec-img-box img').getAttribute('src');
+    poster.alt='Afiche completo del Taller '+labels[key];
+    if(typeof dlg.showModal==='function')dlg.showModal();
+  });});
+  var close=root.querySelector('#poster-close');
+  if(close)close.addEventListener('click',function(){dlg.close();});
+  if(dlg)dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  root.querySelectorAll('[data-jec-scroll]').forEach(function(b){b.addEventListener('click',function(){
+    var target=root.querySelector('#'+b.dataset.jecScroll);
+    if(target)target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+  });});
 })();
 </script>
 
