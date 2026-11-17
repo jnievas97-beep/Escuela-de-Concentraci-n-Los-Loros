@@ -722,6 +722,22 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
 }
 
 </style>
+<!-- Estilos exclusivos del video de Vimeo en Inicio. No modifican otras secciones. -->
+<style id="inicioVideoVimeoEstilos">
+#inicio #inicioVideoVimeo{display:block;max-width:1200px;margin:35px auto 46px;padding:0;box-sizing:border-box;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-contenido{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.65fr);align-items:center;gap:clamp(18px,3vw,36px);padding:clamp(18px,3vw,36px);border-radius:20px;background:linear-gradient(125deg,#092a43 0%,#103d58 100%);box-shadow:0 14px 36px rgba(4,31,54,.13);box-sizing:border-box;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-texto{min-width:0;color:#fff;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-kicker{display:block;color:#e8c457;font-size:.75rem;font-weight:800;letter-spacing:.15em;margin-bottom:12px;}
+#inicio #inicioVideoVimeo h2{color:#fff;font-size:clamp(1.55rem,2.5vw,2.4rem);line-height:1.15;margin:0 0 13px;}
+#inicio #inicioVideoVimeo p{color:#e6eef2;font-size:1rem;line-height:1.65;margin:0 0 22px;max-width:38ch;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-enlace{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:11px 15px;border:1px solid #e2bd52;border-radius:10px;color:#fff;background:rgba(255,255,255,.08);text-decoration:none;font-weight:700;line-height:1.4;transition:background .2s ease,border-color .2s ease;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-enlace:hover{background:rgba(255,255,255,.18);border-color:#fff;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-enlace:focus-visible{outline:3px solid #f3d66f;outline-offset:3px;}
+#inicio #inicioVideoVimeo .video-inicio-vimeo-marco{position:relative;overflow:hidden;aspect-ratio:16/9;width:100%;min-width:0;border-radius:14px;background:#061925;border:1px solid rgba(255,255,255,.18);box-shadow:0 8px 22px rgba(0,0,0,.14);}
+#inicio #inicioVideoVimeo iframe{display:block;position:absolute;inset:0;width:100%;height:100%;border:0;}
+@media(max-width:760px){#inicio #inicioVideoVimeo{margin:23px 0 36px;}#inicio #inicioVideoVimeo .video-inicio-vimeo-contenido{grid-template-columns:minmax(0,1fr);gap:17px;padding:18px;border-radius:15px;}#inicio #inicioVideoVimeo h2{font-size:1.65rem;}#inicio #inicioVideoVimeo p{max-width:none;margin-bottom:15px;}#inicio #inicioVideoVimeo .video-inicio-vimeo-marco{border-radius:10px;}}
+@media(prefers-reduced-motion:reduce){#inicio #inicioVideoVimeo .video-inicio-vimeo-enlace{transition:none;}}
+</style>
 </head>
 <body class="portal-2027">
 <div aria-hidden="true" class="progreso-lectura-sitio" id="progresoLecturaSitio">
@@ -880,6 +896,31 @@ body.portal-2027 .menu-grupo-titulo .menu-grupo-flecha {background-color:rgba(25
     </button>
   </div>
 </section>
+
+<!-- =================================================
+     VIDEO DE VIMEO · INICIO · 17-11-2026
+     Reproducción bajo demanda. El video permanece alojado en Vimeo.
+================================================== -->
+<section class="video-inicio-vimeo" id="inicioVideoVimeo" aria-labelledby="tituloVideoInicioVimeo">
+  <div class="video-inicio-vimeo-contenido">
+    <div class="video-inicio-vimeo-texto">
+      <span class="video-inicio-vimeo-kicker">CONTENIDO AUDIOVISUAL</span>
+      <h2 id="tituloVideoInicioVimeo">Video destacado</h2>
+      <p>Un espacio para compartir contenidos audiovisuales con nuestra comunidad educativa. Presiona reproducir para ver el video directamente aquí.</p>
+      <a class="video-inicio-vimeo-enlace" href="https://vimeo.com/122398831" target="_blank" rel="noopener noreferrer">Ver video directamente en Vimeo <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="video-inicio-vimeo-marco">
+      <iframe
+        src="https://player.vimeo.com/video/122398831?dnt=1"
+        title="Video destacado alojado en Vimeo"
+        loading="lazy"
+        allow="autoplay; fullscreen; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<!-- FIN VIDEO DE VIMEO -->
 
 <section aria-labelledby="tituloMiAcceso" class="mi-acceso-premium" id="panelMiAcceso">
 <div class="mi-acceso-cabecera">
